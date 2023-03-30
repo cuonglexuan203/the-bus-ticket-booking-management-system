@@ -44,7 +44,7 @@ create table BUSROUTE
     id_route varchar(20) primary key,
     id_start_station varchar(20),
     id_end_station varchar(20),
-    distance int not null
+    distance float not null
     -- unit: km
 );
 
@@ -248,15 +248,15 @@ go;
 
 
 
-alter table BUS add constraint CHK_bus_capacity check (capacity > 0);
+alter table BUS add constraint CHK_bus_capacity check (capacity > 0 and status in ('idle', 'break', 'incident', 'ongoing'));
 
 --
 alter table TRIP add constraint FK_trip_id_bus foreign key (id_bus) references BUS(id_bus);
 alter table TRIP add constraint FK_trip_id_bus_route foreign key (id_bus_route) references BUSROUTE(id_route);
-alter table TRIP add constraint CK_trip check (duration > 0 and booked_seat >= 0);
+alter table TRIP add constraint CK_trip check (duration > 0 and booked_seat >= 0 and status in ('waiting', 'going', 'finish'));
 --
 alter table TICKET add constraint FK_ticket_id_trip foreign key (id_trip) references TRIP(id_trip);
-alter table TICKET add constraint CHK_ticket check(fare > 0);
+alter table TICKET add constraint CHK_ticket check(fare > 0 );
 --
 alter table BUSROUTE add constraint FK_busroute_id_start_bus_station foreign key (id_start_station) references BUSSTATION(id_bus_station);
 alter table BUSROUTE add constraint FK_busroute_id_end_bus_station foreign key (id_end_station) references BUSSTATION(id_bus_station);
