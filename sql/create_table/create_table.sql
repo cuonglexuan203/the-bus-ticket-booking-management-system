@@ -1,7 +1,7 @@
-drop database Test;
-use master
-create database Test;
-use Test;
+use master;
+drop database BusManagement;
+create database BusManagement;
+use BusManagement
 
 go;
 
@@ -100,6 +100,7 @@ create table EMPLOYEE
     salary money not null,
     email char(50) null,
     birthdate date not null,
+    gender bit default 0, -- 0: male, 1: female
     state bit default 1
     -- 0: not working, 1: is working
 );
@@ -157,7 +158,7 @@ create table PACKAGE
 (
     id_package varchar(20) primary key,
     id_trip varchar(20),
-    mass smallint default 0,
+    mass float default 0.0,
     price money ,
     --  is calculated by the formula 
     sender_contact_phone char(20) not null,
