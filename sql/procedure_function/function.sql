@@ -169,3 +169,175 @@ end
 go
 
 --
+create function dbo.func_auto_id_passenger()
+returns char(20)
+as
+begin
+declare @id_no char(20)
+set @id_no = (
+    select max(id_passenger)
+    from PASSENGER
+)
+if( @id_no is null)
+    set @id_no = concat('pas_', '0000000000')
+declare @no int
+set @no = right(@id_no, 10) + 1;
+return concat('pas_', @no)
+end
+
+go
+
+--
+create function dbo.func_auto_id_systemaccount()
+returns char(20)
+as
+begin
+declare @id_no char(20)
+set @id_no = (
+    select max(id_account)
+    from SYSTEMACCOUNT
+)
+if( @id_no is null)
+    set @id_no = concat('sa_', '0000000000')
+declare @no int
+set @no = right(@id_no, 10) + 1;
+return concat('sa_', @no)
+end
+
+go
+
+--
+create function dbo.func_auto_id_position()
+returns char(20)
+as
+begin
+declare @id_no char(20)
+set @id_no = (
+    select max(id_position)
+    from POSITION
+)
+if( @id_no is null)
+    set @id_no = concat('pos_', '0000000000')
+declare @no int
+set @no = right(@id_no, 10) + 1;
+return concat('pos_', @no)
+end
+
+go
+
+--
+create function dbo.func_auto_id_privilege()
+returns char(20)
+as
+begin
+declare @id_no char(20)
+set @id_no = (
+    select max(id_privilege)
+    from PRIVILEGE
+)
+if( @id_no is null)
+    set @id_no = concat('pri_', '0000000000')
+declare @no int
+set @no = right(@id_no, 10) + 1;
+return concat('pri_', @no)
+end
+
+go
+
+--
+
+create function dbo.func_auto_id_cashreserve()
+returns char(20)
+as
+begin
+declare @id_no char(20)
+set @id_no = (
+    select max(id_cash_reserve)
+    from CASHRESERVE
+)
+if( @id_no is null)
+    set @id_no = concat('cr_', '0000000000')
+declare @no int
+set @no = right(@id_no, 10) + 1;
+return concat('cr_', @no)
+end
+
+go
+
+--
+create function dbo.func_auto_id_package()
+returns char(20)
+as
+begin
+declare @id_no char(20)
+set @id_no = (
+    select max(id_package)
+    from PACKAGE
+)
+if( @id_no is null)
+    set @id_no = concat('pac_', '0000000000')
+declare @no int
+set @no = right(@id_no, 10) + 1;
+return concat('pac_', @no)
+end
+
+go
+
+--
+create function dbo.func_auto_id_packagepricepolicy()
+returns char(20)
+as
+begin
+declare @id_no char(20)
+set @id_no = (
+    select max(id_policy)
+    from PACKAGEPRICEPOLICY
+)
+if( @id_no is null)
+    set @id_no = concat('pol_', '0000000000')
+declare @no int
+set @no = right(@id_no, 10) + 1;
+return concat('pol_', @no)
+end
+
+go
+
+--
+create function dbo.func_auto_id_event()
+returns char(20)
+as
+begin
+declare @id_no char(20)
+set @id_no = (
+    select max(id_event)
+    from EVENT
+)
+if( @id_no is null)
+    set @id_no = concat('eve_', '0000000000')
+declare @no int
+set @no = right(@id_no, 10) + 1;
+return concat('eve_', @no)
+end
+
+go
+
+--
+create function dbo.func_auto_id_refund()
+returns char(20)
+as
+begin
+declare @id_no char(20)
+set @id_no = (
+    select max(id_refund)
+    from REFUND
+)
+if( @id_no is null)
+    set @id_no = concat('ref_', '0000000000')
+declare @no int
+set @no = right(@id_no, 10) + 1;
+return concat('ref_', @no)
+end
+
+go
+
+--
