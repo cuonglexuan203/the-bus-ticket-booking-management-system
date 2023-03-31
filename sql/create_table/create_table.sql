@@ -1,7 +1,7 @@
 use master;
 drop database BusManagement;
 create database BusManagement;
-use BusManagement
+use BusManagement;
 
 go
 
