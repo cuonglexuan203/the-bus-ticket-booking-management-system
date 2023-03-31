@@ -24,5 +24,4 @@ set @id_no = concat('tri_', '0000000000')
 declare @no int
 set @no = right(@id_no, 10) + 1 return concat('tri_', @no)
 end
-
 go;

@@ -7,7 +7,7 @@ go;
 
 create table BUS
 (
-    id_bus varchar(20) primary key,
+    id_bus char(20) primary key,
     registration_number char(15) unique not null,
     model varchar(50) not null,
     capacity tinyint default 32,
@@ -18,9 +18,9 @@ create table BUS
 
 create table TRIP
 (
-    id_trip varchar(20) primary key,
-    id_bus varchar(20) ,
-    id_bus_route varchar(20),
+    id_trip char(20) primary key,
+    id_bus char(20) ,
+    id_bus_route char(20),
     departure_time datetime not null,
     duration int not null,
     -- unit: hour,
@@ -30,8 +30,8 @@ create table TRIP
 
 create table TICKET
 (
-    id_ticket varchar(20) primary key,
-    id_trip varchar(20) ,
+    id_ticket char(20) primary key,
+    id_trip char(20) ,
     status bit default 0,
     fare money not null,
     type bit default 0,
@@ -41,26 +41,26 @@ create table TICKET
 
 create table BUSROUTE
 (
-    id_route varchar(20) primary key,
-    id_start_station varchar(20),
-    id_end_station varchar(20),
+    id_route char(20) primary key,
+    id_start_station char(20),
+    id_end_station char(20),
     distance float not null
     -- unit: km
 );
 
 create table BOOKING
 (
-    id_booking varchar(20) primary key,
-    id_ticket varchar(20),
-    id_passenger varchar(20),
-    id_employee varchar(20),
+    id_booking char(20) primary key,
+    id_ticket char(20),
+    id_passenger char(20),
+    id_employee char(20),
     booking_time datetime default getdate(),
 );
 
 create table BUSSTATION
 (
-    id_bus_station varchar(20) primary key,
-    id_place varchar(20),
+    id_bus_station char(20) primary key,
+    id_place char(20),
     name varchar(50) not null,
     address char(100) not null,
     bus_capacity int not null,
@@ -69,9 +69,9 @@ create table BUSSTATION
 
 create table PASSENGER
 (
-    id_passenger varchar(20) primary key,
+    id_passenger char(20) primary key,
     name varchar(50) not null,
-    phone_number varchar(20) not null,
+    phone_number char(20) not null,
     address char(100) not null,
     identity_number char(20) null,
     gender bit default 0,
@@ -81,21 +81,21 @@ create table PASSENGER
 
 create table AGENT
 (
-    id_agent varchar(20) primary key,
-    id_cash_reserve varchar(20),
-    id_place varchar(20),
+    id_agent char(20) primary key,
+    id_cash_reserve char(20),
+    id_place char(20),
     name varchar(50) not null,
     address char(100) not null
 );
 
 create table EMPLOYEE
 (
-    id_employee varchar(20) primary key,
-    id_account varchar(20),
-    id_agent varchar(20),
+    id_employee char(20) primary key,
+    id_account char(20),
+    id_agent char(20),
     name varchar(50) not null,
     address char(100) not null,
-    phone_number varchar(20) not null,
+    phone_number char(20) not null,
     identity_number char(20) not null,
     salary money not null,
     email char(50) null,
@@ -107,31 +107,31 @@ create table EMPLOYEE
 
 create table POSITION
 (
-    id_position varchar(20) primary key,
+    id_position char(20) primary key,
     type varchar(50) not null
 );
 
 create table PRIVILEGE
 (
-    id_privilege varchar(20) primary key,
+    id_privilege char(20) primary key,
     name char(50)
 );
 
 create table PLACE
 (
-    id_place varchar(20) primary key,
+    id_place char(20) primary key,
     region char(50) default 'TP.Ho Chi Minh'
 );
 
 create table CASHRESERVE
 (
-    id_cash_reserve varchar(20) primary key,
+    id_cash_reserve char(20) primary key,
     counter money default 0,
 );
 
 create table DRIVER
 (
-    id_driver varchar(20) primary key,
+    id_driver char(20) primary key,
     -- foreign key
     lisence_level char(10) not null,
     type bit default 0,
@@ -142,22 +142,22 @@ create table DRIVER
 
 create table EVENT
 (
-    id_event varchar(20) primary key,
+    id_event char(20) primary key,
     discount_type char(50) not null unique default 'normal',
     discount_percent float default 0.0
 );
 
 create table REFUND
 (
-    id_refund varchar(20) primary key,
+    id_refund char(20) primary key,
     refund_name char(50) not null unique default 'cancel',
     refund_percent float default 0.0
 );
 
 create table PACKAGE
 (
-    id_package varchar(20) primary key,
-    id_trip varchar(20),
+    id_package char(20) primary key,
+    id_trip char(20),
     mass float default 0.0,
     price money ,
     --  is calculated by the formula 
@@ -167,7 +167,7 @@ create table PACKAGE
 
 create table PACKAGEPRICEPOLICY
 (
-    id_policy varchar(20) primary key,
+    id_policy char(20) primary key,
     price_per_km money not null,
     mass_unit int not null
     -- /5kg, /1kg
@@ -175,72 +175,72 @@ create table PACKAGEPRICEPOLICY
 
 create table SYSTEMACCOUNT
 (
-    id_account varchar(20) primary key,
-    username varchar(20) not null unique,
+    id_account char(20) primary key,
+    username char(20) not null unique,
     pass varchar(50) not null,
 );
 
 create table TRIP_DRIVER
 (
-    id_trip varchar(20),
-    id_driver varchar(20),
+    id_trip char(20),
+    id_driver char(20),
     primary key(id_trip, id_driver)
 );
 
 
 create table AGENT_TRIP
 (
-    id_agent varchar(20),
-    id_trip varchar(20),
+    id_agent char(20),
+    id_trip char(20),
     primary key(id_agent, id_trip)
 );
 
 create table AGENT_EVENT
 (
-    id_agent varchar(20),
-    id_event varchar(20),
+    id_agent char(20),
+    id_event char(20),
     primary key(id_agent, id_event)
 );
 
 create table AGENT_REFUND
 (
-    id_agent varchar(20),
-    id_refund varchar(20),
+    id_agent char(20),
+    id_refund char(20),
     primary key(id_agent, id_refund)
 );
 
 create table AGENT_POLICY
 (
-    id_agent varchar(20),
-    id_policy varchar(20),
+    id_agent char(20),
+    id_policy char(20),
     primary key(id_agent, id_policy)
 );
 
 create table BUSROUTE_BUSSTATION
 (
-    id_bus_route varchar(20),
-    id_bus_station varchar(20),
+    id_bus_route char(20),
+    id_bus_station char(20),
     primary key(id_bus_route, id_bus_station)
 );
 
 create table EMPLOYEE_POSITION
 (
-    id_employee varchar(20),
-    id_position varchar(20),
+    id_employee char(20),
+    id_position char(20),
     primary key(id_employee, id_position)
 );
 
 create table EMPLOYEE_TICKET
 (
-    id_employee varchar(20),
-    id_ticket varchar(20),
+    id_employee char(20),
+    id_ticket char(20),
     primary key(id_employee, id_ticket)
 );
 
 create table POSITION_PRIVILEGE
 (
-    id_position varchar(20),
-    id_privilege varchar(20),
+    id_position char(20),
+    id_privilege char(20),
     primary key(id_position, id_privilege)
 );
 
