@@ -3,7 +3,7 @@ drop database BusManagement;
 create database BusManagement;
 use BusManagement
 
-go;
+go
 
 create table BUS
 (
@@ -244,7 +244,7 @@ create table POSITION_PRIVILEGE
     primary key(id_position, id_privilege)
 );
 
-go;
+go
 -- OTHER CONSTRANTS
 
 
@@ -322,6 +322,6 @@ alter table EMPLOYEE_TICKET add constraint FK_employee_ticket_id_ticket foreign 
 alter table POSITION_PRIVILEGE add constraint FK_position_privilege_id_position foreign key (id_position) references POSITION(id_position);
 alter table POSITION_PRIVILEGE add constraint FK_position_privilege_id_privilege foreign key (id_privilege) references PRIVILEGE(id_privilege);
 
-go;
+go
 
 
