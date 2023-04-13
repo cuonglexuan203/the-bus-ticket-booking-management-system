@@ -7,3 +7,6 @@ alter table [table_name] nocheck constraint all
 
 alter table [table_name] with check check constraint all
 
+-- insert data into a table must sepecify clearly column names because of auto_id function() and constraints
+-- e.g:
+insert into AGENT(address, name ) values ('', '')
