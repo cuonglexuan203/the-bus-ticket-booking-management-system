@@ -1,6 +1,6 @@
 use BusManagement
 -- the following views is the user views
-go;
+go
 -- all trip in the database
 create view V_TRIPINFOR
 as
@@ -19,7 +19,7 @@ inner join (
     inner join PLACE on BUSSTATION.id_place = PLACE.id_place
 ) as d on a.id_bus_route = d.id_route
 
-go;
+go
 
 -- only available trip ( which has available slots and departure time greater than current)
 create view V_AVAILABLETRIP
@@ -40,7 +40,7 @@ inner join (
 ) as d on a.id_bus_route = d.id_route
 where b.capacity - a.booked_seat > 0 and convert(datetime, a.departure_time) > getdate()
 
-go;
+go
 
 -- view route for passenger selections
 create view V_ROUTEINFOR as
@@ -53,7 +53,7 @@ select a.id_route, b.region as [Start point], c.region as [End point], a.distanc
 from BUSROUTE as a inner join BUSSTATION_PLACE_CTE as b on a.id_start_station = b.id_bus_station
 inner join BUSSTATION_PLACE_CTE as c on a.id_end_station = b.id_bus_station
 
-go;
+go
 
 create view V_BOOKINGINFOR as
 select a.id_booking as [Booking ID], a.id_ticket as [Ticket ID], b.name as [Passenger name], b.gender as [Passenger gender], b.phone_number as [Passenger phone number],
@@ -62,27 +62,27 @@ from BOOKING as a
 inner join PASSENGER as b on a.id_passenger = b.id_passenger
 inner join EMPLOYEE as c on a.id_employee = c.id_employee 
 
-go;
+go
 
 create view V_BUSSTATIONINFOR as
 select a.id_place, a.name as [Bus station name], a.address as [Address], b.region as [Region]
 from BUSSTATION as a
 inner join PLACE as b on a.id_place = b.id_place
 
-go;
+go
 
 create view V_AGENTINFOR as
 select a.id_agent as [Agent ID], a.name as [Name], a.address as [Address], b.region as [Region] 
 from AGENT as a
 inner join PLACE as b on a.id_place = b.id_place
 
-go;
+go
 
 create view V_EMPLOYEEINFOR as
 select a.id_employee as [Employees ID], a.name as [Name], a.phone_number as [Phone Number], a.gender as [Gender], a.[state] as [State]
 from EMPLOYEE as a
 
-go;
+go
 
 create view V_DRIVERINFOR as
 select a.id_employee as [Employees ID], a.name as [Name], a.phone_number as [Phone Number], a.gender as [Gender]
