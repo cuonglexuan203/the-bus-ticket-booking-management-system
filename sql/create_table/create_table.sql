@@ -254,7 +254,7 @@ alter table BUS add constraint CHK_bus_capacity check (capacity > 0 and status i
 --
 alter table TRIP add constraint FK_trip_id_bus foreign key (id_bus) references BUS(id_bus);
 alter table TRIP add constraint FK_trip_id_bus_route foreign key (id_bus_route) references BUSROUTE(id_route);
-alter table TRIP add constraint CK_trip check (duration > 0 and booked_seat >= 0 and status in ('waiting', 'going', 'finish'));
+alter table TRIP add constraint CK_trip check (duration > 0 and booked_seat >= 0 and status in ('waiting', 'going', 'finish', 'cancel'));
 --
 alter table TICKET add constraint FK_ticket_id_trip foreign key (id_trip) references TRIP(id_trip);
 alter table TICKET add constraint CHK_ticket check(fare > 0 );
