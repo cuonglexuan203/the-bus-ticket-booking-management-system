@@ -132,5 +132,42 @@ begin
 		rollback tran
 	end catch
 end;
+go
 
--- trigger for cancel ticket
+
+-- delete position
+create trigger tr_DeletePosition on POSITION
+after delete
+as
+declare @id_positon char(20)
+select @id_positon = ol.id_position from deleted ol;
+begin
+	begin try
+		begin tran;
+		delete from POSITION_PRIVILEGE where id_position = @id_positon;
+		commit tran;
+	end try
+
+	begin catch
+		rollback;
+	end catch
+end
+go
+
+-- delete privilege
+
+create trigger tr_DeletePrivilege on PRIVILEGE
+after delete
+as
+declare @id_privilege char(20)
+select @id_privilege = ol.id_privilege from deleted ol;
+begin
+	begin try
+		begin tran;
+		delete from POSITION_PRIVILEGE where id_privilege = @id_privilege;
+		commit tran;
+	end try
+	begin catch
+		rollback;
+	end catch
+end
