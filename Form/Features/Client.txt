@@ -1,0 +1,17 @@
+Dashboard:
+Home
+Trip ( the comming trip ) 
+Buses ( bus information )
+Drivers ( driver contact only )
+Booking 
+About us ( agent, busstation )
+
+Top bar:
+Search bar ( search trip by city name/ province name ) 
+Clock
+Notification
+User
+
+Navigation bar
+
+MainContent

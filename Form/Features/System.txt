@@ -1,0 +1,20 @@
+Dashboard:
+Home
+Trip ( all trip ) 
+Buses ( bus information )
+Drivers ( driver information)
+Booking ( booking transactions )
+About us ( agent, busstation )
+Cash reserves ( individual, sum )
+Statistic
+
+
+Top bar:
+Search bar ( search trip by city name/ province name ) 
+Clock
+Notification
+User
+
+Navigation bar
+
+MainContent
