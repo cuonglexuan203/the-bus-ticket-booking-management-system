@@ -163,6 +163,12 @@
     </Compile>
     <Compile Include="src\env\locals\LocalEnv.cs" />
     <Compile Include="src\env\statics\StaticEnv.cs" />
+    <Compile Include="src\layers\interfaceLayers\components\home\Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\home\Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\layers\interfaceLayers\customizeUI\initialData\InitData.cs" />
     <Compile Include="src\layers\interfaceLayers\customizeUI\initialUI\InitUI.cs" />
     <EmbeddedResource Include="HomePage.resx">
@@ -178,6 +184,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="src\layers\interfaceLayers\components\home\Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -203,7 +212,11 @@
     <Folder Include="src\asset\cursor\" />
     <Folder Include="src\asset\sound\" />
     <Folder Include="src\layers\businessLayers\" />
-    <Folder Include="src\layers\interfaceLayers\components\" />
+    <Folder Include="src\layers\interfaceLayers\components\aboutUs\" />
+    <Folder Include="src\layers\interfaceLayers\components\booking\" />
+    <Folder Include="src\layers\interfaceLayers\components\bus\" />
+    <Folder Include="src\layers\interfaceLayers\components\driver\" />
+    <Folder Include="src\layers\interfaceLayers\components\trip\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\asset\img\dashboardIcon\home.png" />
