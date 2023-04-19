@@ -15,7 +15,7 @@ namespace BusTicketManagementApplication.src.dbConnection
     public partial class V_AGENTINFOR
     {
         public string Agent_ID { get; set; }
-        public string Name { get; set; }
+        public string Phone { get; set; }
         public string Address { get; set; }
         public string Region { get; set; }
     }

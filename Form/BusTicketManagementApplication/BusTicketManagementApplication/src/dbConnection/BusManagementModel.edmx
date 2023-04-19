@@ -12,7 +12,7 @@
           <Property Name="id_agent" Type="char" MaxLength="20" Nullable="false" />
           <Property Name="id_cash_reserve" Type="char" MaxLength="20" />
           <Property Name="id_place" Type="char" MaxLength="20" />
-          <Property Name="address" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="address" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="phone" Type="char" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="AGENT_EVENT">
@@ -91,7 +91,7 @@
           </Key>
           <Property Name="id_bus_station" Type="char" MaxLength="20" Nullable="false" />
           <Property Name="id_place" Type="char" MaxLength="20" />
-          <Property Name="address" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="address" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="bus_capacity" Type="int" Nullable="false" />
           <Property Name="count_current_bus" Type="int" />
           <Property Name="phone" Type="char" MaxLength="20" />
@@ -119,8 +119,8 @@
           <Property Name="id_employee" Type="char" MaxLength="20" Nullable="false" />
           <Property Name="id_account" Type="char" MaxLength="20" />
           <Property Name="id_agent" Type="char" MaxLength="20" />
-          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="address" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="address" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="phone_number" Type="char" MaxLength="20" Nullable="false" />
           <Property Name="identity_number" Type="char" MaxLength="20" Nullable="false" />
           <Property Name="salary" Type="money" Nullable="false" />
@@ -177,9 +177,9 @@
             <PropertyRef Name="id_passenger" />
           </Key>
           <Property Name="id_passenger" Type="char" MaxLength="20" Nullable="false" />
-          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
           <Property Name="phone_number" Type="char" MaxLength="20" Nullable="false" />
-          <Property Name="address" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="address" Type="nvarchar" MaxLength="100" />
           <Property Name="identity_number" Type="char" MaxLength="20" />
           <Property Name="gender" Type="bit" />
           <Property Name="email" Type="char" MaxLength="50" />
@@ -265,13 +265,13 @@ warning 6002: The table/view 'BusManagement.dbo.V_AGENTINFOR' does not have a pr
         <EntityType Name="V_AGENTINFOR">
           <Key>
             <PropertyRef Name="Agent ID" />
-            <PropertyRef Name="Name" />
+            <PropertyRef Name="Phone" />
             <PropertyRef Name="Address" />
             <PropertyRef Name="Region" />
           </Key>
           <Property Name="Agent ID" Type="char" MaxLength="20" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Address" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="Phone" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Region" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -318,13 +318,12 @@ warning 6002: The table/view 'BusManagement.dbo.V_BOOKINGINFOR' does not have a 
 warning 6002: The table/view 'BusManagement.dbo.V_BUSSTATIONINFOR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="V_BUSSTATIONINFOR">
           <Key>
-            <PropertyRef Name="Bus station name" />
             <PropertyRef Name="Address" />
             <PropertyRef Name="Region" />
           </Key>
           <Property Name="id_place" Type="char" MaxLength="20" />
-          <Property Name="Bus station name" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Address" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="Phone number" Type="char" MaxLength="20" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Region" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -847,7 +846,7 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
           <EntitySet Name="V_AGENTINFOR" EntityType="Self.V_AGENTINFOR" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [V_AGENTINFOR].[Agent ID] AS [Agent ID], 
-    [V_AGENTINFOR].[Name] AS [Name], 
+    [V_AGENTINFOR].[Phone] AS [Phone], 
     [V_AGENTINFOR].[Address] AS [Address], 
     [V_AGENTINFOR].[Region] AS [Region]
     FROM [dbo].[V_AGENTINFOR] AS [V_AGENTINFOR]</DefiningQuery>
@@ -880,7 +879,7 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
           <EntitySet Name="V_BUSSTATIONINFOR" EntityType="Self.V_BUSSTATIONINFOR" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [V_BUSSTATIONINFOR].[id_place] AS [id_place], 
-    [V_BUSSTATIONINFOR].[Bus station name] AS [Bus station name], 
+    [V_BUSSTATIONINFOR].[Phone number] AS [Phone number], 
     [V_BUSSTATIONINFOR].[Address] AS [Address], 
     [V_BUSSTATIONINFOR].[Region] AS [Region]
     FROM [dbo].[V_BUSSTATIONINFOR] AS [V_BUSSTATIONINFOR]</DefiningQuery>
@@ -1059,6 +1058,27 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
     <edmx:ConceptualModels>
       <Schema Namespace="BusManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="BusManagementEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="pro_AddBooking">
+            <Parameter Name="id_ticket" Mode="In" Type="String" />
+            <Parameter Name="id_passenger" Mode="In" Type="String" />
+            <Parameter Name="id_employee" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pro_AddDefaultBooking">
+            <Parameter Name="id_ticket" Mode="In" Type="String" />
+            <Parameter Name="id_passenger" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pro_CancelTicket">
+          <Parameter Name="id_ticket" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pro_SetCancelTrip">
+          <Parameter Name="id_trip" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pro_SetFinishTrip">
+          <Parameter Name="id_trip" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pro_SetGoingTrip">
+          <Parameter Name="id_trip" Mode="In" Type="String" />
+          </FunctionImport>
           <EntitySet Name="AGENTs" EntityType="BusManagementModel.AGENT" />
           <EntitySet Name="BOOKINGs" EntityType="BusManagementModel.BOOKING" />
           <EntitySet Name="Buses" EntityType="BusManagementModel.BUS" />
@@ -1178,27 +1198,6 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
             <End Role="DRIVER" EntitySet="DRIVERs" />
             <End Role="TRIP" EntitySet="TRIPs" />
           </AssociationSet>
-          <FunctionImport Name="pro_AddBooking">
-            <Parameter Name="id_ticket" Mode="In" Type="String" />
-            <Parameter Name="id_passenger" Mode="In" Type="String" />
-            <Parameter Name="id_employee" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="pro_AddDefaultBooking">
-            <Parameter Name="id_ticket" Mode="In" Type="String" />
-            <Parameter Name="id_passenger" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="pro_CancelTicket">
-            <Parameter Name="id_ticket" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="pro_SetCancelTrip">
-            <Parameter Name="id_trip" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="pro_SetFinishTrip">
-            <Parameter Name="id_trip" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="pro_SetGoingTrip">
-            <Parameter Name="id_trip" Mode="In" Type="String" />
-          </FunctionImport>
         </EntityContainer>
         <EntityType Name="AGENT">
           <Key>
@@ -1207,7 +1206,7 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
           <Property Name="id_agent" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
           <Property Name="id_cash_reserve" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
           <Property Name="id_place" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="address" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="phone" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="CASHRESERVE" Relationship="BusManagementModel.FK_agent_id_cash_reserve" FromRole="AGENT" ToRole="CASHRESERVE" />
           <NavigationProperty Name="PLACE" Relationship="BusManagementModel.FK_agent_id_place" FromRole="AGENT" ToRole="PLACE" />
@@ -1261,7 +1260,7 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
           </Key>
           <Property Name="id_bus_station" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
           <Property Name="id_place" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="address" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="bus_capacity" Type="Int32" Nullable="false" />
           <Property Name="count_current_bus" Type="Int32" />
           <Property Name="phone" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
@@ -1295,8 +1294,8 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
           <Property Name="id_employee" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
           <Property Name="id_account" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
           <Property Name="id_agent" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="address" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="phone_number" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
           <Property Name="identity_number" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
           <Property Name="salary" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
@@ -1345,9 +1344,9 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
             <PropertyRef Name="id_passenger" />
           </Key>
           <Property Name="id_passenger" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="phone_number" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="address" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="identity_number" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
           <Property Name="gender" Type="Boolean" />
           <Property Name="email" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
@@ -1432,13 +1431,13 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
         <EntityType Name="V_AGENTINFOR">
           <Key>
             <PropertyRef Name="Agent_ID" />
-            <PropertyRef Name="Name" />
+            <PropertyRef Name="Phone" />
             <PropertyRef Name="Address" />
             <PropertyRef Name="Region" />
           </Key>
           <Property Name="Agent_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Region" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="V_AVAILABLETRIP">
@@ -1479,13 +1478,12 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
         </EntityType>
         <EntityType Name="V_BUSSTATIONINFOR">
           <Key>
-            <PropertyRef Name="Bus_station_name" />
             <PropertyRef Name="Address" />
             <PropertyRef Name="Region" />
           </Key>
           <Property Name="id_place" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="Bus_station_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="Phone_number" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Region" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="V_DRIVERINFOR">
@@ -1755,6 +1753,12 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="BusManagementModelStoreContainer" CdmEntityContainer="BusManagementEntities">
+          <FunctionImportMapping FunctionImportName="pro_AddBooking" FunctionName="BusManagementModel.Store.pro_AddBooking" />
+          <FunctionImportMapping FunctionImportName="pro_AddDefaultBooking" FunctionName="BusManagementModel.Store.pro_AddDefaultBooking" />
+          <FunctionImportMapping FunctionImportName="pro_CancelTicket" FunctionName="BusManagementModel.Store.pro_CancelTicket" />
+          <FunctionImportMapping FunctionImportName="pro_SetCancelTrip" FunctionName="BusManagementModel.Store.pro_SetCancelTrip" />
+          <FunctionImportMapping FunctionImportName="pro_SetFinishTrip" FunctionName="BusManagementModel.Store.pro_SetFinishTrip" />
+          <FunctionImportMapping FunctionImportName="pro_SetGoingTrip" FunctionName="BusManagementModel.Store.pro_SetGoingTrip" />
           <EntitySetMapping Name="AGENTs">
             <EntityTypeMapping TypeName="BusManagementModel.AGENT">
               <MappingFragment StoreEntitySet="AGENT">
@@ -1962,7 +1966,7 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
               <MappingFragment StoreEntitySet="V_AGENTINFOR">
                 <ScalarProperty Name="Region" ColumnName="Region" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Agent_ID" ColumnName="Agent ID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -2001,7 +2005,7 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
               <MappingFragment StoreEntitySet="V_BUSSTATIONINFOR">
                 <ScalarProperty Name="Region" ColumnName="Region" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Bus_station_name" ColumnName="Bus station name" />
+                <ScalarProperty Name="Phone_number" ColumnName="Phone number" />
                 <ScalarProperty Name="id_place" ColumnName="id_place" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -2126,12 +2130,6 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
               <ScalarProperty Name="id_driver" ColumnName="id_driver" />
             </EndProperty>
           </AssociationSetMapping>
-          <FunctionImportMapping FunctionImportName="pro_AddBooking" FunctionName="BusManagementModel.Store.pro_AddBooking" />
-          <FunctionImportMapping FunctionImportName="pro_AddDefaultBooking" FunctionName="BusManagementModel.Store.pro_AddDefaultBooking" />
-          <FunctionImportMapping FunctionImportName="pro_CancelTicket" FunctionName="BusManagementModel.Store.pro_CancelTicket" />
-          <FunctionImportMapping FunctionImportName="pro_SetCancelTrip" FunctionName="BusManagementModel.Store.pro_SetCancelTrip" />
-          <FunctionImportMapping FunctionImportName="pro_SetFinishTrip" FunctionName="BusManagementModel.Store.pro_SetFinishTrip" />
-          <FunctionImportMapping FunctionImportName="pro_SetGoingTrip" FunctionName="BusManagementModel.Store.pro_SetGoingTrip" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

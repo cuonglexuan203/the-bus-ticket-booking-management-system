@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(App));
             this.PnlApp = new System.Windows.Forms.Panel();
             this.PnlContainer = new System.Windows.Forms.Panel();
@@ -64,6 +65,7 @@
             this.PnlBrandInfor = new System.Windows.Forms.Panel();
             this.LbBrandSlogan = new System.Windows.Forms.Label();
             this.PcbBrandLogo = new System.Windows.Forms.PictureBox();
+            this.TimerNow = new System.Windows.Forms.Timer(this.components);
             this.PnlApp.SuspendLayout();
             this.PnlContainer.SuspendLayout();
             this.PnlContent.SuspendLayout();
@@ -233,6 +235,7 @@
             this.TbSearch.Name = "TbSearch";
             this.TbSearch.Size = new System.Drawing.Size(264, 25);
             this.TbSearch.TabIndex = 0;
+            this.TbSearch.Leave += new System.EventHandler(this.TbSearch_Leave);
             // 
             // PnlDashboard
             // 
@@ -331,6 +334,8 @@
             this.PcbAboutUs.Size = new System.Drawing.Size(32, 32);
             this.PcbAboutUs.TabIndex = 15;
             this.PcbAboutUs.TabStop = false;
+            this.PcbAboutUs.Tag = "5";
+            this.PcbAboutUs.Click += new System.EventHandler(this.Handler_Features_Click);
             // 
             // PcbBooking
             // 
@@ -341,6 +346,8 @@
             this.PcbBooking.Size = new System.Drawing.Size(32, 32);
             this.PcbBooking.TabIndex = 16;
             this.PcbBooking.TabStop = false;
+            this.PcbBooking.Tag = "4";
+            this.PcbBooking.Click += new System.EventHandler(this.Handler_Features_Click);
             // 
             // PcbDriver
             // 
@@ -351,6 +358,8 @@
             this.PcbDriver.Size = new System.Drawing.Size(32, 32);
             this.PcbDriver.TabIndex = 17;
             this.PcbDriver.TabStop = false;
+            this.PcbDriver.Tag = "3";
+            this.PcbDriver.Click += new System.EventHandler(this.Handler_Features_Click);
             // 
             // PcbBus
             // 
@@ -361,6 +370,8 @@
             this.PcbBus.Size = new System.Drawing.Size(32, 32);
             this.PcbBus.TabIndex = 18;
             this.PcbBus.TabStop = false;
+            this.PcbBus.Tag = "2";
+            this.PcbBus.Click += new System.EventHandler(this.Handler_Features_Click);
             // 
             // PcbTrip
             // 
@@ -371,6 +382,8 @@
             this.PcbTrip.Size = new System.Drawing.Size(32, 32);
             this.PcbTrip.TabIndex = 19;
             this.PcbTrip.TabStop = false;
+            this.PcbTrip.Tag = "1";
+            this.PcbTrip.Click += new System.EventHandler(this.Handler_Features_Click);
             // 
             // PcbHome
             // 
@@ -381,13 +394,15 @@
             this.PcbHome.Size = new System.Drawing.Size(32, 32);
             this.PcbHome.TabIndex = 14;
             this.PcbHome.TabStop = false;
+            this.PcbHome.Tag = "0";
+            this.PcbHome.Click += new System.EventHandler(this.Handler_Features_Click);
             // 
             // BtnAboutUs
             // 
             this.BtnAboutUs.BackColor = System.Drawing.Color.Transparent;
             this.BtnAboutUs.Dock = System.Windows.Forms.DockStyle.Top;
             this.BtnAboutUs.FlatAppearance.BorderSize = 0;
-            this.BtnAboutUs.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BtnAboutUs.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.BtnAboutUs.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
             this.BtnAboutUs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAboutUs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(91)))), ((int)(((byte)(112)))));
@@ -397,17 +412,19 @@
             this.BtnAboutUs.Padding = new System.Windows.Forms.Padding(70, 0, 0, 0);
             this.BtnAboutUs.Size = new System.Drawing.Size(229, 40);
             this.BtnAboutUs.TabIndex = 13;
+            this.BtnAboutUs.Tag = "5";
             this.BtnAboutUs.Text = "About Us";
             this.BtnAboutUs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnAboutUs.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnAboutUs.UseVisualStyleBackColor = false;
+            this.BtnAboutUs.Click += new System.EventHandler(this.Handler_Features_Click);
             // 
             // BtnBooking
             // 
             this.BtnBooking.BackColor = System.Drawing.Color.Transparent;
             this.BtnBooking.Dock = System.Windows.Forms.DockStyle.Top;
             this.BtnBooking.FlatAppearance.BorderSize = 0;
-            this.BtnBooking.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BtnBooking.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.BtnBooking.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
             this.BtnBooking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnBooking.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(91)))), ((int)(((byte)(112)))));
@@ -417,17 +434,19 @@
             this.BtnBooking.Padding = new System.Windows.Forms.Padding(70, 0, 0, 0);
             this.BtnBooking.Size = new System.Drawing.Size(229, 40);
             this.BtnBooking.TabIndex = 12;
+            this.BtnBooking.Tag = "4";
             this.BtnBooking.Text = "Booking";
             this.BtnBooking.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnBooking.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnBooking.UseVisualStyleBackColor = false;
+            this.BtnBooking.Click += new System.EventHandler(this.Handler_Features_Click);
             // 
             // BtnDriver
             // 
             this.BtnDriver.BackColor = System.Drawing.Color.Transparent;
             this.BtnDriver.Dock = System.Windows.Forms.DockStyle.Top;
             this.BtnDriver.FlatAppearance.BorderSize = 0;
-            this.BtnDriver.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BtnDriver.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.BtnDriver.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
             this.BtnDriver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnDriver.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(91)))), ((int)(((byte)(112)))));
@@ -437,17 +456,19 @@
             this.BtnDriver.Padding = new System.Windows.Forms.Padding(70, 0, 0, 0);
             this.BtnDriver.Size = new System.Drawing.Size(229, 40);
             this.BtnDriver.TabIndex = 11;
+            this.BtnDriver.Tag = "3";
             this.BtnDriver.Text = "Driver";
             this.BtnDriver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnDriver.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnDriver.UseVisualStyleBackColor = false;
+            this.BtnDriver.Click += new System.EventHandler(this.Handler_Features_Click);
             // 
             // BtnBus
             // 
             this.BtnBus.BackColor = System.Drawing.Color.Transparent;
             this.BtnBus.Dock = System.Windows.Forms.DockStyle.Top;
             this.BtnBus.FlatAppearance.BorderSize = 0;
-            this.BtnBus.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BtnBus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.BtnBus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
             this.BtnBus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnBus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(91)))), ((int)(((byte)(112)))));
@@ -457,17 +478,19 @@
             this.BtnBus.Padding = new System.Windows.Forms.Padding(70, 0, 0, 0);
             this.BtnBus.Size = new System.Drawing.Size(229, 40);
             this.BtnBus.TabIndex = 10;
+            this.BtnBus.Tag = "2";
             this.BtnBus.Text = "Bus";
             this.BtnBus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnBus.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnBus.UseVisualStyleBackColor = false;
+            this.BtnBus.Click += new System.EventHandler(this.Handler_Features_Click);
             // 
             // BtnTrip
             // 
             this.BtnTrip.BackColor = System.Drawing.Color.Transparent;
             this.BtnTrip.Dock = System.Windows.Forms.DockStyle.Top;
             this.BtnTrip.FlatAppearance.BorderSize = 0;
-            this.BtnTrip.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BtnTrip.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.BtnTrip.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
             this.BtnTrip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnTrip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(91)))), ((int)(((byte)(112)))));
@@ -477,18 +500,19 @@
             this.BtnTrip.Padding = new System.Windows.Forms.Padding(70, 0, 0, 0);
             this.BtnTrip.Size = new System.Drawing.Size(229, 40);
             this.BtnTrip.TabIndex = 9;
+            this.BtnTrip.Tag = "1";
             this.BtnTrip.Text = "Trip";
             this.BtnTrip.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnTrip.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnTrip.UseVisualStyleBackColor = false;
-            this.BtnTrip.Click += new System.EventHandler(this.BtnTrip_Click);
+            this.BtnTrip.Click += new System.EventHandler(this.Handler_Features_Click);
             // 
             // BtnHome
             // 
             this.BtnHome.BackColor = System.Drawing.Color.Transparent;
             this.BtnHome.Dock = System.Windows.Forms.DockStyle.Top;
             this.BtnHome.FlatAppearance.BorderSize = 0;
-            this.BtnHome.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BtnHome.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.BtnHome.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
             this.BtnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnHome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(91)))), ((int)(((byte)(112)))));
@@ -498,10 +522,12 @@
             this.BtnHome.Padding = new System.Windows.Forms.Padding(70, 0, 0, 0);
             this.BtnHome.Size = new System.Drawing.Size(229, 40);
             this.BtnHome.TabIndex = 8;
+            this.BtnHome.Tag = "0";
             this.BtnHome.Text = "Home";
             this.BtnHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnHome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnHome.UseVisualStyleBackColor = false;
+            this.BtnHome.Click += new System.EventHandler(this.Handler_Features_Click);
             // 
             // PnlBrandInfor
             // 
@@ -534,6 +560,11 @@
             this.PcbBrandLogo.TabIndex = 2;
             this.PcbBrandLogo.TabStop = false;
             // 
+            // TimerNow
+            // 
+            this.TimerNow.Interval = 1000;
+            this.TimerNow.Tick += new System.EventHandler(this.TimerNow_Tick);
+            // 
             // App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
@@ -548,6 +579,7 @@
             this.Name = "App";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bus Ticket Management";
+            this.Load += new System.EventHandler(this.App_Load);
             this.PnlApp.ResumeLayout(false);
             this.PnlContainer.ResumeLayout(false);
             this.PnlContent.ResumeLayout(false);
@@ -615,6 +647,7 @@
         private System.Windows.Forms.PictureBox PcbSetting;
         private System.Windows.Forms.Panel PnlNavigationBar;
         private System.Windows.Forms.Panel PnlFillContent;
+        private System.Windows.Forms.Timer TimerNow;
     }
 }
 

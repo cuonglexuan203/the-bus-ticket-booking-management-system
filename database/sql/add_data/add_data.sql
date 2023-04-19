@@ -69,3 +69,4 @@ go
 insert into BUS(registration_number, model, capacity, type) values ('78-FN10532', 'Suzuki', 30, 0)
 insert into BUS(registration_number, model, capacity, type) values ('78-FN15642', 'Suzuki', 30, 0)
 insert into BUS(registration_number, model, capacity , type) values ('78-FN17253', 'Suzuki', 16, 1)
+--

@@ -62,7 +62,7 @@ create table BUSSTATION
     id_bus_station char(20) primary key,
     id_place char(20),
     phone char(20),
-    address char(100) not null,
+    address nvarchar(100) not null,
     bus_capacity int not null,
     count_current_bus int null default 0,
 );
@@ -85,7 +85,7 @@ create table AGENT
     id_cash_reserve char(20),
     id_place char(20),
     phone char(20),
-    address char(100) not null
+    address nvarchar(100) not null
 );
 
 create table EMPLOYEE
@@ -94,7 +94,7 @@ create table EMPLOYEE
     id_account char(20),
     id_agent char(20),
     name varchar(50) not null,
-    address char(100) not null,
+    address nvarchar(100) not null,
     phone_number char(20) not null,
     identity_number char(20) not null,
     salary money not null,

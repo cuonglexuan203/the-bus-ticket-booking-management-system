@@ -1,6 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="BusManagementModelStoreContainer" CdmEntityContainer="BusManagementEntities">
+    <FunctionImportMapping FunctionImportName="pro_AddBooking" FunctionName="BusManagementModel.Store.pro_AddBooking" />
+    <FunctionImportMapping FunctionImportName="pro_AddDefaultBooking" FunctionName="BusManagementModel.Store.pro_AddDefaultBooking" />
+    <FunctionImportMapping FunctionImportName="pro_CancelTicket" FunctionName="BusManagementModel.Store.pro_CancelTicket" />
+    <FunctionImportMapping FunctionImportName="pro_SetCancelTrip" FunctionName="BusManagementModel.Store.pro_SetCancelTrip" />
+    <FunctionImportMapping FunctionImportName="pro_SetFinishTrip" FunctionName="BusManagementModel.Store.pro_SetFinishTrip" />
+    <FunctionImportMapping FunctionImportName="pro_SetGoingTrip" FunctionName="BusManagementModel.Store.pro_SetGoingTrip" />
     <EntitySetMapping Name="AGENTs">
       <EntityTypeMapping TypeName="BusManagementModel.AGENT">
         <MappingFragment StoreEntitySet="AGENT">
@@ -208,7 +214,7 @@
         <MappingFragment StoreEntitySet="V_AGENTINFOR">
           <ScalarProperty Name="Region" ColumnName="Region" />
           <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
           <ScalarProperty Name="Agent_ID" ColumnName="Agent ID" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -247,7 +253,7 @@
         <MappingFragment StoreEntitySet="V_BUSSTATIONINFOR">
           <ScalarProperty Name="Region" ColumnName="Region" />
           <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="Bus_station_name" ColumnName="Bus station name" />
+          <ScalarProperty Name="Phone_number" ColumnName="Phone number" />
           <ScalarProperty Name="id_place" ColumnName="id_place" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -372,11 +378,5 @@
         <ScalarProperty Name="id_driver" ColumnName="id_driver" />
       </EndProperty>
     </AssociationSetMapping>
-    <FunctionImportMapping FunctionImportName="pro_AddBooking" FunctionName="BusManagementModel.Store.pro_AddBooking" />
-    <FunctionImportMapping FunctionImportName="pro_AddDefaultBooking" FunctionName="BusManagementModel.Store.pro_AddDefaultBooking" />
-    <FunctionImportMapping FunctionImportName="pro_CancelTicket" FunctionName="BusManagementModel.Store.pro_CancelTicket" />
-    <FunctionImportMapping FunctionImportName="pro_SetCancelTrip" FunctionName="BusManagementModel.Store.pro_SetCancelTrip" />
-    <FunctionImportMapping FunctionImportName="pro_SetFinishTrip" FunctionName="BusManagementModel.Store.pro_SetFinishTrip" />
-    <FunctionImportMapping FunctionImportName="pro_SetGoingTrip" FunctionName="BusManagementModel.Store.pro_SetGoingTrip" />
   </EntityContainerMapping>
 </Mapping>

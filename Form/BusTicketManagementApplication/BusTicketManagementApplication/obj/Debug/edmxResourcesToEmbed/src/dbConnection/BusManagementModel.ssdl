@@ -7,7 +7,7 @@
     <Property Name="id_agent" Type="char" MaxLength="20" Nullable="false" />
     <Property Name="id_cash_reserve" Type="char" MaxLength="20" />
     <Property Name="id_place" Type="char" MaxLength="20" />
-    <Property Name="address" Type="char" MaxLength="100" Nullable="false" />
+    <Property Name="address" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="phone" Type="char" MaxLength="20" Nullable="false" />
   </EntityType>
   <EntityType Name="AGENT_EVENT">
@@ -86,7 +86,7 @@
     </Key>
     <Property Name="id_bus_station" Type="char" MaxLength="20" Nullable="false" />
     <Property Name="id_place" Type="char" MaxLength="20" />
-    <Property Name="address" Type="char" MaxLength="100" Nullable="false" />
+    <Property Name="address" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="bus_capacity" Type="int" Nullable="false" />
     <Property Name="count_current_bus" Type="int" />
     <Property Name="phone" Type="char" MaxLength="20" />
@@ -114,8 +114,8 @@
     <Property Name="id_employee" Type="char" MaxLength="20" Nullable="false" />
     <Property Name="id_account" Type="char" MaxLength="20" />
     <Property Name="id_agent" Type="char" MaxLength="20" />
-    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="address" Type="char" MaxLength="100" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+    <Property Name="address" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="phone_number" Type="char" MaxLength="20" Nullable="false" />
     <Property Name="identity_number" Type="char" MaxLength="20" Nullable="false" />
     <Property Name="salary" Type="money" Nullable="false" />
@@ -172,9 +172,9 @@
       <PropertyRef Name="id_passenger" />
     </Key>
     <Property Name="id_passenger" Type="char" MaxLength="20" Nullable="false" />
-    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
     <Property Name="phone_number" Type="char" MaxLength="20" Nullable="false" />
-    <Property Name="address" Type="char" MaxLength="100" Nullable="false" />
+    <Property Name="address" Type="nvarchar" MaxLength="100" />
     <Property Name="identity_number" Type="char" MaxLength="20" />
     <Property Name="gender" Type="bit" />
     <Property Name="email" Type="char" MaxLength="50" />
@@ -260,13 +260,13 @@ warning 6002: The table/view 'BusManagement.dbo.V_AGENTINFOR' does not have a pr
   <EntityType Name="V_AGENTINFOR">
     <Key>
       <PropertyRef Name="Agent ID" />
-      <PropertyRef Name="Name" />
+      <PropertyRef Name="Phone" />
       <PropertyRef Name="Address" />
       <PropertyRef Name="Region" />
     </Key>
     <Property Name="Agent ID" Type="char" MaxLength="20" Nullable="false" />
-    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Address" Type="char" MaxLength="100" Nullable="false" />
+    <Property Name="Phone" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="Region" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
@@ -313,13 +313,12 @@ warning 6002: The table/view 'BusManagement.dbo.V_BOOKINGINFOR' does not have a 
 warning 6002: The table/view 'BusManagement.dbo.V_BUSSTATIONINFOR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="V_BUSSTATIONINFOR">
     <Key>
-      <PropertyRef Name="Bus station name" />
       <PropertyRef Name="Address" />
       <PropertyRef Name="Region" />
     </Key>
     <Property Name="id_place" Type="char" MaxLength="20" />
-    <Property Name="Bus station name" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Address" Type="char" MaxLength="100" Nullable="false" />
+    <Property Name="Phone number" Type="char" MaxLength="20" />
+    <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="Region" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
@@ -842,7 +841,7 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
     <EntitySet Name="V_AGENTINFOR" EntityType="Self.V_AGENTINFOR" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [V_AGENTINFOR].[Agent ID] AS [Agent ID], 
-    [V_AGENTINFOR].[Name] AS [Name], 
+    [V_AGENTINFOR].[Phone] AS [Phone], 
     [V_AGENTINFOR].[Address] AS [Address], 
     [V_AGENTINFOR].[Region] AS [Region]
     FROM [dbo].[V_AGENTINFOR] AS [V_AGENTINFOR]</DefiningQuery>
@@ -875,7 +874,7 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
     <EntitySet Name="V_BUSSTATIONINFOR" EntityType="Self.V_BUSSTATIONINFOR" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [V_BUSSTATIONINFOR].[id_place] AS [id_place], 
-    [V_BUSSTATIONINFOR].[Bus station name] AS [Bus station name], 
+    [V_BUSSTATIONINFOR].[Phone number] AS [Phone number], 
     [V_BUSSTATIONINFOR].[Address] AS [Address], 
     [V_BUSSTATIONINFOR].[Region] AS [Region]
     FROM [dbo].[V_BUSSTATIONINFOR] AS [V_BUSSTATIONINFOR]</DefiningQuery>

@@ -1,6 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="BusManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="BusManagementEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="pro_AddBooking">
+      <Parameter Name="id_ticket" Mode="In" Type="String" />
+      <Parameter Name="id_passenger" Mode="In" Type="String" />
+      <Parameter Name="id_employee" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pro_AddDefaultBooking">
+      <Parameter Name="id_ticket" Mode="In" Type="String" />
+      <Parameter Name="id_passenger" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pro_CancelTicket">
+      <Parameter Name="id_ticket" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pro_SetCancelTrip">
+      <Parameter Name="id_trip" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pro_SetFinishTrip">
+      <Parameter Name="id_trip" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pro_SetGoingTrip">
+      <Parameter Name="id_trip" Mode="In" Type="String" />
+    </FunctionImport>
     <EntitySet Name="AGENTs" EntityType="BusManagementModel.AGENT" />
     <EntitySet Name="BOOKINGs" EntityType="BusManagementModel.BOOKING" />
     <EntitySet Name="Buses" EntityType="BusManagementModel.BUS" />
@@ -120,27 +141,6 @@
       <End Role="DRIVER" EntitySet="DRIVERs" />
       <End Role="TRIP" EntitySet="TRIPs" />
     </AssociationSet>
-    <FunctionImport Name="pro_AddBooking">
-      <Parameter Name="id_ticket" Mode="In" Type="String" />
-      <Parameter Name="id_passenger" Mode="In" Type="String" />
-      <Parameter Name="id_employee" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="pro_AddDefaultBooking">
-      <Parameter Name="id_ticket" Mode="In" Type="String" />
-      <Parameter Name="id_passenger" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="pro_CancelTicket">
-      <Parameter Name="id_ticket" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="pro_SetCancelTrip">
-      <Parameter Name="id_trip" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="pro_SetFinishTrip">
-      <Parameter Name="id_trip" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="pro_SetGoingTrip">
-      <Parameter Name="id_trip" Mode="In" Type="String" />
-    </FunctionImport>
   </EntityContainer>
   <EntityType Name="AGENT">
     <Key>
@@ -149,7 +149,7 @@
     <Property Name="id_agent" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
     <Property Name="id_cash_reserve" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
     <Property Name="id_place" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-    <Property Name="address" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="phone" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
     <NavigationProperty Name="CASHRESERVE" Relationship="BusManagementModel.FK_agent_id_cash_reserve" FromRole="AGENT" ToRole="CASHRESERVE" />
     <NavigationProperty Name="PLACE" Relationship="BusManagementModel.FK_agent_id_place" FromRole="AGENT" ToRole="PLACE" />
@@ -203,7 +203,7 @@
     </Key>
     <Property Name="id_bus_station" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
     <Property Name="id_place" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-    <Property Name="address" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="bus_capacity" Type="Int32" Nullable="false" />
     <Property Name="count_current_bus" Type="Int32" />
     <Property Name="phone" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
@@ -237,8 +237,8 @@
     <Property Name="id_employee" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
     <Property Name="id_account" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
     <Property Name="id_agent" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-    <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="address" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="phone_number" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
     <Property Name="identity_number" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
     <Property Name="salary" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
@@ -287,9 +287,9 @@
       <PropertyRef Name="id_passenger" />
     </Key>
     <Property Name="id_passenger" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
-    <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="phone_number" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
-    <Property Name="address" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="identity_number" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
     <Property Name="gender" Type="Boolean" />
     <Property Name="email" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
@@ -374,13 +374,13 @@
   <EntityType Name="V_AGENTINFOR">
     <Key>
       <PropertyRef Name="Agent_ID" />
-      <PropertyRef Name="Name" />
+      <PropertyRef Name="Phone" />
       <PropertyRef Name="Address" />
       <PropertyRef Name="Region" />
     </Key>
     <Property Name="Agent_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Region" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="V_AVAILABLETRIP">
@@ -421,13 +421,12 @@
   </EntityType>
   <EntityType Name="V_BUSSTATIONINFOR">
     <Key>
-      <PropertyRef Name="Bus_station_name" />
       <PropertyRef Name="Address" />
       <PropertyRef Name="Region" />
     </Key>
     <Property Name="id_place" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-    <Property Name="Bus_station_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="Phone_number" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Region" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="V_DRIVERINFOR">

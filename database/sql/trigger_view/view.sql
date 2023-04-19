@@ -43,7 +43,7 @@ where b.capacity - a.booked_seat > 0 and convert(datetime, a.departure_time) > g
 go
 
 -- view route for passenger selections
-create view V_ROUTEINFOR as
+alter view [dbo].[V_ROUTEINFOR] as
 with BUSSTATION_PLACE_CTE as
 (
     select BUSSTATION.id_bus_station, PLACE.region
@@ -51,8 +51,7 @@ with BUSSTATION_PLACE_CTE as
 )
 select a.id_route, b.region as [Start point], c.region as [End point], a.distance as [Distance]
 from BUSROUTE as a inner join BUSSTATION_PLACE_CTE as b on a.id_start_station = b.id_bus_station
-inner join BUSSTATION_PLACE_CTE as c on a.id_end_station = b.id_bus_station
-
+inner join BUSSTATION_PLACE_CTE as c on a.id_end_station = c.id_bus_station
 go
 
 create view V_BOOKINGINFOR as
@@ -65,14 +64,14 @@ inner join EMPLOYEE as c on a.id_employee = c.id_employee
 go
 
 create view V_BUSSTATIONINFOR as
-select a.id_place, a.name as [Bus station name], a.address as [Address], b.region as [Region]
+select a.id_place, a.phone as [Phone number], a.address as [Address], b.region as [Region]
 from BUSSTATION as a
 inner join PLACE as b on a.id_place = b.id_place
 
 go
 
 create view V_AGENTINFOR as
-select a.id_agent as [Agent ID], a.name as [Name], a.address as [Address], b.region as [Region] 
+select a.id_agent as [Agent ID], a.phone as [Phone], a.address as [Address], b.region as [Region] 
 from AGENT as a
 inner join PLACE as b on a.id_place = b.id_place
 
