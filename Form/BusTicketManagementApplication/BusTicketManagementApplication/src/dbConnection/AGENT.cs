@@ -27,8 +27,8 @@ namespace BusTicketManagementApplication.src.dbConnection
         public string id_agent { get; set; }
         public string id_cash_reserve { get; set; }
         public string id_place { get; set; }
-        public string name { get; set; }
         public string address { get; set; }
+        public string phone { get; set; }
     
         public virtual CASHRESERVE CASHRESERVE { get; set; }
         public virtual PLACE PLACE { get; set; }

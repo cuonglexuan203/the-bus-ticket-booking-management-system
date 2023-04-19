@@ -7,8 +7,8 @@
     <Property Name="id_agent" Type="char" MaxLength="20" Nullable="false" />
     <Property Name="id_cash_reserve" Type="char" MaxLength="20" />
     <Property Name="id_place" Type="char" MaxLength="20" />
-    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="address" Type="char" MaxLength="100" Nullable="false" />
+    <Property Name="phone" Type="char" MaxLength="20" Nullable="false" />
   </EntityType>
   <EntityType Name="AGENT_EVENT">
     <Key>
@@ -86,10 +86,10 @@
     </Key>
     <Property Name="id_bus_station" Type="char" MaxLength="20" Nullable="false" />
     <Property Name="id_place" Type="char" MaxLength="20" />
-    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="address" Type="char" MaxLength="100" Nullable="false" />
     <Property Name="bus_capacity" Type="int" Nullable="false" />
     <Property Name="count_current_bus" Type="int" />
+    <Property Name="phone" Type="char" MaxLength="20" />
   </EntityType>
   <EntityType Name="CASHRESERVE">
     <Key>
@@ -184,7 +184,7 @@
       <PropertyRef Name="id_place" />
     </Key>
     <Property Name="id_place" Type="char" MaxLength="20" Nullable="false" />
-    <Property Name="region" Type="char" MaxLength="50" />
+    <Property Name="region" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="POSITION">
     <Key>
@@ -262,11 +262,12 @@ warning 6002: The table/view 'BusManagement.dbo.V_AGENTINFOR' does not have a pr
       <PropertyRef Name="Agent ID" />
       <PropertyRef Name="Name" />
       <PropertyRef Name="Address" />
+      <PropertyRef Name="Region" />
     </Key>
     <Property Name="Agent ID" Type="char" MaxLength="20" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Address" Type="char" MaxLength="100" Nullable="false" />
-    <Property Name="Region" Type="char" MaxLength="50" />
+    <Property Name="Region" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'BusManagement.dbo.V_AVAILABLETRIP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -274,13 +275,15 @@ warning 6002: The table/view 'BusManagement.dbo.V_AVAILABLETRIP' does not have a
     <Key>
       <PropertyRef Name="Trip ID" />
       <PropertyRef Name="Registration number of bus" />
+      <PropertyRef Name="Start point" />
+      <PropertyRef Name="End point" />
       <PropertyRef Name="Departure time" />
       <PropertyRef Name="Duration" />
     </Key>
     <Property Name="Trip ID" Type="char" MaxLength="20" Nullable="false" />
     <Property Name="Registration number of bus" Type="char" MaxLength="15" Nullable="false" />
-    <Property Name="Start point" Type="char" MaxLength="50" />
-    <Property Name="End point" Type="char" MaxLength="50" />
+    <Property Name="Start point" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="End point" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Departure time" Type="datetime" Nullable="false" />
     <Property Name="Duration" Type="int" Nullable="false" />
     <Property Name="Booked seat" Type="tinyint" />
@@ -312,11 +315,12 @@ warning 6002: The table/view 'BusManagement.dbo.V_BUSSTATIONINFOR' does not have
     <Key>
       <PropertyRef Name="Bus station name" />
       <PropertyRef Name="Address" />
+      <PropertyRef Name="Region" />
     </Key>
     <Property Name="id_place" Type="char" MaxLength="20" />
     <Property Name="Bus station name" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Address" Type="char" MaxLength="100" Nullable="false" />
-    <Property Name="Region" Type="char" MaxLength="50" />
+    <Property Name="Region" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'BusManagement.dbo.V_DRIVERINFOR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -354,11 +358,13 @@ warning 6002: The table/view 'BusManagement.dbo.V_ROUTEINFOR' does not have a pr
   <EntityType Name="V_ROUTEINFOR">
     <Key>
       <PropertyRef Name="id_route" />
+      <PropertyRef Name="Start point" />
+      <PropertyRef Name="End point" />
       <PropertyRef Name="Distance" />
     </Key>
     <Property Name="id_route" Type="char" MaxLength="20" Nullable="false" />
-    <Property Name="Start point" Type="char" MaxLength="50" />
-    <Property Name="End point" Type="char" MaxLength="50" />
+    <Property Name="Start point" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="End point" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Distance" Type="float" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
@@ -367,16 +373,18 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
     <Key>
       <PropertyRef Name="Trip ID" />
       <PropertyRef Name="Registration number of bus" />
+      <PropertyRef Name="Start point" />
+      <PropertyRef Name="End point" />
       <PropertyRef Name="Departure time" />
       <PropertyRef Name="Duration" />
     </Key>
     <Property Name="Trip ID" Type="char" MaxLength="20" Nullable="false" />
     <Property Name="Registration number of bus" Type="char" MaxLength="15" Nullable="false" />
-    <Property Name="Start point" Type="char" MaxLength="50" />
-    <Property Name="End point" Type="char" MaxLength="50" />
+    <Property Name="Start point" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="End point" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Departure time" Type="datetime" Nullable="false" />
     <Property Name="Duration" Type="int" Nullable="false" />
-    <Property Name="Booked seat" Type="tinyint" />
+    <Property Name="Remain seat" Type="tinyint" />
     <Property Name="Status" Type="char" MaxLength="15" />
   </EntityType>
   <Association Name="FK_agent_event_id_agent">
@@ -774,7 +782,6 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
   <Function Name="func_auto_id_event" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
   <Function Name="func_auto_id_package" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
   <Function Name="func_auto_id_passenger" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
-  <Function Name="func_auto_id_place" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
   <Function Name="func_auto_id_policy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
   <Function Name="func_auto_id_position" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
   <Function Name="func_auto_id_privilege" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
@@ -909,7 +916,7 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
     [V_TRIPINFOR].[End point] AS [End point], 
     [V_TRIPINFOR].[Departure time] AS [Departure time], 
     [V_TRIPINFOR].[Duration] AS [Duration], 
-    [V_TRIPINFOR].[Booked seat] AS [Booked seat], 
+    [V_TRIPINFOR].[Remain seat] AS [Remain seat], 
     [V_TRIPINFOR].[Status] AS [Status]
     FROM [dbo].[V_TRIPINFOR] AS [V_TRIPINFOR]</DefiningQuery>
     </EntitySet>

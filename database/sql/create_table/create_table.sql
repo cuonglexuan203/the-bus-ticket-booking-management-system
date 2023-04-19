@@ -1,4 +1,4 @@
-use master;
+﻿use master;
 drop database BusManagement;
 create database BusManagement;
 use BusManagement;
@@ -61,7 +61,7 @@ create table BUSSTATION
 (
     id_bus_station char(20) primary key,
     id_place char(20),
-    name varchar(50) not null,
+    phone char(20),
     address char(100) not null,
     bus_capacity int not null,
     count_current_bus int null default 0,
@@ -84,7 +84,7 @@ create table AGENT
     id_agent char(20) primary key,
     id_cash_reserve char(20),
     id_place char(20),
-    name varchar(50) not null,
+    phone char(20),
     address char(100) not null
 );
 
@@ -120,7 +120,7 @@ create table PRIVILEGE
 create table PLACE
 (
     id_place char(20) primary key,
-    region char(50) default 'TP.Ho Chi Minh'
+    region nvarchar(50) not null default N'Hồ Chí Minh (TP)'
 );
 
 create table CASHRESERVE
@@ -283,7 +283,7 @@ alter table POSITION add constraint CHK_position check (type in ('administrator'
 --
 -- alter table PRIVILEGE add constraint CHK_privilege check (name in (''));
 --
-alter table PLACE add constraint CHK_place check(region in ('TP.Ho Chi Minh', 'Ha Noi', 'Phu Yen', 'Khanh Hoa', 'Ben Tre', 'Lam Dong'));
+--alter table PLACE add constraint CHK_place check(region in ('TP.Ho Chi Minh', 'Ha Noi', 'Phu Yen', 'Khanh Hoa', 'Ben Tre', 'Lam Dong'));
 -- so on
 --
 alter table EVENT add constraint CHK_event check (discount_percent >= 0);

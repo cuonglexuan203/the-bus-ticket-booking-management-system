@@ -210,22 +210,22 @@ return concat('pas_', format(@no, '0000000000'))
 end
 GO
 --
-CREATE function [dbo].[func_auto_id_place]()
-returns char(20)
-as
-begin
-declare @id_no char(20)
-set @id_no = (
-    select max(id_place)
-    from PLACE
-)
-if( @id_no is null)
-    set @id_no = concat('pla_', '0000000000')
-declare @no int
-set @no = right(@id_no, 10) + 1;
-return concat('pla_', format(@no, '0000000000'))
-end
-GO
+--CREATE function [dbo].[func_auto_id_place]()
+--returns char(20)
+--as
+--begin
+--declare @id_no char(20)
+--set @id_no = (
+--    select max(id_place)
+--    from PLACE
+--)
+--if( @id_no is null)
+--    set @id_no = concat('pla_', '0000000000')
+--declare @no int
+--set @no = right(@id_no, 10) + 1;
+--return concat('pla_', format(@no, '0000000000'))
+--end
+--GO
 
 --
 

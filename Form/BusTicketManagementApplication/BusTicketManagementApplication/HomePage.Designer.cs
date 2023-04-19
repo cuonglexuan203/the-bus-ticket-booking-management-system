@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(App));
-            this.PnlMainContainer = new System.Windows.Forms.Panel();
+            this.PnlApp = new System.Windows.Forms.Panel();
             this.PnlContainer = new System.Windows.Forms.Panel();
             this.PnlContent = new System.Windows.Forms.Panel();
             this.PnlFillContent = new System.Windows.Forms.Panel();
@@ -64,7 +64,7 @@
             this.PnlBrandInfor = new System.Windows.Forms.Panel();
             this.LbBrandSlogan = new System.Windows.Forms.Label();
             this.PcbBrandLogo = new System.Windows.Forms.PictureBox();
-            this.PnlMainContainer.SuspendLayout();
+            this.PnlApp.SuspendLayout();
             this.PnlContainer.SuspendLayout();
             this.PnlContent.SuspendLayout();
             this.PnlStatusBar.SuspendLayout();
@@ -88,18 +88,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.PcbBrandLogo)).BeginInit();
             this.SuspendLayout();
             // 
-            // PnlMainContainer
+            // PnlApp
             // 
-            this.PnlMainContainer.AutoScroll = true;
-            this.PnlMainContainer.BackColor = System.Drawing.Color.Transparent;
-            this.PnlMainContainer.Controls.Add(this.PnlContainer);
-            this.PnlMainContainer.Controls.Add(this.PnlDashboard);
-            this.PnlMainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlMainContainer.Location = new System.Drawing.Point(0, 0);
-            this.PnlMainContainer.Margin = new System.Windows.Forms.Padding(0);
-            this.PnlMainContainer.Name = "PnlMainContainer";
-            this.PnlMainContainer.Size = new System.Drawing.Size(1200, 700);
-            this.PnlMainContainer.TabIndex = 0;
+            this.PnlApp.AutoScroll = true;
+            this.PnlApp.BackColor = System.Drawing.Color.Transparent;
+            this.PnlApp.Controls.Add(this.PnlContainer);
+            this.PnlApp.Controls.Add(this.PnlDashboard);
+            this.PnlApp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PnlApp.Location = new System.Drawing.Point(0, 0);
+            this.PnlApp.Margin = new System.Windows.Forms.Padding(0);
+            this.PnlApp.Name = "PnlApp";
+            this.PnlApp.Size = new System.Drawing.Size(1200, 700);
+            this.PnlApp.TabIndex = 0;
             // 
             // PnlContainer
             // 
@@ -130,6 +130,7 @@
             this.PnlFillContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlFillContent.Location = new System.Drawing.Point(0, 44);
             this.PnlFillContent.Name = "PnlFillContent";
+            this.PnlFillContent.Padding = new System.Windows.Forms.Padding(3);
             this.PnlFillContent.Size = new System.Drawing.Size(965, 598);
             this.PnlFillContent.TabIndex = 1;
             // 
@@ -480,6 +481,7 @@
             this.BtnTrip.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnTrip.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnTrip.UseVisualStyleBackColor = false;
+            this.BtnTrip.Click += new System.EventHandler(this.BtnTrip_Click);
             // 
             // BtnHome
             // 
@@ -538,7 +540,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1200, 700);
-            this.Controls.Add(this.PnlMainContainer);
+            this.Controls.Add(this.PnlApp);
             this.Font = new System.Drawing.Font("Hack NF", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
@@ -546,7 +548,7 @@
             this.Name = "App";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bus Ticket Management";
-            this.PnlMainContainer.ResumeLayout(false);
+            this.PnlApp.ResumeLayout(false);
             this.PnlContainer.ResumeLayout(false);
             this.PnlContent.ResumeLayout(false);
             this.PnlStatusBar.ResumeLayout(false);
@@ -578,7 +580,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel PnlMainContainer;
+        private System.Windows.Forms.Panel PnlApp;
         private System.Windows.Forms.Panel PnlDashboard;
         private System.Windows.Forms.Panel PnlContainer;
         private System.Windows.Forms.Panel PnlStatusBar;

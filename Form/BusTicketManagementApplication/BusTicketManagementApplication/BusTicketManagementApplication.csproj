@@ -169,6 +169,12 @@
     <Compile Include="src\layers\interfaceLayers\components\home\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\trip\Trip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\trip\Trip.Designer.cs">
+      <DependentUpon>Trip.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\layers\interfaceLayers\customizeUI\initialData\InitData.cs" />
     <Compile Include="src\layers\interfaceLayers\customizeUI\initialUI\InitUI.cs" />
     <EmbeddedResource Include="HomePage.resx">
@@ -187,6 +193,37 @@
     <EmbeddedResource Include="src\layers\interfaceLayers\components\home\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="src\layers\interfaceLayers\components\trip\Trip.resx">
+      <DependentUpon>Trip.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.AGENT.datasource" />
+    <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.BOOKING.datasource" />
+    <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.BUS.datasource" />
+    <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.BusManagementEntities.datasource" />
+    <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.BUSROUTE.datasource" />
+    <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.BUSSTATION.datasource" />
+    <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.CASHRESERVE.datasource" />
+    <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.DRIVER.datasource" />
+    <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.EMPLOYEE.datasource" />
+    <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.EVENT.datasource" />
+    <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.PACKAGE.datasource" />
+    <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.PACKAGEPRICEPOLICY.datasource" />
+    <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.PASSENGER.datasource" />
+    <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.PLACE.datasource" />
+    <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.POSITION.datasource" />
+    <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.PRIVILEGE.datasource" />
+    <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.REFUND.datasource" />
+    <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.SYSTEMACCOUNT.datasource" />
+    <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.TICKET.datasource" />
+    <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.TRIP.datasource" />
+    <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.V_AGENTINFOR.datasource" />
+    <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.V_AVAILABLETRIP.datasource" />
+    <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.V_BOOKINGINFOR.datasource" />
+    <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.V_BUSSTATIONINFOR.datasource" />
+    <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.V_DRIVERINFOR.datasource" />
+    <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.V_EMPLOYEEINFOR.datasource" />
+    <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.V_ROUTEINFOR.datasource" />
+    <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.V_TRIPINFOR.datasource" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -216,7 +253,6 @@
     <Folder Include="src\layers\interfaceLayers\components\booking\" />
     <Folder Include="src\layers\interfaceLayers\components\bus\" />
     <Folder Include="src\layers\interfaceLayers\components\driver\" />
-    <Folder Include="src\layers\interfaceLayers\components\trip\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\asset\img\dashboardIcon\home.png" />

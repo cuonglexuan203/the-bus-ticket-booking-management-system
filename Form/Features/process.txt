@@ -1,0 +1,2 @@
+trip for customer choice
+booking -> only booking input

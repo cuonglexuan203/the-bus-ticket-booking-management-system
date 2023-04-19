@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BusManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BusManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AGENT">
           <Key>
             <PropertyRef Name="id_agent" />
@@ -12,8 +12,8 @@
           <Property Name="id_agent" Type="char" MaxLength="20" Nullable="false" />
           <Property Name="id_cash_reserve" Type="char" MaxLength="20" />
           <Property Name="id_place" Type="char" MaxLength="20" />
-          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="address" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="phone" Type="char" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="AGENT_EVENT">
           <Key>
@@ -91,10 +91,10 @@
           </Key>
           <Property Name="id_bus_station" Type="char" MaxLength="20" Nullable="false" />
           <Property Name="id_place" Type="char" MaxLength="20" />
-          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="address" Type="char" MaxLength="100" Nullable="false" />
           <Property Name="bus_capacity" Type="int" Nullable="false" />
           <Property Name="count_current_bus" Type="int" />
+          <Property Name="phone" Type="char" MaxLength="20" />
         </EntityType>
         <EntityType Name="CASHRESERVE">
           <Key>
@@ -189,7 +189,7 @@
             <PropertyRef Name="id_place" />
           </Key>
           <Property Name="id_place" Type="char" MaxLength="20" Nullable="false" />
-          <Property Name="region" Type="char" MaxLength="50" />
+          <Property Name="region" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="POSITION">
           <Key>
@@ -267,11 +267,12 @@ warning 6002: The table/view 'BusManagement.dbo.V_AGENTINFOR' does not have a pr
             <PropertyRef Name="Agent ID" />
             <PropertyRef Name="Name" />
             <PropertyRef Name="Address" />
+            <PropertyRef Name="Region" />
           </Key>
           <Property Name="Agent ID" Type="char" MaxLength="20" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Address" Type="char" MaxLength="100" Nullable="false" />
-          <Property Name="Region" Type="char" MaxLength="50" />
+          <Property Name="Region" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'BusManagement.dbo.V_AVAILABLETRIP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -279,13 +280,15 @@ warning 6002: The table/view 'BusManagement.dbo.V_AVAILABLETRIP' does not have a
           <Key>
             <PropertyRef Name="Trip ID" />
             <PropertyRef Name="Registration number of bus" />
+            <PropertyRef Name="Start point" />
+            <PropertyRef Name="End point" />
             <PropertyRef Name="Departure time" />
             <PropertyRef Name="Duration" />
           </Key>
           <Property Name="Trip ID" Type="char" MaxLength="20" Nullable="false" />
           <Property Name="Registration number of bus" Type="char" MaxLength="15" Nullable="false" />
-          <Property Name="Start point" Type="char" MaxLength="50" />
-          <Property Name="End point" Type="char" MaxLength="50" />
+          <Property Name="Start point" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="End point" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Departure time" Type="datetime" Nullable="false" />
           <Property Name="Duration" Type="int" Nullable="false" />
           <Property Name="Booked seat" Type="tinyint" />
@@ -317,11 +320,12 @@ warning 6002: The table/view 'BusManagement.dbo.V_BUSSTATIONINFOR' does not have
           <Key>
             <PropertyRef Name="Bus station name" />
             <PropertyRef Name="Address" />
+            <PropertyRef Name="Region" />
           </Key>
           <Property Name="id_place" Type="char" MaxLength="20" />
           <Property Name="Bus station name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Address" Type="char" MaxLength="100" Nullable="false" />
-          <Property Name="Region" Type="char" MaxLength="50" />
+          <Property Name="Region" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'BusManagement.dbo.V_DRIVERINFOR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -359,11 +363,13 @@ warning 6002: The table/view 'BusManagement.dbo.V_ROUTEINFOR' does not have a pr
         <EntityType Name="V_ROUTEINFOR">
           <Key>
             <PropertyRef Name="id_route" />
+            <PropertyRef Name="Start point" />
+            <PropertyRef Name="End point" />
             <PropertyRef Name="Distance" />
           </Key>
           <Property Name="id_route" Type="char" MaxLength="20" Nullable="false" />
-          <Property Name="Start point" Type="char" MaxLength="50" />
-          <Property Name="End point" Type="char" MaxLength="50" />
+          <Property Name="Start point" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="End point" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Distance" Type="float" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -372,16 +378,18 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
           <Key>
             <PropertyRef Name="Trip ID" />
             <PropertyRef Name="Registration number of bus" />
+            <PropertyRef Name="Start point" />
+            <PropertyRef Name="End point" />
             <PropertyRef Name="Departure time" />
             <PropertyRef Name="Duration" />
           </Key>
           <Property Name="Trip ID" Type="char" MaxLength="20" Nullable="false" />
           <Property Name="Registration number of bus" Type="char" MaxLength="15" Nullable="false" />
-          <Property Name="Start point" Type="char" MaxLength="50" />
-          <Property Name="End point" Type="char" MaxLength="50" />
+          <Property Name="Start point" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="End point" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Departure time" Type="datetime" Nullable="false" />
           <Property Name="Duration" Type="int" Nullable="false" />
-          <Property Name="Booked seat" Type="tinyint" />
+          <Property Name="Remain seat" Type="tinyint" />
           <Property Name="Status" Type="char" MaxLength="15" />
         </EntityType>
         <Association Name="FK_agent_event_id_agent">
@@ -779,7 +787,6 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
         <Function Name="func_auto_id_event" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
         <Function Name="func_auto_id_package" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
         <Function Name="func_auto_id_passenger" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
-        <Function Name="func_auto_id_place" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
         <Function Name="func_auto_id_policy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
         <Function Name="func_auto_id_position" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
         <Function Name="func_auto_id_privilege" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
@@ -914,7 +921,7 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
     [V_TRIPINFOR].[End point] AS [End point], 
     [V_TRIPINFOR].[Departure time] AS [Departure time], 
     [V_TRIPINFOR].[Duration] AS [Duration], 
-    [V_TRIPINFOR].[Booked seat] AS [Booked seat], 
+    [V_TRIPINFOR].[Remain seat] AS [Remain seat], 
     [V_TRIPINFOR].[Status] AS [Status]
     FROM [dbo].[V_TRIPINFOR] AS [V_TRIPINFOR]</DefiningQuery>
           </EntitySet>
@@ -1047,669 +1054,127 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
             <End Role="TRIP" EntitySet="TRIP" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BusManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="AGENT">
-          <Key>
-            <PropertyRef Name="id_agent" />
-          </Key>
-          <Property Name="id_agent" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="id_cash_reserve" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="id_place" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="address" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CASHRESERVE" Relationship="Self.FK_agent_id_cash_reserve" FromRole="AGENT" ToRole="CASHRESERVE" />
-          <NavigationProperty Name="PLACE" Relationship="Self.FK_agent_id_place" FromRole="AGENT" ToRole="PLACE" />
-          <NavigationProperty Name="EMPLOYEEs" Relationship="Self.FK_employee_id_agent" FromRole="AGENT" ToRole="EMPLOYEE" />
-          <NavigationProperty Name="EVENTs" Relationship="Self.AGENT_EVENT" FromRole="AGENT" ToRole="EVENT" />
-          <NavigationProperty Name="PACKAGEPRICEPOLICies" Relationship="Self.AGENT_POLICY" FromRole="AGENT" ToRole="PACKAGEPRICEPOLICY" />
-          <NavigationProperty Name="REFUNDs" Relationship="Self.AGENT_REFUND" FromRole="AGENT" ToRole="REFUND" />
-          <NavigationProperty Name="TRIPs" Relationship="Self.AGENT_TRIP" FromRole="AGENT" ToRole="TRIP" />
-        </EntityType>
-        <EntityType Name="BOOKING">
-          <Key>
-            <PropertyRef Name="id_booking" />
-          </Key>
-          <Property Name="id_booking" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="id_ticket" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="id_passenger" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="id_employee" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="booking_time" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK_booking_id_employee" FromRole="BOOKING" ToRole="EMPLOYEE" />
-          <NavigationProperty Name="PASSENGER" Relationship="Self.FK_booking_id_passenger" FromRole="BOOKING" ToRole="PASSENGER" />
-          <NavigationProperty Name="TICKET" Relationship="Self.FK_booking_id_ticket" FromRole="BOOKING" ToRole="TICKET" />
-        </EntityType>
-        <EntityType Name="BUS">
-          <Key>
-            <PropertyRef Name="id_bus" />
-          </Key>
-          <Property Name="id_bus" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="registration_number" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="capacity" Type="Byte" />
-          <Property Name="status" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="type" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="TRIPs" Relationship="Self.FK_trip_id_bus" FromRole="BUS" ToRole="TRIP" />
-        </EntityType>
-        <EntityType Name="BUSROUTE">
-          <Key>
-            <PropertyRef Name="id_route" />
-          </Key>
-          <Property Name="id_route" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="id_start_station" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="id_end_station" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="distance" Type="Double" Nullable="false" />
-          <NavigationProperty Name="BUSSTATION" Relationship="Self.FK_busroute_id_end_bus_station" FromRole="BUSROUTE" ToRole="BUSSTATION" />
-          <NavigationProperty Name="BUSSTATION1" Relationship="Self.FK_busroute_id_start_bus_station" FromRole="BUSROUTE" ToRole="BUSSTATION" />
-          <NavigationProperty Name="TRIPs" Relationship="Self.FK_trip_id_bus_route" FromRole="BUSROUTE" ToRole="TRIP" />
-          <NavigationProperty Name="BUSSTATIONs" Relationship="Self.BUSROUTE_BUSSTATION" FromRole="BUSROUTE" ToRole="BUSSTATION" />
-        </EntityType>
-        <EntityType Name="BUSSTATION">
-          <Key>
-            <PropertyRef Name="id_bus_station" />
-          </Key>
-          <Property Name="id_bus_station" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="id_place" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="address" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="bus_capacity" Type="Int32" Nullable="false" />
-          <Property Name="count_current_bus" Type="Int32" />
-          <NavigationProperty Name="BUSROUTEs" Relationship="Self.FK_busroute_id_end_bus_station" FromRole="BUSSTATION" ToRole="BUSROUTE" />
-          <NavigationProperty Name="BUSROUTEs1" Relationship="Self.FK_busroute_id_start_bus_station" FromRole="BUSSTATION" ToRole="BUSROUTE" />
-          <NavigationProperty Name="PLACE" Relationship="Self.FK_busstation_id_place" FromRole="BUSSTATION" ToRole="PLACE" />
-          <NavigationProperty Name="BUSROUTEs2" Relationship="Self.BUSROUTE_BUSSTATION" FromRole="BUSSTATION" ToRole="BUSROUTE" />
-        </EntityType>
-        <EntityType Name="CASHRESERVE">
-          <Key>
-            <PropertyRef Name="id_cash_reserve" />
-          </Key>
-          <Property Name="id_cash_reserve" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="counter" Type="Decimal" Precision="19" Scale="4" />
-          <NavigationProperty Name="AGENTs" Relationship="Self.FK_agent_id_cash_reserve" FromRole="CASHRESERVE" ToRole="AGENT" />
-        </EntityType>
-        <EntityType Name="DRIVER">
-          <Key>
-            <PropertyRef Name="id_driver" />
-          </Key>
-          <Property Name="id_driver" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="lisence_level" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="type" Type="Boolean" />
-          <Property Name="state" Type="Boolean" />
-          <NavigationProperty Name="TRIPs" Relationship="Self.TRIP_DRIVER" FromRole="DRIVER" ToRole="TRIP" />
-        </EntityType>
-        <EntityType Name="EMPLOYEE">
-          <Key>
-            <PropertyRef Name="id_employee" />
-          </Key>
-          <Property Name="id_employee" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="id_account" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="id_agent" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="address" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="phone_number" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="identity_number" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="salary" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="email" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-          <Property Name="birthdate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="gender" Type="Boolean" />
-          <Property Name="state" Type="Boolean" />
-          <NavigationProperty Name="AGENT" Relationship="Self.FK_employee_id_agent" FromRole="EMPLOYEE" ToRole="AGENT" />
-          <NavigationProperty Name="BOOKINGs" Relationship="Self.FK_booking_id_employee" FromRole="EMPLOYEE" ToRole="BOOKING" />
-          <NavigationProperty Name="SYSTEMACCOUNT" Relationship="Self.FK_employee_id_account" FromRole="EMPLOYEE" ToRole="SYSTEMACCOUNT" />
-          <NavigationProperty Name="POSITIONs" Relationship="Self.EMPLOYEE_POSITION" FromRole="EMPLOYEE" ToRole="POSITION" />
-          <NavigationProperty Name="TICKETs" Relationship="Self.EMPLOYEE_TICKET" FromRole="EMPLOYEE" ToRole="TICKET" />
-        </EntityType>
-        <EntityType Name="EVENT">
-          <Key>
-            <PropertyRef Name="id_event" />
-          </Key>
-          <Property Name="id_event" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="discount_type" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="discount_percent" Type="Double" />
-          <NavigationProperty Name="AGENTs" Relationship="Self.AGENT_EVENT" FromRole="EVENT" ToRole="AGENT" />
-        </EntityType>
-        <EntityType Name="PACKAGE">
-          <Key>
-            <PropertyRef Name="id_package" />
-          </Key>
-          <Property Name="id_package" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="id_trip" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="mass" Type="Double" />
-          <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="sender_contact_phone" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="receiver_contact_phone" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="TRIP" Relationship="Self.FK_package_id_trip" FromRole="PACKAGE" ToRole="TRIP" />
-        </EntityType>
-        <EntityType Name="PACKAGEPRICEPOLICY">
-          <Key>
-            <PropertyRef Name="id_policy" />
-          </Key>
-          <Property Name="id_policy" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="price_per_km" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="mass_unit" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="AGENTs" Relationship="Self.AGENT_POLICY" FromRole="PACKAGEPRICEPOLICY" ToRole="AGENT" />
-        </EntityType>
-        <EntityType Name="PASSENGER">
-          <Key>
-            <PropertyRef Name="id_passenger" />
-          </Key>
-          <Property Name="id_passenger" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="phone_number" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="address" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="identity_number" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="gender" Type="Boolean" />
-          <Property Name="email" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="BOOKINGs" Relationship="Self.FK_booking_id_passenger" FromRole="PASSENGER" ToRole="BOOKING" />
-        </EntityType>
-        <EntityType Name="PLACE">
-          <Key>
-            <PropertyRef Name="id_place" />
-          </Key>
-          <Property Name="id_place" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="region" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="AGENTs" Relationship="Self.FK_agent_id_place" FromRole="PLACE" ToRole="AGENT" />
-          <NavigationProperty Name="BUSSTATIONs" Relationship="Self.FK_busstation_id_place" FromRole="PLACE" ToRole="BUSSTATION" />
-        </EntityType>
-        <EntityType Name="POSITION">
-          <Key>
-            <PropertyRef Name="id_position" />
-          </Key>
-          <Property Name="id_position" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="EMPLOYEEs" Relationship="Self.EMPLOYEE_POSITION" FromRole="POSITION" ToRole="EMPLOYEE" />
-          <NavigationProperty Name="PRIVILEGEs" Relationship="Self.POSITION_PRIVILEGE" FromRole="POSITION" ToRole="PRIVILEGE" />
-        </EntityType>
-        <EntityType Name="PRIVILEGE">
-          <Key>
-            <PropertyRef Name="id_privilege" />
-          </Key>
-          <Property Name="id_privilege" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="POSITIONs" Relationship="Self.POSITION_PRIVILEGE" FromRole="PRIVILEGE" ToRole="POSITION" />
-        </EntityType>
-        <EntityType Name="REFUND">
-          <Key>
-            <PropertyRef Name="id_refund" />
-          </Key>
-          <Property Name="id_refund" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="refund_name" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="refund_percent" Type="Double" />
-          <NavigationProperty Name="AGENTs" Relationship="Self.AGENT_REFUND" FromRole="REFUND" ToRole="AGENT" />
-        </EntityType>
-        <EntityType Name="SYSTEMACCOUNT">
-          <Key>
-            <PropertyRef Name="id_account" />
-          </Key>
-          <Property Name="id_account" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="username" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="EMPLOYEEs" Relationship="Self.FK_employee_id_account" FromRole="SYSTEMACCOUNT" ToRole="EMPLOYEE" />
-        </EntityType>
-        <EntityType Name="TICKET">
-          <Key>
-            <PropertyRef Name="id_ticket" />
-          </Key>
-          <Property Name="id_ticket" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="id_trip" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="status" Type="Boolean" />
-          <Property Name="fare" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="type" Type="Boolean" />
-          <Property Name="seat_number" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="BOOKINGs" Relationship="Self.FK_booking_id_ticket" FromRole="TICKET" ToRole="BOOKING" />
-          <NavigationProperty Name="TRIP" Relationship="Self.FK_ticket_id_trip" FromRole="TICKET" ToRole="TRIP" />
-          <NavigationProperty Name="EMPLOYEEs" Relationship="Self.EMPLOYEE_TICKET" FromRole="TICKET" ToRole="EMPLOYEE" />
-        </EntityType>
-        <EntityType Name="TRIP">
-          <Key>
-            <PropertyRef Name="id_trip" />
-          </Key>
-          <Property Name="id_trip" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="id_bus" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="id_bus_route" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="departure_time" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="duration" Type="Int32" Nullable="false" />
-          <Property Name="booked_seat" Type="Byte" />
-          <Property Name="status" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="BUS" Relationship="Self.FK_trip_id_bus" FromRole="TRIP" ToRole="BUS" />
-          <NavigationProperty Name="BUSROUTE" Relationship="Self.FK_trip_id_bus_route" FromRole="TRIP" ToRole="BUSROUTE" />
-          <NavigationProperty Name="PACKAGEs" Relationship="Self.FK_package_id_trip" FromRole="TRIP" ToRole="PACKAGE" />
-          <NavigationProperty Name="TICKETs" Relationship="Self.FK_ticket_id_trip" FromRole="TRIP" ToRole="TICKET" />
-          <NavigationProperty Name="AGENTs" Relationship="Self.AGENT_TRIP" FromRole="TRIP" ToRole="AGENT" />
-          <NavigationProperty Name="DRIVERs" Relationship="Self.TRIP_DRIVER" FromRole="TRIP" ToRole="DRIVER" />
-        </EntityType>
-        <EntityType Name="V_AGENTINFOR">
-          <Key>
-            <PropertyRef Name="Agent_ID" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="Address" />
-          </Key>
-          <Property Name="Agent_ID" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Address" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Region" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-        </EntityType>
-        <EntityType Name="V_AVAILABLETRIP">
-          <Key>
-            <PropertyRef Name="Trip_ID" />
-            <PropertyRef Name="Registration_number_of_bus" />
-            <PropertyRef Name="Departure_time" />
-            <PropertyRef Name="Duration" />
-          </Key>
-          <Property Name="Trip_ID" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Registration_number_of_bus" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Start_point" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-          <Property Name="End_point" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-          <Property Name="Departure_time" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Duration" Type="Int32" Nullable="false" />
-          <Property Name="Booked_seat" Type="Byte" />
-          <Property Name="Status" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
-        </EntityType>
-        <EntityType Name="V_BOOKINGINFOR">
-          <Key>
-            <PropertyRef Name="Booking_ID" />
-            <PropertyRef Name="Passenger_name" />
-            <PropertyRef Name="Passenger_phone_number" />
-            <PropertyRef Name="Employee_name" />
-            <PropertyRef Name="Employee_phone_number" />
-          </Key>
-          <Property Name="Booking_ID" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Ticket_ID" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="Passenger_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Passenger_gender" Type="Boolean" />
-          <Property Name="Passenger_phone_number" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Employee_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Employee_gender" Type="Boolean" />
-          <Property Name="Employee_phone_number" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Booking_time" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="V_BUSSTATIONINFOR">
-          <Key>
-            <PropertyRef Name="Bus_station_name" />
-            <PropertyRef Name="Address" />
-          </Key>
-          <Property Name="id_place" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="Bus_station_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Address" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Region" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-        </EntityType>
-        <EntityType Name="V_DRIVERINFOR">
-          <Key>
-            <PropertyRef Name="Employees_ID" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="Phone_Number" />
-            <PropertyRef Name="Lisence_Level" />
-          </Key>
-          <Property Name="Employees_ID" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Phone_Number" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Gender" Type="Boolean" />
-          <Property Name="Lisence_Level" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Type" Type="Boolean" />
-          <Property Name="State" Type="Boolean" />
-        </EntityType>
-        <EntityType Name="V_EMPLOYEEINFOR">
-          <Key>
-            <PropertyRef Name="Employees_ID" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="Phone_Number" />
-          </Key>
-          <Property Name="Employees_ID" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Phone_Number" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Gender" Type="Boolean" />
-          <Property Name="State" Type="Boolean" />
-        </EntityType>
-        <EntityType Name="V_ROUTEINFOR">
-          <Key>
-            <PropertyRef Name="id_route" />
-            <PropertyRef Name="Distance" />
-          </Key>
-          <Property Name="id_route" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Start_point" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-          <Property Name="End_point" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-          <Property Name="Distance" Type="Double" Nullable="false" />
-        </EntityType>
-        <EntityType Name="V_TRIPINFOR">
-          <Key>
-            <PropertyRef Name="Trip_ID" />
-            <PropertyRef Name="Registration_number_of_bus" />
-            <PropertyRef Name="Departure_time" />
-            <PropertyRef Name="Duration" />
-          </Key>
-          <Property Name="Trip_ID" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Registration_number_of_bus" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="Start_point" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-          <Property Name="End_point" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-          <Property Name="Departure_time" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Duration" Type="Int32" Nullable="false" />
-          <Property Name="Booked_seat" Type="Byte" />
-          <Property Name="Status" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
-        </EntityType>
-        <Association Name="FK_agent_id_cash_reserve">
-          <End Role="CASHRESERVE" Type="Self.CASHRESERVE" Multiplicity="0..1" />
-          <End Role="AGENT" Type="Self.AGENT" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CASHRESERVE">
-              <PropertyRef Name="id_cash_reserve" />
-            </Principal>
-            <Dependent Role="AGENT">
-              <PropertyRef Name="id_cash_reserve" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_agent_id_place">
-          <End Role="PLACE" Type="Self.PLACE" Multiplicity="0..1" />
-          <End Role="AGENT" Type="Self.AGENT" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PLACE">
-              <PropertyRef Name="id_place" />
-            </Principal>
-            <Dependent Role="AGENT">
-              <PropertyRef Name="id_place" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_employee_id_agent">
-          <End Role="AGENT" Type="Self.AGENT" Multiplicity="0..1" />
-          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AGENT">
-              <PropertyRef Name="id_agent" />
-            </Principal>
-            <Dependent Role="EMPLOYEE">
-              <PropertyRef Name="id_agent" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_booking_id_employee">
-          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="0..1" />
-          <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EMPLOYEE">
-              <PropertyRef Name="id_employee" />
-            </Principal>
-            <Dependent Role="BOOKING">
-              <PropertyRef Name="id_employee" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_booking_id_passenger">
-          <End Role="PASSENGER" Type="Self.PASSENGER" Multiplicity="0..1" />
-          <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PASSENGER">
-              <PropertyRef Name="id_passenger" />
-            </Principal>
-            <Dependent Role="BOOKING">
-              <PropertyRef Name="id_passenger" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_booking_id_ticket">
-          <End Role="TICKET" Type="Self.TICKET" Multiplicity="0..1" />
-          <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TICKET">
-              <PropertyRef Name="id_ticket" />
-            </Principal>
-            <Dependent Role="BOOKING">
-              <PropertyRef Name="id_ticket" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_trip_id_bus">
-          <End Role="BUS" Type="Self.BUS" Multiplicity="0..1" />
-          <End Role="TRIP" Type="Self.TRIP" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BUS">
-              <PropertyRef Name="id_bus" />
-            </Principal>
-            <Dependent Role="TRIP">
-              <PropertyRef Name="id_bus" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_busroute_id_end_bus_station">
-          <End Role="BUSSTATION" Type="Self.BUSSTATION" Multiplicity="0..1" />
-          <End Role="BUSROUTE" Type="Self.BUSROUTE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BUSSTATION">
-              <PropertyRef Name="id_bus_station" />
-            </Principal>
-            <Dependent Role="BUSROUTE">
-              <PropertyRef Name="id_end_station" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_busroute_id_start_bus_station">
-          <End Role="BUSSTATION" Type="Self.BUSSTATION" Multiplicity="0..1" />
-          <End Role="BUSROUTE" Type="Self.BUSROUTE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BUSSTATION">
-              <PropertyRef Name="id_bus_station" />
-            </Principal>
-            <Dependent Role="BUSROUTE">
-              <PropertyRef Name="id_start_station" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_trip_id_bus_route">
-          <End Role="BUSROUTE" Type="Self.BUSROUTE" Multiplicity="0..1" />
-          <End Role="TRIP" Type="Self.TRIP" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BUSROUTE">
-              <PropertyRef Name="id_route" />
-            </Principal>
-            <Dependent Role="TRIP">
-              <PropertyRef Name="id_bus_route" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_busstation_id_place">
-          <End Role="PLACE" Type="Self.PLACE" Multiplicity="0..1" />
-          <End Role="BUSSTATION" Type="Self.BUSSTATION" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PLACE">
-              <PropertyRef Name="id_place" />
-            </Principal>
-            <Dependent Role="BUSSTATION">
-              <PropertyRef Name="id_place" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_employee_id_account">
-          <End Role="SYSTEMACCOUNT" Type="Self.SYSTEMACCOUNT" Multiplicity="0..1" />
-          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SYSTEMACCOUNT">
-              <PropertyRef Name="id_account" />
-            </Principal>
-            <Dependent Role="EMPLOYEE">
-              <PropertyRef Name="id_account" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_package_id_trip">
-          <End Role="TRIP" Type="Self.TRIP" Multiplicity="0..1" />
-          <End Role="PACKAGE" Type="Self.PACKAGE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TRIP">
-              <PropertyRef Name="id_trip" />
-            </Principal>
-            <Dependent Role="PACKAGE">
-              <PropertyRef Name="id_trip" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ticket_id_trip">
-          <End Role="TRIP" Type="Self.TRIP" Multiplicity="0..1" />
-          <End Role="TICKET" Type="Self.TICKET" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TRIP">
-              <PropertyRef Name="id_trip" />
-            </Principal>
-            <Dependent Role="TICKET">
-              <PropertyRef Name="id_trip" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="AGENT_EVENT">
-          <End Role="AGENT" Type="Self.AGENT" Multiplicity="*" />
-          <End Role="EVENT" Type="Self.EVENT" Multiplicity="*" />
-        </Association>
-        <Association Name="AGENT_POLICY">
-          <End Role="AGENT" Type="Self.AGENT" Multiplicity="*" />
-          <End Role="PACKAGEPRICEPOLICY" Type="Self.PACKAGEPRICEPOLICY" Multiplicity="*" />
-        </Association>
-        <Association Name="AGENT_REFUND">
-          <End Role="AGENT" Type="Self.AGENT" Multiplicity="*" />
-          <End Role="REFUND" Type="Self.REFUND" Multiplicity="*" />
-        </Association>
-        <Association Name="AGENT_TRIP">
-          <End Role="AGENT" Type="Self.AGENT" Multiplicity="*" />
-          <End Role="TRIP" Type="Self.TRIP" Multiplicity="*" />
-        </Association>
-        <Association Name="BUSROUTE_BUSSTATION">
-          <End Role="BUSROUTE" Type="Self.BUSROUTE" Multiplicity="*" />
-          <End Role="BUSSTATION" Type="Self.BUSSTATION" Multiplicity="*" />
-        </Association>
-        <Association Name="EMPLOYEE_POSITION">
-          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
-          <End Role="POSITION" Type="Self.POSITION" Multiplicity="*" />
-        </Association>
-        <Association Name="EMPLOYEE_TICKET">
-          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
-          <End Role="TICKET" Type="Self.TICKET" Multiplicity="*" />
-        </Association>
-        <Association Name="POSITION_PRIVILEGE">
-          <End Role="POSITION" Type="Self.POSITION" Multiplicity="*" />
-          <End Role="PRIVILEGE" Type="Self.PRIVILEGE" Multiplicity="*" />
-        </Association>
-        <Association Name="TRIP_DRIVER">
-          <End Role="DRIVER" Type="Self.DRIVER" Multiplicity="*" />
-          <End Role="TRIP" Type="Self.TRIP" Multiplicity="*" />
-        </Association>
         <EntityContainer Name="BusManagementEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AGENTs" EntityType="Self.AGENT" />
-          <EntitySet Name="BOOKINGs" EntityType="Self.BOOKING" />
-          <EntitySet Name="Buses" EntityType="Self.BUS" />
-          <EntitySet Name="BUSROUTEs" EntityType="Self.BUSROUTE" />
-          <EntitySet Name="BUSSTATIONs" EntityType="Self.BUSSTATION" />
-          <EntitySet Name="CASHRESERVEs" EntityType="Self.CASHRESERVE" />
-          <EntitySet Name="DRIVERs" EntityType="Self.DRIVER" />
-          <EntitySet Name="EMPLOYEEs" EntityType="Self.EMPLOYEE" />
-          <EntitySet Name="EVENTs" EntityType="Self.EVENT" />
-          <EntitySet Name="PACKAGEs" EntityType="Self.PACKAGE" />
-          <EntitySet Name="PACKAGEPRICEPOLICies" EntityType="Self.PACKAGEPRICEPOLICY" />
-          <EntitySet Name="PASSENGERs" EntityType="Self.PASSENGER" />
-          <EntitySet Name="PLACEs" EntityType="Self.PLACE" />
-          <EntitySet Name="POSITIONs" EntityType="Self.POSITION" />
-          <EntitySet Name="PRIVILEGEs" EntityType="Self.PRIVILEGE" />
-          <EntitySet Name="REFUNDs" EntityType="Self.REFUND" />
-          <EntitySet Name="SYSTEMACCOUNTs" EntityType="Self.SYSTEMACCOUNT" />
-          <EntitySet Name="TICKETs" EntityType="Self.TICKET" />
-          <EntitySet Name="TRIPs" EntityType="Self.TRIP" />
-          <EntitySet Name="V_AGENTINFOR" EntityType="Self.V_AGENTINFOR" />
-          <EntitySet Name="V_AVAILABLETRIP" EntityType="Self.V_AVAILABLETRIP" />
-          <EntitySet Name="V_BOOKINGINFOR" EntityType="Self.V_BOOKINGINFOR" />
-          <EntitySet Name="V_BUSSTATIONINFOR" EntityType="Self.V_BUSSTATIONINFOR" />
-          <EntitySet Name="V_DRIVERINFOR" EntityType="Self.V_DRIVERINFOR" />
-          <EntitySet Name="V_EMPLOYEEINFOR" EntityType="Self.V_EMPLOYEEINFOR" />
-          <EntitySet Name="V_ROUTEINFOR" EntityType="Self.V_ROUTEINFOR" />
-          <EntitySet Name="V_TRIPINFOR" EntityType="Self.V_TRIPINFOR" />
-          <AssociationSet Name="FK_agent_id_cash_reserve" Association="Self.FK_agent_id_cash_reserve">
+          <EntitySet Name="AGENTs" EntityType="BusManagementModel.AGENT" />
+          <EntitySet Name="BOOKINGs" EntityType="BusManagementModel.BOOKING" />
+          <EntitySet Name="Buses" EntityType="BusManagementModel.BUS" />
+          <EntitySet Name="BUSROUTEs" EntityType="BusManagementModel.BUSROUTE" />
+          <EntitySet Name="BUSSTATIONs" EntityType="BusManagementModel.BUSSTATION" />
+          <EntitySet Name="CASHRESERVEs" EntityType="BusManagementModel.CASHRESERVE" />
+          <EntitySet Name="DRIVERs" EntityType="BusManagementModel.DRIVER" />
+          <EntitySet Name="EMPLOYEEs" EntityType="BusManagementModel.EMPLOYEE" />
+          <EntitySet Name="EVENTs" EntityType="BusManagementModel.EVENT" />
+          <EntitySet Name="PACKAGEs" EntityType="BusManagementModel.PACKAGE" />
+          <EntitySet Name="PACKAGEPRICEPOLICies" EntityType="BusManagementModel.PACKAGEPRICEPOLICY" />
+          <EntitySet Name="PASSENGERs" EntityType="BusManagementModel.PASSENGER" />
+          <EntitySet Name="PLACEs" EntityType="BusManagementModel.PLACE" />
+          <EntitySet Name="POSITIONs" EntityType="BusManagementModel.POSITION" />
+          <EntitySet Name="PRIVILEGEs" EntityType="BusManagementModel.PRIVILEGE" />
+          <EntitySet Name="REFUNDs" EntityType="BusManagementModel.REFUND" />
+          <EntitySet Name="SYSTEMACCOUNTs" EntityType="BusManagementModel.SYSTEMACCOUNT" />
+          <EntitySet Name="TICKETs" EntityType="BusManagementModel.TICKET" />
+          <EntitySet Name="TRIPs" EntityType="BusManagementModel.TRIP" />
+          <EntitySet Name="V_AGENTINFOR" EntityType="BusManagementModel.V_AGENTINFOR" />
+          <EntitySet Name="V_AVAILABLETRIP" EntityType="BusManagementModel.V_AVAILABLETRIP" />
+          <EntitySet Name="V_BOOKINGINFOR" EntityType="BusManagementModel.V_BOOKINGINFOR" />
+          <EntitySet Name="V_BUSSTATIONINFOR" EntityType="BusManagementModel.V_BUSSTATIONINFOR" />
+          <EntitySet Name="V_DRIVERINFOR" EntityType="BusManagementModel.V_DRIVERINFOR" />
+          <EntitySet Name="V_EMPLOYEEINFOR" EntityType="BusManagementModel.V_EMPLOYEEINFOR" />
+          <EntitySet Name="V_ROUTEINFOR" EntityType="BusManagementModel.V_ROUTEINFOR" />
+          <EntitySet Name="V_TRIPINFOR" EntityType="BusManagementModel.V_TRIPINFOR" />
+          <AssociationSet Name="FK_agent_id_cash_reserve" Association="BusManagementModel.FK_agent_id_cash_reserve">
             <End Role="CASHRESERVE" EntitySet="CASHRESERVEs" />
             <End Role="AGENT" EntitySet="AGENTs" />
           </AssociationSet>
-          <AssociationSet Name="FK_agent_id_place" Association="Self.FK_agent_id_place">
+          <AssociationSet Name="FK_agent_id_place" Association="BusManagementModel.FK_agent_id_place">
             <End Role="PLACE" EntitySet="PLACEs" />
             <End Role="AGENT" EntitySet="AGENTs" />
           </AssociationSet>
-          <AssociationSet Name="FK_employee_id_agent" Association="Self.FK_employee_id_agent">
+          <AssociationSet Name="FK_employee_id_agent" Association="BusManagementModel.FK_employee_id_agent">
             <End Role="AGENT" EntitySet="AGENTs" />
             <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
           </AssociationSet>
-          <AssociationSet Name="FK_booking_id_employee" Association="Self.FK_booking_id_employee">
+          <AssociationSet Name="FK_booking_id_employee" Association="BusManagementModel.FK_booking_id_employee">
             <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
             <End Role="BOOKING" EntitySet="BOOKINGs" />
           </AssociationSet>
-          <AssociationSet Name="FK_booking_id_passenger" Association="Self.FK_booking_id_passenger">
+          <AssociationSet Name="FK_booking_id_passenger" Association="BusManagementModel.FK_booking_id_passenger">
             <End Role="PASSENGER" EntitySet="PASSENGERs" />
             <End Role="BOOKING" EntitySet="BOOKINGs" />
           </AssociationSet>
-          <AssociationSet Name="FK_booking_id_ticket" Association="Self.FK_booking_id_ticket">
+          <AssociationSet Name="FK_booking_id_ticket" Association="BusManagementModel.FK_booking_id_ticket">
             <End Role="TICKET" EntitySet="TICKETs" />
             <End Role="BOOKING" EntitySet="BOOKINGs" />
           </AssociationSet>
-          <AssociationSet Name="FK_trip_id_bus" Association="Self.FK_trip_id_bus">
+          <AssociationSet Name="FK_trip_id_bus" Association="BusManagementModel.FK_trip_id_bus">
             <End Role="BUS" EntitySet="Buses" />
             <End Role="TRIP" EntitySet="TRIPs" />
           </AssociationSet>
-          <AssociationSet Name="FK_busroute_id_end_bus_station" Association="Self.FK_busroute_id_end_bus_station">
+          <AssociationSet Name="FK_busroute_id_end_bus_station" Association="BusManagementModel.FK_busroute_id_end_bus_station">
             <End Role="BUSSTATION" EntitySet="BUSSTATIONs" />
             <End Role="BUSROUTE" EntitySet="BUSROUTEs" />
           </AssociationSet>
-          <AssociationSet Name="FK_busroute_id_start_bus_station" Association="Self.FK_busroute_id_start_bus_station">
+          <AssociationSet Name="FK_busroute_id_start_bus_station" Association="BusManagementModel.FK_busroute_id_start_bus_station">
             <End Role="BUSSTATION" EntitySet="BUSSTATIONs" />
             <End Role="BUSROUTE" EntitySet="BUSROUTEs" />
           </AssociationSet>
-          <AssociationSet Name="FK_trip_id_bus_route" Association="Self.FK_trip_id_bus_route">
+          <AssociationSet Name="FK_trip_id_bus_route" Association="BusManagementModel.FK_trip_id_bus_route">
             <End Role="BUSROUTE" EntitySet="BUSROUTEs" />
             <End Role="TRIP" EntitySet="TRIPs" />
           </AssociationSet>
-          <AssociationSet Name="FK_busstation_id_place" Association="Self.FK_busstation_id_place">
+          <AssociationSet Name="FK_busstation_id_place" Association="BusManagementModel.FK_busstation_id_place">
             <End Role="PLACE" EntitySet="PLACEs" />
             <End Role="BUSSTATION" EntitySet="BUSSTATIONs" />
           </AssociationSet>
-          <AssociationSet Name="FK_employee_id_account" Association="Self.FK_employee_id_account">
+          <AssociationSet Name="FK_employee_id_account" Association="BusManagementModel.FK_employee_id_account">
             <End Role="SYSTEMACCOUNT" EntitySet="SYSTEMACCOUNTs" />
             <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
           </AssociationSet>
-          <AssociationSet Name="FK_package_id_trip" Association="Self.FK_package_id_trip">
+          <AssociationSet Name="FK_package_id_trip" Association="BusManagementModel.FK_package_id_trip">
             <End Role="TRIP" EntitySet="TRIPs" />
             <End Role="PACKAGE" EntitySet="PACKAGEs" />
           </AssociationSet>
-          <AssociationSet Name="FK_ticket_id_trip" Association="Self.FK_ticket_id_trip">
+          <AssociationSet Name="FK_ticket_id_trip" Association="BusManagementModel.FK_ticket_id_trip">
             <End Role="TRIP" EntitySet="TRIPs" />
             <End Role="TICKET" EntitySet="TICKETs" />
           </AssociationSet>
-          <AssociationSet Name="AGENT_EVENT" Association="Self.AGENT_EVENT">
+          <AssociationSet Name="AGENT_EVENT" Association="BusManagementModel.AGENT_EVENT">
             <End Role="AGENT" EntitySet="AGENTs" />
             <End Role="EVENT" EntitySet="EVENTs" />
           </AssociationSet>
-          <AssociationSet Name="AGENT_POLICY" Association="Self.AGENT_POLICY">
+          <AssociationSet Name="AGENT_POLICY" Association="BusManagementModel.AGENT_POLICY">
             <End Role="AGENT" EntitySet="AGENTs" />
             <End Role="PACKAGEPRICEPOLICY" EntitySet="PACKAGEPRICEPOLICies" />
           </AssociationSet>
-          <AssociationSet Name="AGENT_REFUND" Association="Self.AGENT_REFUND">
+          <AssociationSet Name="AGENT_REFUND" Association="BusManagementModel.AGENT_REFUND">
             <End Role="AGENT" EntitySet="AGENTs" />
             <End Role="REFUND" EntitySet="REFUNDs" />
           </AssociationSet>
-          <AssociationSet Name="AGENT_TRIP" Association="Self.AGENT_TRIP">
+          <AssociationSet Name="AGENT_TRIP" Association="BusManagementModel.AGENT_TRIP">
             <End Role="AGENT" EntitySet="AGENTs" />
             <End Role="TRIP" EntitySet="TRIPs" />
           </AssociationSet>
-          <AssociationSet Name="BUSROUTE_BUSSTATION" Association="Self.BUSROUTE_BUSSTATION">
+          <AssociationSet Name="BUSROUTE_BUSSTATION" Association="BusManagementModel.BUSROUTE_BUSSTATION">
             <End Role="BUSROUTE" EntitySet="BUSROUTEs" />
             <End Role="BUSSTATION" EntitySet="BUSSTATIONs" />
           </AssociationSet>
-          <AssociationSet Name="EMPLOYEE_POSITION" Association="Self.EMPLOYEE_POSITION">
+          <AssociationSet Name="EMPLOYEE_POSITION" Association="BusManagementModel.EMPLOYEE_POSITION">
             <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
             <End Role="POSITION" EntitySet="POSITIONs" />
           </AssociationSet>
-          <AssociationSet Name="EMPLOYEE_TICKET" Association="Self.EMPLOYEE_TICKET">
+          <AssociationSet Name="EMPLOYEE_TICKET" Association="BusManagementModel.EMPLOYEE_TICKET">
             <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
             <End Role="TICKET" EntitySet="TICKETs" />
           </AssociationSet>
-          <AssociationSet Name="POSITION_PRIVILEGE" Association="Self.POSITION_PRIVILEGE">
+          <AssociationSet Name="POSITION_PRIVILEGE" Association="BusManagementModel.POSITION_PRIVILEGE">
             <End Role="POSITION" EntitySet="POSITIONs" />
             <End Role="PRIVILEGE" EntitySet="PRIVILEGEs" />
           </AssociationSet>
-          <AssociationSet Name="TRIP_DRIVER" Association="Self.TRIP_DRIVER">
+          <AssociationSet Name="TRIP_DRIVER" Association="BusManagementModel.TRIP_DRIVER">
             <End Role="DRIVER" EntitySet="DRIVERs" />
             <End Role="TRIP" EntitySet="TRIPs" />
           </AssociationSet>
@@ -1735,7 +1200,556 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
             <Parameter Name="id_trip" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
-      </Schema>
+        <EntityType Name="AGENT">
+          <Key>
+            <PropertyRef Name="id_agent" />
+          </Key>
+          <Property Name="id_agent" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="id_cash_reserve" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="id_place" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="address" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="phone" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="CASHRESERVE" Relationship="BusManagementModel.FK_agent_id_cash_reserve" FromRole="AGENT" ToRole="CASHRESERVE" />
+          <NavigationProperty Name="PLACE" Relationship="BusManagementModel.FK_agent_id_place" FromRole="AGENT" ToRole="PLACE" />
+          <NavigationProperty Name="EMPLOYEEs" Relationship="BusManagementModel.FK_employee_id_agent" FromRole="AGENT" ToRole="EMPLOYEE" />
+          <NavigationProperty Name="EVENTs" Relationship="BusManagementModel.AGENT_EVENT" FromRole="AGENT" ToRole="EVENT" />
+          <NavigationProperty Name="PACKAGEPRICEPOLICies" Relationship="BusManagementModel.AGENT_POLICY" FromRole="AGENT" ToRole="PACKAGEPRICEPOLICY" />
+          <NavigationProperty Name="REFUNDs" Relationship="BusManagementModel.AGENT_REFUND" FromRole="AGENT" ToRole="REFUND" />
+          <NavigationProperty Name="TRIPs" Relationship="BusManagementModel.AGENT_TRIP" FromRole="AGENT" ToRole="TRIP" />
+        </EntityType>
+        <EntityType Name="BOOKING">
+          <Key>
+            <PropertyRef Name="id_booking" />
+          </Key>
+          <Property Name="id_booking" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="id_ticket" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="id_passenger" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="id_employee" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="booking_time" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="EMPLOYEE" Relationship="BusManagementModel.FK_booking_id_employee" FromRole="BOOKING" ToRole="EMPLOYEE" />
+          <NavigationProperty Name="PASSENGER" Relationship="BusManagementModel.FK_booking_id_passenger" FromRole="BOOKING" ToRole="PASSENGER" />
+          <NavigationProperty Name="TICKET" Relationship="BusManagementModel.FK_booking_id_ticket" FromRole="BOOKING" ToRole="TICKET" />
+        </EntityType>
+        <EntityType Name="BUS">
+          <Key>
+            <PropertyRef Name="id_bus" />
+          </Key>
+          <Property Name="id_bus" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="registration_number" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Name="model" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="capacity" Type="Byte" />
+          <Property Name="status" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Name="type" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TRIPs" Relationship="BusManagementModel.FK_trip_id_bus" FromRole="BUS" ToRole="TRIP" />
+        </EntityType>
+        <EntityType Name="BUSROUTE">
+          <Key>
+            <PropertyRef Name="id_route" />
+          </Key>
+          <Property Name="id_route" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="id_start_station" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="id_end_station" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="distance" Type="Double" Nullable="false" />
+          <NavigationProperty Name="BUSSTATION" Relationship="BusManagementModel.FK_busroute_id_end_bus_station" FromRole="BUSROUTE" ToRole="BUSSTATION" />
+          <NavigationProperty Name="BUSSTATION1" Relationship="BusManagementModel.FK_busroute_id_start_bus_station" FromRole="BUSROUTE" ToRole="BUSSTATION" />
+          <NavigationProperty Name="TRIPs" Relationship="BusManagementModel.FK_trip_id_bus_route" FromRole="BUSROUTE" ToRole="TRIP" />
+          <NavigationProperty Name="BUSSTATIONs" Relationship="BusManagementModel.BUSROUTE_BUSSTATION" FromRole="BUSROUTE" ToRole="BUSSTATION" />
+        </EntityType>
+        <EntityType Name="BUSSTATION">
+          <Key>
+            <PropertyRef Name="id_bus_station" />
+          </Key>
+          <Property Name="id_bus_station" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="id_place" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="address" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="bus_capacity" Type="Int32" Nullable="false" />
+          <Property Name="count_current_bus" Type="Int32" />
+          <Property Name="phone" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="BUSROUTEs" Relationship="BusManagementModel.FK_busroute_id_end_bus_station" FromRole="BUSSTATION" ToRole="BUSROUTE" />
+          <NavigationProperty Name="BUSROUTEs1" Relationship="BusManagementModel.FK_busroute_id_start_bus_station" FromRole="BUSSTATION" ToRole="BUSROUTE" />
+          <NavigationProperty Name="PLACE" Relationship="BusManagementModel.FK_busstation_id_place" FromRole="BUSSTATION" ToRole="PLACE" />
+          <NavigationProperty Name="BUSROUTEs2" Relationship="BusManagementModel.BUSROUTE_BUSSTATION" FromRole="BUSSTATION" ToRole="BUSROUTE" />
+        </EntityType>
+        <EntityType Name="CASHRESERVE">
+          <Key>
+            <PropertyRef Name="id_cash_reserve" />
+          </Key>
+          <Property Name="id_cash_reserve" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="counter" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="AGENTs" Relationship="BusManagementModel.FK_agent_id_cash_reserve" FromRole="CASHRESERVE" ToRole="AGENT" />
+        </EntityType>
+        <EntityType Name="DRIVER">
+          <Key>
+            <PropertyRef Name="id_driver" />
+          </Key>
+          <Property Name="id_driver" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="lisence_level" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="type" Type="Boolean" />
+          <Property Name="state" Type="Boolean" />
+          <NavigationProperty Name="TRIPs" Relationship="BusManagementModel.TRIP_DRIVER" FromRole="DRIVER" ToRole="TRIP" />
+        </EntityType>
+        <EntityType Name="EMPLOYEE">
+          <Key>
+            <PropertyRef Name="id_employee" />
+          </Key>
+          <Property Name="id_employee" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="id_account" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="id_agent" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="phone_number" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="identity_number" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="salary" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="birthdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="gender" Type="Boolean" />
+          <Property Name="state" Type="Boolean" />
+          <NavigationProperty Name="AGENT" Relationship="BusManagementModel.FK_employee_id_agent" FromRole="EMPLOYEE" ToRole="AGENT" />
+          <NavigationProperty Name="BOOKINGs" Relationship="BusManagementModel.FK_booking_id_employee" FromRole="EMPLOYEE" ToRole="BOOKING" />
+          <NavigationProperty Name="SYSTEMACCOUNT" Relationship="BusManagementModel.FK_employee_id_account" FromRole="EMPLOYEE" ToRole="SYSTEMACCOUNT" />
+          <NavigationProperty Name="POSITIONs" Relationship="BusManagementModel.EMPLOYEE_POSITION" FromRole="EMPLOYEE" ToRole="POSITION" />
+          <NavigationProperty Name="TICKETs" Relationship="BusManagementModel.EMPLOYEE_TICKET" FromRole="EMPLOYEE" ToRole="TICKET" />
+        </EntityType>
+        <EntityType Name="EVENT">
+          <Key>
+            <PropertyRef Name="id_event" />
+          </Key>
+          <Property Name="id_event" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="discount_type" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="discount_percent" Type="Double" />
+          <NavigationProperty Name="AGENTs" Relationship="BusManagementModel.AGENT_EVENT" FromRole="EVENT" ToRole="AGENT" />
+        </EntityType>
+        <EntityType Name="PACKAGE">
+          <Key>
+            <PropertyRef Name="id_package" />
+          </Key>
+          <Property Name="id_package" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="id_trip" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="mass" Type="Double" />
+          <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="sender_contact_phone" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="receiver_contact_phone" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="TRIP" Relationship="BusManagementModel.FK_package_id_trip" FromRole="PACKAGE" ToRole="TRIP" />
+        </EntityType>
+        <EntityType Name="PACKAGEPRICEPOLICY">
+          <Key>
+            <PropertyRef Name="id_policy" />
+          </Key>
+          <Property Name="id_policy" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="price_per_km" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="mass_unit" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AGENTs" Relationship="BusManagementModel.AGENT_POLICY" FromRole="PACKAGEPRICEPOLICY" ToRole="AGENT" />
+        </EntityType>
+        <EntityType Name="PASSENGER">
+          <Key>
+            <PropertyRef Name="id_passenger" />
+          </Key>
+          <Property Name="id_passenger" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="phone_number" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="address" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="identity_number" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="gender" Type="Boolean" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="BOOKINGs" Relationship="BusManagementModel.FK_booking_id_passenger" FromRole="PASSENGER" ToRole="BOOKING" />
+        </EntityType>
+        <EntityType Name="PLACE">
+          <Key>
+            <PropertyRef Name="id_place" />
+          </Key>
+          <Property Name="id_place" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="region" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AGENTs" Relationship="BusManagementModel.FK_agent_id_place" FromRole="PLACE" ToRole="AGENT" />
+          <NavigationProperty Name="BUSSTATIONs" Relationship="BusManagementModel.FK_busstation_id_place" FromRole="PLACE" ToRole="BUSSTATION" />
+        </EntityType>
+        <EntityType Name="POSITION">
+          <Key>
+            <PropertyRef Name="id_position" />
+          </Key>
+          <Property Name="id_position" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EMPLOYEEs" Relationship="BusManagementModel.EMPLOYEE_POSITION" FromRole="POSITION" ToRole="EMPLOYEE" />
+          <NavigationProperty Name="PRIVILEGEs" Relationship="BusManagementModel.POSITION_PRIVILEGE" FromRole="POSITION" ToRole="PRIVILEGE" />
+        </EntityType>
+        <EntityType Name="PRIVILEGE">
+          <Key>
+            <PropertyRef Name="id_privilege" />
+          </Key>
+          <Property Name="id_privilege" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="POSITIONs" Relationship="BusManagementModel.POSITION_PRIVILEGE" FromRole="PRIVILEGE" ToRole="POSITION" />
+        </EntityType>
+        <EntityType Name="REFUND">
+          <Key>
+            <PropertyRef Name="id_refund" />
+          </Key>
+          <Property Name="id_refund" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="refund_name" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="refund_percent" Type="Double" />
+          <NavigationProperty Name="AGENTs" Relationship="BusManagementModel.AGENT_REFUND" FromRole="REFUND" ToRole="AGENT" />
+        </EntityType>
+        <EntityType Name="SYSTEMACCOUNT">
+          <Key>
+            <PropertyRef Name="id_account" />
+          </Key>
+          <Property Name="id_account" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="pass" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EMPLOYEEs" Relationship="BusManagementModel.FK_employee_id_account" FromRole="SYSTEMACCOUNT" ToRole="EMPLOYEE" />
+        </EntityType>
+        <EntityType Name="TICKET">
+          <Key>
+            <PropertyRef Name="id_ticket" />
+          </Key>
+          <Property Name="id_ticket" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="id_trip" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="status" Type="Boolean" />
+          <Property Name="fare" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="type" Type="Boolean" />
+          <Property Name="seat_number" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="BOOKINGs" Relationship="BusManagementModel.FK_booking_id_ticket" FromRole="TICKET" ToRole="BOOKING" />
+          <NavigationProperty Name="TRIP" Relationship="BusManagementModel.FK_ticket_id_trip" FromRole="TICKET" ToRole="TRIP" />
+          <NavigationProperty Name="EMPLOYEEs" Relationship="BusManagementModel.EMPLOYEE_TICKET" FromRole="TICKET" ToRole="EMPLOYEE" />
+        </EntityType>
+        <EntityType Name="TRIP">
+          <Key>
+            <PropertyRef Name="id_trip" />
+          </Key>
+          <Property Name="id_trip" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="id_bus" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="id_bus_route" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="departure_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="duration" Type="Int32" Nullable="false" />
+          <Property Name="booked_seat" Type="Byte" />
+          <Property Name="status" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="BUS" Relationship="BusManagementModel.FK_trip_id_bus" FromRole="TRIP" ToRole="BUS" />
+          <NavigationProperty Name="BUSROUTE" Relationship="BusManagementModel.FK_trip_id_bus_route" FromRole="TRIP" ToRole="BUSROUTE" />
+          <NavigationProperty Name="PACKAGEs" Relationship="BusManagementModel.FK_package_id_trip" FromRole="TRIP" ToRole="PACKAGE" />
+          <NavigationProperty Name="TICKETs" Relationship="BusManagementModel.FK_ticket_id_trip" FromRole="TRIP" ToRole="TICKET" />
+          <NavigationProperty Name="AGENTs" Relationship="BusManagementModel.AGENT_TRIP" FromRole="TRIP" ToRole="AGENT" />
+          <NavigationProperty Name="DRIVERs" Relationship="BusManagementModel.TRIP_DRIVER" FromRole="TRIP" ToRole="DRIVER" />
+        </EntityType>
+        <EntityType Name="V_AGENTINFOR">
+          <Key>
+            <PropertyRef Name="Agent_ID" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Address" />
+            <PropertyRef Name="Region" />
+          </Key>
+          <Property Name="Agent_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="Region" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="V_AVAILABLETRIP">
+          <Key>
+            <PropertyRef Name="Trip_ID" />
+            <PropertyRef Name="Registration_number_of_bus" />
+            <PropertyRef Name="Start_point" />
+            <PropertyRef Name="End_point" />
+            <PropertyRef Name="Departure_time" />
+            <PropertyRef Name="Duration" />
+          </Key>
+          <Property Name="Trip_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Registration_number_of_bus" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Name="Start_point" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="End_point" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Departure_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Duration" Type="Int32" Nullable="false" />
+          <Property Name="Booked_seat" Type="Byte" />
+          <Property Name="Status" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="V_BOOKINGINFOR">
+          <Key>
+            <PropertyRef Name="Booking_ID" />
+            <PropertyRef Name="Passenger_name" />
+            <PropertyRef Name="Passenger_phone_number" />
+            <PropertyRef Name="Employee_name" />
+            <PropertyRef Name="Employee_phone_number" />
+          </Key>
+          <Property Name="Booking_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Ticket_ID" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Passenger_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Passenger_gender" Type="Boolean" />
+          <Property Name="Passenger_phone_number" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Employee_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Employee_gender" Type="Boolean" />
+          <Property Name="Employee_phone_number" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Booking_time" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="V_BUSSTATIONINFOR">
+          <Key>
+            <PropertyRef Name="Bus_station_name" />
+            <PropertyRef Name="Address" />
+            <PropertyRef Name="Region" />
+          </Key>
+          <Property Name="id_place" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Bus_station_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="Region" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="V_DRIVERINFOR">
+          <Key>
+            <PropertyRef Name="Employees_ID" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Phone_Number" />
+            <PropertyRef Name="Lisence_Level" />
+          </Key>
+          <Property Name="Employees_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone_Number" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Gender" Type="Boolean" />
+          <Property Name="Lisence_Level" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Type" Type="Boolean" />
+          <Property Name="State" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="V_EMPLOYEEINFOR">
+          <Key>
+            <PropertyRef Name="Employees_ID" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Phone_Number" />
+          </Key>
+          <Property Name="Employees_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone_Number" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Gender" Type="Boolean" />
+          <Property Name="State" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="V_ROUTEINFOR">
+          <Key>
+            <PropertyRef Name="id_route" />
+            <PropertyRef Name="Start_point" />
+            <PropertyRef Name="End_point" />
+            <PropertyRef Name="Distance" />
+          </Key>
+          <Property Name="id_route" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Start_point" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="End_point" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Distance" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="V_TRIPINFOR">
+          <Key>
+            <PropertyRef Name="Trip_ID" />
+            <PropertyRef Name="Registration_number_of_bus" />
+            <PropertyRef Name="Start_point" />
+            <PropertyRef Name="End_point" />
+            <PropertyRef Name="Departure_time" />
+            <PropertyRef Name="Duration" />
+          </Key>
+          <Property Name="Trip_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Registration_number_of_bus" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Name="Start_point" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="End_point" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Departure_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Duration" Type="Int32" Nullable="false" />
+          <Property Name="Remain_seat" Type="Byte" />
+          <Property Name="Status" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_agent_id_cash_reserve">
+          <End Type="BusManagementModel.CASHRESERVE" Role="CASHRESERVE" Multiplicity="0..1" />
+          <End Type="BusManagementModel.AGENT" Role="AGENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CASHRESERVE">
+              <PropertyRef Name="id_cash_reserve" />
+            </Principal>
+            <Dependent Role="AGENT">
+              <PropertyRef Name="id_cash_reserve" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_agent_id_place">
+          <End Type="BusManagementModel.PLACE" Role="PLACE" Multiplicity="0..1" />
+          <End Type="BusManagementModel.AGENT" Role="AGENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PLACE">
+              <PropertyRef Name="id_place" />
+            </Principal>
+            <Dependent Role="AGENT">
+              <PropertyRef Name="id_place" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_employee_id_agent">
+          <End Type="BusManagementModel.AGENT" Role="AGENT" Multiplicity="0..1" />
+          <End Type="BusManagementModel.EMPLOYEE" Role="EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AGENT">
+              <PropertyRef Name="id_agent" />
+            </Principal>
+            <Dependent Role="EMPLOYEE">
+              <PropertyRef Name="id_agent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_booking_id_employee">
+          <End Type="BusManagementModel.EMPLOYEE" Role="EMPLOYEE" Multiplicity="0..1" />
+          <End Type="BusManagementModel.BOOKING" Role="BOOKING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="id_employee" />
+            </Principal>
+            <Dependent Role="BOOKING">
+              <PropertyRef Name="id_employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_booking_id_passenger">
+          <End Type="BusManagementModel.PASSENGER" Role="PASSENGER" Multiplicity="0..1" />
+          <End Type="BusManagementModel.BOOKING" Role="BOOKING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PASSENGER">
+              <PropertyRef Name="id_passenger" />
+            </Principal>
+            <Dependent Role="BOOKING">
+              <PropertyRef Name="id_passenger" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_booking_id_ticket">
+          <End Type="BusManagementModel.TICKET" Role="TICKET" Multiplicity="0..1" />
+          <End Type="BusManagementModel.BOOKING" Role="BOOKING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TICKET">
+              <PropertyRef Name="id_ticket" />
+            </Principal>
+            <Dependent Role="BOOKING">
+              <PropertyRef Name="id_ticket" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_trip_id_bus">
+          <End Type="BusManagementModel.BUS" Role="BUS" Multiplicity="0..1" />
+          <End Type="BusManagementModel.TRIP" Role="TRIP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BUS">
+              <PropertyRef Name="id_bus" />
+            </Principal>
+            <Dependent Role="TRIP">
+              <PropertyRef Name="id_bus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_busroute_id_end_bus_station">
+          <End Type="BusManagementModel.BUSSTATION" Role="BUSSTATION" Multiplicity="0..1" />
+          <End Type="BusManagementModel.BUSROUTE" Role="BUSROUTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BUSSTATION">
+              <PropertyRef Name="id_bus_station" />
+            </Principal>
+            <Dependent Role="BUSROUTE">
+              <PropertyRef Name="id_end_station" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_busroute_id_start_bus_station">
+          <End Type="BusManagementModel.BUSSTATION" Role="BUSSTATION" Multiplicity="0..1" />
+          <End Type="BusManagementModel.BUSROUTE" Role="BUSROUTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BUSSTATION">
+              <PropertyRef Name="id_bus_station" />
+            </Principal>
+            <Dependent Role="BUSROUTE">
+              <PropertyRef Name="id_start_station" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_trip_id_bus_route">
+          <End Type="BusManagementModel.BUSROUTE" Role="BUSROUTE" Multiplicity="0..1" />
+          <End Type="BusManagementModel.TRIP" Role="TRIP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BUSROUTE">
+              <PropertyRef Name="id_route" />
+            </Principal>
+            <Dependent Role="TRIP">
+              <PropertyRef Name="id_bus_route" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_busstation_id_place">
+          <End Type="BusManagementModel.PLACE" Role="PLACE" Multiplicity="0..1" />
+          <End Type="BusManagementModel.BUSSTATION" Role="BUSSTATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PLACE">
+              <PropertyRef Name="id_place" />
+            </Principal>
+            <Dependent Role="BUSSTATION">
+              <PropertyRef Name="id_place" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_employee_id_account">
+          <End Type="BusManagementModel.SYSTEMACCOUNT" Role="SYSTEMACCOUNT" Multiplicity="0..1" />
+          <End Type="BusManagementModel.EMPLOYEE" Role="EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SYSTEMACCOUNT">
+              <PropertyRef Name="id_account" />
+            </Principal>
+            <Dependent Role="EMPLOYEE">
+              <PropertyRef Name="id_account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_package_id_trip">
+          <End Type="BusManagementModel.TRIP" Role="TRIP" Multiplicity="0..1" />
+          <End Type="BusManagementModel.PACKAGE" Role="PACKAGE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRIP">
+              <PropertyRef Name="id_trip" />
+            </Principal>
+            <Dependent Role="PACKAGE">
+              <PropertyRef Name="id_trip" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ticket_id_trip">
+          <End Type="BusManagementModel.TRIP" Role="TRIP" Multiplicity="0..1" />
+          <End Type="BusManagementModel.TICKET" Role="TICKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRIP">
+              <PropertyRef Name="id_trip" />
+            </Principal>
+            <Dependent Role="TICKET">
+              <PropertyRef Name="id_trip" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AGENT_EVENT">
+          <End Type="BusManagementModel.AGENT" Role="AGENT" Multiplicity="*" />
+          <End Type="BusManagementModel.EVENT" Role="EVENT" Multiplicity="*" />
+        </Association>
+        <Association Name="AGENT_POLICY">
+          <End Type="BusManagementModel.AGENT" Role="AGENT" Multiplicity="*" />
+          <End Type="BusManagementModel.PACKAGEPRICEPOLICY" Role="PACKAGEPRICEPOLICY" Multiplicity="*" />
+        </Association>
+        <Association Name="AGENT_REFUND">
+          <End Type="BusManagementModel.AGENT" Role="AGENT" Multiplicity="*" />
+          <End Type="BusManagementModel.REFUND" Role="REFUND" Multiplicity="*" />
+        </Association>
+        <Association Name="AGENT_TRIP">
+          <End Type="BusManagementModel.AGENT" Role="AGENT" Multiplicity="*" />
+          <End Type="BusManagementModel.TRIP" Role="TRIP" Multiplicity="*" />
+        </Association>
+        <Association Name="BUSROUTE_BUSSTATION">
+          <End Type="BusManagementModel.BUSROUTE" Role="BUSROUTE" Multiplicity="*" />
+          <End Type="BusManagementModel.BUSSTATION" Role="BUSSTATION" Multiplicity="*" />
+        </Association>
+        <Association Name="EMPLOYEE_POSITION">
+          <End Type="BusManagementModel.EMPLOYEE" Role="EMPLOYEE" Multiplicity="*" />
+          <End Type="BusManagementModel.POSITION" Role="POSITION" Multiplicity="*" />
+        </Association>
+        <Association Name="EMPLOYEE_TICKET">
+          <End Type="BusManagementModel.EMPLOYEE" Role="EMPLOYEE" Multiplicity="*" />
+          <End Type="BusManagementModel.TICKET" Role="TICKET" Multiplicity="*" />
+        </Association>
+        <Association Name="POSITION_PRIVILEGE">
+          <End Type="BusManagementModel.POSITION" Role="POSITION" Multiplicity="*" />
+          <End Type="BusManagementModel.PRIVILEGE" Role="PRIVILEGE" Multiplicity="*" />
+        </Association>
+        <Association Name="TRIP_DRIVER">
+          <End Type="BusManagementModel.DRIVER" Role="DRIVER" Multiplicity="*" />
+          <End Type="BusManagementModel.TRIP" Role="TRIP" Multiplicity="*" />
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1744,372 +1758,372 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
           <EntitySetMapping Name="AGENTs">
             <EntityTypeMapping TypeName="BusManagementModel.AGENT">
               <MappingFragment StoreEntitySet="AGENT">
-                <ScalarProperty Name="id_agent" ColumnName="id_agent" />
-                <ScalarProperty Name="id_cash_reserve" ColumnName="id_cash_reserve" />
-                <ScalarProperty Name="id_place" ColumnName="id_place" />
-                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
                 <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="id_place" ColumnName="id_place" />
+                <ScalarProperty Name="id_cash_reserve" ColumnName="id_cash_reserve" />
+                <ScalarProperty Name="id_agent" ColumnName="id_agent" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BOOKINGs">
             <EntityTypeMapping TypeName="BusManagementModel.BOOKING">
               <MappingFragment StoreEntitySet="BOOKING">
-                <ScalarProperty Name="id_booking" ColumnName="id_booking" />
-                <ScalarProperty Name="id_ticket" ColumnName="id_ticket" />
-                <ScalarProperty Name="id_passenger" ColumnName="id_passenger" />
-                <ScalarProperty Name="id_employee" ColumnName="id_employee" />
                 <ScalarProperty Name="booking_time" ColumnName="booking_time" />
+                <ScalarProperty Name="id_employee" ColumnName="id_employee" />
+                <ScalarProperty Name="id_passenger" ColumnName="id_passenger" />
+                <ScalarProperty Name="id_ticket" ColumnName="id_ticket" />
+                <ScalarProperty Name="id_booking" ColumnName="id_booking" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Buses">
             <EntityTypeMapping TypeName="BusManagementModel.BUS">
               <MappingFragment StoreEntitySet="BUS">
-                <ScalarProperty Name="id_bus" ColumnName="id_bus" />
-                <ScalarProperty Name="registration_number" ColumnName="registration_number" />
-                <ScalarProperty Name="model" ColumnName="model" />
-                <ScalarProperty Name="capacity" ColumnName="capacity" />
-                <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="capacity" ColumnName="capacity" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="registration_number" ColumnName="registration_number" />
+                <ScalarProperty Name="id_bus" ColumnName="id_bus" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BUSROUTEs">
             <EntityTypeMapping TypeName="BusManagementModel.BUSROUTE">
               <MappingFragment StoreEntitySet="BUSROUTE">
-                <ScalarProperty Name="id_route" ColumnName="id_route" />
-                <ScalarProperty Name="id_start_station" ColumnName="id_start_station" />
-                <ScalarProperty Name="id_end_station" ColumnName="id_end_station" />
                 <ScalarProperty Name="distance" ColumnName="distance" />
+                <ScalarProperty Name="id_end_station" ColumnName="id_end_station" />
+                <ScalarProperty Name="id_start_station" ColumnName="id_start_station" />
+                <ScalarProperty Name="id_route" ColumnName="id_route" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BUSSTATIONs">
             <EntityTypeMapping TypeName="BusManagementModel.BUSSTATION">
               <MappingFragment StoreEntitySet="BUSSTATION">
-                <ScalarProperty Name="id_bus_station" ColumnName="id_bus_station" />
-                <ScalarProperty Name="id_place" ColumnName="id_place" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="address" ColumnName="address" />
-                <ScalarProperty Name="bus_capacity" ColumnName="bus_capacity" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
                 <ScalarProperty Name="count_current_bus" ColumnName="count_current_bus" />
+                <ScalarProperty Name="bus_capacity" ColumnName="bus_capacity" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="id_place" ColumnName="id_place" />
+                <ScalarProperty Name="id_bus_station" ColumnName="id_bus_station" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CASHRESERVEs">
             <EntityTypeMapping TypeName="BusManagementModel.CASHRESERVE">
               <MappingFragment StoreEntitySet="CASHRESERVE">
-                <ScalarProperty Name="id_cash_reserve" ColumnName="id_cash_reserve" />
                 <ScalarProperty Name="counter" ColumnName="counter" />
+                <ScalarProperty Name="id_cash_reserve" ColumnName="id_cash_reserve" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DRIVERs">
             <EntityTypeMapping TypeName="BusManagementModel.DRIVER">
               <MappingFragment StoreEntitySet="DRIVER">
-                <ScalarProperty Name="id_driver" ColumnName="id_driver" />
-                <ScalarProperty Name="lisence_level" ColumnName="lisence_level" />
-                <ScalarProperty Name="type" ColumnName="type" />
                 <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="lisence_level" ColumnName="lisence_level" />
+                <ScalarProperty Name="id_driver" ColumnName="id_driver" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EMPLOYEEs">
             <EntityTypeMapping TypeName="BusManagementModel.EMPLOYEE">
               <MappingFragment StoreEntitySet="EMPLOYEE">
-                <ScalarProperty Name="id_employee" ColumnName="id_employee" />
-                <ScalarProperty Name="id_account" ColumnName="id_account" />
-                <ScalarProperty Name="id_agent" ColumnName="id_agent" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="address" ColumnName="address" />
-                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
-                <ScalarProperty Name="identity_number" ColumnName="identity_number" />
-                <ScalarProperty Name="salary" ColumnName="salary" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="birthdate" ColumnName="birthdate" />
-                <ScalarProperty Name="gender" ColumnName="gender" />
                 <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="birthdate" ColumnName="birthdate" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+                <ScalarProperty Name="identity_number" ColumnName="identity_number" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id_agent" ColumnName="id_agent" />
+                <ScalarProperty Name="id_account" ColumnName="id_account" />
+                <ScalarProperty Name="id_employee" ColumnName="id_employee" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EVENTs">
             <EntityTypeMapping TypeName="BusManagementModel.EVENT">
               <MappingFragment StoreEntitySet="EVENT">
-                <ScalarProperty Name="id_event" ColumnName="id_event" />
-                <ScalarProperty Name="discount_type" ColumnName="discount_type" />
                 <ScalarProperty Name="discount_percent" ColumnName="discount_percent" />
+                <ScalarProperty Name="discount_type" ColumnName="discount_type" />
+                <ScalarProperty Name="id_event" ColumnName="id_event" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PACKAGEs">
             <EntityTypeMapping TypeName="BusManagementModel.PACKAGE">
               <MappingFragment StoreEntitySet="PACKAGE">
-                <ScalarProperty Name="id_package" ColumnName="id_package" />
-                <ScalarProperty Name="id_trip" ColumnName="id_trip" />
-                <ScalarProperty Name="mass" ColumnName="mass" />
-                <ScalarProperty Name="price" ColumnName="price" />
-                <ScalarProperty Name="sender_contact_phone" ColumnName="sender_contact_phone" />
                 <ScalarProperty Name="receiver_contact_phone" ColumnName="receiver_contact_phone" />
+                <ScalarProperty Name="sender_contact_phone" ColumnName="sender_contact_phone" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="mass" ColumnName="mass" />
+                <ScalarProperty Name="id_trip" ColumnName="id_trip" />
+                <ScalarProperty Name="id_package" ColumnName="id_package" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PACKAGEPRICEPOLICies">
             <EntityTypeMapping TypeName="BusManagementModel.PACKAGEPRICEPOLICY">
               <MappingFragment StoreEntitySet="PACKAGEPRICEPOLICY">
-                <ScalarProperty Name="id_policy" ColumnName="id_policy" />
-                <ScalarProperty Name="price_per_km" ColumnName="price_per_km" />
                 <ScalarProperty Name="mass_unit" ColumnName="mass_unit" />
+                <ScalarProperty Name="price_per_km" ColumnName="price_per_km" />
+                <ScalarProperty Name="id_policy" ColumnName="id_policy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PASSENGERs">
             <EntityTypeMapping TypeName="BusManagementModel.PASSENGER">
               <MappingFragment StoreEntitySet="PASSENGER">
-                <ScalarProperty Name="id_passenger" ColumnName="id_passenger" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
-                <ScalarProperty Name="address" ColumnName="address" />
-                <ScalarProperty Name="identity_number" ColumnName="identity_number" />
-                <ScalarProperty Name="gender" ColumnName="gender" />
                 <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="identity_number" ColumnName="identity_number" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id_passenger" ColumnName="id_passenger" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PLACEs">
             <EntityTypeMapping TypeName="BusManagementModel.PLACE">
               <MappingFragment StoreEntitySet="PLACE">
-                <ScalarProperty Name="id_place" ColumnName="id_place" />
                 <ScalarProperty Name="region" ColumnName="region" />
+                <ScalarProperty Name="id_place" ColumnName="id_place" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="POSITIONs">
             <EntityTypeMapping TypeName="BusManagementModel.POSITION">
               <MappingFragment StoreEntitySet="POSITION">
-                <ScalarProperty Name="id_position" ColumnName="id_position" />
                 <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="id_position" ColumnName="id_position" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PRIVILEGEs">
             <EntityTypeMapping TypeName="BusManagementModel.PRIVILEGE">
               <MappingFragment StoreEntitySet="PRIVILEGE">
-                <ScalarProperty Name="id_privilege" ColumnName="id_privilege" />
                 <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id_privilege" ColumnName="id_privilege" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="REFUNDs">
             <EntityTypeMapping TypeName="BusManagementModel.REFUND">
               <MappingFragment StoreEntitySet="REFUND">
-                <ScalarProperty Name="id_refund" ColumnName="id_refund" />
-                <ScalarProperty Name="refund_name" ColumnName="refund_name" />
                 <ScalarProperty Name="refund_percent" ColumnName="refund_percent" />
+                <ScalarProperty Name="refund_name" ColumnName="refund_name" />
+                <ScalarProperty Name="id_refund" ColumnName="id_refund" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SYSTEMACCOUNTs">
             <EntityTypeMapping TypeName="BusManagementModel.SYSTEMACCOUNT">
               <MappingFragment StoreEntitySet="SYSTEMACCOUNT">
-                <ScalarProperty Name="id_account" ColumnName="id_account" />
-                <ScalarProperty Name="username" ColumnName="username" />
                 <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="id_account" ColumnName="id_account" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TICKETs">
             <EntityTypeMapping TypeName="BusManagementModel.TICKET">
               <MappingFragment StoreEntitySet="TICKET">
-                <ScalarProperty Name="id_ticket" ColumnName="id_ticket" />
-                <ScalarProperty Name="id_trip" ColumnName="id_trip" />
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="fare" ColumnName="fare" />
-                <ScalarProperty Name="type" ColumnName="type" />
                 <ScalarProperty Name="seat_number" ColumnName="seat_number" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="fare" ColumnName="fare" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="id_trip" ColumnName="id_trip" />
+                <ScalarProperty Name="id_ticket" ColumnName="id_ticket" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TRIPs">
             <EntityTypeMapping TypeName="BusManagementModel.TRIP">
               <MappingFragment StoreEntitySet="TRIP">
-                <ScalarProperty Name="id_trip" ColumnName="id_trip" />
-                <ScalarProperty Name="id_bus" ColumnName="id_bus" />
-                <ScalarProperty Name="id_bus_route" ColumnName="id_bus_route" />
-                <ScalarProperty Name="departure_time" ColumnName="departure_time" />
-                <ScalarProperty Name="duration" ColumnName="duration" />
-                <ScalarProperty Name="booked_seat" ColumnName="booked_seat" />
                 <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="booked_seat" ColumnName="booked_seat" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="departure_time" ColumnName="departure_time" />
+                <ScalarProperty Name="id_bus_route" ColumnName="id_bus_route" />
+                <ScalarProperty Name="id_bus" ColumnName="id_bus" />
+                <ScalarProperty Name="id_trip" ColumnName="id_trip" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="V_AGENTINFOR">
             <EntityTypeMapping TypeName="BusManagementModel.V_AGENTINFOR">
               <MappingFragment StoreEntitySet="V_AGENTINFOR">
-                <ScalarProperty Name="Agent_ID" ColumnName="Agent ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Agent_ID" ColumnName="Agent ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="V_AVAILABLETRIP">
             <EntityTypeMapping TypeName="BusManagementModel.V_AVAILABLETRIP">
               <MappingFragment StoreEntitySet="V_AVAILABLETRIP">
-                <ScalarProperty Name="Trip_ID" ColumnName="Trip ID" />
-                <ScalarProperty Name="Registration_number_of_bus" ColumnName="Registration number of bus" />
-                <ScalarProperty Name="Start_point" ColumnName="Start point" />
-                <ScalarProperty Name="End_point" ColumnName="End point" />
-                <ScalarProperty Name="Departure_time" ColumnName="Departure time" />
-                <ScalarProperty Name="Duration" ColumnName="Duration" />
-                <ScalarProperty Name="Booked_seat" ColumnName="Booked seat" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Booked_seat" ColumnName="Booked seat" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Departure_time" ColumnName="Departure time" />
+                <ScalarProperty Name="End_point" ColumnName="End point" />
+                <ScalarProperty Name="Start_point" ColumnName="Start point" />
+                <ScalarProperty Name="Registration_number_of_bus" ColumnName="Registration number of bus" />
+                <ScalarProperty Name="Trip_ID" ColumnName="Trip ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="V_BOOKINGINFOR">
             <EntityTypeMapping TypeName="BusManagementModel.V_BOOKINGINFOR">
               <MappingFragment StoreEntitySet="V_BOOKINGINFOR">
-                <ScalarProperty Name="Booking_ID" ColumnName="Booking ID" />
-                <ScalarProperty Name="Ticket_ID" ColumnName="Ticket ID" />
-                <ScalarProperty Name="Passenger_name" ColumnName="Passenger name" />
-                <ScalarProperty Name="Passenger_gender" ColumnName="Passenger gender" />
-                <ScalarProperty Name="Passenger_phone_number" ColumnName="Passenger phone number" />
-                <ScalarProperty Name="Employee_name" ColumnName="Employee name" />
-                <ScalarProperty Name="Employee_gender" ColumnName="Employee gender" />
-                <ScalarProperty Name="Employee_phone_number" ColumnName="Employee phone number" />
                 <ScalarProperty Name="Booking_time" ColumnName="Booking time" />
+                <ScalarProperty Name="Employee_phone_number" ColumnName="Employee phone number" />
+                <ScalarProperty Name="Employee_gender" ColumnName="Employee gender" />
+                <ScalarProperty Name="Employee_name" ColumnName="Employee name" />
+                <ScalarProperty Name="Passenger_phone_number" ColumnName="Passenger phone number" />
+                <ScalarProperty Name="Passenger_gender" ColumnName="Passenger gender" />
+                <ScalarProperty Name="Passenger_name" ColumnName="Passenger name" />
+                <ScalarProperty Name="Ticket_ID" ColumnName="Ticket ID" />
+                <ScalarProperty Name="Booking_ID" ColumnName="Booking ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="V_BUSSTATIONINFOR">
             <EntityTypeMapping TypeName="BusManagementModel.V_BUSSTATIONINFOR">
               <MappingFragment StoreEntitySet="V_BUSSTATIONINFOR">
-                <ScalarProperty Name="id_place" ColumnName="id_place" />
-                <ScalarProperty Name="Bus_station_name" ColumnName="Bus station name" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Bus_station_name" ColumnName="Bus station name" />
+                <ScalarProperty Name="id_place" ColumnName="id_place" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="V_DRIVERINFOR">
             <EntityTypeMapping TypeName="BusManagementModel.V_DRIVERINFOR">
               <MappingFragment StoreEntitySet="V_DRIVERINFOR">
-                <ScalarProperty Name="Employees_ID" ColumnName="Employees ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Phone_Number" ColumnName="Phone Number" />
-                <ScalarProperty Name="Gender" ColumnName="Gender" />
-                <ScalarProperty Name="Lisence_Level" ColumnName="Lisence Level" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Lisence_Level" ColumnName="Lisence Level" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Phone_Number" ColumnName="Phone Number" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Employees_ID" ColumnName="Employees ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="V_EMPLOYEEINFOR">
             <EntityTypeMapping TypeName="BusManagementModel.V_EMPLOYEEINFOR">
               <MappingFragment StoreEntitySet="V_EMPLOYEEINFOR">
-                <ScalarProperty Name="Employees_ID" ColumnName="Employees ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Phone_Number" ColumnName="Phone Number" />
-                <ScalarProperty Name="Gender" ColumnName="Gender" />
                 <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Phone_Number" ColumnName="Phone Number" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Employees_ID" ColumnName="Employees ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="V_ROUTEINFOR">
             <EntityTypeMapping TypeName="BusManagementModel.V_ROUTEINFOR">
               <MappingFragment StoreEntitySet="V_ROUTEINFOR">
-                <ScalarProperty Name="id_route" ColumnName="id_route" />
-                <ScalarProperty Name="Start_point" ColumnName="Start point" />
-                <ScalarProperty Name="End_point" ColumnName="End point" />
                 <ScalarProperty Name="Distance" ColumnName="Distance" />
+                <ScalarProperty Name="End_point" ColumnName="End point" />
+                <ScalarProperty Name="Start_point" ColumnName="Start point" />
+                <ScalarProperty Name="id_route" ColumnName="id_route" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="V_TRIPINFOR">
             <EntityTypeMapping TypeName="BusManagementModel.V_TRIPINFOR">
               <MappingFragment StoreEntitySet="V_TRIPINFOR">
-                <ScalarProperty Name="Trip_ID" ColumnName="Trip ID" />
-                <ScalarProperty Name="Registration_number_of_bus" ColumnName="Registration number of bus" />
-                <ScalarProperty Name="Start_point" ColumnName="Start point" />
-                <ScalarProperty Name="End_point" ColumnName="End point" />
-                <ScalarProperty Name="Departure_time" ColumnName="Departure time" />
-                <ScalarProperty Name="Duration" ColumnName="Duration" />
-                <ScalarProperty Name="Booked_seat" ColumnName="Booked seat" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Remain_seat" ColumnName="Remain seat" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Departure_time" ColumnName="Departure time" />
+                <ScalarProperty Name="End_point" ColumnName="End point" />
+                <ScalarProperty Name="Start_point" ColumnName="Start point" />
+                <ScalarProperty Name="Registration_number_of_bus" ColumnName="Registration number of bus" />
+                <ScalarProperty Name="Trip_ID" ColumnName="Trip ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <AssociationSetMapping Name="AGENT_EVENT" TypeName="BusManagementModel.AGENT_EVENT" StoreEntitySet="AGENT_EVENT">
-            <EndProperty Name="AGENT">
-              <ScalarProperty Name="id_agent" ColumnName="id_agent" />
-            </EndProperty>
             <EndProperty Name="EVENT">
               <ScalarProperty Name="id_event" ColumnName="id_event" />
             </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="AGENT_POLICY" TypeName="BusManagementModel.AGENT_POLICY" StoreEntitySet="AGENT_POLICY">
             <EndProperty Name="AGENT">
               <ScalarProperty Name="id_agent" ColumnName="id_agent" />
             </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="AGENT_POLICY" TypeName="BusManagementModel.AGENT_POLICY" StoreEntitySet="AGENT_POLICY">
             <EndProperty Name="PACKAGEPRICEPOLICY">
               <ScalarProperty Name="id_policy" ColumnName="id_policy" />
             </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="AGENT_REFUND" TypeName="BusManagementModel.AGENT_REFUND" StoreEntitySet="AGENT_REFUND">
             <EndProperty Name="AGENT">
               <ScalarProperty Name="id_agent" ColumnName="id_agent" />
             </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="AGENT_REFUND" TypeName="BusManagementModel.AGENT_REFUND" StoreEntitySet="AGENT_REFUND">
             <EndProperty Name="REFUND">
               <ScalarProperty Name="id_refund" ColumnName="id_refund" />
             </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="AGENT_TRIP" TypeName="BusManagementModel.AGENT_TRIP" StoreEntitySet="AGENT_TRIP">
             <EndProperty Name="AGENT">
               <ScalarProperty Name="id_agent" ColumnName="id_agent" />
             </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="AGENT_TRIP" TypeName="BusManagementModel.AGENT_TRIP" StoreEntitySet="AGENT_TRIP">
             <EndProperty Name="TRIP">
               <ScalarProperty Name="id_trip" ColumnName="id_trip" />
+            </EndProperty>
+            <EndProperty Name="AGENT">
+              <ScalarProperty Name="id_agent" ColumnName="id_agent" />
             </EndProperty>
           </AssociationSetMapping>
           <AssociationSetMapping Name="BUSROUTE_BUSSTATION" TypeName="BusManagementModel.BUSROUTE_BUSSTATION" StoreEntitySet="BUSROUTE_BUSSTATION">
-            <EndProperty Name="BUSROUTE">
-              <ScalarProperty Name="id_route" ColumnName="id_bus_route" />
-            </EndProperty>
             <EndProperty Name="BUSSTATION">
               <ScalarProperty Name="id_bus_station" ColumnName="id_bus_station" />
             </EndProperty>
+            <EndProperty Name="BUSROUTE">
+              <ScalarProperty Name="id_route" ColumnName="id_bus_route" />
+            </EndProperty>
           </AssociationSetMapping>
           <AssociationSetMapping Name="EMPLOYEE_POSITION" TypeName="BusManagementModel.EMPLOYEE_POSITION" StoreEntitySet="EMPLOYEE_POSITION">
-            <EndProperty Name="EMPLOYEE">
-              <ScalarProperty Name="id_employee" ColumnName="id_employee" />
-            </EndProperty>
             <EndProperty Name="POSITION">
               <ScalarProperty Name="id_position" ColumnName="id_position" />
+            </EndProperty>
+            <EndProperty Name="EMPLOYEE">
+              <ScalarProperty Name="id_employee" ColumnName="id_employee" />
             </EndProperty>
           </AssociationSetMapping>
           <AssociationSetMapping Name="EMPLOYEE_TICKET" TypeName="BusManagementModel.EMPLOYEE_TICKET" StoreEntitySet="EMPLOYEE_TICKET">
-            <EndProperty Name="EMPLOYEE">
-              <ScalarProperty Name="id_employee" ColumnName="id_employee" />
-            </EndProperty>
             <EndProperty Name="TICKET">
               <ScalarProperty Name="id_ticket" ColumnName="id_ticket" />
             </EndProperty>
+            <EndProperty Name="EMPLOYEE">
+              <ScalarProperty Name="id_employee" ColumnName="id_employee" />
+            </EndProperty>
           </AssociationSetMapping>
           <AssociationSetMapping Name="POSITION_PRIVILEGE" TypeName="BusManagementModel.POSITION_PRIVILEGE" StoreEntitySet="POSITION_PRIVILEGE">
-            <EndProperty Name="POSITION">
-              <ScalarProperty Name="id_position" ColumnName="id_position" />
-            </EndProperty>
             <EndProperty Name="PRIVILEGE">
               <ScalarProperty Name="id_privilege" ColumnName="id_privilege" />
             </EndProperty>
+            <EndProperty Name="POSITION">
+              <ScalarProperty Name="id_position" ColumnName="id_position" />
+            </EndProperty>
           </AssociationSetMapping>
           <AssociationSetMapping Name="TRIP_DRIVER" TypeName="BusManagementModel.TRIP_DRIVER" StoreEntitySet="TRIP_DRIVER">
-            <EndProperty Name="DRIVER">
-              <ScalarProperty Name="id_driver" ColumnName="id_driver" />
-            </EndProperty>
             <EndProperty Name="TRIP">
               <ScalarProperty Name="id_trip" ColumnName="id_trip" />
+            </EndProperty>
+            <EndProperty Name="DRIVER">
+              <ScalarProperty Name="id_driver" ColumnName="id_driver" />
             </EndProperty>
           </AssociationSetMapping>
           <FunctionImportMapping FunctionImportName="pro_AddBooking" FunctionName="BusManagementModel.Store.pro_AddBooking" />

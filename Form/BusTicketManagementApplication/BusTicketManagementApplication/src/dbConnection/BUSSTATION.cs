@@ -24,10 +24,10 @@ namespace BusTicketManagementApplication.src.dbConnection
     
         public string id_bus_station { get; set; }
         public string id_place { get; set; }
-        public string name { get; set; }
         public string address { get; set; }
         public int bus_capacity { get; set; }
         public Nullable<int> count_current_bus { get; set; }
+        public string phone { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BUSROUTE> BUSROUTEs { get; set; }

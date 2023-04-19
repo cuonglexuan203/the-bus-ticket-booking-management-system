@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusTicketManagementApplication.src.layers.interfaceLayers.components.trip;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +21,15 @@ namespace BusTicketManagementApplication
             {
 
             }
+        }
+
+        private void BtnTrip_Click(object sender, EventArgs e)
+        {
+            Trip foo = new Trip();
+            foo.TopLevel = false;
+            foo.Dock = DockStyle.Fill;
+            this.PnlFillContent.Controls.Add(foo);
+            foo.Show();
         }
     }
 }
