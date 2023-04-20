@@ -29,4 +29,4 @@ Project: <h1> The bus ticket booking management system application</h1>
             <td>Member</td>
         </tr>
     </table>
-![My Image](https://github.com/cuonglexuan203/the-bus-ticket-booking-management-system/tree/main/Intro/img.png)
+![img](https://user-images.githubusercontent.com/117392305/233319815-58161aea-af21-4d7e-89ec-4aeedc21b6ad.png)
