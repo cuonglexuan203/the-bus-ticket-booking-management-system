@@ -1,0 +1,2 @@
+D:\HCMUTE\Subject\2022-2023\Semester2\Database_Management_System\FinalProject\Development\Form\BusTicketManagementApplication\BusTicketManagementApplication\obj\Debug\BusTicketManagementApplication.csproj.AssemblyReference.cache
+D:\HCMUTE\Subject\2022-2023\Semester2\Database_Management_System\FinalProject\Development\Form\BusTicketManagementApplication\BusTicketManagementApplication\obj\Debug\BusTicketManagementApplication.csproj.SuggestedBindingRedirects.cache
