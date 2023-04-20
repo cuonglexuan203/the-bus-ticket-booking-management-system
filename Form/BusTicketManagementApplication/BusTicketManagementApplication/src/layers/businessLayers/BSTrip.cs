@@ -20,11 +20,11 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
             return res;
         }
 
-        public List<V_TRIPINFOR> SearchTrips(string input, string src, string des, DateTime dateTime)
+        public List<V_AVAILABLETRIP> SearchAvailableTrips(string input, string src, string des, DateTime dateTime)
         {
             BusManagementEntities db = new BusManagementEntities();
             
-            var res = db.V_TRIPINFOR.Where(d => d.Departure_time > dateTime);
+            var res = db.V_AVAILABLETRIP.Where(d => d.Departure_time > dateTime);
             if (src != "All")
             {
                 res = res.Where(d => d.Start_point == src);
@@ -40,12 +40,7 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
             return res.ToList();
         }
 
-        public List<string> GetPlaceNames()
-        {
-            BusManagementEntities db = new BusManagementEntities();
-            var res = db.PLACEs.Select(d => d.region).ToList();
-            return res;
-        }
+        
 
     }
 }

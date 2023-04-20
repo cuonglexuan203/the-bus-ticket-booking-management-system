@@ -38,7 +38,7 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.t
         // common functions
         private void LoadDefaultPlace()
         {
-            var defaultPlace = new BSTrip().GetPlaceNames().ToArray();
+            var defaultPlace = new BSPlace().GetPlaceNames().ToArray();
             this.CbSource.Items.Add("All");
             this.CbSource.Items.AddRange(defaultPlace);
             this.CbSource.SelectedIndex = 0;
@@ -51,7 +51,7 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.t
         private void FilterTrips()
         {
             BSTrip bSTrip = new BSTrip();
-            this.DgvMainData.DataSource = bSTrip.SearchTrips(searchInput, source, destination, departureTime);
+            this.DgvMainData.DataSource = bSTrip.SearchAvailableTrips(searchInput, source, destination, departureTime);
         }
 
 
@@ -77,21 +77,16 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.t
 
         private void BtnBooking_Click(object sender, EventArgs e)
         {
-            this.parentForm.MainFeatureIndex = 0;
+            UserData.CurrentSelectedTripId = DgvMainData.CurrentRow?.Cells[0].Value.ToString();
+            this.parentForm.MainFeatureIndex = 4;
         }
 
         private void DgvMainData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             string selectedId = DgvMainData.CurrentRow?.Cells[0].Value.ToString();
-            UserData.CurrentSelectedTicketId = selectedId;
             this.LbSelectedId.Text = selectedId;
         }
 
-        private void TbSearch_KeyUp(object sender, KeyEventArgs e)
-        {
-            
-
-        }
 
         private void CbSource_TextChanged(object sender, EventArgs e)
         {

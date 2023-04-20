@@ -25,7 +25,6 @@
         <EntityTypeShape EntityType="BusManagementModel.TICKET" Width="1.5" PointX="13.5" PointY="10.5" />
         <EntityTypeShape EntityType="BusManagementModel.TRIP" Width="1.5" PointX="11.25" PointY="14.125" />
         <EntityTypeShape EntityType="BusManagementModel.V_AGENTINFOR" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="BusManagementModel.V_AVAILABLETRIP" Width="1.5" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="BusManagementModel.V_BOOKINGINFOR" Width="1.5" PointX="4.75" PointY="0.75" />
         <EntityTypeShape EntityType="BusManagementModel.V_BUSSTATIONINFOR" Width="1.5" PointX="0.75" PointY="4.75" />
         <EntityTypeShape EntityType="BusManagementModel.V_DRIVERINFOR" Width="1.5" PointX="2.75" PointY="4.75" />
@@ -55,6 +54,7 @@
         <AssociationConnector Association="BusManagementModel.EMPLOYEE_TICKET" />
         <AssociationConnector Association="BusManagementModel.POSITION_PRIVILEGE" />
         <AssociationConnector Association="BusManagementModel.TRIP_DRIVER" />
+        <EntityTypeShape EntityType="BusManagementModel.V_AVAILABLETRIP" Width="1.5" PointX="11.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

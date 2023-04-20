@@ -25,7 +25,7 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.Data
         private static string firstname;
         private static string lastname;
         //
-        private static string currentSelectedTicketId = string.Empty;
+        private static string currentSelectedTripId = string.Empty;
         //
         public static bool Islogin { get => islogin; set => islogin = value; }
         public static string Username { get => username; set => username = value; }
@@ -38,7 +38,7 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.Data
         public static DateTime Birthday { get => birthday; set => birthday = value; }
         public static string Firstname { get => firstname; set => firstname = value; }
         public static string Lastname { get => lastname; set => lastname = value; }
-        public static string CurrentSelectedTicketId { get => currentSelectedTicketId; set => currentSelectedTicketId = value; }
+        public static string CurrentSelectedTripId { get => currentSelectedTripId; set => currentSelectedTripId = value; }
         //
         public static void ClearUserData()
         {
@@ -53,7 +53,7 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.Data
             birthday = DateTime.Now;
             firstname = string.Empty;
             lastname = string.Empty;
-            currentSelectedTicketId = string.Empty;
+            currentSelectedTripId = string.Empty;
         }
         public static void SetUserLoginData(string username, string password)
         {

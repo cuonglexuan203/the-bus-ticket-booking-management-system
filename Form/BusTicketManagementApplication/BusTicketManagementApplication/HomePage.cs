@@ -1,5 +1,7 @@
-﻿using BusTicketManagementApplication.src.layers.interfaceLayers.components.home;
+﻿using BusTicketManagementApplication.src.layers.interfaceLayers.components.booking;
+using BusTicketManagementApplication.src.layers.interfaceLayers.components.home;
 using BusTicketManagementApplication.src.layers.interfaceLayers.components.trip;
+using BusTicketManagementApplication.src.layers.interfaceLayers.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -52,6 +54,12 @@ namespace BusTicketManagementApplication
                             }
                         case 4:
                             {
+                                Form renderForm = new Booking(this);
+                                if (string.IsNullOrEmpty(UserData.CurrentSelectedTripId))
+                                {
+                                    renderForm = new UnSelectBooking();
+                                }
+                                RenderActiveForm(renderForm, this.PnlFillContent);
                                 break;
                             }
                         case 5:

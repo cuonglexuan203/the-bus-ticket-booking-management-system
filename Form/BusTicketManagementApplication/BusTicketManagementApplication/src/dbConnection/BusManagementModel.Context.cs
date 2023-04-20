@@ -47,13 +47,13 @@ namespace BusTicketManagementApplication.src.dbConnection
         public virtual DbSet<TICKET> TICKETs { get; set; }
         public virtual DbSet<TRIP> TRIPs { get; set; }
         public virtual DbSet<V_AGENTINFOR> V_AGENTINFOR { get; set; }
-        public virtual DbSet<V_AVAILABLETRIP> V_AVAILABLETRIP { get; set; }
         public virtual DbSet<V_BOOKINGINFOR> V_BOOKINGINFOR { get; set; }
         public virtual DbSet<V_BUSSTATIONINFOR> V_BUSSTATIONINFOR { get; set; }
         public virtual DbSet<V_DRIVERINFOR> V_DRIVERINFOR { get; set; }
         public virtual DbSet<V_EMPLOYEEINFOR> V_EMPLOYEEINFOR { get; set; }
         public virtual DbSet<V_ROUTEINFOR> V_ROUTEINFOR { get; set; }
         public virtual DbSet<V_TRIPINFOR> V_TRIPINFOR { get; set; }
+        public virtual DbSet<V_AVAILABLETRIP> V_AVAILABLETRIP { get; set; }
     
         public virtual int pro_AddBooking(string id_ticket, string id_passenger, string id_employee)
         {
@@ -119,6 +119,51 @@ namespace BusTicketManagementApplication.src.dbConnection
                 new ObjectParameter("id_trip", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pro_SetGoingTrip", id_tripParameter);
+        }
+    
+        [DbFunction("BusManagementEntities", "GetAvailabelSeat")]
+        public virtual IQueryable<string> GetAvailabelSeat(string idTrip, Nullable<bool> type)
+        {
+            var idTripParameter = idTrip != null ?
+                new ObjectParameter("idTrip", idTrip) :
+                new ObjectParameter("idTrip", typeof(string));
+    
+            var typeParameter = type.HasValue ?
+                new ObjectParameter("type", type) :
+                new ObjectParameter("type", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<string>("[BusManagementEntities].[GetAvailabelSeat](@idTrip, @type)", idTripParameter, typeParameter);
+        }
+    
+        public virtual int pro_AddPassenger(string id_passenger, string name, string phone)
+        {
+            var id_passengerParameter = id_passenger != null ?
+                new ObjectParameter("id_passenger", id_passenger) :
+                new ObjectParameter("id_passenger", typeof(string));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("name", name) :
+                new ObjectParameter("name", typeof(string));
+    
+            var phoneParameter = phone != null ?
+                new ObjectParameter("phone", phone) :
+                new ObjectParameter("phone", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pro_AddPassenger", id_passengerParameter, nameParameter, phoneParameter);
+        }
+    
+        [DbFunction("BusManagementEntities", "func_GetAvailabelSeat")]
+        public virtual IQueryable<string> func_GetAvailabelSeat(string idTrip, Nullable<bool> type)
+        {
+            var idTripParameter = idTrip != null ?
+                new ObjectParameter("idTrip", idTrip) :
+                new ObjectParameter("idTrip", typeof(string));
+    
+            var typeParameter = type.HasValue ?
+                new ObjectParameter("type", type) :
+                new ObjectParameter("type", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<string>("[BusManagementEntities].[func_GetAvailabelSeat](@idTrip, @type)", idTripParameter, typeParameter);
         }
     }
 }

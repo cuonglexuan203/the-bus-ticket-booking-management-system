@@ -20,7 +20,7 @@ namespace BusTicketManagementApplication.src.dbConnection
         public string End_point { get; set; }
         public System.DateTime Departure_time { get; set; }
         public int Duration { get; set; }
-        public Nullable<byte> Booked_seat { get; set; }
+        public Nullable<byte> Remain_seat { get; set; }
         public string Status { get; set; }
     }
 }

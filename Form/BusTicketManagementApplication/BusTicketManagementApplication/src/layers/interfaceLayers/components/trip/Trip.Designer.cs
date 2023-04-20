@@ -181,7 +181,8 @@
             this.DgvMainData.ReadOnly = true;
             this.DgvMainData.RowHeadersVisible = false;
             this.DgvMainData.RowHeadersWidth = 51;
-            this.DgvMainData.RowTemplate.Height = 24;
+            this.DgvMainData.RowTemplate.Height = 40;
+            this.DgvMainData.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.DgvMainData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvMainData.Size = new System.Drawing.Size(966, 434);
             this.DgvMainData.TabIndex = 9;
