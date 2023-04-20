@@ -33,14 +33,23 @@ go
 create proc pro_AddDefaultBooking @id_ticket char(20), @id_passenger char(20)
 as
 begin
+	update TICKET set TICKET.status = 1 where TICKET.id_ticket = @id_ticket;
 	insert into BOOKING(id_ticket, id_passenger, id_employee, booking_time) values (@id_ticket, @id_passenger, dbo.func_AutoDefaultIdEmployee(), GETDATE());
 end
 go
 --
-create proc pro_AddBooking @id_ticket char(20), @id_passenger char(20), @id_employee char(20)
+create proc [dbo].[pro_AddBooking] @id_ticket char(20), @id_passenger char(20), @id_employee char(20)
 as
 begin
+	update TICKET set TICKET.status = 1 where TICKET.id_ticket = @id_ticket;
 	insert into BOOKING(id_ticket, id_passenger, id_employee, booking_time) values (@id_ticket, @id_passenger, @id_employee, GETDATE());
 end
+go
+--
+create proc [dbo].[pro_AddPassenger] @id_passenger char(20), @name nvarchar(50), @phone char(20)
+as
+begin 
+insert into PASSENGER(id_passenger, name, phone_number) values (@id_passenger, @name, @phone);
+end;
 go
 --

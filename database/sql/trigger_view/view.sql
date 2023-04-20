@@ -25,7 +25,7 @@ go
 create view V_AVAILABLETRIP
 as
 select a.id_trip as [Trip ID], b.registration_number as [Registration number of bus], c.region as [Start point], d.region as [End point]
-, a.departure_time as [Departure time], a.duration as [Duration], a.booked_seat as [Booked seat], a.status as [Status]
+, a.departure_time as [Departure time], a.duration as [Duration], b.capacity - a.booked_seat as [Remain seat], a.status as [Status]
 from TRIP as a
 inner join BUS as b on a.id_bus = b.id_bus
 inner join (
