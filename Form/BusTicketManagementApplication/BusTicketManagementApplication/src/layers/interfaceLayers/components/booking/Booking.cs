@@ -36,7 +36,10 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.b
         public void LoadDefaultTicketType()
         {
             this.CbType.Items.AddRange("Seat,Sleeper".Split(','));
-            this.CbType.SelectedIndex = 0;
+            if (CbType.Items.Count > 0)
+            {
+                this.CbType.SelectedIndex = 0;
+            }
         }
         public void LoadSelectedTrip()
         {
@@ -54,7 +57,10 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.b
         public void LoadAvailableSeat(int type)
         {
             this.CbBookedSeat.DataSource = new BSBooking().GetAvailableSeat(UserData.CurrentSelectedTripId.Trim(), type);
-            this.CbBookedSeat.SelectedIndex = 0;
+            if(CbBookedSeat.Items.Count > 0)
+            {
+                this.CbBookedSeat.SelectedIndex = 0;
+            }
         }
         public void LoadSelectedTicket()
         {
@@ -111,8 +117,15 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.b
 
         private void BtnBooking_Click(object sender, EventArgs e)
         {
-            BSBooking bsbooking = new BSBooking();
-            bsbooking.AddPassenger(this.TbName.Text, this.MtbPhone.Text);
+            if (this.TbName.Text != null && this.MtbPhone.Text != null && this.MtbPhone.Text.Trim().Length == 12)
+            {
+                string newPassengerId = new BSPassenger().GetNewPassengerId();
+                BusManagementEntities db = new BusManagementEntities();
+                db.pro_AddPassenger( newPassengerId, this.TbName.Text, this.MtbPhone.Text );
+                //
+                db.pro_AddDefaultBooking(this.TbIDTicket.Text.Trim(), newPassengerId );
+            }
+
         }
 
 

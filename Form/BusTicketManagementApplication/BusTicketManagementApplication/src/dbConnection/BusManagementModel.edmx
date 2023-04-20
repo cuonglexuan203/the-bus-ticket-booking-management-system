@@ -775,10 +775,6 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="func_AddPassenger" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char">
-          <Parameter Name="name" Type="nvarchar" Mode="In" />
-          <Parameter Name="phone" Type="char" Mode="In" />
-        </Function>
         <Function Name="func_auto_id_account" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
         <Function Name="func_auto_id_agent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
         <Function Name="func_auto_id_booking" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
@@ -1218,18 +1214,14 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
             <End Role="TRIP" EntitySet="TRIPs" />
           </AssociationSet>
           <EntitySet Name="V_AVAILABLETRIP" EntityType="BusManagementModel.V_AVAILABLETRIP" />
-          <FunctionImport Name="GetAvailabelSeat" IsComposable="true" ReturnType="Collection(String)">
-          <Parameter Name="idTrip" Mode="In" Type="String" />
+          <FunctionImport Name="func_GetAvailabelSeat" IsComposable="true" ReturnType="Collection(String)">
+            <Parameter Name="idTrip" Mode="In" Type="String" />
             <Parameter Name="type" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="pro_AddPassenger">
             <Parameter Name="id_passenger" Mode="In" Type="String" />
             <Parameter Name="name" Mode="In" Type="String" />
             <Parameter Name="phone" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="func_GetAvailabelSeat" IsComposable="true" ReturnType="Collection(String)">
-            <Parameter Name="idTrip" Mode="In" Type="String" />
-            <Parameter Name="type" Mode="In" Type="Boolean" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="AGENT">
@@ -2163,8 +2155,8 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="pro_AddPassenger" FunctionName="BusManagementModel.Store.pro_AddPassenger" />
           <FunctionImportMapping FunctionImportName="func_GetAvailabelSeat" FunctionName="BusManagementModel.Store.func_GetAvailabelSeat" />
+          <FunctionImportMapping FunctionImportName="pro_AddPassenger" FunctionName="BusManagementModel.Store.pro_AddPassenger" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -165,6 +165,7 @@
     <Compile Include="src\env\statics\StaticEnv.cs" />
     <Compile Include="src\layers\businessLayers\BSBooking.cs" />
     <Compile Include="src\layers\businessLayers\BSMain.cs" />
+    <Compile Include="src\layers\businessLayers\BSPassenger.cs" />
     <Compile Include="src\layers\businessLayers\BSPlace.cs" />
     <Compile Include="src\layers\businessLayers\BSRoute.cs" />
     <Compile Include="src\layers\businessLayers\BSTicket.cs" />

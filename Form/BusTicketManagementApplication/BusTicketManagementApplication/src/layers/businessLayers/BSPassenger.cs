@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace BusTicketManagementApplication.src.layers.businessLayers
 {
-    internal class BSTicket
+    internal class BSPassenger
     {
-        public string GetNewTicketId()
+        public string GetNewPassengerId()
         {
             BusManagementEntities db = new BusManagementEntities();
-            string funcName = "func_auto_id_ticket";
+            string funcName = "func_auto_id_passenger";
             return BSMain.RunFunc(funcName);
         }
     }

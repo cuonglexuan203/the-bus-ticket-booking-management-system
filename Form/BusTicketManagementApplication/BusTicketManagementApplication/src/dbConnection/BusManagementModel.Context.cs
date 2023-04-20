@@ -121,8 +121,8 @@ namespace BusTicketManagementApplication.src.dbConnection
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pro_SetGoingTrip", id_tripParameter);
         }
     
-        [DbFunction("BusManagementEntities", "GetAvailabelSeat")]
-        public virtual IQueryable<string> GetAvailabelSeat(string idTrip, Nullable<bool> type)
+        [DbFunction("BusManagementEntities", "func_GetAvailabelSeat")]
+        public virtual IQueryable<string> func_GetAvailabelSeat(string idTrip, Nullable<bool> type)
         {
             var idTripParameter = idTrip != null ?
                 new ObjectParameter("idTrip", idTrip) :
@@ -132,7 +132,7 @@ namespace BusTicketManagementApplication.src.dbConnection
                 new ObjectParameter("type", type) :
                 new ObjectParameter("type", typeof(bool));
     
-            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<string>("[BusManagementEntities].[GetAvailabelSeat](@idTrip, @type)", idTripParameter, typeParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<string>("[BusManagementEntities].[func_GetAvailabelSeat](@idTrip, @type)", idTripParameter, typeParameter);
         }
     
         public virtual int pro_AddPassenger(string id_passenger, string name, string phone)
@@ -150,20 +150,6 @@ namespace BusTicketManagementApplication.src.dbConnection
                 new ObjectParameter("phone", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pro_AddPassenger", id_passengerParameter, nameParameter, phoneParameter);
-        }
-    
-        [DbFunction("BusManagementEntities", "func_GetAvailabelSeat")]
-        public virtual IQueryable<string> func_GetAvailabelSeat(string idTrip, Nullable<bool> type)
-        {
-            var idTripParameter = idTrip != null ?
-                new ObjectParameter("idTrip", idTrip) :
-                new ObjectParameter("idTrip", typeof(string));
-    
-            var typeParameter = type.HasValue ?
-                new ObjectParameter("type", type) :
-                new ObjectParameter("type", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<string>("[BusManagementEntities].[func_GetAvailabelSeat](@idTrip, @type)", idTripParameter, typeParameter);
         }
     }
 }

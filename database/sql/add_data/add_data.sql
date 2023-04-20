@@ -250,7 +250,8 @@ INSERT INTO SYSTEMACCOUNT(username,pass) values ('admin05','slaveofnam05')
 
 -- Đang làm dở
         
-INSERT INTO EMPLOYEE(id_account,id_agent,name,address,phone_number,identity_number,salary,email,birthdate,gender,state) values ('acc_0000000001','age_0000000005','Số 50, đường Nguyễn Tất Thành, phường 5, thành phố Cà Mau, tỉnh Cà Mau'
+INSERT INTO EMPLOYEE(id_account,id_agent,name,address,phone_number,identity_number,salary,birthdate,gender,state) 
+values ('acc_0000000001','age_0000000005',N'system employee',N'Số 50, đường Nguyễn Tất Thành, phường 5, thành phố Cà Mau, tỉnh Cà Mau','0111111111', '12345678910', 3123, '12-12-2012', 0, 1)
 INSERT INTO EMPLOYEE(id_account,id_agent,name,address,phone_number,identity_number,salary,email,birthdate,gender,state) values ('acc_0000000002','age_0000000004','Số 40, đường Nguyễn Đình Chính, phường 2, thành phố Bến Tre, tỉnh Bến Tre',
 INSERT INTO EMPLOYEE(id_account,id_agent,name,address,phone_number,identity_number,salary,email,birthdate,gender,state) values ('acc_0000000003','age_0000000003','Số 30, đường Lê Lợi, phường 7, thành phố Bạc Liêu, tỉnh Bạc Liêu',
 INSERT INTO EMPLOYEE(id_account,id_agent,name,address,phone_number,identity_number,salary,email,birthdate,gender,state) values ('acc_0000000004','age_0000000002','Số 20, đường Hùng Vương, phường Đồng Xuân, thành phố Gia Nghĩa, tỉnh Đăk Nông',
