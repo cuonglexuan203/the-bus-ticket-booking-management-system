@@ -56,8 +56,10 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.b
         }
         public void LoadAvailableSeat(int type)
         {
+            this.TbIDTicket.Text = string.Empty;
+            this.TbFare.Text = string.Empty;
             this.CbBookedSeat.DataSource = new BSBooking().GetAvailableSeat(UserData.CurrentSelectedTripId.Trim(), type);
-            if(CbBookedSeat.Items.Count > 0)
+            if (CbBookedSeat.Items.Count > 0)
             {
                 this.CbBookedSeat.SelectedIndex = 0;
             }
@@ -67,8 +69,16 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.b
             BSBooking bsbooking = new BSBooking();
             bool type = this.CbType.SelectedIndex != 0;
             TICKET selectedTicket = bsbooking.GetTicket(UserData.CurrentSelectedTripId, type, this.CbBookedSeat.Text);
-            this.TbIDTicket.Text = selectedTicket.id_ticket.ToString().Trim();
-            this.TbFare.Text = selectedTicket.fare.ToString().Trim();
+            if (selectedTicket != null)
+            {
+                this.TbIDTicket.Text = selectedTicket.id_ticket.ToString().Trim();
+                this.TbFare.Text = selectedTicket.fare.ToString().Trim();
+            }
+            else
+            {
+                this.TbIDTicket.Text = string.Empty;
+                this.TbFare.Text = string.Empty;
+            }
         }
         // end common function
         private void TbName_Leave(object sender, EventArgs e)
@@ -117,13 +127,24 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.b
 
         private void BtnBooking_Click(object sender, EventArgs e)
         {
-            if (this.TbName.Text != null && this.MtbPhone.Text != null && this.MtbPhone.Text.Trim().Length == 12)
+            if (this.TbName.Text.Trim() != null && this.MtbPhone.Text != null && this.MtbPhone.Text.Trim().Length == 12)
             {
-                string newPassengerId = new BSPassenger().GetNewPassengerId();
+                if(string.IsNullOrEmpty(this.TbIDTicket.Text.Trim()))
+                {
+                    MessageBox.Show("Please select the ticket to booking!");
+                    return;
+                }
+                string newPassengerId = new BSPassenger().GetNewPassengerId().Trim();
                 BusManagementEntities db = new BusManagementEntities();
-                db.pro_AddPassenger( newPassengerId, this.TbName.Text, this.MtbPhone.Text );
+                db.pro_AddPassenger( newPassengerId, this.TbName.Text.Trim(), this.MtbPhone.Text );
                 //
                 db.pro_AddDefaultBooking(this.TbIDTicket.Text.Trim(), newPassengerId );
+                MessageBox.Show("Booking successfully!");
+                LoadAvailableSeat(this.CbType.SelectedIndex);
+            }
+            else
+            {
+                MessageBox.Show("Please input user information to booking!");
             }
 
         }

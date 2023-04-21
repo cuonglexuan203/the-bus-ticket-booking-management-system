@@ -47,13 +47,13 @@ namespace BusTicketManagementApplication.src.dbConnection
         public virtual DbSet<TICKET> TICKETs { get; set; }
         public virtual DbSet<TRIP> TRIPs { get; set; }
         public virtual DbSet<V_AGENTINFOR> V_AGENTINFOR { get; set; }
+        public virtual DbSet<V_AVAILABLETRIP> V_AVAILABLETRIP { get; set; }
         public virtual DbSet<V_BOOKINGINFOR> V_BOOKINGINFOR { get; set; }
         public virtual DbSet<V_BUSSTATIONINFOR> V_BUSSTATIONINFOR { get; set; }
         public virtual DbSet<V_DRIVERINFOR> V_DRIVERINFOR { get; set; }
         public virtual DbSet<V_EMPLOYEEINFOR> V_EMPLOYEEINFOR { get; set; }
         public virtual DbSet<V_ROUTEINFOR> V_ROUTEINFOR { get; set; }
         public virtual DbSet<V_TRIPINFOR> V_TRIPINFOR { get; set; }
-        public virtual DbSet<V_AVAILABLETRIP> V_AVAILABLETRIP { get; set; }
     
         public virtual int pro_AddBooking(string id_ticket, string id_passenger, string id_employee)
         {

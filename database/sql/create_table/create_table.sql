@@ -36,7 +36,7 @@ create table TICKET
     fare money not null,
     type bit default 0,
     -- 0: seat, 1: lie
-    seat_number char(15) not null unique
+    seat_number char(15) not null
 );
 
 create table BUSROUTE
@@ -74,7 +74,7 @@ create table PASSENGER
     phone_number char(20) not null,
     address char(100) not null,
     identity_number char(20) null,
-    gender bit default 0,
+    gender bit,
     -- 0: male, 1: female
     email char(50) null,
 );
@@ -100,7 +100,7 @@ create table EMPLOYEE
     salary money not null,
     email char(50) null,
     birthdate date not null,
-    gender bit default 0, -- 0: male, 1: female
+    gender bit, -- 0: male, 1: female
     state bit default 1
     -- 0: not working, 1: is working
 );

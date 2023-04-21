@@ -1095,6 +1095,15 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
           <FunctionImport Name="pro_SetGoingTrip">
           <Parameter Name="id_trip" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="func_GetAvailabelSeat" IsComposable="true" ReturnType="Collection(String)">
+            <Parameter Name="idTrip" Mode="In" Type="String" />
+            <Parameter Name="type" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="pro_AddPassenger">
+            <Parameter Name="id_passenger" Mode="In" Type="String" />
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="phone" Mode="In" Type="String" />
+          </FunctionImport>
           <EntitySet Name="AGENTs" EntityType="BusManagementModel.AGENT" />
           <EntitySet Name="BOOKINGs" EntityType="BusManagementModel.BOOKING" />
           <EntitySet Name="Buses" EntityType="BusManagementModel.BUS" />
@@ -1115,6 +1124,7 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
           <EntitySet Name="TICKETs" EntityType="BusManagementModel.TICKET" />
           <EntitySet Name="TRIPs" EntityType="BusManagementModel.TRIP" />
           <EntitySet Name="V_AGENTINFOR" EntityType="BusManagementModel.V_AGENTINFOR" />
+          <EntitySet Name="V_AVAILABLETRIP" EntityType="BusManagementModel.V_AVAILABLETRIP" />
           <EntitySet Name="V_BOOKINGINFOR" EntityType="BusManagementModel.V_BOOKINGINFOR" />
           <EntitySet Name="V_BUSSTATIONINFOR" EntityType="BusManagementModel.V_BUSSTATIONINFOR" />
           <EntitySet Name="V_DRIVERINFOR" EntityType="BusManagementModel.V_DRIVERINFOR" />
@@ -1213,16 +1223,6 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
             <End Role="DRIVER" EntitySet="DRIVERs" />
             <End Role="TRIP" EntitySet="TRIPs" />
           </AssociationSet>
-          <EntitySet Name="V_AVAILABLETRIP" EntityType="BusManagementModel.V_AVAILABLETRIP" />
-          <FunctionImport Name="func_GetAvailabelSeat" IsComposable="true" ReturnType="Collection(String)">
-            <Parameter Name="idTrip" Mode="In" Type="String" />
-            <Parameter Name="type" Mode="In" Type="Boolean" />
-          </FunctionImport>
-          <FunctionImport Name="pro_AddPassenger">
-            <Parameter Name="id_passenger" Mode="In" Type="String" />
-            <Parameter Name="name" Mode="In" Type="String" />
-            <Parameter Name="phone" Mode="In" Type="String" />
-          </FunctionImport>
         </EntityContainer>
         <EntityType Name="AGENT">
           <Key>
@@ -1464,6 +1464,24 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
           <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
           <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Region" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="V_AVAILABLETRIP">
+          <Key>
+            <PropertyRef Name="Trip_ID" />
+            <PropertyRef Name="Registration_number_of_bus" />
+            <PropertyRef Name="Start_point" />
+            <PropertyRef Name="End_point" />
+            <PropertyRef Name="Departure_time" />
+            <PropertyRef Name="Duration" />
+          </Key>
+          <Property Name="Trip_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Registration_number_of_bus" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Name="Start_point" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="End_point" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Departure_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Duration" Type="Int32" Nullable="false" />
+          <Property Name="Remain_seat" Type="Byte" />
+          <Property Name="Status" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityType Name="V_BOOKINGINFOR">
           <Key>
@@ -1754,24 +1772,6 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
           <End Type="BusManagementModel.DRIVER" Role="DRIVER" Multiplicity="*" />
           <End Type="BusManagementModel.TRIP" Role="TRIP" Multiplicity="*" />
         </Association>
-        <EntityType Name="V_AVAILABLETRIP">
-          <Key>
-            <PropertyRef Name="Trip_ID" />
-            <PropertyRef Name="Registration_number_of_bus" />
-            <PropertyRef Name="Start_point" />
-            <PropertyRef Name="End_point" />
-            <PropertyRef Name="Departure_time" />
-            <PropertyRef Name="Duration" />
-          </Key>
-          <Property Name="Trip_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="Registration_number_of_bus" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="false" />
-          <Property Name="Start_point" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="End_point" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Departure_time" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Duration" Type="Int32" Nullable="false" />
-          <Property Name="Remain_seat" Type="Byte" />
-          <Property Name="Status" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
-        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1784,6 +1784,8 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
           <FunctionImportMapping FunctionImportName="pro_SetCancelTrip" FunctionName="BusManagementModel.Store.pro_SetCancelTrip" />
           <FunctionImportMapping FunctionImportName="pro_SetFinishTrip" FunctionName="BusManagementModel.Store.pro_SetFinishTrip" />
           <FunctionImportMapping FunctionImportName="pro_SetGoingTrip" FunctionName="BusManagementModel.Store.pro_SetGoingTrip" />
+          <FunctionImportMapping FunctionImportName="func_GetAvailabelSeat" FunctionName="BusManagementModel.Store.func_GetAvailabelSeat" />
+          <FunctionImportMapping FunctionImportName="pro_AddPassenger" FunctionName="BusManagementModel.Store.pro_AddPassenger" />
           <EntitySetMapping Name="AGENTs">
             <EntityTypeMapping TypeName="BusManagementModel.AGENT">
               <MappingFragment StoreEntitySet="AGENT">
@@ -1996,6 +1998,20 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="V_AVAILABLETRIP">
+            <EntityTypeMapping TypeName="BusManagementModel.V_AVAILABLETRIP">
+              <MappingFragment StoreEntitySet="V_AVAILABLETRIP">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Remain_seat" ColumnName="Remain seat" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Departure_time" ColumnName="Departure time" />
+                <ScalarProperty Name="End_point" ColumnName="End point" />
+                <ScalarProperty Name="Start_point" ColumnName="Start point" />
+                <ScalarProperty Name="Registration_number_of_bus" ColumnName="Registration number of bus" />
+                <ScalarProperty Name="Trip_ID" ColumnName="Trip ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="V_BOOKINGINFOR">
             <EntityTypeMapping TypeName="BusManagementModel.V_BOOKINGINFOR">
               <MappingFragment StoreEntitySet="V_BOOKINGINFOR">
@@ -2141,22 +2157,6 @@ warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a pri
               <ScalarProperty Name="id_driver" ColumnName="id_driver" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="V_AVAILABLETRIP">
-            <EntityTypeMapping TypeName="BusManagementModel.V_AVAILABLETRIP">
-              <MappingFragment StoreEntitySet="V_AVAILABLETRIP">
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Remain_seat" ColumnName="Remain seat" />
-                <ScalarProperty Name="Duration" ColumnName="Duration" />
-                <ScalarProperty Name="Departure_time" ColumnName="Departure time" />
-                <ScalarProperty Name="End_point" ColumnName="End point" />
-                <ScalarProperty Name="Start_point" ColumnName="Start point" />
-                <ScalarProperty Name="Registration_number_of_bus" ColumnName="Registration number of bus" />
-                <ScalarProperty Name="Trip_ID" ColumnName="Trip ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="func_GetAvailabelSeat" FunctionName="BusManagementModel.Store.func_GetAvailabelSeat" />
-          <FunctionImportMapping FunctionImportName="pro_AddPassenger" FunctionName="BusManagementModel.Store.pro_AddPassenger" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

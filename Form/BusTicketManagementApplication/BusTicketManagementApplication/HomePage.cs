@@ -31,6 +31,7 @@ namespace BusTicketManagementApplication
                     mainFeatureIndex = value;
                     ResetFeatures();
                     ActiveFeature(value);
+                    this.PnlNavigationBar.Controls.Clear();
                     switch (value)
                     {
                         case 0:
@@ -46,7 +47,6 @@ namespace BusTicketManagementApplication
                         case 2:
                             {
                                 break;
-
                             }
                         case 3:
                             {
@@ -54,10 +54,19 @@ namespace BusTicketManagementApplication
                             }
                         case 4:
                             {
+                                RenderActiveForm(new BookingNavigationBar(this), this.PnlNavigationBar);
+                                //
                                 Form renderForm = new Booking(this);
-                                if (string.IsNullOrEmpty(UserData.CurrentSelectedTripId))
+                                if (BookingNavigationBar.NavIndex == 0)
                                 {
-                                    renderForm = new UnSelectBooking();
+                                    if (string.IsNullOrEmpty(UserData.CurrentSelectedTripId))
+                                    {
+                                        renderForm = new UnSelectBooking();
+                                    }
+                                }
+                                else if(BookingNavigationBar.NavIndex == 1)
+                                {
+                                    renderForm = new Booked();
                                 }
                                 RenderActiveForm(renderForm, this.PnlFillContent);
                                 break;
@@ -120,7 +129,11 @@ namespace BusTicketManagementApplication
 
         private void TbSearch_Leave(object sender, EventArgs e)
         {
-            SearchInput = this.TbSearch.Text;
+            SearchInput = this.TbSearch.Text.Trim();
+            if (string.IsNullOrEmpty(SearchInput))
+            {
+                this.LbPlaceholder.Show();
+            }
         }
         private void ResetFeatures()
         {
@@ -148,6 +161,16 @@ namespace BusTicketManagementApplication
                 this.MainFeatureIndex = tag;
                 
             }
+        }
+
+        private void LbPlaceholder_Click(object sender, EventArgs e)
+        {
+            this.TbSearch.Focus();
+        }
+
+        private void TbSearch_Enter(object sender, EventArgs e)
+        {
+            this.LbPlaceholder.Hide();
         }
     }
 }

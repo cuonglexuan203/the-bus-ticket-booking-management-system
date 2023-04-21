@@ -170,11 +170,23 @@
     <Compile Include="src\layers\businessLayers\BSRoute.cs" />
     <Compile Include="src\layers\businessLayers\BSTicket.cs" />
     <Compile Include="src\layers\businessLayers\BSTrip.cs" />
+    <Compile Include="src\layers\interfaceLayers\components\booking\Booked.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\booking\Booked.Designer.cs">
+      <DependentUpon>Booked.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\layers\interfaceLayers\components\booking\Booking.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="src\layers\interfaceLayers\components\booking\Booking.Designer.cs">
       <DependentUpon>Booking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\booking\BookingNavigationBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\booking\BookingNavigationBar.Designer.cs">
+      <DependentUpon>BookingNavigationBar.cs</DependentUpon>
     </Compile>
     <Compile Include="src\layers\interfaceLayers\components\booking\UnSelectBooking.cs">
       <SubType>Form</SubType>
@@ -212,8 +224,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="src\layers\interfaceLayers\components\booking\Booked.resx">
+      <DependentUpon>Booked.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\layers\interfaceLayers\components\booking\Booking.resx">
       <DependentUpon>Booking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\layers\interfaceLayers\components\booking\BookingNavigationBar.resx">
+      <DependentUpon>BookingNavigationBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\layers\interfaceLayers\components\booking\UnSelectBooking.resx">
       <DependentUpon>UnSelectBooking.cs</DependentUpon>

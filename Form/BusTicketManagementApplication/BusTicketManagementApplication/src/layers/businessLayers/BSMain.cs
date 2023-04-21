@@ -61,6 +61,8 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
             string query = $"select dbo.{funcName}()";  
             return db.Database.SqlQuery<string>(query).ToList().FirstOrDefault().ToString();
         }
+
+        // modify run proc
         public static void RunProc(string procName)
         {
             BusManagementEntities db = new BusManagementEntities();

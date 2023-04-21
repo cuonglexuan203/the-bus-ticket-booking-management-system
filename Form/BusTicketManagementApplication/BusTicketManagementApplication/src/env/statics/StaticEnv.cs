@@ -12,5 +12,6 @@ namespace BusTicketManagementApplication.src.env.statics
         public static Size AppSize { get => new Size(1200, 700); }
         public static Size DashboardSize { get => new Size(235, 700); }
         public static Size FillContentSize { get => new Size(965, 598); }
+        public static Size NavigationBarSize { get => new Size(965, 44); }
     }
 }

@@ -66,6 +66,7 @@
             this.LbBrandSlogan = new System.Windows.Forms.Label();
             this.PcbBrandLogo = new System.Windows.Forms.PictureBox();
             this.TimerNow = new System.Windows.Forms.Timer(this.components);
+            this.LbPlaceholder = new System.Windows.Forms.Label();
             this.PnlApp.SuspendLayout();
             this.PnlContainer.SuspendLayout();
             this.PnlContent.SuspendLayout();
@@ -208,6 +209,7 @@
             // 
             // PnlSearch
             // 
+            this.PnlSearch.Controls.Add(this.LbPlaceholder);
             this.PnlSearch.Controls.Add(this.PcbSearch);
             this.PnlSearch.Controls.Add(this.TbSearch);
             this.PnlSearch.Dock = System.Windows.Forms.DockStyle.Left;
@@ -235,6 +237,7 @@
             this.TbSearch.Name = "TbSearch";
             this.TbSearch.Size = new System.Drawing.Size(264, 25);
             this.TbSearch.TabIndex = 0;
+            this.TbSearch.Enter += new System.EventHandler(this.TbSearch_Enter);
             this.TbSearch.Leave += new System.EventHandler(this.TbSearch_Leave);
             // 
             // PnlDashboard
@@ -565,6 +568,21 @@
             this.TimerNow.Interval = 1000;
             this.TimerNow.Tick += new System.EventHandler(this.TimerNow_Tick);
             // 
+            // LbPlaceholder
+            // 
+            this.LbPlaceholder.AutoSize = true;
+            this.LbPlaceholder.BackColor = System.Drawing.Color.Transparent;
+            this.LbPlaceholder.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.LbPlaceholder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LbPlaceholder.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.LbPlaceholder.Location = new System.Drawing.Point(67, 19);
+            this.LbPlaceholder.Margin = new System.Windows.Forms.Padding(0);
+            this.LbPlaceholder.Name = "LbPlaceholder";
+            this.LbPlaceholder.Size = new System.Drawing.Size(76, 21);
+            this.LbPlaceholder.TabIndex = 2;
+            this.LbPlaceholder.Text = "Search";
+            this.LbPlaceholder.Click += new System.EventHandler(this.LbPlaceholder_Click);
+            // 
             // App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
@@ -648,6 +666,7 @@
         private System.Windows.Forms.Panel PnlNavigationBar;
         private System.Windows.Forms.Panel PnlFillContent;
         private System.Windows.Forms.Timer TimerNow;
+        private System.Windows.Forms.Label LbPlaceholder;
     }
 }
 

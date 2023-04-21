@@ -1,4 +1,5 @@
 ﻿using BusTicketManagementApplication.src.layers.businessLayers;
+using BusTicketManagementApplication.src.layers.interfaceLayers.components.booking;
 using BusTicketManagementApplication.src.layers.interfaceLayers.components.home;
 using BusTicketManagementApplication.src.layers.interfaceLayers.Data;
 using System;
@@ -78,6 +79,7 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.t
         private void BtnBooking_Click(object sender, EventArgs e)
         {
             UserData.CurrentSelectedTripId = DgvMainData.CurrentRow?.Cells[0].Value.ToString();
+            BookingNavigationBar.NavIndex = 0;
             this.parentForm.MainFeatureIndex = 4;
         }
 
@@ -110,5 +112,7 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.t
                 FilterTrips();
             }
         }
+
+
     }
 }
