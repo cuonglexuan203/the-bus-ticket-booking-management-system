@@ -1,4 +1,5 @@
-﻿using BusTicketManagementApplication.src.layers.interfaceLayers.components.trip;
+﻿using BusTicketManagementApplication.src.layers.interfaceLayers.components.login;
+using BusTicketManagementApplication.src.layers.interfaceLayers.components.trip;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace BusTicketManagementApplication
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new App());
+            Application.Run(new Login());
         }
     }
 }
