@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.PnlMainContainer = new System.Windows.Forms.Panel();
+            this.LbSignUp = new System.Windows.Forms.Label();
             this.BtnLogin = new System.Windows.Forms.Button();
             this.PnlInput = new System.Windows.Forms.Panel();
             this.PnlPassword = new System.Windows.Forms.Panel();
@@ -44,7 +45,7 @@
             this.PcbUsername = new System.Windows.Forms.PictureBox();
             this.LbUsername = new System.Windows.Forms.Label();
             this.LbLogin = new System.Windows.Forms.Label();
-            this.LbSignUp = new System.Windows.Forms.Label();
+            this.LbErrorMessage = new System.Windows.Forms.Label();
             this.PnlMainContainer.SuspendLayout();
             this.PnlInput.SuspendLayout();
             this.PnlPassword.SuspendLayout();
@@ -55,6 +56,7 @@
             // 
             // PnlMainContainer
             // 
+            this.PnlMainContainer.Controls.Add(this.LbErrorMessage);
             this.PnlMainContainer.Controls.Add(this.LbSignUp);
             this.PnlMainContainer.Controls.Add(this.BtnLogin);
             this.PnlMainContainer.Controls.Add(this.PnlInput);
@@ -67,6 +69,19 @@
             this.PnlMainContainer.TabIndex = 0;
             this.PnlMainContainer.Click += new System.EventHandler(this.Handler_Focus);
             this.PnlMainContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlMainContainer_Paint);
+            // 
+            // LbSignUp
+            // 
+            this.LbSignUp.AutoSize = true;
+            this.LbSignUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LbSignUp.Font = new System.Drawing.Font("Hack NF", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbSignUp.ForeColor = System.Drawing.Color.Blue;
+            this.LbSignUp.Location = new System.Drawing.Point(360, 568);
+            this.LbSignUp.Name = "LbSignUp";
+            this.LbSignUp.Size = new System.Drawing.Size(87, 21);
+            this.LbSignUp.TabIndex = 3;
+            this.LbSignUp.Text = "Sign Up";
+            this.LbSignUp.Click += new System.EventHandler(this.LbSignUp_Click);
             // 
             // BtnLogin
             // 
@@ -233,18 +248,15 @@
             this.LbLogin.Text = "Login";
             this.LbLogin.Click += new System.EventHandler(this.Handler_Focus);
             // 
-            // LbSignUp
+            // LbErrorMessage
             // 
-            this.LbSignUp.AutoSize = true;
-            this.LbSignUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LbSignUp.Font = new System.Drawing.Font("Hack NF", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LbSignUp.ForeColor = System.Drawing.Color.Blue;
-            this.LbSignUp.Location = new System.Drawing.Point(360, 568);
-            this.LbSignUp.Name = "LbSignUp";
-            this.LbSignUp.Size = new System.Drawing.Size(87, 21);
-            this.LbSignUp.TabIndex = 3;
-            this.LbSignUp.Text = "Sign Up";
-            this.LbSignUp.Click += new System.EventHandler(this.LbSignUp_Click);
+            this.LbErrorMessage.AutoSize = true;
+            this.LbErrorMessage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LbErrorMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.LbErrorMessage.Location = new System.Drawing.Point(51, 444);
+            this.LbErrorMessage.Name = "LbErrorMessage";
+            this.LbErrorMessage.Size = new System.Drawing.Size(0, 21);
+            this.LbErrorMessage.TabIndex = 4;
             // 
             // Login
             // 
@@ -292,5 +304,6 @@
         private System.Windows.Forms.Label LbPlaceholderUsername;
         private System.Windows.Forms.Label LbPlaceholderPassword;
         private System.Windows.Forms.Label LbSignUp;
+        private System.Windows.Forms.Label LbErrorMessage;
     }
 }

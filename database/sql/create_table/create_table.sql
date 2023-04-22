@@ -180,6 +180,12 @@ create table SYSTEMACCOUNT
     pass varchar(50) not null,
 );
 
+create table PASSENGERACCOUNT(
+	id_passenger char(20),
+	username varchar(50) primary key,
+	password varchar(50) not null,
+	);
+
 create table TRIP_DRIVER
 (
     id_trip char(20),
@@ -261,6 +267,7 @@ alter table TICKET add constraint CHK_ticket check(fare > 0 );
 --
 alter table BUSROUTE add constraint FK_busroute_id_start_bus_station foreign key (id_start_station) references BUSSTATION(id_bus_station);
 alter table BUSROUTE add constraint FK_busroute_id_end_bus_station foreign key (id_end_station) references BUSSTATION(id_bus_station);
+alter table BUSROUTE add constraint UC_busroute_id_start_bus_station_id_end_bus_station unique(id_start_station, id_end_station);
 alter table BUSROUTE add constraint CHK_busroute check (distance > 0);
 --
 alter table BOOKING add constraint FK_booking_id_ticket foreign key (id_ticket) references TICKET(id_ticket);
@@ -294,6 +301,9 @@ alter table PACKAGE add constraint FK_package_id_trip foreign key (id_trip) refe
 alter table PACKAGE add constraint CHK_package check (mass >= 0 and price >= 0);
 --
 alter table PACKAGEPRICEPOLICY add constraint CHK_packagepricepolicy check( price_per_km > 0 and mass_unit >= 0 );
+--
+alter table PASSENGERACCOUNT
+add constraint PK_passengerAccount_id_passenger foreign key (id_passenger) references PASSENGER(id_passenger);
 --
 alter table TRIP_DRIVER add constraint FK_trip_driver_id_trip foreign key (id_trip) references TRIP(id_trip);
 alter table TRIP_DRIVER add constraint FK_trip_driver_id_driver foreign key (id_driver) references DRIVER(id_driver);

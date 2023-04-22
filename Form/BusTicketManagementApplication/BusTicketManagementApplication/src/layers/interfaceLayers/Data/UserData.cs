@@ -14,6 +14,7 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.Data
         private static bool islogin = false;
         private static string username;
         private static string password;
+        private static string passengerId = string.Empty;
         //
         private static string phone;
         private static string email;
@@ -58,10 +59,18 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.Data
             UserData.Username = username;
             UserData.Password = password;
         }
+        public static void SetPassengerId(string passengerId)
+        {
+            UserData.passengerId = passengerId;
+        }
         public static void SetUserData(string fullName, string phone)
         {
             UserData.FullName = fullName;
             UserData.Phone = phone;
+        }
+        public static string GetPassengerId()
+        {
+            return UserData.passengerId;
         }
     }
 }

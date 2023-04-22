@@ -12,17 +12,19 @@ namespace BusTicketManagementApplication.src.dbConnection
     using System;
     using System.Collections.Generic;
     
-    public partial class V_BOOKINGINFOR
+    public partial class V_BOOKEDTICKET
     {
-        public string Booking_ID { get; set; }
         public string Passenger_ID { get; set; }
         public string Ticket_ID { get; set; }
-        public string Passenger_name { get; set; }
-        public Nullable<bool> Passenger_gender { get; set; }
-        public string Passenger_phone_number { get; set; }
-        public string Employee_name { get; set; }
-        public Nullable<bool> Employee_gender { get; set; }
-        public string Employee_phone_number { get; set; }
+        public decimal Fare { get; set; }
+        public string Type { get; set; }
+        public string Seat_number { get; set; }
+        public string Start_point { get; set; }
+        public string End_point { get; set; }
+        public System.DateTime Departure_time { get; set; }
+        public double Distance { get; set; }
+        public int Duration { get; set; }
+        public string Registration_number_of_bus { get; set; }
         public Nullable<System.DateTime> Booking_time { get; set; }
     }
 }

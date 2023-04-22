@@ -116,6 +116,9 @@
     <Compile Include="src\dbConnection\PASSENGER.cs">
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="src\dbConnection\PASSENGERACCOUNT.cs">
+      <DependentUpon>BusManagementModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="src\dbConnection\PLACE.cs">
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
@@ -126,6 +129,15 @@
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
     <Compile Include="src\dbConnection\REFUND.cs">
+      <DependentUpon>BusManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="src\dbConnection\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>BusManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="src\dbConnection\sp_helpdiagrams_Result.cs">
+      <DependentUpon>BusManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="src\dbConnection\sysdiagram.cs">
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
     <Compile Include="src\dbConnection\SYSTEMACCOUNT.cs">
@@ -141,6 +153,9 @@
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
     <Compile Include="src\dbConnection\V_AVAILABLETRIP.cs">
+      <DependentUpon>BusManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="src\dbConnection\V_BOOKEDTICKET.cs">
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
     <Compile Include="src\dbConnection\V_BOOKINGINFOR.cs">
@@ -161,9 +176,14 @@
     <Compile Include="src\dbConnection\V_TRIPINFOR.cs">
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="src\dbConnection\V_USERINFOR.cs">
+      <DependentUpon>BusManagementModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="src\env\locals\LocalEnv.cs" />
     <Compile Include="src\env\statics\StaticEnv.cs" />
+    <Compile Include="src\layers\businessLayers\BSBooked.cs" />
     <Compile Include="src\layers\businessLayers\BSBooking.cs" />
+    <Compile Include="src\layers\businessLayers\BSLogin.cs" />
     <Compile Include="src\layers\businessLayers\BSMain.cs" />
     <Compile Include="src\layers\businessLayers\BSPassenger.cs" />
     <Compile Include="src\layers\businessLayers\BSPlace.cs" />
@@ -260,6 +280,7 @@
     <EmbeddedResource Include="src\layers\interfaceLayers\components\trip\Trip.resx">
       <DependentUpon>Trip.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="BusTicketManagementApplication.src.dbConnection.V_BOOKEDTICKET.datasource" />
     <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.AGENT.datasource" />
     <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.BOOKING.datasource" />
     <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.BUS.datasource" />
@@ -312,6 +333,7 @@
   <ItemGroup>
     <Folder Include="src\asset\cursor\" />
     <Folder Include="src\asset\sound\" />
+    <Folder Include="src\dbConnection\DataSet\" />
     <Folder Include="src\layers\interfaceLayers\components\aboutUs\" />
     <Folder Include="src\layers\interfaceLayers\components\bus\" />
     <Folder Include="src\layers\interfaceLayers\components\driver\" />

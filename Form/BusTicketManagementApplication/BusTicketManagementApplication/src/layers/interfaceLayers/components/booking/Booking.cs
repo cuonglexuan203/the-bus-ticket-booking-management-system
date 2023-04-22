@@ -31,8 +31,14 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.b
         {
             LoadSelectedTrip();
             LoadDefaultTicketType();
+            LoadUserInfor();
         }
         // Common function
+        private void LoadUserInfor()
+        {
+            this.TbName.Text = UserData.FullName;
+            this.MtbPhone.Text = UserData.Phone;
+        }
         public void LoadDefaultTicketType()
         {
             this.CbType.Items.AddRange("Seat,Sleeper".Split(','));
@@ -127,30 +133,18 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.b
 
         private void BtnBooking_Click(object sender, EventArgs e)
         {
-            if (this.TbName.Text.Trim() != null && this.MtbPhone.Text != null && this.MtbPhone.Text.Trim().Length == 12)
-            {
-                if(string.IsNullOrEmpty(this.TbIDTicket.Text.Trim()))
-                {
-                    MessageBox.Show("Please select the ticket to booking!");
-                    return;
-                }
-                string newPassengerId = new BSPassenger().GetNewPassengerId().Trim();
-                BusManagementEntities db = new BusManagementEntities();
-                db.pro_AddPassenger( newPassengerId, this.TbName.Text.Trim(), this.MtbPhone.Text );
-                //
-                db.pro_AddDefaultBooking(this.TbIDTicket.Text.Trim(), newPassengerId );
-                MessageBox.Show("Booking successfully!");
-                LoadAvailableSeat(this.CbType.SelectedIndex);
-            }
-            else
-            {
-                MessageBox.Show("Please input user information to booking!");
-            }
 
+            if(string.IsNullOrEmpty(this.TbIDTicket.Text.Trim()))
+            {
+                MessageBox.Show("Please select the ticket to booking!");
+                return;
+            }
+            BusManagementEntities db = new BusManagementEntities();
+            //
+            db.pro_AddDefaultBooking(this.TbIDTicket.Text.Trim(), UserData.GetPassengerId());
+            MessageBox.Show("Booking successfully!");
+            LoadAvailableSeat(this.CbType.SelectedIndex);
         }
-
-
-
         //
     }
 }

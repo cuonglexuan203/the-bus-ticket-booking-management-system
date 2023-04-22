@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusTicketManagementApplication.src.layers.businessLayers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,7 +8,10 @@ using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
+using Point = System.Drawing.Point;
+using Size = System.Drawing.Size;
 
 namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.login
 {
@@ -88,7 +92,30 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.l
 
         private void BtnSignUp_Click(object sender, EventArgs e)
         {
-
+            string username = this.TbUsername.Text.Trim();
+            string password = this.TbPassword.Text.Trim();
+            string fullname = this.TbFullName.Text.Trim();
+            string phone = this.TbPhone.Text.Trim();
+            bool isValidInput = true;
+            new List<string> { username, password, fullname, phone }.ForEach(x =>
+            {
+                if (string.IsNullOrEmpty(x))
+                {
+                    isValidInput = false;
+                }
+            });
+            if (!isValidInput)
+            {
+                this.LbErrorMessage.Text = "Fully fill fields";
+                return;
+            }
+            //
+            string passengerId = string.Empty;
+            string errMsg = string.Empty;
+            //
+            bool isCreated = new BSLogin().CreateNewUser(username, password, fullname, phone, ref passengerId, ref errMsg);
+            //
+            this.LbErrorMessage.Text = errMsg;
         }
     }
 }

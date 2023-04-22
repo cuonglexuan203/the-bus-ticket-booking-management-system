@@ -1,4 +1,6 @@
-﻿using BusTicketManagementApplication.src.layers.interfaceLayers.Data;
+﻿using BusTicketManagementApplication.src.dbConnection;
+using BusTicketManagementApplication.src.layers.businessLayers;
+using BusTicketManagementApplication.src.layers.interfaceLayers.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -116,12 +118,11 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.l
                 this.BtnLogin.PerformClick();
             }
         }
-
-        private void BtnLogin_Click(object sender, EventArgs e)
+        private void Handler_LoginSuccessfully()
         {
             this.DialogResult = DialogResult.OK;
             List<Form> closedForms = new List<Form>();
-            for (int i = 0; i <  Application.OpenForms.Count; i++)
+            for (int i = 0; i < Application.OpenForms.Count; i++)
             {
                 if (Application.OpenForms[i].Contains(this))
                 {
@@ -130,7 +131,31 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.l
             }
             foreach (Form fm in closedForms)
             {
+                fm.DialogResult = DialogResult.OK;
                 fm.Close();
+            }
+        }
+        private void BtnLogin_Click(object sender, EventArgs e)
+        {
+            string username = this.TbUsername.Text;
+            string password = this.TbPassword.Text;
+            string passengerId = string.Empty;
+            string errMsg = string.Empty;
+            //
+            bool islogin = new BSLogin().ValidateUser(username, password,ref passengerId, ref errMsg);
+            if (islogin && !string.IsNullOrEmpty(passengerId))
+            {
+                UserData.SetUserLoginData(username, password);
+                UserData.SetPassengerId(passengerId);
+                //
+                V_USERINFOR curUser = new BSLogin().GetUser(passengerId);
+                UserData.SetUserData(curUser.name, curUser.phone_number);
+                //
+                Handler_LoginSuccessfully();
+            }
+            else
+            {
+                this.LbErrorMessage.Text = errMsg;
             }
         }
 

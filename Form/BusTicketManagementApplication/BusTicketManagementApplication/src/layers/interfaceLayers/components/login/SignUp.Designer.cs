@@ -45,6 +45,7 @@
             this.LbUsername = new System.Windows.Forms.Label();
             this.LbSignUp = new System.Windows.Forms.Label();
             this.BtnSignUp = new System.Windows.Forms.Button();
+            this.LbErrorMessage = new System.Windows.Forms.Label();
             this.PnlMainContainer.SuspendLayout();
             this.PnlUserInput.SuspendLayout();
             this.PnlPhone.SuspendLayout();
@@ -56,6 +57,7 @@
             // PnlMainContainer
             // 
             this.PnlMainContainer.BackColor = System.Drawing.Color.White;
+            this.PnlMainContainer.Controls.Add(this.LbErrorMessage);
             this.PnlMainContainer.Controls.Add(this.LbLogin);
             this.PnlMainContainer.Controls.Add(this.PnlUserInput);
             this.PnlMainContainer.Controls.Add(this.LbSignUp);
@@ -239,6 +241,16 @@
             this.BtnSignUp.MouseEnter += new System.EventHandler(this.BtnSignUp_MouseEnter);
             this.BtnSignUp.MouseLeave += new System.EventHandler(this.BtnSignUp_MouseLeave);
             // 
+            // LbErrorMessage
+            // 
+            this.LbErrorMessage.AutoSize = true;
+            this.LbErrorMessage.Font = new System.Drawing.Font("Hack NF", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbErrorMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.LbErrorMessage.Location = new System.Drawing.Point(51, 540);
+            this.LbErrorMessage.Name = "LbErrorMessage";
+            this.LbErrorMessage.Size = new System.Drawing.Size(0, 18);
+            this.LbErrorMessage.TabIndex = 7;
+            // 
             // SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
@@ -285,5 +297,6 @@
         private System.Windows.Forms.TextBox TbPassword;
         private System.Windows.Forms.Label LbPassword;
         private System.Windows.Forms.Label LbLogin;
+        private System.Windows.Forms.Label LbErrorMessage;
     }
 }

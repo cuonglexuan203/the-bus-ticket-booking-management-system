@@ -90,11 +90,13 @@ namespace BusTicketManagementApplication
             {
 
             }
+            
         }
         private void App_Load(object sender, EventArgs e)
         {
             //
             InitUI();
+            LoadUI();
             // load current date, time
             this.LbDate.Text = "Today - " + DateTime.Now.ToString().Split(' ')[0];
             //
@@ -102,14 +104,13 @@ namespace BusTicketManagementApplication
             this.LbTime.Text = rightTime[1] + " " + rightTime[2];
             TimerNow.Start();
             //
-            ProcessLogin();
         }
         // Login process
         private DialogResult GetFormResult(Form fm)
         {
             return fm.ShowDialog();
         }
-        private bool ProcessLogin()
+        private bool CheckLogin()
         {
             if (!UserData.Islogin)
             {
@@ -118,16 +119,8 @@ namespace BusTicketManagementApplication
                 {
                     UserData.Islogin = true;
                 }
-                else
-                {
-                    Application.Exit();
-                }
             }
-            else
-            {
-
-            }
-            return true;
+            return UserData.Islogin;
         }
 
         //
@@ -184,13 +177,21 @@ namespace BusTicketManagementApplication
         }
         private void Handler_Features_Click(object sender, EventArgs e)
         {
-            Control ctr = sender as Control;
-            int tag = Convert.ToInt16(ctr.Tag.ToString());
-            if (ctr != null)
+            if (!UserData.Islogin)
             {
-                this.MainFeatureIndex = tag;
-                
+                CheckLogin();
             }
+            if(UserData.Islogin)
+            {
+                Control ctr = sender as Control;
+                int tag = Convert.ToInt16(ctr.Tag.ToString());
+                if (ctr != null)
+                {
+                    this.MainFeatureIndex = tag;
+
+                }
+            }
+            
         }
 
         private void LbPlaceholder_Click(object sender, EventArgs e)

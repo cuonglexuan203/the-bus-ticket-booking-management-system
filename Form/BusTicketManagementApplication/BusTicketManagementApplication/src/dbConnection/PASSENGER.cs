@@ -18,6 +18,7 @@ namespace BusTicketManagementApplication.src.dbConnection
         public PASSENGER()
         {
             this.BOOKINGs = new HashSet<BOOKING>();
+            this.PASSENGERACCOUNTs = new HashSet<PASSENGERACCOUNT>();
         }
     
         public string id_passenger { get; set; }
@@ -30,5 +31,7 @@ namespace BusTicketManagementApplication.src.dbConnection
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BOOKING> BOOKINGs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PASSENGERACCOUNT> PASSENGERACCOUNTs { get; set; }
     }
 }

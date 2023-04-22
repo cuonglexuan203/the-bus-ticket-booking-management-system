@@ -1,7 +1,8 @@
-create proc pro_CancelTicket @id_ticket char(20)
+create proc [dbo].[pro_CancelTicket] @id_ticket char(20)
 as
 begin 
 	update TICKET set status = 0 where id_ticket = @id_ticket
+	delete from BOOKING from BOOKING.id_ticket = @id_ticket;
 end
 go
 
@@ -50,6 +51,13 @@ create proc [dbo].[pro_AddPassenger] @id_passenger char(20), @name nvarchar(50),
 as
 begin 
 insert into PASSENGER(id_passenger, name, phone_number) values (@id_passenger, @name, @phone);
+end;
+go
+--
+create proc dbo.pro_AddPassengerAccount @id_passenger char(20), @username varchar(50), @password varchar(50)
+as
+begin
+insert into PASSENGERACCOUNT values (@id_passenger, @username, @password);
 end;
 go
 --

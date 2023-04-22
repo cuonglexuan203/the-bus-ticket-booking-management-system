@@ -39,21 +39,25 @@ namespace BusTicketManagementApplication.src.dbConnection
         public virtual DbSet<PACKAGE> PACKAGEs { get; set; }
         public virtual DbSet<PACKAGEPRICEPOLICY> PACKAGEPRICEPOLICies { get; set; }
         public virtual DbSet<PASSENGER> PASSENGERs { get; set; }
+        public virtual DbSet<PASSENGERACCOUNT> PASSENGERACCOUNTs { get; set; }
         public virtual DbSet<PLACE> PLACEs { get; set; }
         public virtual DbSet<POSITION> POSITIONs { get; set; }
         public virtual DbSet<PRIVILEGE> PRIVILEGEs { get; set; }
         public virtual DbSet<REFUND> REFUNDs { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<SYSTEMACCOUNT> SYSTEMACCOUNTs { get; set; }
         public virtual DbSet<TICKET> TICKETs { get; set; }
         public virtual DbSet<TRIP> TRIPs { get; set; }
         public virtual DbSet<V_AGENTINFOR> V_AGENTINFOR { get; set; }
         public virtual DbSet<V_AVAILABLETRIP> V_AVAILABLETRIP { get; set; }
+        public virtual DbSet<V_BOOKEDTICKET> V_BOOKEDTICKET { get; set; }
         public virtual DbSet<V_BOOKINGINFOR> V_BOOKINGINFOR { get; set; }
         public virtual DbSet<V_BUSSTATIONINFOR> V_BUSSTATIONINFOR { get; set; }
         public virtual DbSet<V_DRIVERINFOR> V_DRIVERINFOR { get; set; }
         public virtual DbSet<V_EMPLOYEEINFOR> V_EMPLOYEEINFOR { get; set; }
         public virtual DbSet<V_ROUTEINFOR> V_ROUTEINFOR { get; set; }
         public virtual DbSet<V_TRIPINFOR> V_TRIPINFOR { get; set; }
+        public virtual DbSet<V_USERINFOR> V_USERINFOR { get; set; }
     
         public virtual int pro_AddBooking(string id_ticket, string id_passenger, string id_employee)
         {
@@ -83,15 +87,6 @@ namespace BusTicketManagementApplication.src.dbConnection
                 new ObjectParameter("id_passenger", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pro_AddDefaultBooking", id_ticketParameter, id_passengerParameter);
-        }
-    
-        public virtual int pro_CancelTicket(string id_ticket)
-        {
-            var id_ticketParameter = id_ticket != null ?
-                new ObjectParameter("id_ticket", id_ticket) :
-                new ObjectParameter("id_ticket", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pro_CancelTicket", id_ticketParameter);
         }
     
         public virtual int pro_SetCancelTrip(string id_trip)
@@ -150,6 +145,135 @@ namespace BusTicketManagementApplication.src.dbConnection
                 new ObjectParameter("phone", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pro_AddPassenger", id_passengerParameter, nameParameter, phoneParameter);
+        }
+    
+        public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            var versionParameter = version.HasValue ?
+                new ObjectParameter("version", version) :
+                new ObjectParameter("version", typeof(int));
+    
+            var definitionParameter = definition != null ?
+                new ObjectParameter("definition", definition) :
+                new ObjectParameter("definition", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_alterdiagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
+        }
+    
+        public virtual int sp_creatediagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            var versionParameter = version.HasValue ?
+                new ObjectParameter("version", version) :
+                new ObjectParameter("version", typeof(int));
+    
+            var definitionParameter = definition != null ?
+                new ObjectParameter("definition", definition) :
+                new ObjectParameter("definition", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_creatediagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
+        }
+    
+        public virtual int sp_dropdiagram(string diagramname, Nullable<int> owner_id)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_dropdiagram", diagramnameParameter, owner_idParameter);
+        }
+    
+        public virtual ObjectResult<sp_helpdiagramdefinition_Result> sp_helpdiagramdefinition(string diagramname, Nullable<int> owner_id)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagramdefinition_Result>("sp_helpdiagramdefinition", diagramnameParameter, owner_idParameter);
+        }
+    
+        public virtual ObjectResult<sp_helpdiagrams_Result> sp_helpdiagrams(string diagramname, Nullable<int> owner_id)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagrams_Result>("sp_helpdiagrams", diagramnameParameter, owner_idParameter);
+        }
+    
+        public virtual int sp_renamediagram(string diagramname, Nullable<int> owner_id, string new_diagramname)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            var new_diagramnameParameter = new_diagramname != null ?
+                new ObjectParameter("new_diagramname", new_diagramname) :
+                new ObjectParameter("new_diagramname", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_renamediagram", diagramnameParameter, owner_idParameter, new_diagramnameParameter);
+        }
+    
+        public virtual int sp_upgraddiagrams()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
+        }
+    
+        public virtual int pro_AddPassengerAccount(string id_passenger, string username, string password)
+        {
+            var id_passengerParameter = id_passenger != null ?
+                new ObjectParameter("id_passenger", id_passenger) :
+                new ObjectParameter("id_passenger", typeof(string));
+    
+            var usernameParameter = username != null ?
+                new ObjectParameter("username", username) :
+                new ObjectParameter("username", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pro_AddPassengerAccount", id_passengerParameter, usernameParameter, passwordParameter);
+        }
+    
+        public virtual int pro_CancelTicket(string id_ticket)
+        {
+            var id_ticketParameter = id_ticket != null ?
+                new ObjectParameter("id_ticket", id_ticket) :
+                new ObjectParameter("id_ticket", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pro_CancelTicket", id_ticketParameter);
         }
     }
 }
