@@ -22,8 +22,7 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.Data
         private static string identity_number;
         private static DateTime birthday;
         //
-        private static string firstname;
-        private static string lastname;
+        private static string fullName;
         //
         private static string currentSelectedTripId = string.Empty;
         //
@@ -36,9 +35,9 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.Data
         public static bool Gender { get => gender; set => gender = value; }
         public static string Identity_number { get => identity_number; set => identity_number = value; }
         public static DateTime Birthday { get => birthday; set => birthday = value; }
-        public static string Firstname { get => firstname; set => firstname = value; }
-        public static string Lastname { get => lastname; set => lastname = value; }
         public static string CurrentSelectedTripId { get => currentSelectedTripId; set => currentSelectedTripId = value; }
+        public static string FullName { get => fullName; set => fullName = value; }
+
         //
         public static void ClearUserData()
         {
@@ -51,14 +50,18 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.Data
             gender = false;
             identity_number = string.Empty;
             birthday = DateTime.Now;
-            firstname = string.Empty;
-            lastname = string.Empty;
+            fullName = string.Empty;
             currentSelectedTripId = string.Empty;
         }
         public static void SetUserLoginData(string username, string password)
         {
-            UserData.username = username;
-            UserData.password = password;
+            UserData.Username = username;
+            UserData.Password = password;
+        }
+        public static void SetUserData(string fullName, string phone)
+        {
+            UserData.FullName = fullName;
+            UserData.Phone = phone;
         }
     }
 }

@@ -86,8 +86,8 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.b
             if(!string.IsNullOrEmpty(this.TbName.Text))
             {
                 List<string> name = this.TbName.Text.Split(' ').ToList();
-                UserData.Lastname = name?[name.Count - 1];
-                UserData.Firstname = string.Join(" ", name.Take(name.Count - 1));
+                //UserData.Lastname = name?[name.Count - 1];
+                //UserData.Firstname = string.Join(" ", name.Take(name.Count - 1));
             }
 
         }

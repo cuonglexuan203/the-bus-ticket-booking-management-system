@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusTicketManagementApplication.src.layers.interfaceLayers.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,6 +30,7 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.l
             //
             TbPassword.GotFocus += TbPassword_GotFocus;
             TbPassword.LostFocus += TbPassword_LostFocus;
+            //
         }
         private void DrawUI()
         {
@@ -117,8 +119,19 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.l
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("");
-            this.PnlMainContainer.Focus();
+            this.DialogResult = DialogResult.OK;
+            List<Form> closedForms = new List<Form>();
+            for (int i = 0; i <  Application.OpenForms.Count; i++)
+            {
+                if (Application.OpenForms[i].Contains(this))
+                {
+                    closedForms.Add(Application.OpenForms[i]);
+                }
+            }
+            foreach (Form fm in closedForms)
+            {
+                fm.Close();
+            }
         }
 
         private void PnlMainContainer_Paint(object sender, PaintEventArgs e)
@@ -141,7 +154,7 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.l
         }
         private void LbSignUp_Click(object sender, EventArgs e)
         {
-            RenderActiveForm(new SignUp(), this.PnlMainContainer);
+            RenderActiveForm(new SignUp(), this);
         }
     }
 }

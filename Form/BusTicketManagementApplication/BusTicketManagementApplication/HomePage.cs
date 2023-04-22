@@ -1,5 +1,6 @@
 ﻿using BusTicketManagementApplication.src.layers.interfaceLayers.components.booking;
 using BusTicketManagementApplication.src.layers.interfaceLayers.components.home;
+using BusTicketManagementApplication.src.layers.interfaceLayers.components.login;
 using BusTicketManagementApplication.src.layers.interfaceLayers.components.trip;
 using BusTicketManagementApplication.src.layers.interfaceLayers.Data;
 using System;
@@ -100,7 +101,36 @@ namespace BusTicketManagementApplication
             string[] rightTime = DateTime.Now.ToString().Split(' ');
             this.LbTime.Text = rightTime[1] + " " + rightTime[2];
             TimerNow.Start();
+            //
+            ProcessLogin();
         }
+        // Login process
+        private DialogResult GetFormResult(Form fm)
+        {
+            return fm.ShowDialog();
+        }
+        private bool ProcessLogin()
+        {
+            if (!UserData.Islogin)
+            {
+                DialogResult loginResult = GetFormResult(new Login());
+                if(loginResult == DialogResult.OK)
+                {
+                    UserData.Islogin = true;
+                }
+                else
+                {
+                    Application.Exit();
+                }
+            }
+            else
+            {
+
+            }
+            return true;
+        }
+
+        //
         // common functions
         private bool RenderActiveForm(Form fm, Control control)
         {
