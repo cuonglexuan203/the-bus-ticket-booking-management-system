@@ -149,7 +149,6 @@ namespace BusTicketManagementApplication
             this.LbTime.Text = rightTime[1] + " " + rightTime[2];
         }
         // end timer tick function
-
         private void TbSearch_Leave(object sender, EventArgs e)
         {
             SearchInput = this.TbSearch.Text.Trim();

@@ -55,6 +55,8 @@
             this.LbPhone = new System.Windows.Forms.Label();
             this.LbName = new System.Windows.Forms.Label();
             this.TbName = new System.Windows.Forms.TextBox();
+            this.LbEmail = new System.Windows.Forms.Label();
+            this.TbEmail = new System.Windows.Forms.TextBox();
             this.PnlMainContainer.SuspendLayout();
             this.GbTravelInfor.SuspendLayout();
             this.GbUserInfor.SuspendLayout();
@@ -337,6 +339,8 @@
             // 
             // GbUserInfor
             // 
+            this.GbUserInfor.Controls.Add(this.TbEmail);
+            this.GbUserInfor.Controls.Add(this.LbEmail);
             this.GbUserInfor.Controls.Add(this.MtbPhone);
             this.GbUserInfor.Controls.Add(this.LbPhone);
             this.GbUserInfor.Controls.Add(this.LbName);
@@ -344,7 +348,7 @@
             this.GbUserInfor.Location = new System.Drawing.Point(9, 9);
             this.GbUserInfor.Margin = new System.Windows.Forms.Padding(0);
             this.GbUserInfor.Name = "GbUserInfor";
-            this.GbUserInfor.Size = new System.Drawing.Size(701, 72);
+            this.GbUserInfor.Size = new System.Drawing.Size(944, 72);
             this.GbUserInfor.TabIndex = 2;
             this.GbUserInfor.TabStop = false;
             this.GbUserInfor.Text = "User Information";
@@ -353,13 +357,12 @@
             // 
             this.MtbPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.MtbPhone.Enabled = false;
-            this.MtbPhone.Location = new System.Drawing.Point(533, 36);
+            this.MtbPhone.Location = new System.Drawing.Point(373, 36);
             this.MtbPhone.Margin = new System.Windows.Forms.Padding(0);
             this.MtbPhone.Mask = "0000 000 000";
             this.MtbPhone.Name = "MtbPhone";
             this.MtbPhone.Size = new System.Drawing.Size(150, 21);
             this.MtbPhone.TabIndex = 3;
-            this.MtbPhone.Leave += new System.EventHandler(this.MtbPhone_Leave);
             // 
             // LbPhone
             // 
@@ -367,7 +370,7 @@
             this.LbPhone.BackColor = System.Drawing.Color.Transparent;
             this.LbPhone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LbPhone.Font = new System.Drawing.Font("Hack NF", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LbPhone.Location = new System.Drawing.Point(443, 39);
+            this.LbPhone.Location = new System.Drawing.Point(309, 39);
             this.LbPhone.Margin = new System.Windows.Forms.Padding(0);
             this.LbPhone.Name = "LbPhone";
             this.LbPhone.Size = new System.Drawing.Size(53, 18);
@@ -391,12 +394,33 @@
             // 
             this.TbName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TbName.Enabled = false;
-            this.TbName.Location = new System.Drawing.Point(102, 36);
+            this.TbName.Location = new System.Drawing.Point(66, 36);
             this.TbName.Margin = new System.Windows.Forms.Padding(0);
             this.TbName.Name = "TbName";
-            this.TbName.Size = new System.Drawing.Size(250, 21);
+            this.TbName.Size = new System.Drawing.Size(220, 21);
             this.TbName.TabIndex = 0;
-            this.TbName.Leave += new System.EventHandler(this.TbName_Leave);
+            // 
+            // LbEmail
+            // 
+            this.LbEmail.AutoSize = true;
+            this.LbEmail.BackColor = System.Drawing.Color.Transparent;
+            this.LbEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LbEmail.Font = new System.Drawing.Font("Hack NF", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbEmail.Location = new System.Drawing.Point(555, 39);
+            this.LbEmail.Margin = new System.Windows.Forms.Padding(0);
+            this.LbEmail.Name = "LbEmail";
+            this.LbEmail.Size = new System.Drawing.Size(53, 18);
+            this.LbEmail.TabIndex = 5;
+            this.LbEmail.Text = "Email";
+            // 
+            // TbEmail
+            // 
+            this.TbEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TbEmail.Location = new System.Drawing.Point(622, 36);
+            this.TbEmail.Margin = new System.Windows.Forms.Padding(0);
+            this.TbEmail.Name = "TbEmail";
+            this.TbEmail.Size = new System.Drawing.Size(250, 21);
+            this.TbEmail.TabIndex = 6;
             // 
             // Booking
             // 
@@ -451,5 +475,7 @@
         private System.Windows.Forms.ComboBox CbBookedSeat;
         private System.Windows.Forms.ComboBox CbType;
         private System.Windows.Forms.Label LbType;
+        private System.Windows.Forms.Label LbEmail;
+        private System.Windows.Forms.TextBox TbEmail;
     }
 }

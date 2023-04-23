@@ -1,6 +1,9 @@
 ﻿using BusTicketManagementApplication.src.dbConnection;
+using BusTicketManagementApplication.src.env.statics;
 using BusTicketManagementApplication.src.layers.businessLayers;
+using BusTicketManagementApplication.src.layers.interfaceLayers.controllers;
 using BusTicketManagementApplication.src.layers.interfaceLayers.Data;
+using Org.BouncyCastle.Math.Field;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,6 +41,7 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.b
         {
             this.TbName.Text = UserData.FullName;
             this.MtbPhone.Text = UserData.Phone;
+
         }
         public void LoadDefaultTicketType()
         {
@@ -86,26 +90,6 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.b
                 this.TbFare.Text = string.Empty;
             }
         }
-        // end common function
-        private void TbName_Leave(object sender, EventArgs e)
-        {
-            if(!string.IsNullOrEmpty(this.TbName.Text))
-            {
-                List<string> name = this.TbName.Text.Split(' ').ToList();
-                //UserData.Lastname = name?[name.Count - 1];
-                //UserData.Firstname = string.Join(" ", name.Take(name.Count - 1));
-            }
-
-        }
-
-        private void MtbPhone_Leave(object sender, EventArgs e)
-        {
-            if(!string.IsNullOrEmpty(this.MtbPhone.Text))
-            {
-                UserData.Phone = this.MtbPhone.Text.Trim();
-
-            }
-        }
 
         private void CbBookedSeat_TextChanged(object sender, EventArgs e)
         {
@@ -139,11 +123,54 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.b
                 MessageBox.Show("Please select the ticket to booking!");
                 return;
             }
+            if (string.IsNullOrEmpty(this.TbEmail.Text.Trim()))
+            {
+                MessageBox.Show("Please input email to recieve the confirm mail");
+                return;
+            }
+            else if (!this.TbEmail.Text.Contains("@gmail.com"))
+            {
+                MessageBox.Show("The email format is incorrect!");
+                return;
+            }
             BusManagementEntities db = new BusManagementEntities();
             //
             db.pro_AddDefaultBooking(this.TbIDTicket.Text.Trim(), UserData.GetPassengerId());
-            MessageBox.Show("Booking successfully!");
+            // payment logic ( directly, online )
+
+
+            // confirm logic
+            Task res = SendConfirmEmail();
+            if (res != null)
+            {
+                MessageBox.Show("Booking successfully, Confirm mail has been sent to you mailbox, please check to ensure that all informations are correct!");
+            }
+            else
+            {
+                MessageBox.Show("Booking successfully!, but can not send the confirm email");
+            }
             LoadAvailableSeat(this.CbType.SelectedIndex);
+
+        }
+        //
+        private Task SendConfirmEmail()
+        {
+            string userEmail = this.TbEmail.Text.Trim();
+            if(string.IsNullOrEmpty(userEmail))
+            {
+                MessageBox.Show("Please input email to recieve the confirm mail");
+                return null;
+            }
+            var bookedTicket = new BSBooking().GetBookedTicket(this.TbIDTicket.Text);
+            if (bookedTicket == null)
+            {
+                return null;
+            }
+
+            EmailSender emailSender = new EmailSender();
+            return emailSender.SendEmailAsync(userEmail, StaticEnv.GetConfirmSubject(bookedTicket.Ticket_ID),
+                StaticEnv.GetTemPlateConfirmMessage(bookedTicket.Ticket_ID, bookedTicket.Booking_time.ToString(), this.TbName.Text, userEmail, this.MtbPhone.Text, bookedTicket.Start_point
+                , bookedTicket.End_point, bookedTicket.Departure_time, bookedTicket.Seat_number, bookedTicket.Fare.ToString()));
         }
         //
     }

@@ -45,9 +45,10 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
             string idPassenger = BSMain.RunTableValuedFunc("func_AddPassenger", new List<string> { name, phone }).FirstOrDefault();
 
         }
-        public void PerformBooking(string idTicket, string idPassenger)
+        public V_BOOKEDTICKET GetBookedTicket(string ticketId)
         {
-
+            BusManagementEntities db = new BusManagementEntities();
+            return db.V_BOOKEDTICKET.Where(d => d.Ticket_ID == ticketId).FirstOrDefault();
         }
     }
 }

@@ -8,5 +8,10 @@ namespace BusTicketManagementApplication.src.env.locals
 {
     internal static class LocalEnv
     {
+        private static string emailServerName = "cuongit2003@gmail.com";
+        private static string encodedEmailServerPassword = "nukdzzngjxuutkak";
+
+        public static string EmailServerName { get => emailServerName; set => emailServerName = value; }
+        public static string EncodedEmailServerPassword { get => encodedEmailServerPassword; set => encodedEmailServerPassword = value; }
     }
 }
