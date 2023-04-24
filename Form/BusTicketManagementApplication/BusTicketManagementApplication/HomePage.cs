@@ -1,5 +1,6 @@
 ﻿using BusTicketManagementApplication.src.layers.interfaceLayers.components.booking;
 using BusTicketManagementApplication.src.layers.interfaceLayers.components.home;
+using BusTicketManagementApplication.src.layers.interfaceLayers.components.login;
 using BusTicketManagementApplication.src.layers.interfaceLayers.components.trip;
 using BusTicketManagementApplication.src.layers.interfaceLayers.components.bus;
 using BusTicketManagementApplication.src.layers.interfaceLayers.Data;
@@ -32,6 +33,7 @@ namespace BusTicketManagementApplication
                     mainFeatureIndex = value;
                     ResetFeatures();
                     ActiveFeature(value);
+                    this.PnlNavigationBar.Controls.Clear();
                     switch (value)
                     {
                         case 0:
@@ -49,7 +51,6 @@ namespace BusTicketManagementApplication
                                 RenderActiveForm(new Bus(this), this.PnlFillContent);
 
                                 break;
-
                             }
                         case 3:
                             {
@@ -57,10 +58,19 @@ namespace BusTicketManagementApplication
                             }
                         case 4:
                             {
+                                RenderActiveForm(new BookingNavigationBar(this), this.PnlNavigationBar);
+                                //
                                 Form renderForm = new Booking(this);
-                                if (string.IsNullOrEmpty(UserData.CurrentSelectedTripId))
+                                if (BookingNavigationBar.NavIndex == 0)
                                 {
-                                    renderForm = new UnSelectBooking();
+                                    if (string.IsNullOrEmpty(UserData.CurrentSelectedTripId))
+                                    {
+                                        renderForm = new UnSelectBooking();
+                                    }
+                                }
+                                else if(BookingNavigationBar.NavIndex == 1)
+                                {
+                                    renderForm = new Booked();
                                 }
                                 RenderActiveForm(renderForm, this.PnlFillContent);
                                 break;
@@ -83,18 +93,40 @@ namespace BusTicketManagementApplication
             {
 
             }
+            
         }
         private void App_Load(object sender, EventArgs e)
         {
             //
             InitUI();
+            LoadUI();
             // load current date, time
             this.LbDate.Text = "Today - " + DateTime.Now.ToString().Split(' ')[0];
             //
             string[] rightTime = DateTime.Now.ToString().Split(' ');
             this.LbTime.Text = rightTime[1] + " " + rightTime[2];
             TimerNow.Start();
+            //
         }
+        // Login process
+        private DialogResult GetFormResult(Form fm)
+        {
+            return fm.ShowDialog();
+        }
+        private bool CheckLogin()
+        {
+            if (!UserData.Islogin)
+            {
+                DialogResult loginResult = GetFormResult(new Login());
+                if(loginResult == DialogResult.OK)
+                {
+                    UserData.Islogin = true;
+                }
+            }
+            return UserData.Islogin;
+        }
+
+        //
         // common functions
         private bool RenderActiveForm(Form fm, Control control)
         {
@@ -120,10 +152,13 @@ namespace BusTicketManagementApplication
             this.LbTime.Text = rightTime[1] + " " + rightTime[2];
         }
         // end timer tick function
-
         private void TbSearch_Leave(object sender, EventArgs e)
         {
-            SearchInput = this.TbSearch.Text;
+            SearchInput = this.TbSearch.Text.Trim();
+            if (string.IsNullOrEmpty(SearchInput))
+            {
+                this.LbPlaceholder.Show();
+            }
         }
         private void ResetFeatures()
         {
@@ -144,13 +179,31 @@ namespace BusTicketManagementApplication
         }
         private void Handler_Features_Click(object sender, EventArgs e)
         {
-            Control ctr = sender as Control;
-            int tag = Convert.ToInt16(ctr.Tag.ToString());
-            if (ctr != null)
+            if (!UserData.Islogin)
             {
-                this.MainFeatureIndex = tag;
-                
+                CheckLogin();
             }
+            if(UserData.Islogin)
+            {
+                Control ctr = sender as Control;
+                int tag = Convert.ToInt16(ctr.Tag.ToString());
+                if (ctr != null)
+                {
+                    this.MainFeatureIndex = tag;
+
+                }
+            }
+            
+        }
+
+        private void LbPlaceholder_Click(object sender, EventArgs e)
+        {
+            this.TbSearch.Focus();
+        }
+
+        private void TbSearch_Enter(object sender, EventArgs e)
+        {
+            this.LbPlaceholder.Hide();
         }
     }
 }

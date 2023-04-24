@@ -54,15 +54,15 @@ from BUSROUTE as a inner join BUSSTATION_PLACE_CTE as b on a.id_start_station = 
 inner join BUSSTATION_PLACE_CTE as c on a.id_end_station = c.id_bus_station
 go
 
-create view V_BOOKINGINFOR as
-select a.id_booking as [Booking ID], a.id_ticket as [Ticket ID], b.name as [Passenger name], b.gender as [Passenger gender], b.phone_number as [Passenger phone number],
+create view [dbo].[V_BOOKINGINFOR] as
+select a.id_booking as [Booking ID], a.id_passenger as [Passenger ID], a.id_ticket as [Ticket ID], b.name as [Passenger name], b.gender as [Passenger gender], b.phone_number as [Passenger phone number],
 c.name as [Employee name], c.gender as [Employee gender], c.phone_number as [Employee phone number], a.booking_time as [Booking time]
 from BOOKING as a
 inner join PASSENGER as b on a.id_passenger = b.id_passenger
 inner join EMPLOYEE as c on a.id_employee = c.id_employee 
 
 go
-
+--
 create view V_BUSSTATIONINFOR as
 select a.id_place, a.phone as [Phone number], a.address as [Address], b.region as [Region]
 from BUSSTATION as a
@@ -76,14 +76,34 @@ from AGENT as a
 inner join PLACE as b on a.id_place = b.id_place
 
 go
-
+--
 create view V_EMPLOYEEINFOR as
 select a.id_employee as [Employees ID], a.name as [Name], a.phone_number as [Phone Number], a.gender as [Gender], a.[state] as [State]
 from EMPLOYEE as a
 
 go
-
+--
 create view V_DRIVERINFOR as
 select a.id_employee as [Employees ID], a.name as [Name], a.phone_number as [Phone Number], a.gender as [Gender]
 , b.lisence_level as [Lisence Level], b.type as [Type], b.[state] as [State]
 from EMPLOYEE as a inner join DRIVER as b on a.id_employee = b.id_driver
+go
+--
+create view V_USERINFOR as
+select a.id_passenger, a.name, a.phone_number, b.username, b.password from PASSENGER as a inner join PASSENGERACCOUNT as b on a.id_passenger = b.id_passenger
+go
+--
+create view [dbo].[V_BOOKEDTICKET] as
+select a.[Passenger ID], b.id_ticket as [Ticket ID], b.fare as [Fare], 
+	case 
+		when b.type = 0 then 'Seat'
+		else 'Sleeper'
+	end as [Type]
+, b.seat_number as [Seat number],
+c.[Start point] as [Start point], d.[End point] as [End point], c.[Departure time] , d.Distance as [Distance], c.Duration as [Duration],
+c.[Registration number of bus] as [Registration number of bus], a.[Booking time] as [Booking time]
+from V_BOOKINGINFOR as a inner join TICKET as b on a.[Ticket ID] = b.id_ticket
+inner join V_TRIPINFOR as c on b.id_trip = c.[Trip ID]
+inner join V_ROUTEINFOR as d on c.[Start point] = d.[Start point] and c.[End point] = d.[End point]
+go
+--

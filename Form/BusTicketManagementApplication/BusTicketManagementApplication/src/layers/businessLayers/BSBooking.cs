@@ -28,7 +28,7 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
         {
             BusManagementEntities db = new BusManagementEntities();
             string funcName = "func_GetAvailabelSeat";
-            List<string> ticketList = BSMain.RunFunc(funcName, new List<string> { idTrip, type.ToString() });
+            List<string> ticketList = BSMain.RunTableValuedFunc(funcName, new List<string> { idTrip, type.ToString() });
             return ticketList;
         }
         public TICKET GetTicket(string idTrip, bool type, string seatNumber)
@@ -42,12 +42,13 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
         public void AddPassenger(string name, string phone)
         {
             BusManagementEntities db = new BusManagementEntities();
-            string idPassenger = BSMain.RunFunc("func_AddPassenger", new List<string> { name, phone }).FirstOrDefault();
+            string idPassenger = BSMain.RunTableValuedFunc("func_AddPassenger", new List<string> { name, phone }).FirstOrDefault();
 
         }
-        public void PerformBooking(string idTicket, string idPassenger)
+        public V_BOOKEDTICKET GetBookedTicket(string ticketId)
         {
-
+            BusManagementEntities db = new BusManagementEntities();
+            return db.V_BOOKEDTICKET.Where(d => d.Ticket_ID == ticketId).FirstOrDefault();
         }
     }
 }

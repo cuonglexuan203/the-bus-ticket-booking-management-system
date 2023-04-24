@@ -33,18 +33,43 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.1.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="MailKit, Version=4.0.0.0, Culture=neutral, PublicKeyToken=4e064fe7c44a8f1b, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailKit.4.0.0\lib\net47\MailKit.dll</HintPath>
+    </Reference>
+    <Reference Include="MimeKit, Version=4.0.0.0, Culture=neutral, PublicKeyToken=bede1c8a46c66814, processorArchitecture=MSIL">
+      <HintPath>..\packages\MimeKit.4.0.0\lib\net47\MimeKit.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -116,6 +141,9 @@
     <Compile Include="src\dbConnection\PASSENGER.cs">
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="src\dbConnection\PASSENGERACCOUNT.cs">
+      <DependentUpon>BusManagementModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="src\dbConnection\PLACE.cs">
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
@@ -126,6 +154,15 @@
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
     <Compile Include="src\dbConnection\REFUND.cs">
+      <DependentUpon>BusManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="src\dbConnection\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>BusManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="src\dbConnection\sp_helpdiagrams_Result.cs">
+      <DependentUpon>BusManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="src\dbConnection\sysdiagram.cs">
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
     <Compile Include="src\dbConnection\SYSTEMACCOUNT.cs">
@@ -141,6 +178,9 @@
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
     <Compile Include="src\dbConnection\V_AVAILABLETRIP.cs">
+      <DependentUpon>BusManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="src\dbConnection\V_BOOKEDTICKET.cs">
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
     <Compile Include="src\dbConnection\V_BOOKINGINFOR.cs">
@@ -162,20 +202,41 @@
     <Compile Include="src\dbConnection\V_TRIPINFOR.cs">
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="src\dbConnection\V_USERINFOR.cs">
+      <DependentUpon>BusManagementModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="src\env\locals\LocalEnv.cs" />
     <Compile Include="src\env\statics\StaticEnv.cs" />
+    <Compile Include="src\layers\businessLayers\BSBooked.cs" />
     <Compile Include="src\layers\businessLayers\BSBooking.cs" />
+<<<<<<< HEAD
     <Compile Include="src\layers\businessLayers\BSBus.cs" />
+=======
+    <Compile Include="src\layers\businessLayers\BSLogin.cs" />
+>>>>>>> 869fc4e79eebaa549c22dc77f09004959d30846a
     <Compile Include="src\layers\businessLayers\BSMain.cs" />
+    <Compile Include="src\layers\businessLayers\BSPassenger.cs" />
     <Compile Include="src\layers\businessLayers\BSPlace.cs" />
     <Compile Include="src\layers\businessLayers\BSRoute.cs" />
     <Compile Include="src\layers\businessLayers\BSTicket.cs" />
     <Compile Include="src\layers\businessLayers\BSTrip.cs" />
+    <Compile Include="src\layers\interfaceLayers\components\booking\Booked.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\booking\Booked.Designer.cs">
+      <DependentUpon>Booked.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\layers\interfaceLayers\components\booking\Booking.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="src\layers\interfaceLayers\components\booking\Booking.Designer.cs">
       <DependentUpon>Booking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\booking\BookingNavigationBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\booking\BookingNavigationBar.Designer.cs">
+      <DependentUpon>BookingNavigationBar.cs</DependentUpon>
     </Compile>
     <Compile Include="src\layers\interfaceLayers\components\booking\UnSelectBooking.cs">
       <SubType>Form</SubType>
@@ -195,12 +256,26 @@
     <Compile Include="src\layers\interfaceLayers\components\home\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\login\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\login\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\login\SignUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\login\SignUp.Designer.cs">
+      <DependentUpon>SignUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\layers\interfaceLayers\components\trip\Trip.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="src\layers\interfaceLayers\components\trip\Trip.Designer.cs">
       <DependentUpon>Trip.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\layers\interfaceLayers\controllers\EmailSender.cs" />
+    <Compile Include="src\layers\interfaceLayers\controllers\interfaces\IEmailSender.cs" />
     <Compile Include="src\layers\interfaceLayers\customizeUI\initialData\InitData.cs" />
     <Compile Include="src\layers\interfaceLayers\customizeUI\initialUI\InitUI.cs">
       <SubType>Form</SubType>
@@ -219,8 +294,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="src\layers\interfaceLayers\components\booking\Booked.resx">
+      <DependentUpon>Booked.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\layers\interfaceLayers\components\booking\Booking.resx">
       <DependentUpon>Booking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\layers\interfaceLayers\components\booking\BookingNavigationBar.resx">
+      <DependentUpon>BookingNavigationBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\layers\interfaceLayers\components\booking\UnSelectBooking.resx">
       <DependentUpon>UnSelectBooking.cs</DependentUpon>
@@ -231,9 +312,16 @@
     <EmbeddedResource Include="src\layers\interfaceLayers\components\home\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="src\layers\interfaceLayers\components\login\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\layers\interfaceLayers\components\login\SignUp.resx">
+      <DependentUpon>SignUp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\layers\interfaceLayers\components\trip\Trip.resx">
       <DependentUpon>Trip.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="BusTicketManagementApplication.src.dbConnection.V_BOOKEDTICKET.datasource" />
     <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.AGENT.datasource" />
     <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.BOOKING.datasource" />
     <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.BUS.datasource" />
@@ -286,6 +374,7 @@
   <ItemGroup>
     <Folder Include="src\asset\cursor\" />
     <Folder Include="src\asset\sound\" />
+    <Folder Include="src\dbConnection\DataSet\" />
     <Folder Include="src\layers\interfaceLayers\components\aboutUs\" />
     <Folder Include="src\layers\interfaceLayers\components\driver\" />
   </ItemGroup>

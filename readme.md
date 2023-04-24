@@ -1,6 +1,7 @@
 
 Project: <h1> The bus ticket booking management system application</h1>
 
+![Intro](https://github.com/cuonglexuan203/the-bus-ticket-booking-management-system/blob/main/Intro/img.png?raw=true)
 
 <table border="2">
         <tr>
@@ -29,3 +30,4 @@ Project: <h1> The bus ticket booking management system application</h1>
             <td>Member</td>
         </tr>
     </table>
+

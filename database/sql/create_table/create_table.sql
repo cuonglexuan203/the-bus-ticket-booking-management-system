@@ -36,7 +36,7 @@ create table TICKET
     fare money not null,
     type bit default 0,
     -- 0: seat, 1: lie
-    seat_number char(15) not null unique
+    seat_number char(15) not null
 );
 
 create table BUSROUTE
@@ -74,7 +74,7 @@ create table PASSENGER
     phone_number char(20) not null,
     address char(100) not null,
     identity_number char(20) null,
-    gender bit default 0,
+    gender bit,
     -- 0: male, 1: female
     email char(50) null,
 );
@@ -100,7 +100,7 @@ create table EMPLOYEE
     salary money not null,
     email char(50) null,
     birthdate date not null,
-    gender bit default 0, -- 0: male, 1: female
+    gender bit, -- 0: male, 1: female
     state bit default 1
     -- 0: not working, 1: is working
 );
@@ -179,6 +179,12 @@ create table SYSTEMACCOUNT
     username char(20) not null unique,
     pass varchar(50) not null,
 );
+
+create table PASSENGERACCOUNT(
+	id_passenger char(20),
+	username varchar(50) primary key,
+	password varchar(50) not null,
+	);
 
 create table TRIP_DRIVER
 (
@@ -261,6 +267,7 @@ alter table TICKET add constraint CHK_ticket check(fare > 0 );
 --
 alter table BUSROUTE add constraint FK_busroute_id_start_bus_station foreign key (id_start_station) references BUSSTATION(id_bus_station);
 alter table BUSROUTE add constraint FK_busroute_id_end_bus_station foreign key (id_end_station) references BUSSTATION(id_bus_station);
+alter table BUSROUTE add constraint UC_busroute_id_start_bus_station_id_end_bus_station unique(id_start_station, id_end_station);
 alter table BUSROUTE add constraint CHK_busroute check (distance > 0);
 --
 alter table BOOKING add constraint FK_booking_id_ticket foreign key (id_ticket) references TICKET(id_ticket);
@@ -294,6 +301,9 @@ alter table PACKAGE add constraint FK_package_id_trip foreign key (id_trip) refe
 alter table PACKAGE add constraint CHK_package check (mass >= 0 and price >= 0);
 --
 alter table PACKAGEPRICEPOLICY add constraint CHK_packagepricepolicy check( price_per_km > 0 and mass_unit >= 0 );
+--
+alter table PASSENGERACCOUNT
+add constraint PK_passengerAccount_id_passenger foreign key (id_passenger) references PASSENGER(id_passenger);
 --
 alter table TRIP_DRIVER add constraint FK_trip_driver_id_trip foreign key (id_trip) references TRIP(id_trip);
 alter table TRIP_DRIVER add constraint FK_trip_driver_id_driver foreign key (id_driver) references DRIVER(id_driver);

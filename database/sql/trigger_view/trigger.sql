@@ -14,11 +14,20 @@ begin
 		update EMPLOYEE 
 		set state = 0
 		where id_employee = @employee_id;
-
+		--
 		delete from EMPLOYEE_POSITION where id_employee = @employee_id;
-
+		--
+		declare @username varchar(30)
+		select @username = sysa.username from SYSTEMACCOUNT sysa where sysa.id_account = @account_id
+		--
+		declare @query varchar(1000)
+		set @query = 'drop user [' + @username + ']'
+		exec @query
+		--
+		set @query = 'drop login [' + @username + ']'
+		exec @query
+		--
 		delete from SYSTEMACCOUNT where id_account = @account_id
-
 		commit tran
 	end try
 
@@ -31,6 +40,22 @@ end;
 
 go
 
+--
+create trigger tr_CreateAccount on SYSTEMACCOUNT
+after insert
+as
+declare @username varchar(30), @password varchar(10)
+select @username = ins.username, @password = ins.pass from inserted ins
+begin
+	declare @query varchar(2000)
+	set @query = 'create login [' + @username + '] with password = ''' + @password + ''',
+	default_database = [BusManagement], check_expiration = off, check_policy = off'
+	exec @query;
+
+	set @query = 'create user [' + @username + '] for login ' + @username
+	exec @query;
+end
+go
 --
 
 create trigger tr_DeleteTrip on TRIP

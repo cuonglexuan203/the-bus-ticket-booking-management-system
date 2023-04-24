@@ -15,6 +15,7 @@ namespace BusTicketManagementApplication.src.dbConnection
     public partial class V_BOOKINGINFOR
     {
         public string Booking_ID { get; set; }
+        public string Passenger_ID { get; set; }
         public string Ticket_ID { get; set; }
         public string Passenger_name { get; set; }
         public Nullable<bool> Passenger_gender { get; set; }

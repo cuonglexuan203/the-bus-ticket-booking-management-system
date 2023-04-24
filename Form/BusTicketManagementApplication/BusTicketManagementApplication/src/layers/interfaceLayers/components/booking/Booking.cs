@@ -1,6 +1,9 @@
 ﻿using BusTicketManagementApplication.src.dbConnection;
+using BusTicketManagementApplication.src.env.statics;
 using BusTicketManagementApplication.src.layers.businessLayers;
+using BusTicketManagementApplication.src.layers.interfaceLayers.controllers;
 using BusTicketManagementApplication.src.layers.interfaceLayers.Data;
+using Org.BouncyCastle.Math.Field;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,12 +34,22 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.b
         {
             LoadSelectedTrip();
             LoadDefaultTicketType();
+            LoadUserInfor();
         }
         // Common function
+        private void LoadUserInfor()
+        {
+            this.TbName.Text = UserData.FullName;
+            this.MtbPhone.Text = UserData.Phone;
+
+        }
         public void LoadDefaultTicketType()
         {
             this.CbType.Items.AddRange("Seat,Sleeper".Split(','));
-            this.CbType.SelectedIndex = 0;
+            if (CbType.Items.Count > 0)
+            {
+                this.CbType.SelectedIndex = 0;
+            }
         }
         public void LoadSelectedTrip()
         {
@@ -53,35 +66,28 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.b
         }
         public void LoadAvailableSeat(int type)
         {
+            this.TbIDTicket.Text = string.Empty;
+            this.TbFare.Text = string.Empty;
             this.CbBookedSeat.DataSource = new BSBooking().GetAvailableSeat(UserData.CurrentSelectedTripId.Trim(), type);
-            this.CbBookedSeat.SelectedIndex = 0;
+            if (CbBookedSeat.Items.Count > 0)
+            {
+                this.CbBookedSeat.SelectedIndex = 0;
+            }
         }
         public void LoadSelectedTicket()
         {
             BSBooking bsbooking = new BSBooking();
             bool type = this.CbType.SelectedIndex != 0;
             TICKET selectedTicket = bsbooking.GetTicket(UserData.CurrentSelectedTripId, type, this.CbBookedSeat.Text);
-            this.TbIDTicket.Text = selectedTicket.id_ticket.ToString().Trim();
-            this.TbFare.Text = selectedTicket.fare.ToString().Trim();
-        }
-        // end common function
-        private void TbName_Leave(object sender, EventArgs e)
-        {
-            if(!string.IsNullOrEmpty(this.TbName.Text))
+            if (selectedTicket != null)
             {
-                List<string> name = this.TbName.Text.Split(' ').ToList();
-                UserData.Lastname = name?[name.Count - 1];
-                UserData.Firstname = string.Join(" ", name.Take(name.Count - 1));
+                this.TbIDTicket.Text = selectedTicket.id_ticket.ToString().Trim();
+                this.TbFare.Text = selectedTicket.fare.ToString().Trim();
             }
-
-        }
-
-        private void MtbPhone_Leave(object sender, EventArgs e)
-        {
-            if(!string.IsNullOrEmpty(this.MtbPhone.Text))
+            else
             {
-                UserData.Phone = this.MtbPhone.Text.Trim();
-
+                this.TbIDTicket.Text = string.Empty;
+                this.TbFare.Text = string.Empty;
             }
         }
 
@@ -111,12 +117,61 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.b
 
         private void BtnBooking_Click(object sender, EventArgs e)
         {
-            BSBooking bsbooking = new BSBooking();
-            bsbooking.AddPassenger(this.TbName.Text, this.MtbPhone.Text);
+
+            if(string.IsNullOrEmpty(this.TbIDTicket.Text.Trim()))
+            {
+                MessageBox.Show("Please select the ticket to booking!");
+                return;
+            }
+            if (string.IsNullOrEmpty(this.TbEmail.Text.Trim()))
+            {
+                MessageBox.Show("Please input email to recieve the confirm mail");
+                return;
+            }
+            else if (!this.TbEmail.Text.Contains("@gmail.com"))
+            {
+                MessageBox.Show("The email format is incorrect!");
+                return;
+            }
+            BusManagementEntities db = new BusManagementEntities();
+            //
+            db.pro_AddDefaultBooking(this.TbIDTicket.Text.Trim(), UserData.GetPassengerId());
+            // payment logic ( directly, online )
+
+
+            // confirm logic
+            Task res = SendConfirmEmail();
+            if (res != null)
+            {
+                MessageBox.Show("Booking successfully, Confirm mail has been sent to you mailbox, please check to ensure that all informations are correct!");
+            }
+            else
+            {
+                MessageBox.Show("Booking successfully!, but can not send the confirm email");
+            }
+            LoadAvailableSeat(this.CbType.SelectedIndex);
+
         }
+        //
+        private Task SendConfirmEmail()
+        {
+            string userEmail = this.TbEmail.Text.Trim();
+            if(string.IsNullOrEmpty(userEmail))
+            {
+                MessageBox.Show("Please input email to recieve the confirm mail");
+                return null;
+            }
+            var bookedTicket = new BSBooking().GetBookedTicket(this.TbIDTicket.Text);
+            if (bookedTicket == null)
+            {
+                return null;
+            }
 
-
-
+            EmailSender emailSender = new EmailSender();
+            return emailSender.SendEmailAsync(userEmail, StaticEnv.GetConfirmSubject(bookedTicket.Ticket_ID),
+                StaticEnv.GetTemPlateConfirmMessage(bookedTicket.Ticket_ID, bookedTicket.Booking_time.ToString(), this.TbName.Text, userEmail, this.MtbPhone.Text, bookedTicket.Start_point
+                , bookedTicket.End_point, bookedTicket.Departure_time, bookedTicket.Seat_number, bookedTicket.Fare.ToString()));
+        }
         //
     }
 }

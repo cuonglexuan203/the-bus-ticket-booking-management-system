@@ -10,7 +10,7 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
 {
     internal static class BSMain
     {
-        public static List<int> RunFunc(string funcName, List<int> parameters = null)
+        public static List<int> RunTableValuedFunc(string funcName, List<int> parameters = null)
         {
             BusManagementEntities db = new BusManagementEntities();
             List<int> list = null;
@@ -25,7 +25,7 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
             list = db.Database.SqlQuery<int>(query).ToList();
             return list;
         }
-        public static List<string> RunFunc(string funcName, List<string> parameters = null)
+        public static List<string> RunTableValuedFunc(string funcName, List<string> parameters = null)
         {
             BusManagementEntities db = new BusManagementEntities();
             List<string> list = null;
@@ -40,7 +40,7 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
             list = db.Database.SqlQuery<string>(query).ToList();
             return list;
         }
-        public static List<float> RunFunc(string funcName, List<float> parameters = null)
+        public static List<float> RunTableValuedFunc(string funcName, List<float> parameters = null)
         {
             BusManagementEntities db = new BusManagementEntities();
             List<float> list = null;
@@ -55,10 +55,33 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
             list = db.Database.SqlQuery<float>(query).ToList();
             return list;
         }
-        //public static string RunFunc(string funcName)
-        //{
-        //    BusManagementEntities db = new BusManagementEntities();
-        //    string query = $"select func"
-        //}
+        public static string RunFunc(string funcName)
+        {
+            BusManagementEntities db = new BusManagementEntities();
+            string query = $"select dbo.{funcName}()";  
+            return db.Database.SqlQuery<string>(query).ToList().FirstOrDefault().ToString();
+        }
+
+        // modify run proc
+        public static void RunProc(string procName)
+        {
+            BusManagementEntities db = new BusManagementEntities();
+            string query = $"exec dbo.{procName}";
+            db.Database.SqlQuery<string>(query).ToList().FirstOrDefault().ToString();
+        }
+        public static void RunProc(string procName, List<string> parameters = null)
+        {
+            BusManagementEntities db = new BusManagementEntities();
+            string query = $"exec dbo.{procName} ";
+            if (parameters != null && parameters.Count > 0)
+            {
+                parameters = parameters.Select(d => "'" + d + "'").ToList();
+                string inputParams = string.Join(", ", parameters);
+                query += inputParams;
+            }
+            db.Database.SqlQuery<string>(query).ToList().FirstOrDefault().ToString();
+            db.SaveChanges();
+        }
+
     }
 }

@@ -38,13 +38,6 @@
             this.TbSearch = new System.Windows.Forms.TextBox();
             this.BtnBooking = new System.Windows.Forms.Button();
             this.DgvMainData = new System.Windows.Forms.DataGridView();
-            this.PnlFilter = new System.Windows.Forms.Panel();
-            this.LbDepartureTime = new System.Windows.Forms.Label();
-            this.LbDestination = new System.Windows.Forms.Label();
-            this.LbSource = new System.Windows.Forms.Label();
-            this.CbSource = new System.Windows.Forms.ComboBox();
-            this.DtpDepartureTime = new System.Windows.Forms.DateTimePicker();
-            this.CbDestination = new System.Windows.Forms.ComboBox();
             this.tripIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.registrationnumberofbusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.startpointDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,11 +47,18 @@
             this.remainseatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vTRIPINFORBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.PnlFilter = new System.Windows.Forms.Panel();
+            this.LbDepartureTime = new System.Windows.Forms.Label();
+            this.LbDestination = new System.Windows.Forms.Label();
+            this.LbSource = new System.Windows.Forms.Label();
+            this.CbSource = new System.Windows.Forms.ComboBox();
+            this.DtpDepartureTime = new System.Windows.Forms.DateTimePicker();
+            this.CbDestination = new System.Windows.Forms.ComboBox();
             this.PnlApp.SuspendLayout();
             this.GbSearchBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvMainData)).BeginInit();
-            this.PnlFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vTRIPINFORBindingSource)).BeginInit();
+            this.PnlFilter.SuspendLayout();
             this.SuspendLayout();
             // 
             // PnlApp
@@ -188,6 +188,82 @@
             this.DgvMainData.TabIndex = 9;
             this.DgvMainData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvMainData_CellClick);
             // 
+            // tripIDDataGridViewTextBoxColumn
+            // 
+            this.tripIDDataGridViewTextBoxColumn.DataPropertyName = "Trip_ID";
+            this.tripIDDataGridViewTextBoxColumn.HeaderText = "Trip_ID";
+            this.tripIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.tripIDDataGridViewTextBoxColumn.Name = "tripIDDataGridViewTextBoxColumn";
+            this.tripIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.tripIDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // registrationnumberofbusDataGridViewTextBoxColumn
+            // 
+            this.registrationnumberofbusDataGridViewTextBoxColumn.DataPropertyName = "Registration_number_of_bus";
+            this.registrationnumberofbusDataGridViewTextBoxColumn.HeaderText = "Registration_number_of_bus";
+            this.registrationnumberofbusDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.registrationnumberofbusDataGridViewTextBoxColumn.Name = "registrationnumberofbusDataGridViewTextBoxColumn";
+            this.registrationnumberofbusDataGridViewTextBoxColumn.ReadOnly = true;
+            this.registrationnumberofbusDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // startpointDataGridViewTextBoxColumn
+            // 
+            this.startpointDataGridViewTextBoxColumn.DataPropertyName = "Start_point";
+            this.startpointDataGridViewTextBoxColumn.HeaderText = "Start_point";
+            this.startpointDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.startpointDataGridViewTextBoxColumn.Name = "startpointDataGridViewTextBoxColumn";
+            this.startpointDataGridViewTextBoxColumn.ReadOnly = true;
+            this.startpointDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // endpointDataGridViewTextBoxColumn
+            // 
+            this.endpointDataGridViewTextBoxColumn.DataPropertyName = "End_point";
+            this.endpointDataGridViewTextBoxColumn.HeaderText = "End_point";
+            this.endpointDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.endpointDataGridViewTextBoxColumn.Name = "endpointDataGridViewTextBoxColumn";
+            this.endpointDataGridViewTextBoxColumn.ReadOnly = true;
+            this.endpointDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // departuretimeDataGridViewTextBoxColumn
+            // 
+            this.departuretimeDataGridViewTextBoxColumn.DataPropertyName = "Departure_time";
+            this.departuretimeDataGridViewTextBoxColumn.HeaderText = "Departure_time";
+            this.departuretimeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.departuretimeDataGridViewTextBoxColumn.Name = "departuretimeDataGridViewTextBoxColumn";
+            this.departuretimeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.departuretimeDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // durationDataGridViewTextBoxColumn
+            // 
+            this.durationDataGridViewTextBoxColumn.DataPropertyName = "Duration";
+            this.durationDataGridViewTextBoxColumn.HeaderText = "Duration";
+            this.durationDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.durationDataGridViewTextBoxColumn.Name = "durationDataGridViewTextBoxColumn";
+            this.durationDataGridViewTextBoxColumn.ReadOnly = true;
+            this.durationDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // remainseatDataGridViewTextBoxColumn
+            // 
+            this.remainseatDataGridViewTextBoxColumn.DataPropertyName = "Remain_seat";
+            this.remainseatDataGridViewTextBoxColumn.HeaderText = "Remain_seat";
+            this.remainseatDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.remainseatDataGridViewTextBoxColumn.Name = "remainseatDataGridViewTextBoxColumn";
+            this.remainseatDataGridViewTextBoxColumn.ReadOnly = true;
+            this.remainseatDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            this.statusDataGridViewTextBoxColumn.ReadOnly = true;
+            this.statusDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // vTRIPINFORBindingSource
+            // 
+            this.vTRIPINFORBindingSource.DataSource = typeof(BusTicketManagementApplication.src.dbConnection.V_TRIPINFOR);
+            // 
             // PnlFilter
             // 
             this.PnlFilter.Controls.Add(this.LbDepartureTime);
@@ -274,82 +350,6 @@
             this.CbDestination.TabStop = false;
             this.CbDestination.TextChanged += new System.EventHandler(this.CbDestination_TextChanged);
             // 
-            // tripIDDataGridViewTextBoxColumn
-            // 
-            this.tripIDDataGridViewTextBoxColumn.DataPropertyName = "Trip_ID";
-            this.tripIDDataGridViewTextBoxColumn.HeaderText = "Trip_ID";
-            this.tripIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.tripIDDataGridViewTextBoxColumn.Name = "tripIDDataGridViewTextBoxColumn";
-            this.tripIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tripIDDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // registrationnumberofbusDataGridViewTextBoxColumn
-            // 
-            this.registrationnumberofbusDataGridViewTextBoxColumn.DataPropertyName = "Registration_number_of_bus";
-            this.registrationnumberofbusDataGridViewTextBoxColumn.HeaderText = "Registration_number_of_bus";
-            this.registrationnumberofbusDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.registrationnumberofbusDataGridViewTextBoxColumn.Name = "registrationnumberofbusDataGridViewTextBoxColumn";
-            this.registrationnumberofbusDataGridViewTextBoxColumn.ReadOnly = true;
-            this.registrationnumberofbusDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // startpointDataGridViewTextBoxColumn
-            // 
-            this.startpointDataGridViewTextBoxColumn.DataPropertyName = "Start_point";
-            this.startpointDataGridViewTextBoxColumn.HeaderText = "Start_point";
-            this.startpointDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.startpointDataGridViewTextBoxColumn.Name = "startpointDataGridViewTextBoxColumn";
-            this.startpointDataGridViewTextBoxColumn.ReadOnly = true;
-            this.startpointDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // endpointDataGridViewTextBoxColumn
-            // 
-            this.endpointDataGridViewTextBoxColumn.DataPropertyName = "End_point";
-            this.endpointDataGridViewTextBoxColumn.HeaderText = "End_point";
-            this.endpointDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.endpointDataGridViewTextBoxColumn.Name = "endpointDataGridViewTextBoxColumn";
-            this.endpointDataGridViewTextBoxColumn.ReadOnly = true;
-            this.endpointDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // departuretimeDataGridViewTextBoxColumn
-            // 
-            this.departuretimeDataGridViewTextBoxColumn.DataPropertyName = "Departure_time";
-            this.departuretimeDataGridViewTextBoxColumn.HeaderText = "Departure_time";
-            this.departuretimeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.departuretimeDataGridViewTextBoxColumn.Name = "departuretimeDataGridViewTextBoxColumn";
-            this.departuretimeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.departuretimeDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // durationDataGridViewTextBoxColumn
-            // 
-            this.durationDataGridViewTextBoxColumn.DataPropertyName = "Duration";
-            this.durationDataGridViewTextBoxColumn.HeaderText = "Duration";
-            this.durationDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.durationDataGridViewTextBoxColumn.Name = "durationDataGridViewTextBoxColumn";
-            this.durationDataGridViewTextBoxColumn.ReadOnly = true;
-            this.durationDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // remainseatDataGridViewTextBoxColumn
-            // 
-            this.remainseatDataGridViewTextBoxColumn.DataPropertyName = "Remain_seat";
-            this.remainseatDataGridViewTextBoxColumn.HeaderText = "Remain_seat";
-            this.remainseatDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.remainseatDataGridViewTextBoxColumn.Name = "remainseatDataGridViewTextBoxColumn";
-            this.remainseatDataGridViewTextBoxColumn.ReadOnly = true;
-            this.remainseatDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.statusDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            this.statusDataGridViewTextBoxColumn.ReadOnly = true;
-            this.statusDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // vTRIPINFORBindingSource
-            // 
-            this.vTRIPINFORBindingSource.DataSource = typeof(BusTicketManagementApplication.src.dbConnection.V_TRIPINFOR);
-            // 
             // Trip
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
@@ -370,9 +370,9 @@
             this.GbSearchBox.ResumeLayout(false);
             this.GbSearchBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvMainData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vTRIPINFORBindingSource)).EndInit();
             this.PnlFilter.ResumeLayout(false);
             this.PnlFilter.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vTRIPINFORBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
