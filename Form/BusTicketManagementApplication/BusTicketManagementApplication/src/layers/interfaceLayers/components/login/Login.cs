@@ -151,6 +151,11 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.l
                 V_USERINFOR curUser = new BSLogin().GetUser(passengerId);
                 UserData.SetUserData(curUser.name, curUser.phone_number);
                 //
+                PASSENGER curPassenger = new BSPassenger().GetPassenger(passengerId);
+                UserData.Email = curPassenger.email;
+                UserData.Gender = curPassenger.gender;
+                //
+                //
                 Handler_LoginSuccessfully();
             }
             else

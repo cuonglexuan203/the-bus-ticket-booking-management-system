@@ -19,7 +19,7 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.Data
         private static string phone;
         private static string email;
         private static string address;
-        private static bool gender; // 0: male, 1: female
+        private static bool? gender; // 0: male, 1: female
         private static string identity_number;
         private static DateTime birthday;
         //
@@ -33,25 +33,30 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.Data
         public static string Phone { get => phone; set => phone = value; }
         public static string Email { get => email; set => email = value; }
         public static string Address { get => address; set => address = value; }
-        public static bool Gender { get => gender; set => gender = value; }
+        public static bool? Gender { get => gender; set => gender = value; }
         public static string Identity_number { get => identity_number; set => identity_number = value; }
         public static DateTime Birthday { get => birthday; set => birthday = value; }
         public static string CurrentSelectedTripId { get => currentSelectedTripId; set => currentSelectedTripId = value; }
         public static string FullName { get => fullName; set => fullName = value; }
 
-        //
+        /// <summary>
+        /// Log out
+        /// </summary>
         public static void ClearUserData()
         {
             islogin = false;
             username = string.Empty;
             password = string.Empty;
+            passengerId = string.Empty;
+            //
+            fullName = string.Empty;
             phone = string.Empty;
             email = string.Empty;
             address = string.Empty;
-            gender = false;
+            gender = null;
             identity_number = string.Empty;
             birthday = DateTime.Now;
-            fullName = string.Empty;
+            //
             currentSelectedTripId = string.Empty;
         }
         public static void SetUserLoginData(string username, string password)

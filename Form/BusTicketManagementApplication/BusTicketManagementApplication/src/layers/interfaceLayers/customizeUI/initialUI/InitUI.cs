@@ -19,6 +19,7 @@ namespace BusTicketManagementApplication
             featureItems = new List<Control[]> { new Control[]{ this.PcbHome, this.BtnHome }, new Control[] { this.PcbTrip, this.BtnTrip }
             , new Control[] { this.PcbBus, this.BtnBus }, new Control[] { this.PcbDriver, this.BtnDriver }, new Control []{this.PcbBooking, this.BtnBooking }
             , new Control[]{ this.PcbAboutUs, this.BtnAboutUs } };
+            this.PnlUserSetting.Hide();
         }
         private void LoadUI()
         {
