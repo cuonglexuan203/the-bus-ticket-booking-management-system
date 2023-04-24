@@ -50,6 +50,9 @@
             this.TbSearch = new System.Windows.Forms.TextBox();
             this.PnlDashboard = new System.Windows.Forms.Panel();
             this.PnlDashboardMenu = new System.Windows.Forms.Panel();
+            this.PnlSettingMenu = new System.Windows.Forms.Panel();
+            this.BtnExit = new System.Windows.Forms.Button();
+            this.BtnChangePassword = new System.Windows.Forms.Button();
             this.PnlSetting = new System.Windows.Forms.Panel();
             this.PcbSetting = new System.Windows.Forms.PictureBox();
             this.BtnSetting = new System.Windows.Forms.Button();
@@ -82,6 +85,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PcbSearch)).BeginInit();
             this.PnlDashboard.SuspendLayout();
             this.PnlDashboardMenu.SuspendLayout();
+            this.PnlSettingMenu.SuspendLayout();
             this.PnlSetting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbSetting)).BeginInit();
             this.PnlDashboardMenuItems.SuspendLayout();
@@ -324,6 +328,7 @@
             // PnlDashboardMenu
             // 
             this.PnlDashboardMenu.AutoScroll = true;
+            this.PnlDashboardMenu.Controls.Add(this.PnlSettingMenu);
             this.PnlDashboardMenu.Controls.Add(this.PnlSetting);
             this.PnlDashboardMenu.Controls.Add(this.PnlDashboardMenuItems);
             this.PnlDashboardMenu.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -333,6 +338,56 @@
             this.PnlDashboardMenu.Padding = new System.Windows.Forms.Padding(3, 30, 3, 3);
             this.PnlDashboardMenu.Size = new System.Drawing.Size(235, 523);
             this.PnlDashboardMenu.TabIndex = 1;
+            // 
+            // PnlSettingMenu
+            // 
+            this.PnlSettingMenu.AutoSize = true;
+            this.PnlSettingMenu.Controls.Add(this.BtnExit);
+            this.PnlSettingMenu.Controls.Add(this.BtnChangePassword);
+            this.PnlSettingMenu.Location = new System.Drawing.Point(17, 402);
+            this.PnlSettingMenu.Name = "PnlSettingMenu";
+            this.PnlSettingMenu.Size = new System.Drawing.Size(200, 70);
+            this.PnlSettingMenu.TabIndex = 2;
+            // 
+            // BtnExit
+            // 
+            this.BtnExit.BackColor = System.Drawing.Color.White;
+            this.BtnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnExit.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnExit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
+            this.BtnExit.FlatAppearance.BorderSize = 0;
+            this.BtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnExit.Font = new System.Drawing.Font("Hack NF", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnExit.Location = new System.Drawing.Point(0, 35);
+            this.BtnExit.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnExit.Name = "BtnExit";
+            this.BtnExit.Size = new System.Drawing.Size(200, 35);
+            this.BtnExit.TabIndex = 2;
+            this.BtnExit.TabStop = false;
+            this.BtnExit.Tag = "0";
+            this.BtnExit.Text = "Exit";
+            this.BtnExit.UseVisualStyleBackColor = false;
+            this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
+            // 
+            // BtnChangePassword
+            // 
+            this.BtnChangePassword.BackColor = System.Drawing.Color.White;
+            this.BtnChangePassword.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnChangePassword.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnChangePassword.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
+            this.BtnChangePassword.FlatAppearance.BorderSize = 0;
+            this.BtnChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnChangePassword.Font = new System.Drawing.Font("Hack NF", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnChangePassword.Location = new System.Drawing.Point(0, 0);
+            this.BtnChangePassword.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnChangePassword.Name = "BtnChangePassword";
+            this.BtnChangePassword.Size = new System.Drawing.Size(200, 35);
+            this.BtnChangePassword.TabIndex = 1;
+            this.BtnChangePassword.TabStop = false;
+            this.BtnChangePassword.Tag = "0";
+            this.BtnChangePassword.Text = "Change Password";
+            this.BtnChangePassword.UseVisualStyleBackColor = false;
+            this.BtnChangePassword.Click += new System.EventHandler(this.BtnChangePassword_Click);
             // 
             // PnlSetting
             // 
@@ -355,6 +410,9 @@
             this.PcbSetting.TabIndex = 15;
             this.PcbSetting.TabStop = false;
             this.PcbSetting.Tag = "-1";
+            this.PcbSetting.Click += new System.EventHandler(this.Handler_Setting_Click);
+            this.PcbSetting.MouseEnter += new System.EventHandler(this.Handler_Setting_MouseEnter);
+            this.PcbSetting.MouseLeave += new System.EventHandler(this.Handler_Setting_MouseLeave);
             // 
             // BtnSetting
             // 
@@ -376,6 +434,9 @@
             this.BtnSetting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnSetting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnSetting.UseVisualStyleBackColor = false;
+            this.BtnSetting.Click += new System.EventHandler(this.Handler_Setting_Click);
+            this.BtnSetting.MouseEnter += new System.EventHandler(this.Handler_Setting_MouseEnter);
+            this.BtnSetting.MouseLeave += new System.EventHandler(this.Handler_Setting_MouseLeave);
             // 
             // PnlDashboardMenuItems
             // 
@@ -409,6 +470,8 @@
             this.PcbAboutUs.TabStop = false;
             this.PcbAboutUs.Tag = "5";
             this.PcbAboutUs.Click += new System.EventHandler(this.Handler_Features_Click);
+            this.PcbAboutUs.MouseEnter += new System.EventHandler(this.Handler_Features_MouseEnter);
+            this.PcbAboutUs.MouseLeave += new System.EventHandler(this.Handler_Features_MouseLeave);
             // 
             // PcbBooking
             // 
@@ -421,6 +484,8 @@
             this.PcbBooking.TabStop = false;
             this.PcbBooking.Tag = "4";
             this.PcbBooking.Click += new System.EventHandler(this.Handler_Features_Click);
+            this.PcbBooking.MouseEnter += new System.EventHandler(this.Handler_Features_MouseEnter);
+            this.PcbBooking.MouseLeave += new System.EventHandler(this.Handler_Features_MouseLeave);
             // 
             // PcbDriver
             // 
@@ -433,6 +498,8 @@
             this.PcbDriver.TabStop = false;
             this.PcbDriver.Tag = "3";
             this.PcbDriver.Click += new System.EventHandler(this.Handler_Features_Click);
+            this.PcbDriver.MouseEnter += new System.EventHandler(this.Handler_Features_MouseEnter);
+            this.PcbDriver.MouseLeave += new System.EventHandler(this.Handler_Features_MouseLeave);
             // 
             // PcbBus
             // 
@@ -445,6 +512,8 @@
             this.PcbBus.TabStop = false;
             this.PcbBus.Tag = "2";
             this.PcbBus.Click += new System.EventHandler(this.Handler_Features_Click);
+            this.PcbBus.MouseEnter += new System.EventHandler(this.Handler_Features_MouseEnter);
+            this.PcbBus.MouseLeave += new System.EventHandler(this.Handler_Features_MouseLeave);
             // 
             // PcbTrip
             // 
@@ -457,6 +526,8 @@
             this.PcbTrip.TabStop = false;
             this.PcbTrip.Tag = "1";
             this.PcbTrip.Click += new System.EventHandler(this.Handler_Features_Click);
+            this.PcbTrip.MouseEnter += new System.EventHandler(this.Handler_Features_MouseEnter);
+            this.PcbTrip.MouseLeave += new System.EventHandler(this.Handler_Features_MouseLeave);
             // 
             // PcbHome
             // 
@@ -469,6 +540,8 @@
             this.PcbHome.TabStop = false;
             this.PcbHome.Tag = "0";
             this.PcbHome.Click += new System.EventHandler(this.Handler_Features_Click);
+            this.PcbHome.MouseEnter += new System.EventHandler(this.Handler_Features_MouseEnter);
+            this.PcbHome.MouseLeave += new System.EventHandler(this.Handler_Features_MouseLeave);
             // 
             // BtnAboutUs
             // 
@@ -491,6 +564,8 @@
             this.BtnAboutUs.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnAboutUs.UseVisualStyleBackColor = false;
             this.BtnAboutUs.Click += new System.EventHandler(this.Handler_Features_Click);
+            this.BtnAboutUs.MouseEnter += new System.EventHandler(this.Handler_Features_MouseEnter);
+            this.BtnAboutUs.MouseLeave += new System.EventHandler(this.Handler_Features_MouseLeave);
             // 
             // BtnBooking
             // 
@@ -513,6 +588,8 @@
             this.BtnBooking.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnBooking.UseVisualStyleBackColor = false;
             this.BtnBooking.Click += new System.EventHandler(this.Handler_Features_Click);
+            this.BtnBooking.MouseEnter += new System.EventHandler(this.Handler_Features_MouseEnter);
+            this.BtnBooking.MouseLeave += new System.EventHandler(this.Handler_Features_MouseLeave);
             // 
             // BtnDriver
             // 
@@ -535,6 +612,8 @@
             this.BtnDriver.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnDriver.UseVisualStyleBackColor = false;
             this.BtnDriver.Click += new System.EventHandler(this.Handler_Features_Click);
+            this.BtnDriver.MouseEnter += new System.EventHandler(this.Handler_Features_MouseEnter);
+            this.BtnDriver.MouseLeave += new System.EventHandler(this.Handler_Features_MouseLeave);
             // 
             // BtnBus
             // 
@@ -557,6 +636,8 @@
             this.BtnBus.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnBus.UseVisualStyleBackColor = false;
             this.BtnBus.Click += new System.EventHandler(this.Handler_Features_Click);
+            this.BtnBus.MouseEnter += new System.EventHandler(this.Handler_Features_MouseEnter);
+            this.BtnBus.MouseLeave += new System.EventHandler(this.Handler_Features_MouseLeave);
             // 
             // BtnTrip
             // 
@@ -579,6 +660,8 @@
             this.BtnTrip.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnTrip.UseVisualStyleBackColor = false;
             this.BtnTrip.Click += new System.EventHandler(this.Handler_Features_Click);
+            this.BtnTrip.MouseEnter += new System.EventHandler(this.Handler_Features_MouseEnter);
+            this.BtnTrip.MouseLeave += new System.EventHandler(this.Handler_Features_MouseLeave);
             // 
             // BtnHome
             // 
@@ -601,6 +684,8 @@
             this.BtnHome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnHome.UseVisualStyleBackColor = false;
             this.BtnHome.Click += new System.EventHandler(this.Handler_Features_Click);
+            this.BtnHome.MouseEnter += new System.EventHandler(this.Handler_Features_MouseEnter);
+            this.BtnHome.MouseLeave += new System.EventHandler(this.Handler_Features_MouseLeave);
             // 
             // PnlBrandInfor
             // 
@@ -669,6 +754,7 @@
             this.PnlDashboard.ResumeLayout(false);
             this.PnlDashboardMenu.ResumeLayout(false);
             this.PnlDashboardMenu.PerformLayout();
+            this.PnlSettingMenu.ResumeLayout(false);
             this.PnlSetting.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PcbSetting)).EndInit();
             this.PnlDashboardMenuItems.ResumeLayout(false);
@@ -727,6 +813,9 @@
         private System.Windows.Forms.Panel PnlUserSetting;
         private System.Windows.Forms.Button BtnLogOut;
         private System.Windows.Forms.Button BtnProfile;
+        private System.Windows.Forms.Panel PnlSettingMenu;
+        private System.Windows.Forms.Button BtnChangePassword;
+        private System.Windows.Forms.Button BtnExit;
     }
 }
 

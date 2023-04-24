@@ -117,5 +117,17 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.l
             //
             this.LbErrorMessage.Text = errMsg;
         }
+
+        private void ChbShow_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ChbShow.Checked)
+            {
+                this.TbPassword.PasswordChar = '\0';
+            }
+            else
+            {
+                this.TbPassword.PasswordChar = '*';
+            }
+        }
     }
 }

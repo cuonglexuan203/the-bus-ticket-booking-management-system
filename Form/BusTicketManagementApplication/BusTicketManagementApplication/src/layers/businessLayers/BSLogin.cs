@@ -65,5 +65,22 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
             }
             return true;
         }
+        public bool ChangeUserPassword(string username, string newPassword)
+        {
+            bool res = true;
+            //
+            BusManagementEntities db = new BusManagementEntities();
+            var curUser = db.PASSENGERACCOUNTs.Where(d => d.username == username).FirstOrDefault();
+            //
+            if(curUser == null)
+            {
+                res = false;
+                return res;
+            }
+            //
+            curUser.password = newPassword;
+            db.SaveChanges();
+            return res;
+        }
     }
 }

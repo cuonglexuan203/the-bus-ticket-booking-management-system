@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.PnlMainContainer = new System.Windows.Forms.Panel();
+            this.LbErrorMessage = new System.Windows.Forms.Label();
             this.LbSignUp = new System.Windows.Forms.Label();
             this.BtnLogin = new System.Windows.Forms.Button();
             this.PnlInput = new System.Windows.Forms.Panel();
@@ -45,7 +46,7 @@
             this.PcbUsername = new System.Windows.Forms.PictureBox();
             this.LbUsername = new System.Windows.Forms.Label();
             this.LbLogin = new System.Windows.Forms.Label();
-            this.LbErrorMessage = new System.Windows.Forms.Label();
+            this.ChbShow = new System.Windows.Forms.CheckBox();
             this.PnlMainContainer.SuspendLayout();
             this.PnlInput.SuspendLayout();
             this.PnlPassword.SuspendLayout();
@@ -65,10 +66,20 @@
             this.PnlMainContainer.Location = new System.Drawing.Point(0, 0);
             this.PnlMainContainer.Margin = new System.Windows.Forms.Padding(0);
             this.PnlMainContainer.Name = "PnlMainContainer";
-            this.PnlMainContainer.Size = new System.Drawing.Size(503, 641);
+            this.PnlMainContainer.Size = new System.Drawing.Size(503, 680);
             this.PnlMainContainer.TabIndex = 0;
             this.PnlMainContainer.Click += new System.EventHandler(this.Handler_Focus);
             this.PnlMainContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlMainContainer_Paint);
+            // 
+            // LbErrorMessage
+            // 
+            this.LbErrorMessage.AutoSize = true;
+            this.LbErrorMessage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LbErrorMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.LbErrorMessage.Location = new System.Drawing.Point(52, 585);
+            this.LbErrorMessage.Name = "LbErrorMessage";
+            this.LbErrorMessage.Size = new System.Drawing.Size(0, 21);
+            this.LbErrorMessage.TabIndex = 4;
             // 
             // LbSignUp
             // 
@@ -76,7 +87,7 @@
             this.LbSignUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LbSignUp.Font = new System.Drawing.Font("Hack NF", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LbSignUp.ForeColor = System.Drawing.Color.Blue;
-            this.LbSignUp.Location = new System.Drawing.Point(360, 568);
+            this.LbSignUp.Location = new System.Drawing.Point(361, 622);
             this.LbSignUp.Name = "LbSignUp";
             this.LbSignUp.Size = new System.Drawing.Size(87, 21);
             this.LbSignUp.TabIndex = 3;
@@ -90,7 +101,7 @@
             this.BtnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnLogin.Font = new System.Drawing.Font("Hack NF", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnLogin.ForeColor = System.Drawing.Color.White;
-            this.BtnLogin.Location = new System.Drawing.Point(55, 474);
+            this.BtnLogin.Location = new System.Drawing.Point(53, 500);
             this.BtnLogin.Margin = new System.Windows.Forms.Padding(0);
             this.BtnLogin.Name = "BtnLogin";
             this.BtnLogin.Size = new System.Drawing.Size(392, 56);
@@ -104,12 +115,13 @@
             // 
             // PnlInput
             // 
+            this.PnlInput.Controls.Add(this.ChbShow);
             this.PnlInput.Controls.Add(this.PnlPassword);
             this.PnlInput.Controls.Add(this.LbForgetPassword);
             this.PnlInput.Controls.Add(this.PnlUsername);
             this.PnlInput.Location = new System.Drawing.Point(40, 129);
             this.PnlInput.Name = "PnlInput";
-            this.PnlInput.Size = new System.Drawing.Size(422, 312);
+            this.PnlInput.Size = new System.Drawing.Size(422, 354);
             this.PnlInput.TabIndex = 1;
             this.PnlInput.Click += new System.EventHandler(this.Handler_Focus);
             // 
@@ -143,6 +155,7 @@
             this.TbPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TbPassword.Location = new System.Drawing.Point(56, 69);
             this.TbPassword.Name = "TbPassword";
+            this.TbPassword.PasswordChar = '*';
             this.TbPassword.Size = new System.Drawing.Size(333, 21);
             this.TbPassword.TabIndex = 2;
             this.TbPassword.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.TbPassword_PreviewKeyDown);
@@ -175,7 +188,7 @@
             this.LbForgetPassword.AutoSize = true;
             this.LbForgetPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LbForgetPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.LbForgetPassword.Location = new System.Drawing.Point(219, 274);
+            this.LbForgetPassword.Location = new System.Drawing.Point(222, 315);
             this.LbForgetPassword.Name = "LbForgetPassword";
             this.LbForgetPassword.Size = new System.Drawing.Size(186, 21);
             this.LbForgetPassword.TabIndex = 2;
@@ -248,22 +261,24 @@
             this.LbLogin.Text = "Login";
             this.LbLogin.Click += new System.EventHandler(this.Handler_Focus);
             // 
-            // LbErrorMessage
+            // ChbShow
             // 
-            this.LbErrorMessage.AutoSize = true;
-            this.LbErrorMessage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LbErrorMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.LbErrorMessage.Location = new System.Drawing.Point(51, 444);
-            this.LbErrorMessage.Name = "LbErrorMessage";
-            this.LbErrorMessage.Size = new System.Drawing.Size(0, 21);
-            this.LbErrorMessage.TabIndex = 4;
+            this.ChbShow.AutoSize = true;
+            this.ChbShow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(72)))), ((int)(((byte)(107)))));
+            this.ChbShow.Location = new System.Drawing.Point(34, 274);
+            this.ChbShow.Name = "ChbShow";
+            this.ChbShow.Size = new System.Drawing.Size(175, 25);
+            this.ChbShow.TabIndex = 4;
+            this.ChbShow.Text = "Show password";
+            this.ChbShow.UseVisualStyleBackColor = true;
+            this.ChbShow.CheckedChanged += new System.EventHandler(this.ChbShow_CheckedChanged);
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(503, 641);
+            this.ClientSize = new System.Drawing.Size(503, 680);
             this.Controls.Add(this.PnlMainContainer);
             this.Font = new System.Drawing.Font("Hack NF", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -305,5 +320,6 @@
         private System.Windows.Forms.Label LbPlaceholderPassword;
         private System.Windows.Forms.Label LbSignUp;
         private System.Windows.Forms.Label LbErrorMessage;
+        private System.Windows.Forms.CheckBox ChbShow;
     }
 }

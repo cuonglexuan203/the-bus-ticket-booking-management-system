@@ -20,6 +20,7 @@ namespace BusTicketManagementApplication
             , new Control[] { this.PcbBus, this.BtnBus }, new Control[] { this.PcbDriver, this.BtnDriver }, new Control []{this.PcbBooking, this.BtnBooking }
             , new Control[]{ this.PcbAboutUs, this.BtnAboutUs } };
             this.PnlUserSetting.Hide();
+            this.PnlSettingMenu.Hide();
         }
         private void LoadUI()
         {

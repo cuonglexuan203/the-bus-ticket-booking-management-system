@@ -18,6 +18,7 @@ using System.Windows.Input;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Button = System.Windows.Forms.Button;
 using KeyEventArgs = System.Windows.Forms.KeyEventArgs;
+using BusTicketManagementApplication.src.layers.interfaceLayers.components.setting;
 
 namespace BusTicketManagementApplication
 {
@@ -245,6 +246,114 @@ namespace BusTicketManagementApplication
             ResetFeatures();
             this.PnlNavigationBar.Controls.Clear();
             this.PnlFillContent.Controls.Clear();
+        }
+
+        private void Handler_Setting_Click(object sender, EventArgs e)
+        {
+            ResetFeatures();
+            if (this.PnlSettingMenu.Visible)
+            {
+                this.PnlSettingMenu.Hide();
+            }
+            else
+            {
+                this.PnlSettingMenu.Show();
+            }
+        }
+
+        private void Handler_Setting_MouseEnter(object sender, EventArgs e)
+        {
+            this.PcbSetting.BackColor = Color.Gainsboro;
+            this.BtnSetting.ForeColor = Color.Black;
+        }
+
+        private void Handler_Setting_MouseLeave(object sender, EventArgs e)
+        {
+            this.PcbSetting.BackColor = Color.Transparent;
+            this.BtnSetting.ForeColor = Color.White;
+        }
+
+        private void Handler_Features_MouseEnter(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (btn == this.BtnHome)
+            {
+                this.PcbHome.BackColor = Color.Gainsboro;
+            }
+            else if (btn == this.BtnTrip)
+            {
+                this.PcbTrip.BackColor = Color.Gainsboro;
+            }
+            else if (btn == this.BtnBus)
+            {
+                this.PcbBus.BackColor = Color.Gainsboro;
+            }
+            else if (btn == this.BtnDriver)
+            {
+                this.PcbDriver.BackColor = Color.Gainsboro;
+            }
+            else if (btn == this.BtnBooking)
+            {
+                this.PcbBooking.BackColor = Color.Gainsboro;
+            }
+            else if (btn == this.BtnAboutUs)
+            {
+                this.PcbAboutUs.BackColor = Color.Gainsboro;
+            }
+        }
+
+        private void Handler_Features_MouseLeave(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (btn == this.BtnHome)
+            {
+                this.PcbHome.BackColor = Color.Transparent;
+            }
+            else if (btn == this.BtnTrip)
+            {
+                this.PcbTrip.BackColor = Color.Transparent;
+            }
+            else if (btn == this.BtnBus)
+            {
+                this.PcbBus.BackColor = Color.Transparent;
+            }
+            else if (btn == this.BtnDriver)
+            {
+                this.PcbDriver.BackColor = Color.Transparent;
+            }
+            else if (btn == this.BtnBooking)
+            {
+                this.PcbBooking.BackColor = Color.Transparent;
+            }
+            else if (btn == this.BtnAboutUs)
+            {
+                this.PcbAboutUs.BackColor = Color.Transparent;
+            }
+        }
+
+        private void BtnChangePassword_Click(object sender, EventArgs e)
+        {
+            if (!UserData.Islogin)
+            {
+                CheckLogin();
+            }
+            if (UserData.Islogin)
+            {
+                this.PnlNavigationBar.Controls.Clear();
+                this.PnlFillContent.Controls.Clear();
+                //
+                RenderActiveForm(new ChangePassword(), this.PnlFillContent);
+                this.PnlSettingMenu.Hide();
+            }
+        }
+
+        private void BtnExit_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show("Are you sure?","Exit application", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (res == DialogResult.OK)
+            {
+                Application.Exit();
+            }
         }
     }
 }

@@ -149,10 +149,10 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.l
                 UserData.SetPassengerId(passengerId);
                 //
                 V_USERINFOR curUser = new BSLogin().GetUser(passengerId);
-                UserData.SetUserData(curUser.name, curUser.phone_number);
+                UserData.SetUserData(curUser.name.Trim(), curUser.phone_number.Trim());
                 //
                 PASSENGER curPassenger = new BSPassenger().GetPassenger(passengerId);
-                UserData.Email = curPassenger.email;
+                UserData.Email = curPassenger.email.Trim();
                 UserData.Gender = curPassenger.gender;
                 //
                 //
@@ -185,6 +185,18 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.l
         private void LbSignUp_Click(object sender, EventArgs e)
         {
             RenderActiveForm(new SignUp(), this);
+        }
+
+        private void ChbShow_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ChbShow.Checked)
+            {
+                this.TbPassword.PasswordChar = '\0';
+            }
+            else
+            {
+                this.TbPassword.PasswordChar = '*';
+            }
         }
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.PnlMainContainer = new System.Windows.Forms.Panel();
+            this.LbErrorMessage = new System.Windows.Forms.Label();
             this.LbLogin = new System.Windows.Forms.Label();
             this.PnlUserInput = new System.Windows.Forms.Panel();
             this.PnlPhone = new System.Windows.Forms.Panel();
@@ -45,7 +46,7 @@
             this.LbUsername = new System.Windows.Forms.Label();
             this.LbSignUp = new System.Windows.Forms.Label();
             this.BtnSignUp = new System.Windows.Forms.Button();
-            this.LbErrorMessage = new System.Windows.Forms.Label();
+            this.ChbShow = new System.Windows.Forms.CheckBox();
             this.PnlMainContainer.SuspendLayout();
             this.PnlUserInput.SuspendLayout();
             this.PnlPhone.SuspendLayout();
@@ -66,9 +67,19 @@
             this.PnlMainContainer.Location = new System.Drawing.Point(0, 0);
             this.PnlMainContainer.Margin = new System.Windows.Forms.Padding(0);
             this.PnlMainContainer.Name = "PnlMainContainer";
-            this.PnlMainContainer.Size = new System.Drawing.Size(503, 641);
+            this.PnlMainContainer.Size = new System.Drawing.Size(503, 680);
             this.PnlMainContainer.TabIndex = 0;
             this.PnlMainContainer.Click += new System.EventHandler(this.Handler_Click);
+            // 
+            // LbErrorMessage
+            // 
+            this.LbErrorMessage.AutoSize = true;
+            this.LbErrorMessage.Font = new System.Drawing.Font("Hack NF", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbErrorMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.LbErrorMessage.Location = new System.Drawing.Point(39, 582);
+            this.LbErrorMessage.Name = "LbErrorMessage";
+            this.LbErrorMessage.Size = new System.Drawing.Size(0, 18);
+            this.LbErrorMessage.TabIndex = 7;
             // 
             // LbLogin
             // 
@@ -76,7 +87,7 @@
             this.LbLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LbLogin.Font = new System.Drawing.Font("Hack NF", 10.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LbLogin.ForeColor = System.Drawing.Color.Blue;
-            this.LbLogin.Location = new System.Drawing.Point(382, 568);
+            this.LbLogin.Location = new System.Drawing.Point(361, 622);
             this.LbLogin.Name = "LbLogin";
             this.LbLogin.Size = new System.Drawing.Size(65, 21);
             this.LbLogin.TabIndex = 6;
@@ -85,13 +96,14 @@
             // 
             // PnlUserInput
             // 
+            this.PnlUserInput.Controls.Add(this.ChbShow);
             this.PnlUserInput.Controls.Add(this.PnlPhone);
             this.PnlUserInput.Controls.Add(this.PnlFullName);
             this.PnlUserInput.Controls.Add(this.PnlPassword);
             this.PnlUserInput.Controls.Add(this.PnlUsername);
             this.PnlUserInput.Location = new System.Drawing.Point(12, 94);
             this.PnlUserInput.Name = "PnlUserInput";
-            this.PnlUserInput.Size = new System.Drawing.Size(479, 366);
+            this.PnlUserInput.Size = new System.Drawing.Size(479, 393);
             this.PnlUserInput.TabIndex = 5;
             this.PnlUserInput.Click += new System.EventHandler(this.Handler_Click);
             // 
@@ -169,6 +181,7 @@
             this.TbPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TbPassword.Location = new System.Drawing.Point(15, 41);
             this.TbPassword.Name = "TbPassword";
+            this.TbPassword.PasswordChar = '*';
             this.TbPassword.Size = new System.Drawing.Size(390, 21);
             this.TbPassword.TabIndex = 4;
             // 
@@ -229,7 +242,7 @@
             this.BtnSignUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSignUp.Font = new System.Drawing.Font("Hack NF", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSignUp.ForeColor = System.Drawing.Color.White;
-            this.BtnSignUp.Location = new System.Drawing.Point(55, 474);
+            this.BtnSignUp.Location = new System.Drawing.Point(53, 500);
             this.BtnSignUp.Margin = new System.Windows.Forms.Padding(0);
             this.BtnSignUp.Name = "BtnSignUp";
             this.BtnSignUp.Size = new System.Drawing.Size(392, 56);
@@ -241,21 +254,23 @@
             this.BtnSignUp.MouseEnter += new System.EventHandler(this.BtnSignUp_MouseEnter);
             this.BtnSignUp.MouseLeave += new System.EventHandler(this.BtnSignUp_MouseLeave);
             // 
-            // LbErrorMessage
+            // ChbShow
             // 
-            this.LbErrorMessage.AutoSize = true;
-            this.LbErrorMessage.Font = new System.Drawing.Font("Hack NF", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LbErrorMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.LbErrorMessage.Location = new System.Drawing.Point(51, 540);
-            this.LbErrorMessage.Name = "LbErrorMessage";
-            this.LbErrorMessage.Size = new System.Drawing.Size(0, 18);
-            this.LbErrorMessage.TabIndex = 7;
+            this.ChbShow.AutoSize = true;
+            this.ChbShow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(72)))), ((int)(((byte)(107)))));
+            this.ChbShow.Location = new System.Drawing.Point(41, 365);
+            this.ChbShow.Name = "ChbShow";
+            this.ChbShow.Size = new System.Drawing.Size(175, 25);
+            this.ChbShow.TabIndex = 8;
+            this.ChbShow.Text = "Show password";
+            this.ChbShow.UseVisualStyleBackColor = true;
+            this.ChbShow.CheckedChanged += new System.EventHandler(this.ChbShow_CheckedChanged);
             // 
             // SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(503, 641);
+            this.ClientSize = new System.Drawing.Size(503, 680);
             this.Controls.Add(this.PnlMainContainer);
             this.Font = new System.Drawing.Font("Hack NF", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -266,6 +281,7 @@
             this.PnlMainContainer.ResumeLayout(false);
             this.PnlMainContainer.PerformLayout();
             this.PnlUserInput.ResumeLayout(false);
+            this.PnlUserInput.PerformLayout();
             this.PnlPhone.ResumeLayout(false);
             this.PnlPhone.PerformLayout();
             this.PnlFullName.ResumeLayout(false);
@@ -298,5 +314,6 @@
         private System.Windows.Forms.Label LbPassword;
         private System.Windows.Forms.Label LbLogin;
         private System.Windows.Forms.Label LbErrorMessage;
+        private System.Windows.Forms.CheckBox ChbShow;
     }
 }

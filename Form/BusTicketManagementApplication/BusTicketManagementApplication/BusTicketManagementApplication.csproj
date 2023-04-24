@@ -265,11 +265,17 @@
     <Compile Include="src\layers\interfaceLayers\components\login\SignUp.Designer.cs">
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\layers\interfaceLayers\components\Profile\Profile.cs">
+    <Compile Include="src\layers\interfaceLayers\components\profile\Profile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="src\layers\interfaceLayers\components\Profile\Profile.Designer.cs">
+    <Compile Include="src\layers\interfaceLayers\components\profile\Profile.Designer.cs">
       <DependentUpon>Profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\setting\ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\setting\ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
     <Compile Include="src\layers\interfaceLayers\components\trip\Trip.cs">
       <SubType>Form</SubType>
@@ -321,8 +327,11 @@
     <EmbeddedResource Include="src\layers\interfaceLayers\components\login\SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\layers\interfaceLayers\components\Profile\Profile.resx">
+    <EmbeddedResource Include="src\layers\interfaceLayers\components\profile\Profile.resx">
       <DependentUpon>Profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\layers\interfaceLayers\components\setting\ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\layers\interfaceLayers\components\trip\Trip.resx">
       <DependentUpon>Trip.cs</DependentUpon>
