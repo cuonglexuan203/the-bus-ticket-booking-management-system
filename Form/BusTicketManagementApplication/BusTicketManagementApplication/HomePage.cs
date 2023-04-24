@@ -1,6 +1,7 @@
 ﻿using BusTicketManagementApplication.src.layers.interfaceLayers.components.booking;
 using BusTicketManagementApplication.src.layers.interfaceLayers.components.home;
 using BusTicketManagementApplication.src.layers.interfaceLayers.components.login;
+using BusTicketManagementApplication.src.layers.interfaceLayers.components.Profile;
 using BusTicketManagementApplication.src.layers.interfaceLayers.components.trip;
 using BusTicketManagementApplication.src.layers.interfaceLayers.Data;
 using System;
@@ -14,6 +15,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Input;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Button = System.Windows.Forms.Button;
+using KeyEventArgs = System.Windows.Forms.KeyEventArgs;
 
 namespace BusTicketManagementApplication
 {
@@ -27,14 +30,22 @@ namespace BusTicketManagementApplication
         public Form ActivatedForm { get => activatedForm; set => activatedForm = value; }
         public string SearchInput { get => searchInput; set => searchInput = value; }
         public int MainFeatureIndex { get => mainFeatureIndex; set { 
-            if (value >= 0 && value <= 5)
+            if (value >= 0)
                 {
                     mainFeatureIndex = value;
-                    ResetFeatures();
-                    ActiveFeature(value);
-                    this.PnlNavigationBar.Controls.Clear();
+                    if (value >= 0 && value < 100)
+                    {
+                        ResetFeatures();
+                        ActiveFeature(value);
+                        this.PnlNavigationBar.Controls.Clear();
+                    }
                     switch (value)
                     {
+                        case 100:
+                            {
+                                ToggleControl(PnlUserSetting);
+                                break;
+                            }
                         case 0:
                             {
                                 RenderActiveForm(new Home(), this.PnlFillContent);
@@ -149,6 +160,17 @@ namespace BusTicketManagementApplication
             this.LbTime.Text = rightTime[1] + " " + rightTime[2];
         }
         // end timer tick function
+        private void ToggleControl(Control control)
+        {
+            if (control.Visible)
+            {
+                control.Hide();
+            }
+            else
+            {
+                control.Show();
+            }
+        }
         private void TbSearch_Leave(object sender, EventArgs e)
         {
             SearchInput = this.TbSearch.Text.Trim();
@@ -182,15 +204,19 @@ namespace BusTicketManagementApplication
             }
             if(UserData.Islogin)
             {
-                Control ctr = sender as Control;
-                int tag = Convert.ToInt16(ctr.Tag.ToString());
-                if (ctr != null)
-                {
-                    this.MainFeatureIndex = tag;
-
-                }
+                SetTagIndex(sender);
             }
             
+        }
+        private void SetTagIndex(object sender)
+        {
+            Control ctr = sender as Control;
+            int tag = Convert.ToInt16(ctr.Tag.ToString());
+            if (ctr != null)
+            {
+                this.MainFeatureIndex = tag;
+
+            }
         }
 
         private void LbPlaceholder_Click(object sender, EventArgs e)
@@ -201,6 +227,21 @@ namespace BusTicketManagementApplication
         private void TbSearch_Enter(object sender, EventArgs e)
         {
             this.LbPlaceholder.Hide();
+        }
+
+        private void BtnProfile_Click(object sender, EventArgs e)
+        {
+            ToggleControl(this.PnlUserSetting);
+            RenderActiveForm(new Profile(), this.PnlFillContent);
+        }
+
+        private void BtnLogOut_Click(object sender, EventArgs e)
+        {
+            ToggleControl(this.PnlUserSetting);
+            UserData.ClearUserData();
+            ResetFeatures();
+            this.PnlNavigationBar.Controls.Clear();
+            this.PnlFillContent.Controls.Clear();
         }
     }
 }

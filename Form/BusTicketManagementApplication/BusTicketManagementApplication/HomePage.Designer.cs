@@ -32,6 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(App));
             this.PnlApp = new System.Windows.Forms.Panel();
             this.PnlContainer = new System.Windows.Forms.Panel();
+            this.PnlUserSetting = new System.Windows.Forms.Panel();
+            this.BtnLogOut = new System.Windows.Forms.Button();
+            this.BtnProfile = new System.Windows.Forms.Button();
             this.PnlContent = new System.Windows.Forms.Panel();
             this.PnlFillContent = new System.Windows.Forms.Panel();
             this.PnlNavigationBar = new System.Windows.Forms.Panel();
@@ -42,6 +45,7 @@
             this.LbDate = new System.Windows.Forms.Label();
             this.LbTime = new System.Windows.Forms.Label();
             this.PnlSearch = new System.Windows.Forms.Panel();
+            this.LbPlaceholder = new System.Windows.Forms.Label();
             this.PcbSearch = new System.Windows.Forms.PictureBox();
             this.TbSearch = new System.Windows.Forms.TextBox();
             this.PnlDashboard = new System.Windows.Forms.Panel();
@@ -66,9 +70,9 @@
             this.LbBrandSlogan = new System.Windows.Forms.Label();
             this.PcbBrandLogo = new System.Windows.Forms.PictureBox();
             this.TimerNow = new System.Windows.Forms.Timer(this.components);
-            this.LbPlaceholder = new System.Windows.Forms.Label();
             this.PnlApp.SuspendLayout();
             this.PnlContainer.SuspendLayout();
+            this.PnlUserSetting.SuspendLayout();
             this.PnlContent.SuspendLayout();
             this.PnlStatusBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PcbAvatar)).BeginInit();
@@ -107,6 +111,7 @@
             // PnlContainer
             // 
             this.PnlContainer.AutoScroll = true;
+            this.PnlContainer.Controls.Add(this.PnlUserSetting);
             this.PnlContainer.Controls.Add(this.PnlContent);
             this.PnlContainer.Controls.Add(this.PnlStatusBar);
             this.PnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -115,6 +120,52 @@
             this.PnlContainer.Name = "PnlContainer";
             this.PnlContainer.Size = new System.Drawing.Size(965, 700);
             this.PnlContainer.TabIndex = 1;
+            // 
+            // PnlUserSetting
+            // 
+            this.PnlUserSetting.AutoSize = true;
+            this.PnlUserSetting.BackColor = System.Drawing.Color.White;
+            this.PnlUserSetting.Controls.Add(this.BtnLogOut);
+            this.PnlUserSetting.Controls.Add(this.BtnProfile);
+            this.PnlUserSetting.Location = new System.Drawing.Point(833, 56);
+            this.PnlUserSetting.Margin = new System.Windows.Forms.Padding(0);
+            this.PnlUserSetting.Name = "PnlUserSetting";
+            this.PnlUserSetting.Size = new System.Drawing.Size(131, 70);
+            this.PnlUserSetting.TabIndex = 0;
+            // 
+            // BtnLogOut
+            // 
+            this.BtnLogOut.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnLogOut.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
+            this.BtnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnLogOut.Font = new System.Drawing.Font("Hack NF", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnLogOut.Location = new System.Drawing.Point(0, 35);
+            this.BtnLogOut.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnLogOut.Name = "BtnLogOut";
+            this.BtnLogOut.Size = new System.Drawing.Size(131, 35);
+            this.BtnLogOut.TabIndex = 1;
+            this.BtnLogOut.TabStop = false;
+            this.BtnLogOut.Tag = "1";
+            this.BtnLogOut.Text = "Log out";
+            this.BtnLogOut.UseVisualStyleBackColor = true;
+            this.BtnLogOut.Click += new System.EventHandler(this.BtnLogOut_Click);
+            // 
+            // BtnProfile
+            // 
+            this.BtnProfile.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnProfile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(119)))), ((int)(((byte)(119)))));
+            this.BtnProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnProfile.Font = new System.Drawing.Font("Hack NF", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnProfile.Location = new System.Drawing.Point(0, 0);
+            this.BtnProfile.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnProfile.Name = "BtnProfile";
+            this.BtnProfile.Size = new System.Drawing.Size(131, 35);
+            this.BtnProfile.TabIndex = 0;
+            this.BtnProfile.TabStop = false;
+            this.BtnProfile.Tag = "0";
+            this.BtnProfile.Text = "Profile";
+            this.BtnProfile.UseVisualStyleBackColor = true;
+            this.BtnProfile.Click += new System.EventHandler(this.BtnProfile_Click);
             // 
             // PnlContent
             // 
@@ -168,6 +219,8 @@
             this.PcbAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PcbAvatar.TabIndex = 4;
             this.PcbAvatar.TabStop = false;
+            this.PcbAvatar.Tag = "100";
+            this.PcbAvatar.Click += new System.EventHandler(this.Handler_Features_Click);
             // 
             // PcbNotification
             // 
@@ -217,6 +270,21 @@
             this.PnlSearch.Name = "PnlSearch";
             this.PnlSearch.Size = new System.Drawing.Size(319, 58);
             this.PnlSearch.TabIndex = 1;
+            // 
+            // LbPlaceholder
+            // 
+            this.LbPlaceholder.AutoSize = true;
+            this.LbPlaceholder.BackColor = System.Drawing.Color.Transparent;
+            this.LbPlaceholder.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.LbPlaceholder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LbPlaceholder.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.LbPlaceholder.Location = new System.Drawing.Point(67, 19);
+            this.LbPlaceholder.Margin = new System.Windows.Forms.Padding(0);
+            this.LbPlaceholder.Name = "LbPlaceholder";
+            this.LbPlaceholder.Size = new System.Drawing.Size(76, 21);
+            this.LbPlaceholder.TabIndex = 2;
+            this.LbPlaceholder.Text = "Search";
+            this.LbPlaceholder.Click += new System.EventHandler(this.LbPlaceholder_Click);
             // 
             // PcbSearch
             // 
@@ -286,6 +354,7 @@
             this.PcbSetting.Size = new System.Drawing.Size(32, 32);
             this.PcbSetting.TabIndex = 15;
             this.PcbSetting.TabStop = false;
+            this.PcbSetting.Tag = "-1";
             // 
             // BtnSetting
             // 
@@ -302,6 +371,7 @@
             this.BtnSetting.Padding = new System.Windows.Forms.Padding(70, 0, 0, 0);
             this.BtnSetting.Size = new System.Drawing.Size(229, 40);
             this.BtnSetting.TabIndex = 14;
+            this.BtnSetting.Tag = "-1";
             this.BtnSetting.Text = "Setting";
             this.BtnSetting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnSetting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -568,21 +638,6 @@
             this.TimerNow.Interval = 1000;
             this.TimerNow.Tick += new System.EventHandler(this.TimerNow_Tick);
             // 
-            // LbPlaceholder
-            // 
-            this.LbPlaceholder.AutoSize = true;
-            this.LbPlaceholder.BackColor = System.Drawing.Color.Transparent;
-            this.LbPlaceholder.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.LbPlaceholder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LbPlaceholder.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.LbPlaceholder.Location = new System.Drawing.Point(67, 19);
-            this.LbPlaceholder.Margin = new System.Windows.Forms.Padding(0);
-            this.LbPlaceholder.Name = "LbPlaceholder";
-            this.LbPlaceholder.Size = new System.Drawing.Size(76, 21);
-            this.LbPlaceholder.TabIndex = 2;
-            this.LbPlaceholder.Text = "Search";
-            this.LbPlaceholder.Click += new System.EventHandler(this.LbPlaceholder_Click);
-            // 
             // App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
@@ -600,6 +655,8 @@
             this.Load += new System.EventHandler(this.App_Load);
             this.PnlApp.ResumeLayout(false);
             this.PnlContainer.ResumeLayout(false);
+            this.PnlContainer.PerformLayout();
+            this.PnlUserSetting.ResumeLayout(false);
             this.PnlContent.ResumeLayout(false);
             this.PnlStatusBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PcbAvatar)).EndInit();
@@ -667,6 +724,9 @@
         private System.Windows.Forms.Panel PnlFillContent;
         private System.Windows.Forms.Timer TimerNow;
         private System.Windows.Forms.Label LbPlaceholder;
+        private System.Windows.Forms.Panel PnlUserSetting;
+        private System.Windows.Forms.Button BtnLogOut;
+        private System.Windows.Forms.Button BtnProfile;
     }
 }
 

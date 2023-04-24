@@ -41,6 +41,7 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.b
         {
             this.TbName.Text = UserData.FullName;
             this.MtbPhone.Text = UserData.Phone;
+            this.TbEmail.Text = UserData.Email;
 
         }
         public void LoadDefaultTicketType()
