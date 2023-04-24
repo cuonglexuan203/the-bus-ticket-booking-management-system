@@ -1,6 +1,7 @@
 ﻿using BusTicketManagementApplication.src.layers.interfaceLayers.components.booking;
 using BusTicketManagementApplication.src.layers.interfaceLayers.components.home;
 using BusTicketManagementApplication.src.layers.interfaceLayers.components.trip;
+using BusTicketManagementApplication.src.layers.interfaceLayers.components.bus;
 using BusTicketManagementApplication.src.layers.interfaceLayers.Data;
 using System;
 using System.Collections.Generic;
@@ -45,6 +46,8 @@ namespace BusTicketManagementApplication
                             }
                         case 2:
                             {
+                                RenderActiveForm(new Bus(this), this.PnlFillContent);
+
                                 break;
 
                             }

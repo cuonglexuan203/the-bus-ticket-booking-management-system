@@ -29,7 +29,7 @@ namespace BusTicketManagementApplication.src.dbConnection
     
         public virtual DbSet<AGENT> AGENTs { get; set; }
         public virtual DbSet<BOOKING> BOOKINGs { get; set; }
-        public virtual DbSet<BUS> Buses { get; set; }
+        public virtual DbSet<BUS> BUSes { get; set; }
         public virtual DbSet<BUSROUTE> BUSROUTEs { get; set; }
         public virtual DbSet<BUSSTATION> BUSSTATIONs { get; set; }
         public virtual DbSet<CASHRESERVE> CASHRESERVEs { get; set; }
