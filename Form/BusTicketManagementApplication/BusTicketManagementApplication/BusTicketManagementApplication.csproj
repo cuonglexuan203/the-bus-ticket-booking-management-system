@@ -209,11 +209,8 @@
     <Compile Include="src\env\statics\StaticEnv.cs" />
     <Compile Include="src\layers\businessLayers\BSBooked.cs" />
     <Compile Include="src\layers\businessLayers\BSBooking.cs" />
-<<<<<<< HEAD
     <Compile Include="src\layers\businessLayers\BSBus.cs" />
-=======
     <Compile Include="src\layers\businessLayers\BSLogin.cs" />
->>>>>>> 869fc4e79eebaa549c22dc77f09004959d30846a
     <Compile Include="src\layers\businessLayers\BSMain.cs" />
     <Compile Include="src\layers\businessLayers\BSPassenger.cs" />
     <Compile Include="src\layers\businessLayers\BSPlace.cs" />
