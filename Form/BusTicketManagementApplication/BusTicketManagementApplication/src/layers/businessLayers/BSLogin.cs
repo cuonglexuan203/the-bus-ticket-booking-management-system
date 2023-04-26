@@ -45,13 +45,24 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
                         return false;
                     }
                 }
+
+                //
                 BusManagementEntities db = new BusManagementEntities();
+                //
+                bool uniqueUser = db.PASSENGERACCOUNTs.Count(d => d.username == username) == 0;
+                if(!uniqueUser)
+                {
+                    errMsg = "Username has exist in the system!";
+                    return false;
+                }
+                //
                 string funcName = "func_auto_id_passenger";
                 passengerId =  BSMain.RunFunc(funcName);
                 if (!string.IsNullOrEmpty(passengerId))
                 {
                     db.pro_AddPassenger(passengerId, name, phone);
                     db.pro_AddPassengerAccount(passengerId, username, password);
+                    db.pro_AssignPassengerPrivilege(passengerId);
                     errMsg = "Create new user successfully!. No error";
                 }
                 else
@@ -62,6 +73,8 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
             catch (SqlException err)
             {
                 errMsg = err.Message;
+                MessageBox.Show(errMsg);
+
             }
             return true;
         }

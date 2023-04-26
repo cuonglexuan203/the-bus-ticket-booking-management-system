@@ -521,3 +521,13 @@ INSERT INTO EMPLOYEE(id_account,id_agent, name,address, phone_number, identity_n
 INSERT INTO EMPLOYEE(id_account,id_agent, name,address, phone_number, identity_number, salary, birthdate, gender, state) values ('acc_0000000005','age_0000000001','Lucky D',N'Số 10, đường Y Ngông, phường Tân Lợi, thành phố Buôn Ma Thuột, tỉnh Đăk Lăk', '0888888888', '12345678910', 5465123, '12-12-2000', 1, 1);
 
 
+--
+insert into POSITION(type) values ('administrator');
+insert into POSITION(type) values ('planner');
+insert into POSITION(type) values ('supervisor');
+insert into POSITION(type) values ('ticket seller');
+insert into POSITION(type) values ('driver');
+insert into POSITION(type) values ('service guide');
+insert into POSITION(type) values ('security guard');
+insert into POSITION(type) values ('porter');
+--

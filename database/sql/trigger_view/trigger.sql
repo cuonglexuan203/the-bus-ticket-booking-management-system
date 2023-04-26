@@ -39,9 +39,8 @@ begin
 end;
 
 go
-
 --
-create trigger tr_CreateAccount on SYSTEMACCOUNT
+create trigger [dbo].[tr_CreateSystemAccount] on [dbo].[SYSTEMACCOUNT]
 after insert
 as
 declare @username varchar(30), @password varchar(10)
@@ -321,7 +320,7 @@ begin
 end
 go
 --
-create trigger tr_DeleteBRefund on REFUND
+create trigger tr_DeleteRefund on REFUND
 after delete
 as
 declare @id_refund char(20)
@@ -337,3 +336,19 @@ begin
 		rollback
 	end catch
 end
+go
+--
+create trigger [dbo].[tr_CreatePassengerAccount] on [dbo].[PASSENGERACCOUNT]
+after insert
+as
+declare @username varchar(30), @password varchar(10)
+select @username = ins.username, @password = ins.password from inserted ins
+begin
+    declare @sql nvarchar(max);
+    set @sql = 'create login ' + quotename(@username) + ' with password = ''' + @password + ''', DEFAULT_DATABASE=[BusManagement], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF';
+    exec sp_executesql @sql;
+    set @sql = 'create user ' + quotename(@username) + ' for login ' + quotename(@username);
+    exec sp_executesql @sql;
+end
+go
+--

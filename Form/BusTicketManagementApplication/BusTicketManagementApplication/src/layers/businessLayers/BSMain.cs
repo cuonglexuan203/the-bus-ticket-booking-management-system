@@ -62,7 +62,7 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
             return db.Database.SqlQuery<string>(query).ToList().FirstOrDefault().ToString();
         }
 
-        // modify run proc
+        // modify run proc // redundant
         public static void RunProc(string procName)
         {
             BusManagementEntities db = new BusManagementEntities();

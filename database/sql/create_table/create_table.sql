@@ -111,11 +111,6 @@ create table POSITION
     type varchar(50) not null
 );
 
-create table PRIVILEGE
-(
-    id_privilege char(20) primary key,
-    name char(50)
-);
 
 create table PLACE
 (
@@ -154,24 +149,6 @@ create table REFUND
     refund_percent float default 0.0
 );
 
-create table PACKAGE
-(
-    id_package char(20) primary key,
-    id_trip char(20),
-    mass float default 0.0,
-    price money ,
-    --  is calculated by the formula 
-    sender_contact_phone char(20) not null,
-    receiver_contact_phone char(20) not null
-);
-
-create table PACKAGEPRICEPOLICY
-(
-    id_policy char(20) primary key,
-    price_per_km money not null,
-    mass_unit int not null
-    -- /5kg, /1kg
-);
 
 create table SYSTEMACCOUNT
 (
@@ -215,12 +192,6 @@ create table AGENT_REFUND
     primary key(id_agent, id_refund)
 );
 
-create table AGENT_POLICY
-(
-    id_agent char(20),
-    id_policy char(20),
-    primary key(id_agent, id_policy)
-);
 
 create table BUSROUTE_BUSSTATION
 (
@@ -243,12 +214,6 @@ create table EMPLOYEE_TICKET
     primary key(id_employee, id_ticket)
 );
 
-create table POSITION_PRIVILEGE
-(
-    id_position char(20),
-    id_privilege char(20),
-    primary key(id_position, id_privilege)
-);
 
 go
 -- OTHER CONSTRANTS
@@ -288,7 +253,7 @@ alter table EMPLOYEE add constraint CHK_employee check (email like '_%@gmail.com
 --
 alter table POSITION add constraint CHK_position check (type in ('administrator', 'planner', 'supervisor', 'driver', 'ticket seller', 'service guide', 'security guard', 'porter'));
 --
--- alter table PRIVILEGE add constraint CHK_privilege check (name in (''));
+
 --
 --alter table PLACE add constraint CHK_place check(region in ('TP.Ho Chi Minh', 'Ha Noi', 'Phu Yen', 'Khanh Hoa', 'Ben Tre', 'Lam Dong'));
 -- so on
@@ -297,10 +262,7 @@ alter table EVENT add constraint CHK_event check (discount_percent >= 0);
 --
 alter table REFUND add constraint CHK_refund check (refund_percent >= 0);
 --
-alter table PACKAGE add constraint FK_package_id_trip foreign key (id_trip) references TRIP(id_trip);
-alter table PACKAGE add constraint CHK_package check (mass >= 0 and price >= 0);
---
-alter table PACKAGEPRICEPOLICY add constraint CHK_packagepricepolicy check( price_per_km > 0 and mass_unit >= 0 );
+
 --
 alter table PASSENGERACCOUNT
 add constraint PK_passengerAccount_id_passenger foreign key (id_passenger) references PASSENGER(id_passenger);
@@ -317,9 +279,6 @@ alter table AGENT_EVENT add constraint FK_agent_event_id_event foreign key (id_e
 alter table AGENT_REFUND add constraint FK_agent_refund_id_agent foreign key (id_agent) references AGENT(id_agent);
 alter table AGENT_REFUND add constraint FK_agent_refund_id_refund foreign key (id_refund) references REFUND(id_refund);
 --
-alter table AGENT_POLICY add constraint FK_agent_policy_id_agent foreign key (id_agent) references AGENT(id_agent);
-alter table AGENT_POLICY add constraint FK_agent_policy_id_policy foreign key (id_policy) references PACKAGEPRICEPOLICY(id_policy);
---
 alter table BUSROUTE_BUSSTATION add constraint FK_busroute_busstation_id_bus_route foreign key (id_bus_route) references BUSROUTE(id_route);
 alter table BUSROUTE_BUSSTATION add constraint FK_busroute_busstation_id_bus_station foreign key (id_bus_station) references BUSSTATION(id_bus_station);
 --
@@ -329,8 +288,6 @@ alter table EMPLOYEE_POSITION add constraint FK_employee_position_id_position fo
 alter table EMPLOYEE_TICKET add constraint FK_employee_ticket_id_employee foreign key (id_employee) references EMPLOYEE(id_employee);
 alter table EMPLOYEE_TICKET add constraint FK_employee_ticket_id_ticket foreign key (id_ticket) references TICKET(id_ticket);
 --
-alter table POSITION_PRIVILEGE add constraint FK_position_privilege_id_position foreign key (id_position) references POSITION(id_position);
-alter table POSITION_PRIVILEGE add constraint FK_position_privilege_id_privilege foreign key (id_privilege) references PRIVILEGE(id_privilege);
 
 go
 

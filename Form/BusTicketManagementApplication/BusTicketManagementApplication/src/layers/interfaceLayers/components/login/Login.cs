@@ -152,7 +152,7 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.l
                 UserData.SetUserData(curUser.name.Trim(), curUser.phone_number.Trim());
                 //
                 PASSENGER curPassenger = new BSPassenger().GetPassenger(passengerId);
-                UserData.Email = curPassenger.email.Trim();
+                UserData.Email = curPassenger?.email?.Trim();
                 UserData.Gender = curPassenger.gender;
                 //
                 //

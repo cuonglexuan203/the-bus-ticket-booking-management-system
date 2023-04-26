@@ -18,7 +18,6 @@ namespace BusTicketManagementApplication.src.dbConnection
         public POSITION()
         {
             this.EMPLOYEEs = new HashSet<EMPLOYEE>();
-            this.PRIVILEGEs = new HashSet<PRIVILEGE>();
         }
     
         public string id_position { get; set; }
@@ -26,7 +25,5 @@ namespace BusTicketManagementApplication.src.dbConnection
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EMPLOYEE> EMPLOYEEs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PRIVILEGE> PRIVILEGEs { get; set; }
     }
 }
