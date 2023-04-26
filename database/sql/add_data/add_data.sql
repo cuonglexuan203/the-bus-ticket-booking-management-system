@@ -506,11 +506,11 @@ Insert into AGENT(id_cash_reserve, id_place, address, phone) values ('cr_0000000
 Insert into AGENT(id_cash_reserve, id_place, address, phone) values ('cr_0000000020',01, N'Âp Phú Hữu, TT.Phú Hòa, H.Thoại Sơn, An Giang', '02963 878 111')
 
 --
-INSERT INTO SYSTEMACCOUNT(username,pass) values ('admin01','slaveofnam01')
-INSERT INTO SYSTEMACCOUNT(username,pass) values ('admin02','slaveofnam02')
-INSERT INTO SYSTEMACCOUNT(username,pass) values ('admin03','slaveofnam03')
-INSERT INTO SYSTEMACCOUNT(username,pass) values ('admin04','slaveofnam04')
-INSERT INTO SYSTEMACCOUNT(username,pass) values ('admin05','slaveofnam05')
+INSERT INTO SYSTEMACCOUNT(username,pass) values ('admin01','admin')
+INSERT INTO SYSTEMACCOUNT(username,pass) values ('admin02','admin')
+INSERT INTO SYSTEMACCOUNT(username,pass) values ('admin03','admin')
+INSERT INTO SYSTEMACCOUNT(username,pass) values ('admin04','admin')
+INSERT INTO SYSTEMACCOUNT(username,pass) values ('admin05','admin')
 
 -- 
         

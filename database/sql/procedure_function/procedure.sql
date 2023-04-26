@@ -63,12 +63,19 @@ go
 --
 create proc [dbo].[pro_AssignPassengerPrivilege] (@id_passenger char(20))
 as
-SET XACT_ABORT ON
 begin 
-	declare @username varchar(50), @sqlString nvarchar(MAX)
-	select @username = PASSENGERACCOUNT.username from PASSENGERACCOUNT where PASSENGERACCOUNT.id_passenger = @id_passenger;
-	set @sqlString = 'exec sp_addrolemember ''rol_Passenger'', ''' + @username + '''';
-	exec sp_executesql @sqlString;
+SET XACT_ABORT ON
+	begin tran
+		begin try
+			declare @username varchar(50), @sqlString nvarchar(MAX)
+			select @username = PASSENGERACCOUNT.username from PASSENGERACCOUNT where PASSENGERACCOUNT.id_passenger = @id_passenger
+			set @sqlString = 'exec sp_addrolemember ''rol_Passenger'', ''' + @username + ''''
+			exec (@sqlString)
+			commit tran
+		end try
+		begin catch
+			rollback
+		end catch
 end
 go
 --
@@ -97,7 +104,7 @@ begin
 				set @sqlString = 'exec sp_addrolemember ''rol_Admin'', ''' + @username + '''';
 			else
 				set @sqlString = 'exec sp_addrolemember ''rol_Staff'', ''' + @username + '''';
-			exec @sqlString;
+			exec (@sqlString);
 			insert into EMPLOYEE_POSITION values(@id_employee, @id_position);
 			commit tran;
 		end try
