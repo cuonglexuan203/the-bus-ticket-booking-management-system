@@ -118,5 +118,5 @@ deny update, insert, delete, references on TRIP to rol_Staff;
 --
 --
 --
-exec sp_addrole rol_admin;
-grant control on DATABASE::BusManagement to rol_admin;
+exec sp_addrole rol_Admin;
+grant control on DATABASE::BusManagement to rol_Admin;

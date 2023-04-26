@@ -86,7 +86,7 @@ begin
 end
 go
 --
-create proc dbo.pro_AssignSystemPrivilege (@id_employee char(20), @id_position char(20))
+create proc [dbo].[pro_AssignSystemPrivilege] (@id_employee char(20), @id_position char(20))
 as
 begin 
 	SET XACT_ABORT ON
