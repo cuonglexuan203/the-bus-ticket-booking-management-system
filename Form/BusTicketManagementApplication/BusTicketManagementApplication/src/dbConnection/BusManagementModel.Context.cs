@@ -36,8 +36,6 @@ namespace BusTicketManagementApplication.src.dbConnection
         public virtual DbSet<DRIVER> DRIVERs { get; set; }
         public virtual DbSet<EMPLOYEE> EMPLOYEEs { get; set; }
         public virtual DbSet<EVENT> EVENTs { get; set; }
-        public virtual DbSet<PACKAGE> PACKAGEs { get; set; }
-        public virtual DbSet<PACKAGEPRICEPOLICY> PACKAGEPRICEPOLICies { get; set; }
         public virtual DbSet<PASSENGER> PASSENGERs { get; set; }
         public virtual DbSet<PASSENGERACCOUNT> PASSENGERACCOUNTs { get; set; }
         public virtual DbSet<PLACE> PLACEs { get; set; }
@@ -100,66 +98,6 @@ namespace BusTicketManagementApplication.src.dbConnection
                 new ObjectParameter("id_passenger", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pro_AddDefaultBooking", id_ticketParameter, id_passengerParameter);
-        }
-    
-        public virtual int pro_AddEmployeeAccount(string username, string password)
-        {
-            var usernameParameter = username != null ?
-                new ObjectParameter("username", username) :
-                new ObjectParameter("username", typeof(string));
-    
-            var passwordParameter = password != null ?
-                new ObjectParameter("password", password) :
-                new ObjectParameter("password", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pro_AddEmployeeAccount", usernameParameter, passwordParameter);
-        }
-    
-        public virtual int pro_AddPassenger(string id_passenger, string name, string phone)
-        {
-            var id_passengerParameter = id_passenger != null ?
-                new ObjectParameter("id_passenger", id_passenger) :
-                new ObjectParameter("id_passenger", typeof(string));
-    
-            var nameParameter = name != null ?
-                new ObjectParameter("name", name) :
-                new ObjectParameter("name", typeof(string));
-    
-            var phoneParameter = phone != null ?
-                new ObjectParameter("phone", phone) :
-                new ObjectParameter("phone", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pro_AddPassenger", id_passengerParameter, nameParameter, phoneParameter);
-        }
-    
-        public virtual int pro_AddPassengerAccount(string id_passenger, string username, string password)
-        {
-            var id_passengerParameter = id_passenger != null ?
-                new ObjectParameter("id_passenger", id_passenger) :
-                new ObjectParameter("id_passenger", typeof(string));
-    
-            var usernameParameter = username != null ?
-                new ObjectParameter("username", username) :
-                new ObjectParameter("username", typeof(string));
-    
-            var passwordParameter = password != null ?
-                new ObjectParameter("password", password) :
-                new ObjectParameter("password", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pro_AddPassengerAccount", id_passengerParameter, usernameParameter, passwordParameter);
-        }
-    
-        public virtual int pro_AssignSystemPrivilege(string id_employee, string id_position)
-        {
-            var id_employeeParameter = id_employee != null ?
-                new ObjectParameter("id_employee", id_employee) :
-                new ObjectParameter("id_employee", typeof(string));
-    
-            var id_positionParameter = id_position != null ?
-                new ObjectParameter("id_position", id_position) :
-                new ObjectParameter("id_position", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pro_AssignSystemPrivilege", id_employeeParameter, id_positionParameter);
         }
     
         public virtual int pro_CancelTicket(string id_ticket)
@@ -301,6 +239,53 @@ namespace BusTicketManagementApplication.src.dbConnection
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
     
+        public virtual int pro_AddEmployeeAccount(string username, string password)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("username", username) :
+                new ObjectParameter("username", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pro_AddEmployeeAccount", usernameParameter, passwordParameter);
+        }
+    
+        public virtual int pro_AddPassenger(string id_passenger, string name, string phone)
+        {
+            var id_passengerParameter = id_passenger != null ?
+                new ObjectParameter("id_passenger", id_passenger) :
+                new ObjectParameter("id_passenger", typeof(string));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("name", name) :
+                new ObjectParameter("name", typeof(string));
+    
+            var phoneParameter = phone != null ?
+                new ObjectParameter("phone", phone) :
+                new ObjectParameter("phone", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pro_AddPassenger", id_passengerParameter, nameParameter, phoneParameter);
+        }
+    
+        public virtual int pro_AddPassengerAccount(string id_passenger, string username, string password)
+        {
+            var id_passengerParameter = id_passenger != null ?
+                new ObjectParameter("id_passenger", id_passenger) :
+                new ObjectParameter("id_passenger", typeof(string));
+    
+            var usernameParameter = username != null ?
+                new ObjectParameter("username", username) :
+                new ObjectParameter("username", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pro_AddPassengerAccount", id_passengerParameter, usernameParameter, passwordParameter);
+        }
+    
         public virtual int pro_AssignPassengerPrivilege(string id_passenger)
         {
             var id_passengerParameter = id_passenger != null ?
@@ -308,6 +293,19 @@ namespace BusTicketManagementApplication.src.dbConnection
                 new ObjectParameter("id_passenger", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pro_AssignPassengerPrivilege", id_passengerParameter);
+        }
+    
+        public virtual int pro_AssignSystemPrivilege(string id_employee, string id_position)
+        {
+            var id_employeeParameter = id_employee != null ?
+                new ObjectParameter("id_employee", id_employee) :
+                new ObjectParameter("id_employee", typeof(string));
+    
+            var id_positionParameter = id_position != null ?
+                new ObjectParameter("id_position", id_position) :
+                new ObjectParameter("id_position", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pro_AssignSystemPrivilege", id_employeeParameter, id_positionParameter);
         }
     }
 }

@@ -10,17 +10,10 @@
 namespace BusTicketManagementApplication.src.dbConnection
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class PACKAGE
+    public partial class pro_AssignPassengerPrivilege_Result
     {
-        public string id_package { get; set; }
-        public string id_trip { get; set; }
-        public Nullable<double> mass { get; set; }
-        public Nullable<decimal> price { get; set; }
-        public string sender_contact_phone { get; set; }
-        public string receiver_contact_phone { get; set; }
-    
-        public virtual TRIP TRIP { get; set; }
+        public string Column1 { get; set; }
+        public string Column2 { get; set; }
     }
 }

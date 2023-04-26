@@ -17,7 +17,13 @@ namespace BusTicketManagementApplication.src.dbConnection
         public string Employees_ID { get; set; }
         public string Name { get; set; }
         public string Phone_Number { get; set; }
+        public string Address { get; set; }
+        public string Email { get; set; }
+        public string Identity_number { get; set; }
+        public decimal Salary { get; set; }
+        public System.DateTime Birthday { get; set; }
         public Nullable<bool> Gender { get; set; }
         public Nullable<bool> State { get; set; }
+        public string Position { get; set; }
     }
 }

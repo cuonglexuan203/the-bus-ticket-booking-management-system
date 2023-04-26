@@ -531,3 +531,4 @@ insert into POSITION(type) values ('service guide');
 insert into POSITION(type) values ('security guard');
 insert into POSITION(type) values ('porter');
 --
+--

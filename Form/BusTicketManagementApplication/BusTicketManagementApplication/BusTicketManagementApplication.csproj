@@ -136,12 +136,6 @@
     <Compile Include="src\dbConnection\EVENT.cs">
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="src\dbConnection\PACKAGE.cs">
-      <DependentUpon>BusManagementModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="src\dbConnection\PACKAGEPRICEPOLICY.cs">
-      <DependentUpon>BusManagementModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="src\dbConnection\PASSENGER.cs">
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
@@ -152,6 +146,9 @@
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
     <Compile Include="src\dbConnection\POSITION.cs">
+      <DependentUpon>BusManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="src\dbConnection\pro_AssignPassengerPrivilege_Result.cs">
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
     <Compile Include="src\dbConnection\REFUND.cs">

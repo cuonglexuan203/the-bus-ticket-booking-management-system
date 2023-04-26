@@ -19,7 +19,6 @@ namespace BusTicketManagementApplication.src.dbConnection
         {
             this.EMPLOYEEs = new HashSet<EMPLOYEE>();
             this.EVENTs = new HashSet<EVENT>();
-            this.PACKAGEPRICEPOLICies = new HashSet<PACKAGEPRICEPOLICY>();
             this.REFUNDs = new HashSet<REFUND>();
             this.TRIPs = new HashSet<TRIP>();
         }
@@ -36,8 +35,6 @@ namespace BusTicketManagementApplication.src.dbConnection
         public virtual ICollection<EMPLOYEE> EMPLOYEEs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EVENT> EVENTs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PACKAGEPRICEPOLICY> PACKAGEPRICEPOLICies { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<REFUND> REFUNDs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

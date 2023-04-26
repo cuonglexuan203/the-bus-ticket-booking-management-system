@@ -1,6 +1,7 @@
 ﻿using BusTicketManagementApplication.src.dbConnection;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Objects;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Cryptography;
@@ -17,19 +18,46 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
             BusManagementEntities db = new BusManagementEntities();
             return db.V_USERINFOR.Where(d => d.id_passenger == passengerId).FirstOrDefault();
         }
-        public bool ValidateUser(string username, string password,ref string passengerId, ref string errMsg)
+        public V_EMPLOYEEINFOR GetEmployee(string systemId)
+        {
+            return new BusManagementEntities().V_EMPLOYEEINFOR.Where(d => d.Employees_ID == systemId).FirstOrDefault();
+        }
+        public bool IsAdmin(string employeeId)
         {
             BusManagementEntities db = new BusManagementEntities();
-            var curUser = db.PASSENGERACCOUNTs.Where(d => d.username == username && d.username.Length == username.Length
-            && d.password == password && d.password.Length == password.Length);
-            if (curUser != null && curUser.Count() > 0)
+            return db.V_EMPLOYEEINFOR.Count(d => d.Employees_ID == employeeId && d.Position == "administrator") > 0;
+        }
+        public bool ValidateUser(string username, string password,ref string passengerId, ref string employeeId, ref string errMsg)
+        {
+            try
             {
+                BusManagementEntities db = new BusManagementEntities();
+                // init errMsg
                 errMsg = "Login successfully! No error.";
-                passengerId = curUser.FirstOrDefault().id_passenger;
-                return true;
+                passengerId = null;
+                employeeId = null;
+                var curPassenger = db.PASSENGERACCOUNTs.Where(d => d.username == username && d.password == password);
+                if (curPassenger != null && curPassenger.Count() > 0)
+                {
+                    passengerId = curPassenger.FirstOrDefault().id_passenger;
+                    return true;
+                }
+                //
+                var curEmployee = db.SYSTEMACCOUNTs.Where(d => d.username == username && d.pass == password);
+                if (curEmployee != null && curEmployee.Count() > 0)
+                {
+                    employeeId = db.EMPLOYEEs.Where(d => d.id_account == curEmployee.FirstOrDefault().id_account).FirstOrDefault().id_employee;
+                    return true;
+                }
+                errMsg = "Username or Password is incorrect!";
+                passengerId = string.Empty;
             }
-            errMsg = "Username or Password is incorrect!";
-            passengerId = string.Empty;
+            catch(SqlException err)
+            {
+                errMsg = err.Message;
+                MessageBox.Show(errMsg);
+                return false;
+            }
             return false;
         }
         public bool CreateNewUser(string username, string password,string name, string phone,ref string passengerId, ref string errMsg)
@@ -61,8 +89,7 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
                 if (!string.IsNullOrEmpty(passengerId))
                 {
                     db.pro_AddPassenger(passengerId, name, phone);
-                    db.pro_AddPassengerAccount(passengerId, username, password);
-                    db.pro_AssignPassengerPrivilege(passengerId);
+                    db.pro_AddPassengerAccount(passengerId, username, password); // add passenger account and assign privilege
                     errMsg = "Create new user successfully!. No error";
                 }
                 else
@@ -74,6 +101,7 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
             {
                 errMsg = err.Message;
                 MessageBox.Show(errMsg);
+                return false;
 
             }
             return true;
