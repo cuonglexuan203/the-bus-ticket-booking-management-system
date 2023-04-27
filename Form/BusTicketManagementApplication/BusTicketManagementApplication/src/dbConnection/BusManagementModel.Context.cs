@@ -307,5 +307,14 @@ namespace BusTicketManagementApplication.src.dbConnection
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pro_AssignSystemPrivilege", id_employeeParameter, id_positionParameter);
         }
+    
+        public virtual ObjectResult<pro_DisableEmployee_Result> pro_DisableEmployee(string id_employee)
+        {
+            var id_employeeParameter = id_employee != null ?
+                new ObjectParameter("id_employee", id_employee) :
+                new ObjectParameter("id_employee", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pro_DisableEmployee_Result>("pro_DisableEmployee", id_employeeParameter);
+        }
     }
 }

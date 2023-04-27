@@ -818,6 +818,9 @@ warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a pri
         <Function Name="pro_CancelTicket" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_ticket" Type="char" Mode="In" />
         </Function>
+        <Function Name="pro_DisableEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_employee" Type="char" Mode="In" />
+        </Function>
         <Function Name="pro_SetCancelTrip" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_trip" Type="char" Mode="In" />
         </Function>
@@ -1191,6 +1194,9 @@ warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a pri
             <Parameter Name="id_employee" Mode="In" Type="String" />
             <Parameter Name="id_position" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="pro_DisableEmployee" ReturnType="Collection(BusManagementModel.pro_DisableEmployee_Result)">
+          <Parameter Name="id_employee" Mode="In" Type="String" />
+          </FunctionImport>
           <EntitySet Name="AGENTs" EntityType="BusManagementModel.AGENT" />
           <EntitySet Name="BOOKINGs" EntityType="BusManagementModel.BOOKING" />
           <EntitySet Name="Buses" EntityType="BusManagementModel.BUS" />
@@ -1340,6 +1346,34 @@ warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a pri
         <ComplexType Name="pro_AssignPassengerPrivilege_Result">
           <Property Type="String" Name="Column1" Nullable="true" />
           <Property Type="String" Name="Column2" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="DisableEmployee_Result">
+          <Property Type="String" Name="id_employee" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="id_account" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="id_agent" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="address" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="phone_number" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="identity_number" Nullable="false" MaxLength="20" />
+          <Property Type="Decimal" Name="salary" Nullable="false" Precision="19" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="birthdate" Nullable="false" />
+          <Property Type="Boolean" Name="gender" Nullable="true" />
+          <Property Type="Boolean" Name="state" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="pro_DisableEmployee_Result">
+          <Property Type="String" Name="id_employee" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="id_account" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="id_agent" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="address" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="phone_number" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="identity_number" Nullable="false" MaxLength="20" />
+          <Property Type="Decimal" Name="salary" Nullable="false" Precision="19" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="birthdate" Nullable="false" />
+          <Property Type="Boolean" Name="gender" Nullable="true" />
+          <Property Type="Boolean" Name="state" Nullable="true" />
         </ComplexType>
         <EntityType Name="AGENT">
           <Key>
@@ -1959,6 +1993,24 @@ warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a pri
           <FunctionImportMapping FunctionImportName="pro_AddPassengerAccount" FunctionName="BusManagementModel.Store.pro_AddPassengerAccount" />
           <FunctionImportMapping FunctionImportName="pro_AssignPassengerPrivilege" FunctionName="BusManagementModel.Store.pro_AssignPassengerPrivilege" />
           <FunctionImportMapping FunctionImportName="pro_AssignSystemPrivilege" FunctionName="BusManagementModel.Store.pro_AssignSystemPrivilege" />
+          <FunctionImportMapping FunctionImportName="pro_DisableEmployee" FunctionName="BusManagementModel.Store.pro_DisableEmployee">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BusManagementModel.pro_DisableEmployee_Result">
+                <ScalarProperty Name="id_employee" ColumnName="id_employee" />
+                <ScalarProperty Name="id_account" ColumnName="id_account" />
+                <ScalarProperty Name="id_agent" ColumnName="id_agent" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="identity_number" ColumnName="identity_number" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="birthdate" ColumnName="birthdate" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="state" ColumnName="state" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <EntitySetMapping Name="AGENTs">
             <EntityTypeMapping TypeName="BusManagementModel.AGENT">
               <MappingFragment StoreEntitySet="AGENT">

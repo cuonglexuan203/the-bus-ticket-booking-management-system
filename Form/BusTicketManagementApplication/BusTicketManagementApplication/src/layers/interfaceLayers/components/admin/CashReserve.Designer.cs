@@ -39,6 +39,8 @@
             this.LbId = new System.Windows.Forms.Label();
             this.GbSearchBox = new System.Windows.Forms.GroupBox();
             this.PnlApp = new System.Windows.Forms.Panel();
+            this.LbSumMoney = new System.Windows.Forms.Label();
+            this.LbMoney = new System.Windows.Forms.Label();
             this.PnlFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvMainData)).BeginInit();
             this.GbSearchBox.SuspendLayout();
@@ -166,6 +168,8 @@
             // 
             // PnlApp
             // 
+            this.PnlApp.Controls.Add(this.LbSumMoney);
+            this.PnlApp.Controls.Add(this.LbMoney);
             this.PnlApp.Controls.Add(this.LbSelectedId);
             this.PnlApp.Controls.Add(this.LbId);
             this.PnlApp.Controls.Add(this.GbSearchBox);
@@ -177,6 +181,27 @@
             this.PnlApp.Name = "PnlApp";
             this.PnlApp.Size = new System.Drawing.Size(965, 598);
             this.PnlApp.TabIndex = 1;
+            // 
+            // LbSumMoney
+            // 
+            this.LbSumMoney.AutoSize = true;
+            this.LbSumMoney.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LbSumMoney.Location = new System.Drawing.Point(696, 31);
+            this.LbSumMoney.Margin = new System.Windows.Forms.Padding(0);
+            this.LbSumMoney.Name = "LbSumMoney";
+            this.LbSumMoney.Size = new System.Drawing.Size(0, 21);
+            this.LbSumMoney.TabIndex = 14;
+            // 
+            // LbMoney
+            // 
+            this.LbMoney.AutoSize = true;
+            this.LbMoney.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LbMoney.Location = new System.Drawing.Point(602, 31);
+            this.LbMoney.Margin = new System.Windows.Forms.Padding(0);
+            this.LbMoney.Name = "LbMoney";
+            this.LbMoney.Size = new System.Drawing.Size(76, 21);
+            this.LbMoney.TabIndex = 13;
+            this.LbMoney.Text = "Money:";
             // 
             // CashReserve
             // 
@@ -213,5 +238,7 @@
         private System.Windows.Forms.Label LbId;
         private System.Windows.Forms.GroupBox GbSearchBox;
         private System.Windows.Forms.Panel PnlApp;
+        private System.Windows.Forms.Label LbSumMoney;
+        private System.Windows.Forms.Label LbMoney;
     }
 }

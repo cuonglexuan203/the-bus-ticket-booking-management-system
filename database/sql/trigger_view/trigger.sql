@@ -1,6 +1,6 @@
 -- alow delete ticket ( in past, future), only reserve trip
 
-create trigger tr_DeleteEmployee on Employee
+create  trigger [dbo].[tr_DeleteEmployee] on [dbo].[EMPLOYEE]
 instead of delete
 as
 
@@ -9,6 +9,7 @@ select @employee_id = d.id_employee, @account_id = d.id_account  from deleted d
 set xact_abort on
 
 begin 
+	begin tran
 	begin try
 
 		update EMPLOYEE 
@@ -20,15 +21,15 @@ begin
 		declare @username varchar(30)
 		select @username = sysa.username from SYSTEMACCOUNT sysa where sysa.id_account = @account_id
 		--
-		declare @query varchar(1000)
+		declare @query varchar(MAX)
 		set @query = 'drop user [' + @username + ']'
-		exec @query
+		exec (@query)
 		--
 		set @query = 'drop login [' + @username + ']'
-		exec @query
+		exec (@query)
 		--
 		delete from SYSTEMACCOUNT where id_account = @account_id
-		commit tran;
+		commit tran
 	end try
 
 	begin catch
