@@ -46,7 +46,7 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.a
             this.dgvBusRoute.AllowUserToResizeRows = false;
             this.dgvBusRoute.AutoGenerateColumns = false;
             this.dgvBusRoute.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvBusRoute.ColumnHeadersHeight = 30;
+            this.dgvBusRoute.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBusRoute.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.startpointDataGridViewTextBoxColumn,
             this.endpointDataGridViewTextBoxColumn,
@@ -61,6 +61,7 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.a
             this.dgvBusRoute.RowHeadersVisible = false;
             this.dgvBusRoute.RowHeadersWidth = 60;
             this.dgvBusRoute.RowTemplate.Height = 24;
+            this.dgvBusRoute.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBusRoute.Size = new System.Drawing.Size(800, 450);
             this.dgvBusRoute.TabIndex = 0;
             // 

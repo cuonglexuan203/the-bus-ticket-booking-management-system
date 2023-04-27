@@ -29,11 +29,8 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.a
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.dgvBusStation = new System.Windows.Forms.DataGridView();
-            this.BusStationbindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBusStation)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BusStationbindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvBusStation
@@ -55,10 +52,6 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.a
             this.dgvBusStation.Size = new System.Drawing.Size(800, 450);
             this.dgvBusStation.TabIndex = 0;
             // 
-            // BusStationbindingSource
-            // 
-            this.BusStationbindingSource.DataSource = typeof(BusTicketManagementApplication.src.dbConnection.V_BUSSTATIONINFOR);
-            // 
             // BusStation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -70,7 +63,6 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.a
             this.Text = "BusStation";
             this.Load += new System.EventHandler(this.BusStation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBusStation)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BusStationbindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -78,6 +70,5 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.a
         #endregion
 
         private System.Windows.Forms.DataGridView dgvBusStation;
-        private System.Windows.Forms.BindingSource BusStationbindingSource;
     }
 }

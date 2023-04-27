@@ -30,9 +30,9 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.a
         private void InitializeComponent()
         {
             this.PnlMainContainer = new System.Windows.Forms.Panel();
+            this.btnAboutUs = new System.Windows.Forms.Button();
             this.btnBusStation = new System.Windows.Forms.Button();
             this.BtnBusRoute = new System.Windows.Forms.Button();
-            this.btnAboutUs = new System.Windows.Forms.Button();
             this.PnlMainContainer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +49,20 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.a
             this.PnlMainContainer.Size = new System.Drawing.Size(965, 30);
             this.PnlMainContainer.TabIndex = 1;
             this.PnlMainContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlMainContainer_Paint);
+            // 
+            // btnAboutUs
+            // 
+            this.btnAboutUs.FlatAppearance.BorderSize = 0;
+            this.btnAboutUs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAboutUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAboutUs.Location = new System.Drawing.Point(51, 3);
+            this.btnAboutUs.Name = "btnAboutUs";
+            this.btnAboutUs.Size = new System.Drawing.Size(144, 30);
+            this.btnAboutUs.TabIndex = 2;
+            this.btnAboutUs.Tag = "0";
+            this.btnAboutUs.Text = "About Us";
+            this.btnAboutUs.UseVisualStyleBackColor = true;
+            this.btnAboutUs.Click += new System.EventHandler(this.Handler_NavBtn_Click);
             // 
             // btnBusStation
             // 
@@ -73,23 +87,10 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.a
             this.BtnBusRoute.Name = "BtnBusRoute";
             this.BtnBusRoute.Size = new System.Drawing.Size(147, 30);
             this.BtnBusRoute.TabIndex = 0;
-            this.BtnBusRoute.Tag = "0";
+            this.BtnBusRoute.Tag = "2";
             this.BtnBusRoute.Text = "Bus Route";
             this.BtnBusRoute.UseVisualStyleBackColor = true;
             this.BtnBusRoute.Click += new System.EventHandler(this.Handler_NavBtn_Click);
-            // 
-            // btnAboutUs
-            // 
-            this.btnAboutUs.FlatAppearance.BorderSize = 0;
-            this.btnAboutUs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAboutUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAboutUs.Location = new System.Drawing.Point(51, 3);
-            this.btnAboutUs.Name = "btnAboutUs";
-            this.btnAboutUs.Size = new System.Drawing.Size(144, 30);
-            this.btnAboutUs.TabIndex = 2;
-            this.btnAboutUs.Tag = "1";
-            this.btnAboutUs.Text = "About Us";
-            this.btnAboutUs.UseVisualStyleBackColor = true;
             // 
             // AboutUsNavigationBar
             // 

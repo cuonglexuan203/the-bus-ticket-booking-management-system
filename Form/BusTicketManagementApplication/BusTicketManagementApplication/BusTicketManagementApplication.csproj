@@ -236,8 +236,8 @@
     <Compile Include="src\layers\businessLayers\BSBooked.cs" />
     <Compile Include="src\layers\businessLayers\BSBooking.cs" />
     <Compile Include="src\layers\businessLayers\BSBus.cs" />
-
     <Compile Include="src\layers\businessLayers\BSBusStation.cs" />
+    <Compile Include="src\layers\businessLayers\BSDriver.cs" />
     <Compile Include="src\layers\businessLayers\BSEmployee.cs" />
     <Compile Include="src\layers\businessLayers\BSLogin.cs" />
     <Compile Include="src\layers\businessLayers\BSMain.cs" />
@@ -319,6 +319,12 @@
     <Compile Include="src\layers\interfaceLayers\components\bus\Bus.Designer.cs">
       <DependentUpon>Bus.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\driver\Driver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\driver\Driver.Designer.cs">
+      <DependentUpon>Driver.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\layers\interfaceLayers\components\home\Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -399,7 +405,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="src\layers\interfaceLayers\components\aboutUs\BusStation.resx">
       <DependentUpon>BusStation.cs</DependentUpon>
-      </EmbeddedResource>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\layers\interfaceLayers\components\admin\AdminNavigationBar.resx">
       <DependentUpon>AdminNavigationBar.cs</DependentUpon>
     </EmbeddedResource>
@@ -423,6 +429,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="src\layers\interfaceLayers\components\bus\Bus.resx">
       <DependentUpon>Bus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\layers\interfaceLayers\components\driver\Driver.resx">
+      <DependentUpon>Driver.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\layers\interfaceLayers\components\home\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
@@ -524,7 +533,6 @@
     <Folder Include="src\asset\cursor\" />
     <Folder Include="src\asset\sound\" />
     <Folder Include="src\dbConnection\DataSet\" />
-    <Folder Include="src\layers\interfaceLayers\components\driver\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\resourceAboutUs.bmp" />
@@ -542,6 +550,9 @@
     <None Include="src\asset\img\components\home\Hanoi.png" />
     <None Include="src\asset\img\components\home\Namcan.png" />
     <None Include="src\asset\img\components\home\SG.png" />
+    <None Include="src\asset\img\components\home\home3.png" />
+    <None Include="src\asset\img\components\home\chevron-left.png" />
+    <None Include="src\asset\img\components\home\chevron-right.png" />
     <Content Include="src\dbConnection\BusManagementModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>BusManagementModel.Context.cs</LastGenOutput>

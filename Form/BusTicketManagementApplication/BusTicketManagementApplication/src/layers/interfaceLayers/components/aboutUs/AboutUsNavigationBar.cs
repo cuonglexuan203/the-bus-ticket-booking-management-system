@@ -30,7 +30,7 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.a
             Button button = (Button)sender;
             int tag = Convert.ToInt16(button.Tag.ToString());
             AboutUsNavigationBar.NavIndex = tag;
-            this.parentForm.MainFeatureIndex = 4; // virtual number
+            this.parentForm.MainFeatureIndex = 5; // virtual number
         }
 
         private void PnlMainContainer_Paint(object sender, PaintEventArgs e)

@@ -532,3 +532,11 @@ insert into POSITION(type) values ('security guard');
 insert into POSITION(type) values ('porter');
 --
 --
+
+use BusManagement
+go
+
+insert into DRIVER(id_driver, lisence_level, type, state) values ('emp_0000000001','B1', 0, 0);
+insert into DRIVER(id_driver, lisence_level, type, state) values ('emp_0000000002','C1', 0, 1);
+insert into DRIVER(id_driver, lisence_level, type, state) values ('emp_0000000003','C2', 1, 0);
+insert into DRIVER(id_driver, lisence_level, type, state) values ('emp_0000000004','D0', 1, 1);

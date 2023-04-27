@@ -5,6 +5,7 @@ using BusTicketManagementApplication.src.layers.interfaceLayers.components.Profi
 using BusTicketManagementApplication.src.layers.interfaceLayers.components.trip;
 using BusTicketManagementApplication.src.layers.interfaceLayers.components.bus;
 using BusTicketManagementApplication.src.layers.interfaceLayers.components.aboutUs;
+using BusTicketManagementApplication.src.layers.interfaceLayers.components.driver;
 using BusTicketManagementApplication.src.layers.interfaceLayers.Data;
 using System;
 using System.Collections.Generic;
@@ -70,6 +71,7 @@ namespace BusTicketManagementApplication
                             }
                         case 3:
                             {
+                                RenderActiveForm(new Driver(), this.PnlFillContent);
                                 break;
                             }
                         case 4:
@@ -94,7 +96,6 @@ namespace BusTicketManagementApplication
                         case 5:
                             {
                                 RenderActiveForm(new AboutUsNavigationBar(this), this.PnlNavigationBar);
-
 
                                 Form renderform = new Form();
                                 if (AboutUsNavigationBar.NavIndex == 0)

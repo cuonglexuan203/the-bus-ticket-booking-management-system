@@ -6,33 +6,33 @@
     <edmx:Diagrams>
       <Diagram DiagramId="86531bbe5d5342169bcd0f2cb2216891" Name="Diagram1" ZoomLevel="79">
         <EntityTypeShape EntityType="BusManagementModel.AGENT" Width="1.5" PointX="6" PointY="11" />
-        <EntityTypeShape EntityType="BusManagementModel.BOOKING" Width="1.5" PointX="10.5" PointY="9.25" />
-        <EntityTypeShape EntityType="BusManagementModel.BUS" Width="1.5" PointX="9" PointY="24.5" />
+        <EntityTypeShape EntityType="BusManagementModel.BOOKING" Width="1.5" PointX="13.5" PointY="11.25" />
+        <EntityTypeShape EntityType="BusManagementModel.BUS" Width="1.5" PointX="9" PointY="6.5" />
         <EntityTypeShape EntityType="BusManagementModel.BUSROUTE" Width="1.5" PointX="5.25" PointY="15.25" />
         <EntityTypeShape EntityType="BusManagementModel.BUSSTATION" Width="1.5" PointX="3" PointY="11" />
         <EntityTypeShape EntityType="BusManagementModel.CASHRESERVE" Width="1.5" PointX="3.75" PointY="7.75" />
-        <EntityTypeShape EntityType="BusManagementModel.DRIVER" Width="1.5" PointX="9" PointY="2.875" />
+        <EntityTypeShape EntityType="BusManagementModel.DRIVER" Width="1.5" PointX="9" PointY="15.875" />
         <EntityTypeShape EntityType="BusManagementModel.EMPLOYEE" Width="1.5" PointX="8.25" PointY="10.375" />
-        <EntityTypeShape EntityType="BusManagementModel.EVENT" Width="1.5" PointX="8.25" PointY="22" />
-        <EntityTypeShape EntityType="BusManagementModel.PASSENGER" Width="1.5" PointX="8.25" PointY="6.25" />
-        <EntityTypeShape EntityType="BusManagementModel.PASSENGERACCOUNT" Width="1.5" PointX="10.5" PointY="6.75" />
+        <EntityTypeShape EntityType="BusManagementModel.EVENT" Width="1.5" PointX="8.25" PointY="19.5" />
+        <EntityTypeShape EntityType="BusManagementModel.PASSENGER" Width="1.5" PointX="11.25" PointY="6.25" />
+        <EntityTypeShape EntityType="BusManagementModel.PASSENGERACCOUNT" Width="1.5" PointX="13.5" PointY="6.75" />
         <EntityTypeShape EntityType="BusManagementModel.PLACE" Width="1.5" PointX="0.75" PointY="11.625" />
-        <EntityTypeShape EntityType="BusManagementModel.POSITION" Width="1.5" PointX="10.5" PointY="18.5" />
-        <EntityTypeShape EntityType="BusManagementModel.REFUND" Width="1.5" PointX="8.25" PointY="19.5" />
+        <EntityTypeShape EntityType="BusManagementModel.POSITION" Width="1.5" PointX="10.5" PointY="9.75" />
+        <EntityTypeShape EntityType="BusManagementModel.REFUND" Width="1.5" PointX="8.25" PointY="22" />
         <EntityTypeShape EntityType="BusManagementModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="BusManagementModel.SYSTEMACCOUNT" Width="1.5" PointX="6" PointY="7.625" />
-        <EntityTypeShape EntityType="BusManagementModel.TICKET" Width="1.5" PointX="13.5" PointY="11.875" />
+        <EntityTypeShape EntityType="BusManagementModel.TICKET" Width="1.5" PointX="13.5" PointY="14.875" />
         <EntityTypeShape EntityType="BusManagementModel.TRIP" Width="1.5" PointX="11.25" PointY="12.75" />
         <EntityTypeShape EntityType="BusManagementModel.V_AGENTINFOR" Width="1.5" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="BusManagementModel.V_AVAILABLETRIP" Width="1.5" PointX="0.75" PointY="3.75" />
         <EntityTypeShape EntityType="BusManagementModel.V_BOOKEDTICKET" Width="1.5" PointX="4.75" PointY="0.75" />
-        <EntityTypeShape EntityType="BusManagementModel.V_BOOKINGINFOR" Width="1.5" PointX="11.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BusManagementModel.V_BOOKINGINFOR" Width="1.5" PointX="6.75" PointY="0.75" />
         <EntityTypeShape EntityType="BusManagementModel.V_BUSSTATIONINFOR" Width="1.5" PointX="0.75" PointY="7.75" />
-        <EntityTypeShape EntityType="BusManagementModel.V_DRIVERINFOR" Width="1.5" PointX="12.75" PointY="4.75" />
-        <EntityTypeShape EntityType="BusManagementModel.V_EMPLOYEEINFOR" Width="1.5" PointX="13.75" PointY="0.75" />
-        <EntityTypeShape EntityType="BusManagementModel.V_ROUTEINFOR" Width="1.5" PointX="12.75" PointY="8.75" />
-        <EntityTypeShape EntityType="BusManagementModel.V_TRIPINFOR" Width="1.5" PointX="0.75" PointY="14.75" />
-        <EntityTypeShape EntityType="BusManagementModel.V_USERINFOR" Width="1.5" PointX="14.75" PointY="4.75" />
+        <EntityTypeShape EntityType="BusManagementModel.V_DRIVERINFOR" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BusManagementModel.V_EMPLOYEEINFOR" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BusManagementModel.V_ROUTEINFOR" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BusManagementModel.V_TRIPINFOR" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BusManagementModel.V_USERINFOR" Width="1.5" PointX="0.75" PointY="14.75" />
         <AssociationConnector Association="BusManagementModel.FK_agent_id_cash_reserve" />
         <AssociationConnector Association="BusManagementModel.FK_agent_id_place" />
         <AssociationConnector Association="BusManagementModel.FK_employee_id_agent" />

@@ -117,4 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="timerLabel.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="lbWelcome.Text" xml:space="preserve">
+    <value>Chúng tôi luôn tự hào là một trong những thương hiệu xe hàng đầu trên thị trường với nhiều năm kinh nghiệm và sự tận tâm đến từng chi tiết. Chúng tôi cam kết cung cấp cho quý khách những sản phẩm chất lượng và dịch vụ hoàn hảo nhất. Với đội ngũ nhân viên chuyên nghiệp và tận tâm, chúng tôi sẽ đưa ra những giải pháp tối ưu để đáp ứng nhu cầu của quý khách với độ tin cậy cao nhất. Chúng tôi hi vọng sẽ có cơ hội phục vụ quý khách và trở thành đối tác lâu dài của quý khách trong thời gian tới. Hãy đến với chúng tôi để trải nghiệm những dòng xe đẳng cấp và được chăm sóc tận tình. Chân thành cảm ơn quý khách đã lựa chọn hãng xe của chúng tôi!</value>
+  </data>
 </root>
