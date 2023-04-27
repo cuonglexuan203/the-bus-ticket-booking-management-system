@@ -122,3 +122,16 @@ begin
 end
 go
 --
+create PROCEDURE pro_CheckUniqueUser(@username varchar(50))
+AS
+BEGIN
+    DECLARE @count int, @errMsg nvarchar(MAX)
+    SET @count = 0
+    SELECT @count = COUNT(*) FROM PASSENGERACCOUNT WHERE PASSENGERACCOUNT.username = @username
+    IF @count > 0
+    BEGIN
+        SET @errMsg = 'Username has already been taken.';
+        RAISERROR(@errMsg, 16, 1);
+    END
+    SELECT @count
+END
