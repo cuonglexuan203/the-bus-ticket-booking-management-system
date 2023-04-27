@@ -31,6 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Employee));
             this.PnlFilter = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.LbField = new System.Windows.Forms.Label();
+            this.CbPosition = new System.Windows.Forms.ComboBox();
             this.CbField = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.LbSelectedName = new System.Windows.Forms.Label();
@@ -40,13 +43,10 @@
             this.LbSelectedId = new System.Windows.Forms.Label();
             this.LbId = new System.Windows.Forms.Label();
             this.GbSearchBox = new System.Windows.Forms.GroupBox();
-            this.TbSearch = new System.Windows.Forms.TextBox();
-            this.DgvMainData = new System.Windows.Forms.DataGridView();
             this.BtnSearchIcon = new System.Windows.Forms.Button();
+            this.TbSearch = new System.Windows.Forms.TextBox();
             this.BtnDelete = new System.Windows.Forms.Button();
-            this.CbPosition = new System.Windows.Forms.ComboBox();
-            this.LbField = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.DgvMainData = new System.Windows.Forms.DataGridView();
             this.employeesIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,6 +76,42 @@
             this.PnlFilter.Name = "PnlFilter";
             this.PnlFilter.Size = new System.Drawing.Size(413, 76);
             this.PnlFilter.TabIndex = 15;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label4.Location = new System.Drawing.Point(220, 4);
+            this.label4.Margin = new System.Windows.Forms.Padding(0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(109, 21);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Position:";
+            // 
+            // LbField
+            // 
+            this.LbField.AutoSize = true;
+            this.LbField.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LbField.Location = new System.Drawing.Point(20, 4);
+            this.LbField.Margin = new System.Windows.Forms.Padding(0);
+            this.LbField.Name = "LbField";
+            this.LbField.Size = new System.Drawing.Size(76, 21);
+            this.LbField.TabIndex = 14;
+            this.LbField.Text = "Field:";
+            // 
+            // CbPosition
+            // 
+            this.CbPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbPosition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CbPosition.FormattingEnabled = true;
+            this.CbPosition.Location = new System.Drawing.Point(224, 34);
+            this.CbPosition.Margin = new System.Windows.Forms.Padding(0);
+            this.CbPosition.MaxDropDownItems = 10;
+            this.CbPosition.Name = "CbPosition";
+            this.CbPosition.Size = new System.Drawing.Size(175, 29);
+            this.CbPosition.TabIndex = 7;
+            this.CbPosition.TabStop = false;
+            this.CbPosition.TextChanged += new System.EventHandler(this.CbPosition_TextChanged);
             // 
             // CbField
             // 
@@ -185,6 +221,23 @@
             this.GbSearchBox.TabStop = false;
             this.GbSearchBox.Text = "Search";
             // 
+            // BtnSearchIcon
+            // 
+            this.BtnSearchIcon.BackColor = System.Drawing.Color.Transparent;
+            this.BtnSearchIcon.FlatAppearance.BorderSize = 0;
+            this.BtnSearchIcon.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BtnSearchIcon.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BtnSearchIcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSearchIcon.Image = ((System.Drawing.Image)(resources.GetObject("BtnSearchIcon.Image")));
+            this.BtnSearchIcon.Location = new System.Drawing.Point(421, 21);
+            this.BtnSearchIcon.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnSearchIcon.Name = "BtnSearchIcon";
+            this.BtnSearchIcon.Size = new System.Drawing.Size(35, 35);
+            this.BtnSearchIcon.TabIndex = 1;
+            this.BtnSearchIcon.TabStop = false;
+            this.BtnSearchIcon.UseVisualStyleBackColor = false;
+            this.BtnSearchIcon.Click += new System.EventHandler(this.BtnSearchIcon_Click);
+            // 
             // TbSearch
             // 
             this.TbSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -195,6 +248,24 @@
             this.TbSearch.TabIndex = 0;
             this.TbSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TbSearch_KeyDown);
             this.TbSearch.Leave += new System.EventHandler(this.TbSearch_Leave);
+            // 
+            // BtnDelete
+            // 
+            this.BtnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(80)))));
+            this.BtnDelete.FlatAppearance.BorderSize = 0;
+            this.BtnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnDelete.Font = new System.Drawing.Font("Hack NF", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDelete.ForeColor = System.Drawing.Color.White;
+            this.BtnDelete.Image = ((System.Drawing.Image)(resources.GetObject("BtnDelete.Image")));
+            this.BtnDelete.Location = new System.Drawing.Point(834, 12);
+            this.BtnDelete.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnDelete.Name = "BtnDelete";
+            this.BtnDelete.Size = new System.Drawing.Size(123, 50);
+            this.BtnDelete.TabIndex = 10;
+            this.BtnDelete.Text = "Delete";
+            this.BtnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnDelete.UseVisualStyleBackColor = false;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // DgvMainData
             // 
@@ -232,76 +303,6 @@
             this.DgvMainData.Size = new System.Drawing.Size(965, 434);
             this.DgvMainData.TabIndex = 9;
             this.DgvMainData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvMainData_CellClick);
-            // 
-            // BtnSearchIcon
-            // 
-            this.BtnSearchIcon.BackColor = System.Drawing.Color.Transparent;
-            this.BtnSearchIcon.FlatAppearance.BorderSize = 0;
-            this.BtnSearchIcon.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.BtnSearchIcon.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.BtnSearchIcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnSearchIcon.Image = ((System.Drawing.Image)(resources.GetObject("BtnSearchIcon.Image")));
-            this.BtnSearchIcon.Location = new System.Drawing.Point(421, 21);
-            this.BtnSearchIcon.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnSearchIcon.Name = "BtnSearchIcon";
-            this.BtnSearchIcon.Size = new System.Drawing.Size(35, 35);
-            this.BtnSearchIcon.TabIndex = 1;
-            this.BtnSearchIcon.TabStop = false;
-            this.BtnSearchIcon.UseVisualStyleBackColor = false;
-            this.BtnSearchIcon.Click += new System.EventHandler(this.BtnSearchIcon_Click);
-            // 
-            // BtnDelete
-            // 
-            this.BtnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(80)))));
-            this.BtnDelete.FlatAppearance.BorderSize = 0;
-            this.BtnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnDelete.Font = new System.Drawing.Font("Hack NF", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDelete.ForeColor = System.Drawing.Color.White;
-            this.BtnDelete.Image = ((System.Drawing.Image)(resources.GetObject("BtnDelete.Image")));
-            this.BtnDelete.Location = new System.Drawing.Point(834, 12);
-            this.BtnDelete.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnDelete.Name = "BtnDelete";
-            this.BtnDelete.Size = new System.Drawing.Size(123, 50);
-            this.BtnDelete.TabIndex = 10;
-            this.BtnDelete.Text = "Delete";
-            this.BtnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnDelete.UseVisualStyleBackColor = false;
-            // 
-            // CbPosition
-            // 
-            this.CbPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CbPosition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CbPosition.FormattingEnabled = true;
-            this.CbPosition.Location = new System.Drawing.Point(224, 34);
-            this.CbPosition.Margin = new System.Windows.Forms.Padding(0);
-            this.CbPosition.MaxDropDownItems = 10;
-            this.CbPosition.Name = "CbPosition";
-            this.CbPosition.Size = new System.Drawing.Size(175, 29);
-            this.CbPosition.TabIndex = 7;
-            this.CbPosition.TabStop = false;
-            this.CbPosition.TextChanged += new System.EventHandler(this.CbPosition_TextChanged);
-            // 
-            // LbField
-            // 
-            this.LbField.AutoSize = true;
-            this.LbField.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LbField.Location = new System.Drawing.Point(20, 4);
-            this.LbField.Margin = new System.Windows.Forms.Padding(0);
-            this.LbField.Name = "LbField";
-            this.LbField.Size = new System.Drawing.Size(76, 21);
-            this.LbField.TabIndex = 14;
-            this.LbField.Text = "Field:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label4.Location = new System.Drawing.Point(220, 4);
-            this.label4.Margin = new System.Windows.Forms.Padding(0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(109, 21);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "Position:";
             // 
             // employeesIDDataGridViewTextBoxColumn
             // 
@@ -403,7 +404,7 @@
             this.Controls.Add(this.PnlApp);
             this.Font = new System.Drawing.Font("Hack NF", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Employee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Employee";

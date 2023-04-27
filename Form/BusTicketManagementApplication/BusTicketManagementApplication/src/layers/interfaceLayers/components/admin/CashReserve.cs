@@ -1,4 +1,5 @@
-﻿using BusTicketManagementApplication.src.layers.businessLayers;
+﻿using BusTicketManagementApplication.src.dbConnection;
+using BusTicketManagementApplication.src.layers.businessLayers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,7 +36,9 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.a
         private void FilterAgent()
         {
             BSAgent bsagent = new BSAgent();
-            this.DgvMainData.DataSource = bsagent.SearchAgents(this.searchInput.Trim(), this.CbRegion.Text.Trim());
+            List<V_AGENTINFOR> dataSource = bsagent.SearchAgents(this.searchInput.Trim(), this.CbRegion.Text.Trim());
+            this.DgvMainData.DataSource = dataSource;
+            this.LbSumMoney.Text = dataSource?.Aggregate(0m, (s, d) => s + (decimal)d.Money).ToString("###,###,###,###");
         }
         private void TbSearch_Leave(object sender, EventArgs e)
         {

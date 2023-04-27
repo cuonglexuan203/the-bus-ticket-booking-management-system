@@ -114,3 +114,11 @@ begin
 end
 go
 --
+create proc pro_DisableEmployee(@id_employee char(20))
+as
+begin
+	delete from EMPLOYEE where EMPLOYEE.id_employee = @id_employee;
+	select * from EMPLOYEE where EMPLOYEE.id_employee = @id_employee
+end
+go
+--

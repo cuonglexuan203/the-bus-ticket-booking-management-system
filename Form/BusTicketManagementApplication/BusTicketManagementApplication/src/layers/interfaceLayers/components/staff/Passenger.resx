@@ -118,21 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="BtnDelete.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
-        MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfnBBMGJDM6DCMpAAAB+UlEQVRYR9WWMUoDQRiFkz5Jq52e
-        QTABLURTqTeI9qYVhRiwUIRI8Ca5gtZa6z0EEe2E8Xuz/4SJSZZEdwf84JHdN//Mm93Mzm6lSJxz5+jO
-        TtNi4YG0kyCwn+W6d/SaHbpbay4XguLwbbSB0kyCgIlw86roRSb0fGEZMPhUuOC46V3nHlHV7GJh4Jnh
-        gvOOb3FuaFaxMPDccIF36FudG5lVHAyaGy7w6+gNfaG22fK1NnpoYNZy0HHWgmuhHV8QgddFQpMYoSF6
-        kmEsNwk6zApfRbrSD7TuCyPwTqw9Rk9HeEQXmwSFeQvuDF3b6RS01dABOkKbSH9DvE/kT4KCsL3qKqdu
-        dYC2BnpAu2bNhZotpIsRl2ZPQ+NC4YJ2XaG4N2smtBcfHqBOz3/Djte8GYFXXngMfa7QJ9ozK124oN8p
-        0upv2Xm68AD9V+w3fXiAcf5BuKBgkNX5zUGbhDYLvVKPkV4sdStdCOr1URLC+2bnQ2E8ifAxEdCC6lpp
-        LtQtHx6gQ5iE0MeEXiB6keiFInInQfvvwwN01CT0yhx/yXDcRpqE7kTN7Anw/x6eB4PqToh9s8bglRsu
-        GFh/h+iY5eE8SbieivAx0TQ7Tbhg8Isswz0jvzb4TRMuCPi5T6QLDxAUTyJteIDAmyzXk7+9lgXBuhMF
-        Xnml8g2rFBMgBV3vvAAAAABJRU5ErkJggg==
-</value>
-  </data>
   <data name="BtnSearchIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
@@ -158,12 +143,6 @@
         q8AShN6UC9SmH1Tf/KqQPRfxb4Q7qE7dh/2zp/0Hwzml+B5w67IAAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="pASSENGERBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>242, 17</value>
-  </metadata>
-  <metadata name="busManagementDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <metadata name="pASSENGERBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>242, 17</value>
   </metadata>

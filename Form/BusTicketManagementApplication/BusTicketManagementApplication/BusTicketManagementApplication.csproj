@@ -137,6 +137,9 @@
     <Compile Include="src\dbConnection\CASHRESERVE.cs">
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="src\dbConnection\DisableEmployee_Result.cs">
+      <DependentUpon>BusManagementModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="src\dbConnection\DRIVER.cs">
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
@@ -159,6 +162,9 @@
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
     <Compile Include="src\dbConnection\pro_AssignPassengerPrivilege_Result.cs">
+      <DependentUpon>BusManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="src\dbConnection\pro_DisableEmployee_Result.cs">
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
     <Compile Include="src\dbConnection\REFUND.cs">

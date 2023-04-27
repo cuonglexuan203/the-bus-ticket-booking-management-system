@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -75,6 +76,30 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.a
             {
                 this.searchInput = this.TbSearch.Text;
                 FilterEmployees();
+            }
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(this.LbSelectedId.Text.Trim()))
+            {
+                MessageBox.Show("Please select the employee to delete");
+                return;
+            }
+            try
+            {
+                BSEmployee bsemployee = new BSEmployee();
+                string deleteEmployeeId = this.LbSelectedId.Text.Trim();
+                bool res = bsemployee.DeleteEmployee(deleteEmployeeId);
+                //
+                if (!res)
+                {
+                    MessageBox.Show("Can't delete the employee!");
+                }
+            }
+            catch (SqlException sqlerr)
+            {
+                MessageBox.Show(sqlerr.Message);
             }
         }
     }

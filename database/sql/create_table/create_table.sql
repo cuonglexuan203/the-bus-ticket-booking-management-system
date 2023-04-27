@@ -247,7 +247,7 @@ alter table PASSENGER add constraint CHK_passenger check (email like '_%@gmail.c
 alter table AGENT add constraint FK_agent_id_cash_reserve foreign key (id_cash_reserve) references CASHRESERVE(id_cash_reserve);
 alter table AGENT add constraint FK_agent_id_place foreign key (id_place) references PLACE(id_place);
 --
-alter table EMPLOYEE add constraint FK_employee_id_account foreign key (id_account) references SYSTEMACCOUNT(id_account);
+alter table EMPLOYEE add constraint FK_employee_id_account foreign key (id_account) references SYSTEMACCOUNT(id_account) on delete set null;
 alter table EMPLOYEE add constraint FK_employee_id_agent foreign key (id_agent) references AGENT(id_agent);
 alter table EMPLOYEE add constraint CHK_employee check (email like '_%@gmail.com');
 --
