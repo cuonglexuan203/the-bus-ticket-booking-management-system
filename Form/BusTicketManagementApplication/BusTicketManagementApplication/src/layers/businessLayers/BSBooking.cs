@@ -1,4 +1,6 @@
 ﻿using BusTicketManagementApplication.src.dbConnection;
+using BusTicketManagementApplication.src.layers.interfaceLayers.components.admin;
+using BusTicketManagementApplication.src.layers.interfaceLayers.components.staff;
 using BusTicketManagementApplication.src.layers.interfaceLayers.components.trip;
 using System;
 using System.Collections.Generic;
@@ -50,5 +52,12 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
             BusManagementEntities db = new BusManagementEntities();
             return db.V_BOOKEDTICKET.Where(d => d.Ticket_ID == ticketId).FirstOrDefault();
         }
+        //
+        public void AddBooking(string ticketId, string passengerId, string employeeId)
+        {
+            BusManagementEntities db = new BusManagementEntities();
+            db.pro_AddBooking(ticketId, passengerId, employeeId);
+        }
+        
     }
 }

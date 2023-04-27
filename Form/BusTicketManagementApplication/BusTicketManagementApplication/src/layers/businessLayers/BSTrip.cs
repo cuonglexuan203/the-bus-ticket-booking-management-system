@@ -59,6 +59,22 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
             }
             return res.ToList();
         }
+        //
+        public void SetCancelTrip(string tripId)
+        {
+            BusManagementEntities db = new BusManagementEntities();
+            db.pro_SetCancelTrip(tripId);
+        }
+        public void SetFinish(string tripId)
+        {
+            BusManagementEntities db = new BusManagementEntities();
+            db.pro_SetFinishTrip(tripId);
+        }
+        public void SetGoing(string tripId)
+        {
+            BusManagementEntities db = new BusManagementEntities();
+            db.pro_SetGoingTrip(tripId);
+        }
 
     }
 }

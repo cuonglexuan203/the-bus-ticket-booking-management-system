@@ -55,7 +55,7 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
             catch(SqlException err)
             {
                 errMsg = err.Message;
-                MessageBox.Show(errMsg);
+                //MessageBox.Show(errMsg);
                 return false;
             }
             return false;

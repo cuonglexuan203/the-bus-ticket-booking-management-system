@@ -60,7 +60,7 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.Data
             //
             isAdmin = false;
             isStaff = false;
-            isPassenger = true;
+            isPassenger = false;
             systemId = string.Empty;
             //
             fullName = string.Empty;
