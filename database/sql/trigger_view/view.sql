@@ -70,16 +70,18 @@ inner join PLACE as b on a.id_place = b.id_place
 
 go
 
-create view V_AGENTINFOR as
-select a.id_agent as [Agent ID], a.phone as [Phone], a.address as [Address], b.region as [Region] 
+create view [dbo].[V_AGENTINFOR] as
+select a.id_agent as [Agent ID], a.phone as [Phone], a.address as [Address], b.region as [Region] , c.counter as [Money]
 from AGENT as a
 inner join PLACE as b on a.id_place = b.id_place
-
+inner join CASHRESERVE as c on a.id_cash_reserve = c.id_cash_reserve
 go
 --
-create view V_EMPLOYEEINFOR as
-select a.id_employee as [Employees ID], a.name as [Name], a.phone_number as [Phone Number], a.gender as [Gender], a.[state] as [State]
-from EMPLOYEE as a
+create view [dbo].[V_EMPLOYEEINFOR] as
+select a.id_employee as [Employees ID], a.name as [Name], a.phone_number as [Phone Number],a.address as [Address], a.email as [Email]
+, a.identity_number as [Identity number], a.salary as [Salary], a.birthdate as [Birthday] , a.gender as [Gender], a.[state] as [State], c.type
+from EMPLOYEE as a left join EMPLOYEE_POSITION as b on a.id_employee = b.id_employee
+ left join POSITION as c on b.id_position = c.id_position
 
 go
 --

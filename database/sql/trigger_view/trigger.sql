@@ -28,32 +28,38 @@ begin
 		exec @query
 		--
 		delete from SYSTEMACCOUNT where id_account = @account_id
-		commit tran
+		commit tran;
 	end try
 
 	begin catch
 
-		rollback tran
+		rollback
 
 	end catch
 end;
 
 go
-
 --
-create trigger tr_CreateAccount on SYSTEMACCOUNT
+create trigger [dbo].[tr_CreateSystemAccount] on [dbo].[SYSTEMACCOUNT]
 after insert
 as
 declare @username varchar(30), @password varchar(10)
 select @username = ins.username, @password = ins.pass from inserted ins
 begin
-	declare @query varchar(2000)
-	set @query = 'create login [' + @username + '] with password = ''' + @password + ''',
-	default_database = [BusManagement], check_expiration = off, check_policy = off'
-	exec @query;
+	begin tran
+		begin try
+			declare @query varchar(2000)
+			set @query = 'create login [' + @username + '] with password = ''' + @password + ''',
+			default_database = [BusManagement], check_expiration = off, check_policy = off'
+			exec (@query);
 
-	set @query = 'create user [' + @username + '] for login ' + @username
-	exec @query;
+			set @query = 'create user [' + @username + '] for login ' + @username
+			exec (@query);
+			commit tran;
+		end try
+		begin catch
+			rollback
+		end catch
 end
 go
 --
@@ -321,7 +327,7 @@ begin
 end
 go
 --
-create trigger tr_DeleteBRefund on REFUND
+create trigger tr_DeleteRefund on REFUND
 after delete
 as
 declare @id_refund char(20)
@@ -337,3 +343,26 @@ begin
 		rollback
 	end catch
 end
+go
+--
+create  trigger [dbo].[tr_CreatePassengerAccount] on [dbo].[PASSENGERACCOUNT]
+after insert
+as
+declare @username varchar(30), @password varchar(10)
+select @username = ins.username, @password = ins.password from inserted ins
+begin
+	begin tran
+		begin try
+			declare @sql nvarchar(max);
+			set @sql = 'create login ' + quotename(@username) + ' with password = ''' + @password + ''', DEFAULT_DATABASE=[BusManagement], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF';
+			exec sp_executesql @sql;
+			set @sql = 'create user ' + quotename(@username) + ' for login ' + quotename(@username);
+			exec sp_executesql @sql;
+			commit tran;
+		end try
+		begin catch
+			rollback
+		end catch
+end
+go
+--

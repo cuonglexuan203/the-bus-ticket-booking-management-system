@@ -50,6 +50,7 @@ C:\Users\ADMIN\Desktop\WorkStation\BusTicketManagementApplication\BusTicketManag
 C:\Users\ADMIN\Desktop\WorkStation\BusTicketManagementApplication\BusTicketManagementApplication\obj\Debug\BusTicketManagementApplication.exe
 C:\Users\ADMIN\Desktop\WorkStation\BusTicketManagementApplication\BusTicketManagementApplication\obj\Debug\BusTicketManagementApplication.pdb
 C:\Users\ADMIN\Desktop\WorkStation\BusTicketManagementApplication\BusTicketManagementApplication\obj\Debug\BusTicketManagementApplication.src.layers.interfaceLayers.components.setting.ChangePassword.resources
+<<<<<<< HEAD
 C:\Users\ADMIN\Desktop\Bus\the-bus-ticket-booking-management-system\Form\BusTicketManagementApplication\BusTicketManagementApplication\bin\Debug\BusTicketManagementApplication.exe.config
 C:\Users\ADMIN\Desktop\Bus\the-bus-ticket-booking-management-system\Form\BusTicketManagementApplication\BusTicketManagementApplication\bin\Debug\BusTicketManagementApplication.exe
 C:\Users\ADMIN\Desktop\Bus\the-bus-ticket-booking-management-system\Form\BusTicketManagementApplication\BusTicketManagementApplication\bin\Debug\BusTicketManagementApplication.pdb
@@ -100,3 +101,10 @@ C:\Users\ADMIN\Desktop\Bus\the-bus-ticket-booking-management-system\Form\BusTick
 C:\Users\ADMIN\Desktop\Bus\the-bus-ticket-booking-management-system\Form\BusTicketManagementApplication\BusTicketManagementApplication\obj\Debug\BusTicketManagementApplication.src.layers.interfaceLayers.components.aboutUs.AboutUsNavigationBar.resources
 C:\Users\ADMIN\Desktop\Bus\the-bus-ticket-booking-management-system\Form\BusTicketManagementApplication\BusTicketManagementApplication\obj\Debug\BusTicketManagementApplication.src.layers.interfaceLayers.components.aboutUs.BusRoute.resources
 C:\Users\ADMIN\Desktop\Bus\the-bus-ticket-booking-management-system\Form\BusTicketManagementApplication\BusTicketManagementApplication\obj\Debug\BusTicketManagementApplication.src.layers.interfaceLayers.components.aboutUs.BusStation.resources
+=======
+C:\Users\ADMIN\Desktop\WorkStation\BusTicketManagementApplication\BusTicketManagementApplication\obj\Debug\BusTicketManagementApplication.src.layers.interfaceLayers.components.staff.StaffNavigationBar.resources
+C:\Users\ADMIN\Desktop\WorkStation\BusTicketManagementApplication\BusTicketManagementApplication\obj\Debug\BusTicketManagementApplication.src.layers.interfaceLayers.components.staff.Passenger.resources
+C:\Users\ADMIN\Desktop\WorkStation\BusTicketManagementApplication\BusTicketManagementApplication\obj\Debug\BusTicketManagementApplication.src.layers.interfaceLayers.components.admin.CashReserve.resources
+C:\Users\ADMIN\Desktop\WorkStation\BusTicketManagementApplication\BusTicketManagementApplication\obj\Debug\BusTicketManagementApplication.src.layers.interfaceLayers.components.admin.AdminNavigationBar.resources
+C:\Users\ADMIN\Desktop\WorkStation\BusTicketManagementApplication\BusTicketManagementApplication\obj\Debug\BusTicketManagementApplication.src.layers.interfaceLayers.components.admin.Employee.resources
+>>>>>>> f612d6ac5e39ea9b7fd48894e9117976b1b68df7

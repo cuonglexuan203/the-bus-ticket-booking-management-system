@@ -18,5 +18,6 @@ namespace BusTicketManagementApplication.src.dbConnection
         public string Phone { get; set; }
         public string Address { get; set; }
         public string Region { get; set; }
+        public Nullable<decimal> Money { get; set; }
     }
 }

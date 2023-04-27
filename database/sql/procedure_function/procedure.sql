@@ -61,3 +61,56 @@ insert into PASSENGERACCOUNT values (@id_passenger, @username, @password);
 end;
 go
 --
+create proc [dbo].[pro_AssignPassengerPrivilege] (@id_passenger char(20))
+as
+begin 
+SET XACT_ABORT ON
+	begin tran
+		begin try
+			declare @username varchar(50), @sqlString nvarchar(MAX)
+			select @username = PASSENGERACCOUNT.username from PASSENGERACCOUNT where PASSENGERACCOUNT.id_passenger = @id_passenger
+			set @sqlString = 'exec sp_addrolemember ''rol_Passenger'', ''' + @username + ''''
+			exec (@sqlString)
+			commit tran
+		end try
+		begin catch
+			rollback
+		end catch
+end
+go
+--
+create proc dbo.pro_AddEmployeeAccount (@username varchar(50), @password varchar(50))
+as
+begin
+	insert into SYSTEMACCOUNT(username, pass) values (@username, @password);
+end
+go
+--
+create proc [dbo].[pro_AssignSystemPrivilege] (@id_employee char(20), @id_position char(20))
+as
+begin 
+	SET XACT_ABORT ON
+	begin tran
+		begin try
+			declare @username varchar(50), @position_name varchar(50), @sqlString varchar(1000)
+		--
+			select @username = b.username 
+			from EMPLOYEE as a inner join SYSTEMACCOUNT as b on a.id_account = b.id_account 
+			where a.id_employee = @id_employee;
+			--
+			select @position_name = a.type from POSITION as a where a.id_position = @id_position;
+		--
+			if(@position_name = 'administrator')
+				set @sqlString = 'exec sp_addrolemember ''rol_Admin'', ''' + @username + '''';
+			else
+				set @sqlString = 'exec sp_addrolemember ''rol_Staff'', ''' + @username + '''';
+			exec (@sqlString);
+			insert into EMPLOYEE_POSITION values(@id_employee, @id_position);
+			commit tran;
+		end try
+		begin catch
+		rollback;
+		end catch
+end
+go
+--

@@ -506,11 +506,11 @@ Insert into AGENT(id_cash_reserve, id_place, address, phone) values ('cr_0000000
 Insert into AGENT(id_cash_reserve, id_place, address, phone) values ('cr_0000000020',01, N'Âp Phú Hữu, TT.Phú Hòa, H.Thoại Sơn, An Giang', '02963 878 111')
 
 --
-INSERT INTO SYSTEMACCOUNT(username,pass) values ('admin01','slaveofnam01')
-INSERT INTO SYSTEMACCOUNT(username,pass) values ('admin02','slaveofnam02')
-INSERT INTO SYSTEMACCOUNT(username,pass) values ('admin03','slaveofnam03')
-INSERT INTO SYSTEMACCOUNT(username,pass) values ('admin04','slaveofnam04')
-INSERT INTO SYSTEMACCOUNT(username,pass) values ('admin05','slaveofnam05')
+INSERT INTO SYSTEMACCOUNT(username,pass) values ('admin01','admin')
+INSERT INTO SYSTEMACCOUNT(username,pass) values ('admin02','admin')
+INSERT INTO SYSTEMACCOUNT(username,pass) values ('admin03','admin')
+INSERT INTO SYSTEMACCOUNT(username,pass) values ('admin04','admin')
+INSERT INTO SYSTEMACCOUNT(username,pass) values ('admin05','admin')
 
 -- 
         
@@ -521,3 +521,14 @@ INSERT INTO EMPLOYEE(id_account,id_agent, name,address, phone_number, identity_n
 INSERT INTO EMPLOYEE(id_account,id_agent, name,address, phone_number, identity_number, salary, birthdate, gender, state) values ('acc_0000000005','age_0000000001','Lucky D',N'Số 10, đường Y Ngông, phường Tân Lợi, thành phố Buôn Ma Thuột, tỉnh Đăk Lăk', '0888888888', '12345678910', 5465123, '12-12-2000', 1, 1);
 
 
+--
+insert into POSITION(type) values ('administrator');
+insert into POSITION(type) values ('planner');
+insert into POSITION(type) values ('supervisor');
+insert into POSITION(type) values ('ticket seller');
+insert into POSITION(type) values ('driver');
+insert into POSITION(type) values ('service guide');
+insert into POSITION(type) values ('security guard');
+insert into POSITION(type) values ('porter');
+--
+--

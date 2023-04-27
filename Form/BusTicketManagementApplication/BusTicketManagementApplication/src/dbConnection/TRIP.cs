@@ -17,7 +17,6 @@ namespace BusTicketManagementApplication.src.dbConnection
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TRIP()
         {
-            this.PACKAGEs = new HashSet<PACKAGE>();
             this.TICKETs = new HashSet<TICKET>();
             this.AGENTs = new HashSet<AGENT>();
             this.DRIVERs = new HashSet<DRIVER>();
@@ -33,8 +32,6 @@ namespace BusTicketManagementApplication.src.dbConnection
     
         public virtual BUS BUS { get; set; }
         public virtual BUSROUTE BUSROUTE { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PACKAGE> PACKAGEs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TICKET> TICKETs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

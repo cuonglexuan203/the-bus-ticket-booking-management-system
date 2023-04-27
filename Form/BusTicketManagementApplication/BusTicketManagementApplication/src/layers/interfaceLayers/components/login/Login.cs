@@ -140,11 +140,14 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.l
             string username = this.TbUsername.Text;
             string password = this.TbPassword.Text;
             string passengerId = string.Empty;
+            string employeeId = string.Empty;
             string errMsg = string.Empty;
             //
-            bool islogin = new BSLogin().ValidateUser(username, password,ref passengerId, ref errMsg);
-            if (islogin && !string.IsNullOrEmpty(passengerId))
+            bool isLogin = new BSLogin().ValidateUser(username, password,ref passengerId, ref employeeId, ref errMsg);
+            UserData.ClearUserData();
+            if (isLogin && !string.IsNullOrEmpty(passengerId))
             {
+                UserData.IsPassenger = true;
                 UserData.SetUserLoginData(username, password);
                 UserData.SetPassengerId(passengerId);
                 //
@@ -152,10 +155,31 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.l
                 UserData.SetUserData(curUser.name.Trim(), curUser.phone_number.Trim());
                 //
                 PASSENGER curPassenger = new BSPassenger().GetPassenger(passengerId);
-                UserData.Email = curPassenger.email.Trim();
+                UserData.Email = curPassenger?.email?.Trim();
                 UserData.Gender = curPassenger.gender;
                 //
                 //
+                Handler_LoginSuccessfully();
+            }
+            else if(isLogin && !string.IsNullOrEmpty(employeeId))
+            {
+                bool isAdmin = new BSLogin().IsAdmin(employeeId);
+                if (isAdmin)
+                {
+                    UserData.IsAdmin = true;
+                }
+                else
+                {
+                    UserData.IsStaff = true;
+                }
+                UserData.SetUserLoginData(username, password);
+                UserData.SetSystemId(employeeId);
+                //
+                V_EMPLOYEEINFOR curEmployee = new BSLogin().GetEmployee(employeeId);
+                UserData.SetUserData(curEmployee.Name.Trim(), curEmployee.Phone_Number.Trim());
+                //
+                UserData.Email = curEmployee.Email?.Trim();
+                UserData.Gender = curEmployee.Gender;
                 Handler_LoginSuccessfully();
             }
             else

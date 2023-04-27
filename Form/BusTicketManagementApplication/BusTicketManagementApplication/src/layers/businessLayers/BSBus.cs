@@ -14,7 +14,7 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
         {
 
             BusManagementEntities db = new BusManagementEntities();
-            var res = db.BUSes.ToList();
+            var res = db.Buses.ToList();
             return res;
         }
 
@@ -48,7 +48,7 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
         {
             BusManagementEntities db = new BusManagementEntities();
 
-            var res = db.BUSes.Where(d => d.type == type);
+            var res = db.Buses.Where(d => d.type == type);
             return res.ToList();
         }
     }

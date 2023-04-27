@@ -16,6 +16,12 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.Data
         private static string password;
         private static string passengerId = string.Empty;
         //
+        private static bool isAdmin = false;
+        private static bool isStaff = false;
+        private static bool isPassenger = true;
+        //
+        private static string systemId = string.Empty;
+        //
         private static string phone;
         private static string email;
         private static string address;
@@ -38,6 +44,9 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.Data
         public static DateTime Birthday { get => birthday; set => birthday = value; }
         public static string CurrentSelectedTripId { get => currentSelectedTripId; set => currentSelectedTripId = value; }
         public static string FullName { get => fullName; set => fullName = value; }
+        public static bool IsAdmin { get => isAdmin; set => isAdmin = value; }
+        public static bool IsStaff { get => isStaff; set => isStaff = value; }
+        public static bool IsPassenger { get => isPassenger; set => isPassenger = value; }
 
         /// <summary>
         /// Log out
@@ -48,6 +57,11 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.Data
             username = string.Empty;
             password = string.Empty;
             passengerId = string.Empty;
+            //
+            isAdmin = false;
+            isStaff = false;
+            isPassenger = true;
+            systemId = string.Empty;
             //
             fullName = string.Empty;
             phone = string.Empty;
@@ -76,6 +90,15 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.Data
         public static string GetPassengerId()
         {
             return UserData.passengerId;
+        }
+        //
+        public static void SetSystemId(string systemId)
+        {
+            UserData.systemId = systemId;
+        }
+        public static string GetSystemId()
+        {
+            return UserData.systemId;
         }
     }
 }
