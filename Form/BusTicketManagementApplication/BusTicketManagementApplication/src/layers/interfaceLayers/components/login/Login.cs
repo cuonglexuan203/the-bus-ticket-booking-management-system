@@ -164,6 +164,7 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.l
             else if(isLogin && !string.IsNullOrEmpty(employeeId))
             {
                 bool isAdmin = new BSLogin().IsAdmin(employeeId);
+                UserData.ClearUserData();
                 if (isAdmin)
                 {
                     UserData.IsAdmin = true;

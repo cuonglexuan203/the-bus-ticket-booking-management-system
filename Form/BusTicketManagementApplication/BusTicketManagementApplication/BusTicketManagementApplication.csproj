@@ -167,6 +167,9 @@
     <Compile Include="src\dbConnection\pro_DisableEmployee_Result.cs">
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="src\dbConnection\pro_DisableEmployee_Result1.cs">
+      <DependentUpon>BusManagementModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="src\dbConnection\REFUND.cs">
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
@@ -179,6 +182,9 @@
     <Compile Include="src\dbConnection\sp_helpdiagramdefinition_Result2.cs">
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="src\dbConnection\sp_helpdiagramdefinition_Result3.cs">
+      <DependentUpon>BusManagementModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="src\dbConnection\sp_helpdiagrams_Result.cs">
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
@@ -186,6 +192,9 @@
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
     <Compile Include="src\dbConnection\sp_helpdiagrams_Result2.cs">
+      <DependentUpon>BusManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="src\dbConnection\sp_helpdiagrams_Result3.cs">
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
     <Compile Include="src\dbConnection\sysdiagram.cs">
