@@ -1,6 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="BusManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="BusManagementEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="func_GetAvailabelSeat" IsComposable="true" ReturnType="Collection(String)">
+      <Parameter Name="idTrip" Mode="In" Type="String" />
+      <Parameter Name="type" Mode="In" Type="Boolean" />
+    </FunctionImport>
     <FunctionImport Name="pro_AddBooking">
       <Parameter Name="id_ticket" Mode="In" Type="String" />
       <Parameter Name="id_passenger" Mode="In" Type="String" />
@@ -10,6 +14,9 @@
       <Parameter Name="id_ticket" Mode="In" Type="String" />
       <Parameter Name="id_passenger" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="pro_CancelTicket">
+      <Parameter Name="id_ticket" Mode="In" Type="String" />
+    </FunctionImport>
     <FunctionImport Name="pro_SetCancelTrip">
       <Parameter Name="id_trip" Mode="In" Type="String" />
     </FunctionImport>
@@ -18,15 +25,6 @@
     </FunctionImport>
     <FunctionImport Name="pro_SetGoingTrip">
       <Parameter Name="id_trip" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="func_GetAvailabelSeat" IsComposable="true" ReturnType="Collection(String)">
-      <Parameter Name="idTrip" Mode="In" Type="String" />
-      <Parameter Name="type" Mode="In" Type="Boolean" />
-    </FunctionImport>
-    <FunctionImport Name="pro_AddPassenger">
-      <Parameter Name="id_passenger" Mode="In" Type="String" />
-      <Parameter Name="name" Mode="In" Type="String" />
-      <Parameter Name="phone" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_alterdiagram">
       <Parameter Name="diagramname" Mode="In" Type="String" />
@@ -44,11 +42,11 @@
       <Parameter Name="diagramname" Mode="In" Type="String" />
       <Parameter Name="owner_id" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(BusManagementModel.sp_helpdiagramdefinition_Result)">
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(BusManagementModel.sp_helpdiagramdefinition_Result2)">
       <Parameter Name="diagramname" Mode="In" Type="String" />
       <Parameter Name="owner_id" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(BusManagementModel.sp_helpdiagrams_Result)">
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(BusManagementModel.sp_helpdiagrams_Result2)">
       <Parameter Name="diagramname" Mode="In" Type="String" />
       <Parameter Name="owner_id" Mode="In" Type="Int32" />
     </FunctionImport>
@@ -58,13 +56,26 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="pro_AddEmployeeAccount">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pro_AddPassenger">
+      <Parameter Name="id_passenger" Mode="In" Type="String" />
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="phone" Mode="In" Type="String" />
+    </FunctionImport>
     <FunctionImport Name="pro_AddPassengerAccount">
       <Parameter Name="id_passenger" Mode="In" Type="String" />
       <Parameter Name="username" Mode="In" Type="String" />
       <Parameter Name="password" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="pro_CancelTicket">
-      <Parameter Name="id_ticket" Mode="In" Type="String" />
+    <FunctionImport Name="pro_AssignPassengerPrivilege">
+      <Parameter Name="id_passenger" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pro_AssignSystemPrivilege">
+      <Parameter Name="id_employee" Mode="In" Type="String" />
+      <Parameter Name="id_position" Mode="In" Type="String" />
     </FunctionImport>
     <EntitySet Name="AGENTs" EntityType="BusManagementModel.AGENT" />
     <EntitySet Name="BOOKINGs" EntityType="BusManagementModel.BOOKING" />
@@ -75,13 +86,10 @@
     <EntitySet Name="DRIVERs" EntityType="BusManagementModel.DRIVER" />
     <EntitySet Name="EMPLOYEEs" EntityType="BusManagementModel.EMPLOYEE" />
     <EntitySet Name="EVENTs" EntityType="BusManagementModel.EVENT" />
-    <EntitySet Name="PACKAGEs" EntityType="BusManagementModel.PACKAGE" />
-    <EntitySet Name="PACKAGEPRICEPOLICies" EntityType="BusManagementModel.PACKAGEPRICEPOLICY" />
     <EntitySet Name="PASSENGERs" EntityType="BusManagementModel.PASSENGER" />
     <EntitySet Name="PASSENGERACCOUNTs" EntityType="BusManagementModel.PASSENGERACCOUNT" />
     <EntitySet Name="PLACEs" EntityType="BusManagementModel.PLACE" />
     <EntitySet Name="POSITIONs" EntityType="BusManagementModel.POSITION" />
-    <EntitySet Name="PRIVILEGEs" EntityType="BusManagementModel.PRIVILEGE" />
     <EntitySet Name="REFUNDs" EntityType="BusManagementModel.REFUND" />
     <EntitySet Name="sysdiagrams" EntityType="BusManagementModel.sysdiagram" />
     <EntitySet Name="SYSTEMACCOUNTs" EntityType="BusManagementModel.SYSTEMACCOUNT" />
@@ -145,10 +153,6 @@
       <End Role="SYSTEMACCOUNT" EntitySet="SYSTEMACCOUNTs" />
       <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
     </AssociationSet>
-    <AssociationSet Name="FK_package_id_trip" Association="BusManagementModel.FK_package_id_trip">
-      <End Role="TRIP" EntitySet="TRIPs" />
-      <End Role="PACKAGE" EntitySet="PACKAGEs" />
-    </AssociationSet>
     <AssociationSet Name="PK_passengerAccount_id_passenger" Association="BusManagementModel.PK_passengerAccount_id_passenger">
       <End Role="PASSENGER" EntitySet="PASSENGERs" />
       <End Role="PASSENGERACCOUNT" EntitySet="PASSENGERACCOUNTs" />
@@ -160,10 +164,6 @@
     <AssociationSet Name="AGENT_EVENT" Association="BusManagementModel.AGENT_EVENT">
       <End Role="AGENT" EntitySet="AGENTs" />
       <End Role="EVENT" EntitySet="EVENTs" />
-    </AssociationSet>
-    <AssociationSet Name="AGENT_POLICY" Association="BusManagementModel.AGENT_POLICY">
-      <End Role="AGENT" EntitySet="AGENTs" />
-      <End Role="PACKAGEPRICEPOLICY" EntitySet="PACKAGEPRICEPOLICies" />
     </AssociationSet>
     <AssociationSet Name="AGENT_REFUND" Association="BusManagementModel.AGENT_REFUND">
       <End Role="AGENT" EntitySet="AGENTs" />
@@ -185,10 +185,6 @@
       <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
       <End Role="TICKET" EntitySet="TICKETs" />
     </AssociationSet>
-    <AssociationSet Name="POSITION_PRIVILEGE" Association="BusManagementModel.POSITION_PRIVILEGE">
-      <End Role="POSITION" EntitySet="POSITIONs" />
-      <End Role="PRIVILEGE" EntitySet="PRIVILEGEs" />
-    </AssociationSet>
     <AssociationSet Name="TRIP_DRIVER" Association="BusManagementModel.TRIP_DRIVER">
       <End Role="DRIVER" EntitySet="DRIVERs" />
       <End Role="TRIP" EntitySet="TRIPs" />
@@ -205,6 +201,32 @@
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result1">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result1">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result2">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result2">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="pro_AssignPassengerPrivilege_Result">
+    <Property Type="String" Name="Column1" Nullable="true" />
+    <Property Type="String" Name="Column2" Nullable="true" MaxLength="20" />
+  </ComplexType>
   <EntityType Name="AGENT">
     <Key>
       <PropertyRef Name="id_agent" />
@@ -218,7 +240,6 @@
     <NavigationProperty Name="PLACE" Relationship="BusManagementModel.FK_agent_id_place" FromRole="AGENT" ToRole="PLACE" />
     <NavigationProperty Name="EMPLOYEEs" Relationship="BusManagementModel.FK_employee_id_agent" FromRole="AGENT" ToRole="EMPLOYEE" />
     <NavigationProperty Name="EVENTs" Relationship="BusManagementModel.AGENT_EVENT" FromRole="AGENT" ToRole="EVENT" />
-    <NavigationProperty Name="PACKAGEPRICEPOLICies" Relationship="BusManagementModel.AGENT_POLICY" FromRole="AGENT" ToRole="PACKAGEPRICEPOLICY" />
     <NavigationProperty Name="REFUNDs" Relationship="BusManagementModel.AGENT_REFUND" FromRole="AGENT" ToRole="REFUND" />
     <NavigationProperty Name="TRIPs" Relationship="BusManagementModel.AGENT_TRIP" FromRole="AGENT" ToRole="TRIP" />
   </EntityType>
@@ -324,27 +345,6 @@
     <Property Name="discount_percent" Type="Double" />
     <NavigationProperty Name="AGENTs" Relationship="BusManagementModel.AGENT_EVENT" FromRole="EVENT" ToRole="AGENT" />
   </EntityType>
-  <EntityType Name="PACKAGE">
-    <Key>
-      <PropertyRef Name="id_package" />
-    </Key>
-    <Property Name="id_package" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
-    <Property Name="id_trip" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-    <Property Name="mass" Type="Double" />
-    <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="sender_contact_phone" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
-    <Property Name="receiver_contact_phone" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
-    <NavigationProperty Name="TRIP" Relationship="BusManagementModel.FK_package_id_trip" FromRole="PACKAGE" ToRole="TRIP" />
-  </EntityType>
-  <EntityType Name="PACKAGEPRICEPOLICY">
-    <Key>
-      <PropertyRef Name="id_policy" />
-    </Key>
-    <Property Name="id_policy" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
-    <Property Name="price_per_km" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="mass_unit" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="AGENTs" Relationship="BusManagementModel.AGENT_POLICY" FromRole="PACKAGEPRICEPOLICY" ToRole="AGENT" />
-  </EntityType>
   <EntityType Name="PASSENGER">
     <Key>
       <PropertyRef Name="id_passenger" />
@@ -384,15 +384,6 @@
     <Property Name="id_position" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
     <Property Name="type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="EMPLOYEEs" Relationship="BusManagementModel.EMPLOYEE_POSITION" FromRole="POSITION" ToRole="EMPLOYEE" />
-    <NavigationProperty Name="PRIVILEGEs" Relationship="BusManagementModel.POSITION_PRIVILEGE" FromRole="POSITION" ToRole="PRIVILEGE" />
-  </EntityType>
-  <EntityType Name="PRIVILEGE">
-    <Key>
-      <PropertyRef Name="id_privilege" />
-    </Key>
-    <Property Name="id_privilege" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
-    <Property Name="name" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-    <NavigationProperty Name="POSITIONs" Relationship="BusManagementModel.POSITION_PRIVILEGE" FromRole="PRIVILEGE" ToRole="POSITION" />
   </EntityType>
   <EntityType Name="REFUND">
     <Key>
@@ -449,7 +440,6 @@
     <Property Name="status" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
     <NavigationProperty Name="BUS" Relationship="BusManagementModel.FK_trip_id_bus" FromRole="TRIP" ToRole="BUS" />
     <NavigationProperty Name="BUSROUTE" Relationship="BusManagementModel.FK_trip_id_bus_route" FromRole="TRIP" ToRole="BUSROUTE" />
-    <NavigationProperty Name="PACKAGEs" Relationship="BusManagementModel.FK_package_id_trip" FromRole="TRIP" ToRole="PACKAGE" />
     <NavigationProperty Name="TICKETs" Relationship="BusManagementModel.FK_ticket_id_trip" FromRole="TRIP" ToRole="TICKET" />
     <NavigationProperty Name="AGENTs" Relationship="BusManagementModel.AGENT_TRIP" FromRole="TRIP" ToRole="AGENT" />
     <NavigationProperty Name="DRIVERs" Relationship="BusManagementModel.TRIP_DRIVER" FromRole="TRIP" ToRole="DRIVER" />
@@ -465,6 +455,7 @@
     <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
     <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Region" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Money" Type="Decimal" Precision="19" Scale="4" />
   </EntityType>
   <EntityType Name="V_AVAILABLETRIP">
     <Key>
@@ -555,14 +546,23 @@
   <EntityType Name="V_EMPLOYEEINFOR">
     <Key>
       <PropertyRef Name="Employees_ID" />
-      <PropertyRef Name="Name" />
       <PropertyRef Name="Phone_Number" />
+      <PropertyRef Name="Address" />
+      <PropertyRef Name="Identity_number" />
+      <PropertyRef Name="Salary" />
+      <PropertyRef Name="Birthday" />
     </Key>
     <Property Name="Employees_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Phone_Number" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="Identity_number" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="Salary" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="Gender" Type="Boolean" />
     <Property Name="State" Type="Boolean" />
+    <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="V_ROUTEINFOR">
     <Key>
@@ -751,18 +751,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_package_id_trip">
-    <End Type="BusManagementModel.TRIP" Role="TRIP" Multiplicity="0..1" />
-    <End Type="BusManagementModel.PACKAGE" Role="PACKAGE" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TRIP">
-        <PropertyRef Name="id_trip" />
-      </Principal>
-      <Dependent Role="PACKAGE">
-        <PropertyRef Name="id_trip" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="PK_passengerAccount_id_passenger">
     <End Type="BusManagementModel.PASSENGER" Role="PASSENGER" Multiplicity="0..1" />
     <End Type="BusManagementModel.PASSENGERACCOUNT" Role="PASSENGERACCOUNT" Multiplicity="*" />
@@ -791,10 +779,6 @@
     <End Type="BusManagementModel.AGENT" Role="AGENT" Multiplicity="*" />
     <End Type="BusManagementModel.EVENT" Role="EVENT" Multiplicity="*" />
   </Association>
-  <Association Name="AGENT_POLICY">
-    <End Type="BusManagementModel.AGENT" Role="AGENT" Multiplicity="*" />
-    <End Type="BusManagementModel.PACKAGEPRICEPOLICY" Role="PACKAGEPRICEPOLICY" Multiplicity="*" />
-  </Association>
   <Association Name="AGENT_REFUND">
     <End Type="BusManagementModel.AGENT" Role="AGENT" Multiplicity="*" />
     <End Type="BusManagementModel.REFUND" Role="REFUND" Multiplicity="*" />
@@ -814,10 +798,6 @@
   <Association Name="EMPLOYEE_TICKET">
     <End Type="BusManagementModel.EMPLOYEE" Role="EMPLOYEE" Multiplicity="*" />
     <End Type="BusManagementModel.TICKET" Role="TICKET" Multiplicity="*" />
-  </Association>
-  <Association Name="POSITION_PRIVILEGE">
-    <End Type="BusManagementModel.POSITION" Role="POSITION" Multiplicity="*" />
-    <End Type="BusManagementModel.PRIVILEGE" Role="PRIVILEGE" Multiplicity="*" />
   </Association>
   <Association Name="TRIP_DRIVER">
     <End Type="BusManagementModel.DRIVER" Role="DRIVER" Multiplicity="*" />

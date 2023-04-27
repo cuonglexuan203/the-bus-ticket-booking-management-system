@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="BusManagementModelStoreContainer" CdmEntityContainer="BusManagementEntities">
+    <FunctionImportMapping FunctionImportName="func_GetAvailabelSeat" FunctionName="BusManagementModel.Store.func_GetAvailabelSeat" />
     <FunctionImportMapping FunctionImportName="pro_AddBooking" FunctionName="BusManagementModel.Store.pro_AddBooking" />
     <FunctionImportMapping FunctionImportName="pro_AddDefaultBooking" FunctionName="BusManagementModel.Store.pro_AddDefaultBooking" />
+    <FunctionImportMapping FunctionImportName="pro_CancelTicket" FunctionName="BusManagementModel.Store.pro_CancelTicket" />
     <FunctionImportMapping FunctionImportName="pro_SetCancelTrip" FunctionName="BusManagementModel.Store.pro_SetCancelTrip" />
     <FunctionImportMapping FunctionImportName="pro_SetFinishTrip" FunctionName="BusManagementModel.Store.pro_SetFinishTrip" />
     <FunctionImportMapping FunctionImportName="pro_SetGoingTrip" FunctionName="BusManagementModel.Store.pro_SetGoingTrip" />
-    <FunctionImportMapping FunctionImportName="func_GetAvailabelSeat" FunctionName="BusManagementModel.Store.func_GetAvailabelSeat" />
-    <FunctionImportMapping FunctionImportName="pro_AddPassenger" FunctionName="BusManagementModel.Store.pro_AddPassenger" />
     <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="BusManagementModel.Store.sp_alterdiagram" />
     <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="BusManagementModel.Store.sp_creatediagram" />
     <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="BusManagementModel.Store.sp_dropdiagram" />
     <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="BusManagementModel.Store.sp_helpdiagramdefinition">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="BusManagementModel.sp_helpdiagramdefinition_Result">
+        <ComplexTypeMapping TypeName="BusManagementModel.sp_helpdiagramdefinition_Result2">
           <ScalarProperty Name="version" ColumnName="version" />
           <ScalarProperty Name="definition" ColumnName="definition" />
         </ComplexTypeMapping>
@@ -21,7 +21,7 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="BusManagementModel.Store.sp_helpdiagrams">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="BusManagementModel.sp_helpdiagrams_Result">
+        <ComplexTypeMapping TypeName="BusManagementModel.sp_helpdiagrams_Result2">
           <ScalarProperty Name="Database" ColumnName="Database" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="ID" ColumnName="ID" />
@@ -32,8 +32,11 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="BusManagementModel.Store.sp_renamediagram" />
     <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="BusManagementModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="pro_AddEmployeeAccount" FunctionName="BusManagementModel.Store.pro_AddEmployeeAccount" />
+    <FunctionImportMapping FunctionImportName="pro_AddPassenger" FunctionName="BusManagementModel.Store.pro_AddPassenger" />
     <FunctionImportMapping FunctionImportName="pro_AddPassengerAccount" FunctionName="BusManagementModel.Store.pro_AddPassengerAccount" />
-    <FunctionImportMapping FunctionImportName="pro_CancelTicket" FunctionName="BusManagementModel.Store.pro_CancelTicket" />
+    <FunctionImportMapping FunctionImportName="pro_AssignPassengerPrivilege" FunctionName="BusManagementModel.Store.pro_AssignPassengerPrivilege" />
+    <FunctionImportMapping FunctionImportName="pro_AssignSystemPrivilege" FunctionName="BusManagementModel.Store.pro_AssignSystemPrivilege" />
     <EntitySetMapping Name="AGENTs">
       <EntityTypeMapping TypeName="BusManagementModel.AGENT">
         <MappingFragment StoreEntitySet="AGENT">
@@ -135,27 +138,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PACKAGEs">
-      <EntityTypeMapping TypeName="BusManagementModel.PACKAGE">
-        <MappingFragment StoreEntitySet="PACKAGE">
-          <ScalarProperty Name="receiver_contact_phone" ColumnName="receiver_contact_phone" />
-          <ScalarProperty Name="sender_contact_phone" ColumnName="sender_contact_phone" />
-          <ScalarProperty Name="price" ColumnName="price" />
-          <ScalarProperty Name="mass" ColumnName="mass" />
-          <ScalarProperty Name="id_trip" ColumnName="id_trip" />
-          <ScalarProperty Name="id_package" ColumnName="id_package" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="PACKAGEPRICEPOLICies">
-      <EntityTypeMapping TypeName="BusManagementModel.PACKAGEPRICEPOLICY">
-        <MappingFragment StoreEntitySet="PACKAGEPRICEPOLICY">
-          <ScalarProperty Name="mass_unit" ColumnName="mass_unit" />
-          <ScalarProperty Name="price_per_km" ColumnName="price_per_km" />
-          <ScalarProperty Name="id_policy" ColumnName="id_policy" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="PASSENGERs">
       <EntityTypeMapping TypeName="BusManagementModel.PASSENGER">
         <MappingFragment StoreEntitySet="PASSENGER">
@@ -191,14 +173,6 @@
         <MappingFragment StoreEntitySet="POSITION">
           <ScalarProperty Name="type" ColumnName="type" />
           <ScalarProperty Name="id_position" ColumnName="id_position" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="PRIVILEGEs">
-      <EntityTypeMapping TypeName="BusManagementModel.PRIVILEGE">
-        <MappingFragment StoreEntitySet="PRIVILEGE">
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="id_privilege" ColumnName="id_privilege" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -259,6 +233,7 @@
     <EntitySetMapping Name="V_AGENTINFOR">
       <EntityTypeMapping TypeName="BusManagementModel.V_AGENTINFOR">
         <MappingFragment StoreEntitySet="V_AGENTINFOR">
+          <ScalarProperty Name="Money" ColumnName="Money" />
           <ScalarProperty Name="Region" ColumnName="Region" />
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Phone" ColumnName="Phone" />
@@ -340,8 +315,14 @@
     <EntitySetMapping Name="V_EMPLOYEEINFOR">
       <EntityTypeMapping TypeName="BusManagementModel.V_EMPLOYEEINFOR">
         <MappingFragment StoreEntitySet="V_EMPLOYEEINFOR">
+          <ScalarProperty Name="Position" ColumnName="Position" />
           <ScalarProperty Name="State" ColumnName="State" />
           <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="Identity_number" ColumnName="Identity number" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Phone_Number" ColumnName="Phone Number" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Employees_ID" ColumnName="Employees ID" />
@@ -391,14 +372,6 @@
         <ScalarProperty Name="id_agent" ColumnName="id_agent" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="AGENT_POLICY" TypeName="BusManagementModel.AGENT_POLICY" StoreEntitySet="AGENT_POLICY">
-      <EndProperty Name="PACKAGEPRICEPOLICY">
-        <ScalarProperty Name="id_policy" ColumnName="id_policy" />
-      </EndProperty>
-      <EndProperty Name="AGENT">
-        <ScalarProperty Name="id_agent" ColumnName="id_agent" />
-      </EndProperty>
-    </AssociationSetMapping>
     <AssociationSetMapping Name="AGENT_REFUND" TypeName="BusManagementModel.AGENT_REFUND" StoreEntitySet="AGENT_REFUND">
       <EndProperty Name="REFUND">
         <ScalarProperty Name="id_refund" ColumnName="id_refund" />
@@ -437,14 +410,6 @@
       </EndProperty>
       <EndProperty Name="EMPLOYEE">
         <ScalarProperty Name="id_employee" ColumnName="id_employee" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="POSITION_PRIVILEGE" TypeName="BusManagementModel.POSITION_PRIVILEGE" StoreEntitySet="POSITION_PRIVILEGE">
-      <EndProperty Name="PRIVILEGE">
-        <ScalarProperty Name="id_privilege" ColumnName="id_privilege" />
-      </EndProperty>
-      <EndProperty Name="POSITION">
-        <ScalarProperty Name="id_position" ColumnName="id_position" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="TRIP_DRIVER" TypeName="BusManagementModel.TRIP_DRIVER" StoreEntitySet="TRIP_DRIVER">

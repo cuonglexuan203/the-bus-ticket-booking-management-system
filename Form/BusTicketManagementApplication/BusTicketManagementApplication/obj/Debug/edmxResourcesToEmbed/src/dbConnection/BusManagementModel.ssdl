@@ -18,14 +18,6 @@
     <Property Name="id_agent" Type="char" MaxLength="20" Nullable="false" />
     <Property Name="id_event" Type="char" MaxLength="20" Nullable="false" />
   </EntityType>
-  <EntityType Name="AGENT_POLICY">
-    <Key>
-      <PropertyRef Name="id_agent" />
-      <PropertyRef Name="id_policy" />
-    </Key>
-    <Property Name="id_agent" Type="char" MaxLength="20" Nullable="false" />
-    <Property Name="id_policy" Type="char" MaxLength="20" Nullable="false" />
-  </EntityType>
   <EntityType Name="AGENT_REFUND">
     <Key>
       <PropertyRef Name="id_agent" />
@@ -148,25 +140,6 @@
     <Property Name="discount_type" Type="char" MaxLength="50" Nullable="false" />
     <Property Name="discount_percent" Type="float" />
   </EntityType>
-  <EntityType Name="PACKAGE">
-    <Key>
-      <PropertyRef Name="id_package" />
-    </Key>
-    <Property Name="id_package" Type="char" MaxLength="20" Nullable="false" />
-    <Property Name="id_trip" Type="char" MaxLength="20" />
-    <Property Name="mass" Type="float" />
-    <Property Name="price" Type="money" />
-    <Property Name="sender_contact_phone" Type="char" MaxLength="20" Nullable="false" />
-    <Property Name="receiver_contact_phone" Type="char" MaxLength="20" Nullable="false" />
-  </EntityType>
-  <EntityType Name="PACKAGEPRICEPOLICY">
-    <Key>
-      <PropertyRef Name="id_policy" />
-    </Key>
-    <Property Name="id_policy" Type="char" MaxLength="20" Nullable="false" />
-    <Property Name="price_per_km" Type="money" Nullable="false" />
-    <Property Name="mass_unit" Type="int" Nullable="false" />
-  </EntityType>
   <EntityType Name="PASSENGER">
     <Key>
       <PropertyRef Name="id_passenger" />
@@ -200,21 +173,6 @@
     </Key>
     <Property Name="id_position" Type="char" MaxLength="20" Nullable="false" />
     <Property Name="type" Type="varchar" MaxLength="50" Nullable="false" />
-  </EntityType>
-  <EntityType Name="POSITION_PRIVILEGE">
-    <Key>
-      <PropertyRef Name="id_position" />
-      <PropertyRef Name="id_privilege" />
-    </Key>
-    <Property Name="id_position" Type="char" MaxLength="20" Nullable="false" />
-    <Property Name="id_privilege" Type="char" MaxLength="20" Nullable="false" />
-  </EntityType>
-  <EntityType Name="PRIVILEGE">
-    <Key>
-      <PropertyRef Name="id_privilege" />
-    </Key>
-    <Property Name="id_privilege" Type="char" MaxLength="20" Nullable="false" />
-    <Property Name="name" Type="char" MaxLength="50" />
   </EntityType>
   <EntityType Name="REFUND">
     <Key>
@@ -286,6 +244,7 @@ warning 6002: The table/view 'BusManagement.dbo.V_AGENTINFOR' does not have a pr
     <Property Name="Phone" Type="char" MaxLength="20" Nullable="false" />
     <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="Region" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Money" Type="money" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'BusManagement.dbo.V_AVAILABLETRIP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -388,14 +347,23 @@ warning 6002: The table/view 'BusManagement.dbo.V_EMPLOYEEINFOR' does not have a
   <EntityType Name="V_EMPLOYEEINFOR">
     <Key>
       <PropertyRef Name="Employees ID" />
-      <PropertyRef Name="Name" />
       <PropertyRef Name="Phone Number" />
+      <PropertyRef Name="Address" />
+      <PropertyRef Name="Identity number" />
+      <PropertyRef Name="Salary" />
+      <PropertyRef Name="Birthday" />
     </Key>
     <Property Name="Employees ID" Type="char" MaxLength="20" Nullable="false" />
-    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
     <Property Name="Phone Number" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Email" Type="char" MaxLength="50" />
+    <Property Name="Identity number" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="Salary" Type="money" Nullable="false" />
+    <Property Name="Birthday" Type="date" Nullable="false" />
     <Property Name="Gender" Type="bit" />
     <Property Name="State" Type="bit" />
+    <Property Name="Position" Type="varchar" MaxLength="50" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'BusManagement.dbo.V_ROUTEINFOR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -491,30 +459,6 @@ warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a pri
       </Principal>
       <Dependent Role="AGENT">
         <PropertyRef Name="id_place" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_agent_policy_id_agent">
-    <End Role="AGENT" Type="Self.AGENT" Multiplicity="1" />
-    <End Role="AGENT_POLICY" Type="Self.AGENT_POLICY" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AGENT">
-        <PropertyRef Name="id_agent" />
-      </Principal>
-      <Dependent Role="AGENT_POLICY">
-        <PropertyRef Name="id_agent" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_agent_policy_id_policy">
-    <End Role="PACKAGEPRICEPOLICY" Type="Self.PACKAGEPRICEPOLICY" Multiplicity="1" />
-    <End Role="AGENT_POLICY" Type="Self.AGENT_POLICY" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PACKAGEPRICEPOLICY">
-        <PropertyRef Name="id_policy" />
-      </Principal>
-      <Dependent Role="AGENT_POLICY">
-        <PropertyRef Name="id_policy" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -734,42 +678,6 @@ warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a pri
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_package_id_trip">
-    <End Role="TRIP" Type="Self.TRIP" Multiplicity="0..1" />
-    <End Role="PACKAGE" Type="Self.PACKAGE" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TRIP">
-        <PropertyRef Name="id_trip" />
-      </Principal>
-      <Dependent Role="PACKAGE">
-        <PropertyRef Name="id_trip" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_position_privilege_id_position">
-    <End Role="POSITION" Type="Self.POSITION" Multiplicity="1" />
-    <End Role="POSITION_PRIVILEGE" Type="Self.POSITION_PRIVILEGE" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="POSITION">
-        <PropertyRef Name="id_position" />
-      </Principal>
-      <Dependent Role="POSITION_PRIVILEGE">
-        <PropertyRef Name="id_position" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_position_privilege_id_privilege">
-    <End Role="PRIVILEGE" Type="Self.PRIVILEGE" Multiplicity="1" />
-    <End Role="POSITION_PRIVILEGE" Type="Self.POSITION_PRIVILEGE" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PRIVILEGE">
-        <PropertyRef Name="id_privilege" />
-      </Principal>
-      <Dependent Role="POSITION_PRIVILEGE">
-        <PropertyRef Name="id_privilege" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_ticket_id_trip">
     <End Role="TRIP" Type="Self.TRIP" Multiplicity="0..1" />
     <End Role="TICKET" Type="Self.TICKET" Multiplicity="*" />
@@ -881,6 +789,10 @@ warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a pri
     <Parameter Name="id_ticket" Type="char" Mode="In" />
     <Parameter Name="id_passenger" Type="char" Mode="In" />
   </Function>
+  <Function Name="pro_AddEmployeeAccount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="varchar" Mode="In" />
+    <Parameter Name="password" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="pro_AddPassenger" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id_passenger" Type="char" Mode="In" />
     <Parameter Name="name" Type="nvarchar" Mode="In" />
@@ -890,6 +802,13 @@ warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a pri
     <Parameter Name="id_passenger" Type="char" Mode="In" />
     <Parameter Name="username" Type="varchar" Mode="In" />
     <Parameter Name="password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="pro_AssignPassengerPrivilege" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_passenger" Type="char" Mode="In" />
+  </Function>
+  <Function Name="pro_AssignSystemPrivilege" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_employee" Type="char" Mode="In" />
+    <Parameter Name="id_position" Type="char" Mode="In" />
   </Function>
   <Function Name="pro_CancelTicket" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id_ticket" Type="char" Mode="In" />
@@ -936,7 +855,6 @@ warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a pri
   <EntityContainer Name="BusManagementModelStoreContainer">
     <EntitySet Name="AGENT" EntityType="Self.AGENT" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AGENT_EVENT" EntityType="Self.AGENT_EVENT" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="AGENT_POLICY" EntityType="Self.AGENT_POLICY" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AGENT_REFUND" EntityType="Self.AGENT_REFUND" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AGENT_TRIP" EntityType="Self.AGENT_TRIP" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BOOKING" EntityType="Self.BOOKING" Schema="dbo" store:Type="Tables" />
@@ -950,14 +868,10 @@ warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a pri
     <EntitySet Name="EMPLOYEE_POSITION" EntityType="Self.EMPLOYEE_POSITION" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EMPLOYEE_TICKET" EntityType="Self.EMPLOYEE_TICKET" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EVENT" EntityType="Self.EVENT" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="PACKAGE" EntityType="Self.PACKAGE" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="PACKAGEPRICEPOLICY" EntityType="Self.PACKAGEPRICEPOLICY" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PASSENGER" EntityType="Self.PASSENGER" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PASSENGERACCOUNT" EntityType="Self.PASSENGERACCOUNT" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PLACE" EntityType="Self.PLACE" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="POSITION" EntityType="Self.POSITION" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="POSITION_PRIVILEGE" EntityType="Self.POSITION_PRIVILEGE" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="PRIVILEGE" EntityType="Self.PRIVILEGE" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="REFUND" EntityType="Self.REFUND" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SYSTEMACCOUNT" EntityType="Self.SYSTEMACCOUNT" Schema="dbo" store:Type="Tables" />
@@ -969,7 +883,8 @@ warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a pri
     [V_AGENTINFOR].[Agent ID] AS [Agent ID], 
     [V_AGENTINFOR].[Phone] AS [Phone], 
     [V_AGENTINFOR].[Address] AS [Address], 
-    [V_AGENTINFOR].[Region] AS [Region]
+    [V_AGENTINFOR].[Region] AS [Region], 
+    [V_AGENTINFOR].[Money] AS [Money]
     FROM [dbo].[V_AGENTINFOR] AS [V_AGENTINFOR]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="V_AVAILABLETRIP" EntityType="Self.V_AVAILABLETRIP" store:Type="Views" store:Schema="dbo">
@@ -1038,8 +953,14 @@ warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a pri
     [V_EMPLOYEEINFOR].[Employees ID] AS [Employees ID], 
     [V_EMPLOYEEINFOR].[Name] AS [Name], 
     [V_EMPLOYEEINFOR].[Phone Number] AS [Phone Number], 
+    [V_EMPLOYEEINFOR].[Address] AS [Address], 
+    [V_EMPLOYEEINFOR].[Email] AS [Email], 
+    [V_EMPLOYEEINFOR].[Identity number] AS [Identity number], 
+    [V_EMPLOYEEINFOR].[Salary] AS [Salary], 
+    [V_EMPLOYEEINFOR].[Birthday] AS [Birthday], 
     [V_EMPLOYEEINFOR].[Gender] AS [Gender], 
-    [V_EMPLOYEEINFOR].[State] AS [State]
+    [V_EMPLOYEEINFOR].[State] AS [State], 
+    [V_EMPLOYEEINFOR].[Position] AS [Position]
     FROM [dbo].[V_EMPLOYEEINFOR] AS [V_EMPLOYEEINFOR]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="V_ROUTEINFOR" EntityType="Self.V_ROUTEINFOR" store:Type="Views" store:Schema="dbo">
@@ -1086,14 +1007,6 @@ warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a pri
     <AssociationSet Name="FK_agent_id_place" Association="Self.FK_agent_id_place">
       <End Role="PLACE" EntitySet="PLACE" />
       <End Role="AGENT" EntitySet="AGENT" />
-    </AssociationSet>
-    <AssociationSet Name="FK_agent_policy_id_agent" Association="Self.FK_agent_policy_id_agent">
-      <End Role="AGENT" EntitySet="AGENT" />
-      <End Role="AGENT_POLICY" EntitySet="AGENT_POLICY" />
-    </AssociationSet>
-    <AssociationSet Name="FK_agent_policy_id_policy" Association="Self.FK_agent_policy_id_policy">
-      <End Role="PACKAGEPRICEPOLICY" EntitySet="PACKAGEPRICEPOLICY" />
-      <End Role="AGENT_POLICY" EntitySet="AGENT_POLICY" />
     </AssociationSet>
     <AssociationSet Name="FK_agent_refund_id_agent" Association="Self.FK_agent_refund_id_agent">
       <End Role="AGENT" EntitySet="AGENT" />
@@ -1166,18 +1079,6 @@ warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a pri
     <AssociationSet Name="FK_employee_ticket_id_ticket" Association="Self.FK_employee_ticket_id_ticket">
       <End Role="TICKET" EntitySet="TICKET" />
       <End Role="EMPLOYEE_TICKET" EntitySet="EMPLOYEE_TICKET" />
-    </AssociationSet>
-    <AssociationSet Name="FK_package_id_trip" Association="Self.FK_package_id_trip">
-      <End Role="TRIP" EntitySet="TRIP" />
-      <End Role="PACKAGE" EntitySet="PACKAGE" />
-    </AssociationSet>
-    <AssociationSet Name="FK_position_privilege_id_position" Association="Self.FK_position_privilege_id_position">
-      <End Role="POSITION" EntitySet="POSITION" />
-      <End Role="POSITION_PRIVILEGE" EntitySet="POSITION_PRIVILEGE" />
-    </AssociationSet>
-    <AssociationSet Name="FK_position_privilege_id_privilege" Association="Self.FK_position_privilege_id_privilege">
-      <End Role="PRIVILEGE" EntitySet="PRIVILEGE" />
-      <End Role="POSITION_PRIVILEGE" EntitySet="POSITION_PRIVILEGE" />
     </AssociationSet>
     <AssociationSet Name="FK_ticket_id_trip" Association="Self.FK_ticket_id_trip">
       <End Role="TRIP" EntitySet="TRIP" />

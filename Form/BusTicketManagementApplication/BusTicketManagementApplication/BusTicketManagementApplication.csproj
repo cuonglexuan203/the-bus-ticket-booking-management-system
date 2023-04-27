@@ -230,11 +230,9 @@
     <Compile Include="src\layers\businessLayers\BSBooked.cs" />
     <Compile Include="src\layers\businessLayers\BSBooking.cs" />
     <Compile Include="src\layers\businessLayers\BSBus.cs" />
-<<<<<<< HEAD
+
     <Compile Include="src\layers\businessLayers\BSBusStation.cs" />
-=======
     <Compile Include="src\layers\businessLayers\BSEmployee.cs" />
->>>>>>> f612d6ac5e39ea9b7fd48894e9117976b1b68df7
     <Compile Include="src\layers\businessLayers\BSLogin.cs" />
     <Compile Include="src\layers\businessLayers\BSMain.cs" />
     <Compile Include="src\layers\businessLayers\BSPassenger.cs" />
@@ -243,7 +241,6 @@
     <Compile Include="src\layers\businessLayers\BSRoute.cs" />
     <Compile Include="src\layers\businessLayers\BSTicket.cs" />
     <Compile Include="src\layers\businessLayers\BSTrip.cs" />
-<<<<<<< HEAD
     <Compile Include="src\layers\interfaceLayers\components\aboutUs\AboutUs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,7 +264,7 @@
     </Compile>
     <Compile Include="src\layers\interfaceLayers\components\aboutUs\BusStation.Designer.cs">
       <DependentUpon>BusStation.cs</DependentUpon>
-=======
+    </Compile>
     <Compile Include="src\layers\interfaceLayers\components\admin\AdminNavigationBar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,7 +282,6 @@
     </Compile>
     <Compile Include="src\layers\interfaceLayers\components\admin\Employee.Designer.cs">
       <DependentUpon>Employee.cs</DependentUpon>
->>>>>>> f612d6ac5e39ea9b7fd48894e9117976b1b68df7
     </Compile>
     <Compile Include="src\layers\interfaceLayers\components\booking\Booked.cs">
       <SubType>Form</SubType>
@@ -386,7 +382,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-<<<<<<< HEAD
     <EmbeddedResource Include="src\layers\interfaceLayers\components\aboutUs\AboutUs.resx">
       <DependentUpon>AboutUs.cs</DependentUpon>
     </EmbeddedResource>
@@ -398,7 +393,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="src\layers\interfaceLayers\components\aboutUs\BusStation.resx">
       <DependentUpon>BusStation.cs</DependentUpon>
-=======
+      </EmbeddedResource>
     <EmbeddedResource Include="src\layers\interfaceLayers\components\admin\AdminNavigationBar.resx">
       <DependentUpon>AdminNavigationBar.cs</DependentUpon>
     </EmbeddedResource>
@@ -407,7 +402,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="src\layers\interfaceLayers\components\admin\Employee.resx">
       <DependentUpon>Employee.cs</DependentUpon>
->>>>>>> f612d6ac5e39ea9b7fd48894e9117976b1b68df7
     </EmbeddedResource>
     <EmbeddedResource Include="src\layers\interfaceLayers\components\booking\Booked.resx">
       <DependentUpon>Booked.cs</DependentUpon>
