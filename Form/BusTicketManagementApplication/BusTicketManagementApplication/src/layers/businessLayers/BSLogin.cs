@@ -1,9 +1,11 @@
 ﻿using BusTicketManagementApplication.src.dbConnection;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity.Core.Objects;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -77,13 +79,19 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
                 //
                 BusManagementEntities db = new BusManagementEntities();
                 //
-                bool uniqueUser = db.PASSENGERACCOUNTs.Count(d => d.username == username) == 0;
-                if(!uniqueUser)
-                {
-                    errMsg = "Username has exist in the system!";
-                    return false;
-                }
+                // way 1
+                //bool uniqueUser = db.PASSENGERACCOUNTs.Count(d => d.username == username) == 0;
+                //if(!uniqueUser)
+                //{
+                //    errMsg = "Username has exist in the system!";
+                //    return false;
+                //}
                 //
+                // way 2
+                // check whether unique username
+                db.Database.SqlQuery<int>("EXEC pro_CheckUniqueUser @username", new SqlParameter("@username", username)); // if there are exist user , throw an sql exception
+                //
+                // incase of unique username
                 string funcName = "func_auto_id_passenger";
                 passengerId =  BSMain.RunFunc(funcName);
                 if (!string.IsNullOrEmpty(passengerId))
@@ -100,9 +108,12 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
             catch (SqlException err)
             {
                 errMsg = err.Message;
-                MessageBox.Show(errMsg);
+                MessageBox.Show(err.Message.ToString());
                 return false;
-
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
             }
             return true;
         }

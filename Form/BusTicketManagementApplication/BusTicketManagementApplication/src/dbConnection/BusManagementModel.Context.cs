@@ -316,5 +316,14 @@ namespace BusTicketManagementApplication.src.dbConnection
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
+    
+        public virtual ObjectResult<Nullable<int>> pro_CheckUniqueUser(string username)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("username", username) :
+                new ObjectParameter("username", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("pro_CheckUniqueUser", usernameParameter);
+        }
     }
 }
