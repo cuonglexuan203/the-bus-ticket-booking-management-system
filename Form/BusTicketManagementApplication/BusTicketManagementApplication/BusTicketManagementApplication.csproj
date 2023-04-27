@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,6 +13,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -37,10 +40,10 @@
       <HintPath>..\packages\BouncyCastle.Cryptography.2.1.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="MailKit, Version=4.0.0.0, Culture=neutral, PublicKeyToken=4e064fe7c44a8f1b, processorArchitecture=MSIL">
       <HintPath>..\packages\MailKit.4.0.0\lib\net47\MailKit.dll</HintPath>
@@ -186,7 +189,6 @@
     <Compile Include="src\dbConnection\V_BOOKINGINFOR.cs">
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="src\dbConnection\V_BUSINFOR.cs" />
     <Compile Include="src\dbConnection\V_BUSSTATIONINFOR.cs">
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
@@ -210,6 +212,7 @@
     <Compile Include="src\layers\businessLayers\BSBooked.cs" />
     <Compile Include="src\layers\businessLayers\BSBooking.cs" />
     <Compile Include="src\layers\businessLayers\BSBus.cs" />
+    <Compile Include="src\layers\businessLayers\BSBusStation.cs" />
     <Compile Include="src\layers\businessLayers\BSLogin.cs" />
     <Compile Include="src\layers\businessLayers\BSMain.cs" />
     <Compile Include="src\layers\businessLayers\BSPassenger.cs" />
@@ -217,6 +220,30 @@
     <Compile Include="src\layers\businessLayers\BSRoute.cs" />
     <Compile Include="src\layers\businessLayers\BSTicket.cs" />
     <Compile Include="src\layers\businessLayers\BSTrip.cs" />
+    <Compile Include="src\layers\interfaceLayers\components\aboutUs\AboutUs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\aboutUs\AboutUs.Designer.cs">
+      <DependentUpon>AboutUs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\aboutUs\AboutUsNavigationBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\aboutUs\AboutUsNavigationBar.Designer.cs">
+      <DependentUpon>AboutUsNavigationBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\aboutUs\BusRoute.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\aboutUs\BusRoute.Designer.cs">
+      <DependentUpon>BusRoute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\aboutUs\BusStation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\aboutUs\BusStation.Designer.cs">
+      <DependentUpon>BusStation.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\layers\interfaceLayers\components\booking\Booked.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -303,6 +330,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="src\layers\interfaceLayers\components\aboutUs\AboutUs.resx">
+      <DependentUpon>AboutUs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\layers\interfaceLayers\components\aboutUs\AboutUsNavigationBar.resx">
+      <DependentUpon>AboutUsNavigationBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\layers\interfaceLayers\components\aboutUs\BusRoute.resx">
+      <DependentUpon>BusRoute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\layers\interfaceLayers\components\aboutUs\BusStation.resx">
+      <DependentUpon>BusStation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\layers\interfaceLayers\components\booking\Booked.resx">
       <DependentUpon>Booked.cs</DependentUpon>
     </EmbeddedResource>
@@ -390,12 +429,24 @@
     <Folder Include="src\asset\cursor\" />
     <Folder Include="src\asset\sound\" />
     <Folder Include="src\dbConnection\DataSet\" />
-    <Folder Include="src\layers\interfaceLayers\components\aboutUs\" />
     <Folder Include="src\layers\interfaceLayers\components\driver\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\resourceAboutUs.bmp" />
+    <None Include="src\asset\img\components\aboutUs\pic1.jpg" />
+    <None Include="src\asset\img\components\aboutUs\pic2.png" />
+    <None Include="src\asset\img\components\aboutUs\pic3.png" />
+    <None Include="src\asset\img\components\aboutUs\pic4.png" />
     <None Include="src\asset\img\dashboardIcon\home.png" />
     <None Include="src\asset\img\logo\brandLogo.png" />
+    <None Include="src\asset\img\components\home\home1.png" />
+    <None Include="src\asset\img\components\home\home.png" />
+    <None Include="src\asset\img\components\home\home2.png" />
+    <None Include="src\asset\img\components\home\Cantho.png" />
+    <None Include="src\asset\img\components\home\Danang.png" />
+    <None Include="src\asset\img\components\home\Hanoi.png" />
+    <None Include="src\asset\img\components\home\Namcan.png" />
+    <None Include="src\asset\img\components\home\SG.png" />
     <Content Include="src\dbConnection\BusManagementModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>BusManagementModel.Context.cs</LastGenOutput>
@@ -411,4 +462,12 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>

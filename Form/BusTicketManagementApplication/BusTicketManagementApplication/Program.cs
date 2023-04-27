@@ -3,6 +3,7 @@ using BusTicketManagementApplication.src.layers.interfaceLayers.components.login
 using BusTicketManagementApplication.src.layers.interfaceLayers.components.Profile;
 using BusTicketManagementApplication.src.layers.interfaceLayers.components.setting;
 using BusTicketManagementApplication.src.layers.interfaceLayers.components.trip;
+using BusTicketManagementApplication.src.layers.interfaceLayers.components.aboutUs;
 using System;
 using System.Collections.Generic;
 using System.Linq;

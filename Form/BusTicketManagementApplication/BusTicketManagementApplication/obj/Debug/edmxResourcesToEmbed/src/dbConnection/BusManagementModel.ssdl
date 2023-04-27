@@ -1,0 +1,1207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BusManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AGENT">
+    <Key>
+      <PropertyRef Name="id_agent" />
+    </Key>
+    <Property Name="id_agent" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="id_cash_reserve" Type="char" MaxLength="20" />
+    <Property Name="id_place" Type="char" MaxLength="20" />
+    <Property Name="address" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="phone" Type="char" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AGENT_EVENT">
+    <Key>
+      <PropertyRef Name="id_agent" />
+      <PropertyRef Name="id_event" />
+    </Key>
+    <Property Name="id_agent" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="id_event" Type="char" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AGENT_POLICY">
+    <Key>
+      <PropertyRef Name="id_agent" />
+      <PropertyRef Name="id_policy" />
+    </Key>
+    <Property Name="id_agent" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="id_policy" Type="char" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AGENT_REFUND">
+    <Key>
+      <PropertyRef Name="id_agent" />
+      <PropertyRef Name="id_refund" />
+    </Key>
+    <Property Name="id_agent" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="id_refund" Type="char" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AGENT_TRIP">
+    <Key>
+      <PropertyRef Name="id_agent" />
+      <PropertyRef Name="id_trip" />
+    </Key>
+    <Property Name="id_agent" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="id_trip" Type="char" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BOOKING">
+    <Key>
+      <PropertyRef Name="id_booking" />
+    </Key>
+    <Property Name="id_booking" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="id_ticket" Type="char" MaxLength="20" />
+    <Property Name="id_passenger" Type="char" MaxLength="20" />
+    <Property Name="id_employee" Type="char" MaxLength="20" />
+    <Property Name="booking_time" Type="datetime" />
+  </EntityType>
+  <EntityType Name="BUS">
+    <Key>
+      <PropertyRef Name="id_bus" />
+    </Key>
+    <Property Name="id_bus" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="registration_number" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="model" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="capacity" Type="tinyint" />
+    <Property Name="status" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="type" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BUSROUTE">
+    <Key>
+      <PropertyRef Name="id_route" />
+    </Key>
+    <Property Name="id_route" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="id_start_station" Type="char" MaxLength="20" />
+    <Property Name="id_end_station" Type="char" MaxLength="20" />
+    <Property Name="distance" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BUSROUTE_BUSSTATION">
+    <Key>
+      <PropertyRef Name="id_bus_route" />
+      <PropertyRef Name="id_bus_station" />
+    </Key>
+    <Property Name="id_bus_route" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="id_bus_station" Type="char" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BUSSTATION">
+    <Key>
+      <PropertyRef Name="id_bus_station" />
+    </Key>
+    <Property Name="id_bus_station" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="id_place" Type="char" MaxLength="20" />
+    <Property Name="address" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="bus_capacity" Type="int" Nullable="false" />
+    <Property Name="count_current_bus" Type="int" />
+    <Property Name="phone" Type="char" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="CASHRESERVE">
+    <Key>
+      <PropertyRef Name="id_cash_reserve" />
+    </Key>
+    <Property Name="id_cash_reserve" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="counter" Type="money" />
+  </EntityType>
+  <EntityType Name="DRIVER">
+    <Key>
+      <PropertyRef Name="id_driver" />
+    </Key>
+    <Property Name="id_driver" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="lisence_level" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="type" Type="bit" />
+    <Property Name="state" Type="bit" />
+  </EntityType>
+  <EntityType Name="EMPLOYEE">
+    <Key>
+      <PropertyRef Name="id_employee" />
+    </Key>
+    <Property Name="id_employee" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="id_account" Type="char" MaxLength="20" />
+    <Property Name="id_agent" Type="char" MaxLength="20" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+    <Property Name="address" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="phone_number" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="identity_number" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="salary" Type="money" Nullable="false" />
+    <Property Name="email" Type="char" MaxLength="50" />
+    <Property Name="birthdate" Type="date" Nullable="false" />
+    <Property Name="gender" Type="bit" />
+    <Property Name="state" Type="bit" />
+  </EntityType>
+  <EntityType Name="EMPLOYEE_POSITION">
+    <Key>
+      <PropertyRef Name="id_employee" />
+      <PropertyRef Name="id_position" />
+    </Key>
+    <Property Name="id_employee" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="id_position" Type="char" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EMPLOYEE_TICKET">
+    <Key>
+      <PropertyRef Name="id_employee" />
+      <PropertyRef Name="id_ticket" />
+    </Key>
+    <Property Name="id_employee" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="id_ticket" Type="char" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EVENT">
+    <Key>
+      <PropertyRef Name="id_event" />
+    </Key>
+    <Property Name="id_event" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="discount_type" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="discount_percent" Type="float" />
+  </EntityType>
+  <EntityType Name="PACKAGE">
+    <Key>
+      <PropertyRef Name="id_package" />
+    </Key>
+    <Property Name="id_package" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="id_trip" Type="char" MaxLength="20" />
+    <Property Name="mass" Type="float" />
+    <Property Name="price" Type="money" />
+    <Property Name="sender_contact_phone" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="receiver_contact_phone" Type="char" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PACKAGEPRICEPOLICY">
+    <Key>
+      <PropertyRef Name="id_policy" />
+    </Key>
+    <Property Name="id_policy" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="price_per_km" Type="money" Nullable="false" />
+    <Property Name="mass_unit" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PASSENGER">
+    <Key>
+      <PropertyRef Name="id_passenger" />
+    </Key>
+    <Property Name="id_passenger" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+    <Property Name="phone_number" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="address" Type="nvarchar" MaxLength="100" />
+    <Property Name="identity_number" Type="char" MaxLength="20" />
+    <Property Name="gender" Type="bit" />
+    <Property Name="email" Type="char" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PASSENGERACCOUNT">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="id_passenger" Type="char" MaxLength="20" />
+    <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PLACE">
+    <Key>
+      <PropertyRef Name="id_place" />
+    </Key>
+    <Property Name="id_place" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="region" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="POSITION">
+    <Key>
+      <PropertyRef Name="id_position" />
+    </Key>
+    <Property Name="id_position" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="type" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="POSITION_PRIVILEGE">
+    <Key>
+      <PropertyRef Name="id_position" />
+      <PropertyRef Name="id_privilege" />
+    </Key>
+    <Property Name="id_position" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="id_privilege" Type="char" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PRIVILEGE">
+    <Key>
+      <PropertyRef Name="id_privilege" />
+    </Key>
+    <Property Name="id_privilege" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="name" Type="char" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="REFUND">
+    <Key>
+      <PropertyRef Name="id_refund" />
+    </Key>
+    <Property Name="id_refund" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="refund_name" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="refund_percent" Type="float" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="SYSTEMACCOUNT">
+    <Key>
+      <PropertyRef Name="id_account" />
+    </Key>
+    <Property Name="id_account" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="username" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="pass" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TICKET">
+    <Key>
+      <PropertyRef Name="id_ticket" />
+    </Key>
+    <Property Name="id_ticket" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="id_trip" Type="char" MaxLength="20" />
+    <Property Name="status" Type="bit" />
+    <Property Name="fare" Type="money" Nullable="false" />
+    <Property Name="type" Type="bit" />
+    <Property Name="seat_number" Type="char" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TRIP">
+    <Key>
+      <PropertyRef Name="id_trip" />
+    </Key>
+    <Property Name="id_trip" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="id_bus" Type="char" MaxLength="20" />
+    <Property Name="id_bus_route" Type="char" MaxLength="20" />
+    <Property Name="departure_time" Type="datetime" Nullable="false" />
+    <Property Name="duration" Type="int" Nullable="false" />
+    <Property Name="booked_seat" Type="tinyint" />
+    <Property Name="status" Type="char" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="TRIP_DRIVER">
+    <Key>
+      <PropertyRef Name="id_trip" />
+      <PropertyRef Name="id_driver" />
+    </Key>
+    <Property Name="id_trip" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="id_driver" Type="char" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BusManagement.dbo.V_AGENTINFOR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="V_AGENTINFOR">
+    <Key>
+      <PropertyRef Name="Agent ID" />
+      <PropertyRef Name="Phone" />
+      <PropertyRef Name="Address" />
+      <PropertyRef Name="Region" />
+    </Key>
+    <Property Name="Agent ID" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="Phone" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Region" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BusManagement.dbo.V_AVAILABLETRIP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="V_AVAILABLETRIP">
+    <Key>
+      <PropertyRef Name="Trip ID" />
+      <PropertyRef Name="Registration number of bus" />
+      <PropertyRef Name="Start point" />
+      <PropertyRef Name="End point" />
+      <PropertyRef Name="Departure time" />
+      <PropertyRef Name="Duration" />
+    </Key>
+    <Property Name="Trip ID" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="Registration number of bus" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="Start point" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="End point" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Departure time" Type="datetime" Nullable="false" />
+    <Property Name="Duration" Type="int" Nullable="false" />
+    <Property Name="Remain seat" Type="tinyint" />
+    <Property Name="Status" Type="char" MaxLength="15" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BusManagement.dbo.V_BOOKEDTICKET' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="V_BOOKEDTICKET">
+    <Key>
+      <PropertyRef Name="Ticket ID" />
+      <PropertyRef Name="Fare" />
+      <PropertyRef Name="Type" />
+      <PropertyRef Name="Seat number" />
+      <PropertyRef Name="Start point" />
+      <PropertyRef Name="End point" />
+      <PropertyRef Name="Departure time" />
+      <PropertyRef Name="Distance" />
+      <PropertyRef Name="Duration" />
+      <PropertyRef Name="Registration number of bus" />
+    </Key>
+    <Property Name="Passenger ID" Type="char" MaxLength="20" />
+    <Property Name="Ticket ID" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="Fare" Type="money" Nullable="false" />
+    <Property Name="Type" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="Seat number" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="Start point" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="End point" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Departure time" Type="datetime" Nullable="false" />
+    <Property Name="Distance" Type="float" Nullable="false" />
+    <Property Name="Duration" Type="int" Nullable="false" />
+    <Property Name="Registration number of bus" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="Booking time" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BusManagement.dbo.V_BOOKINGINFOR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="V_BOOKINGINFOR">
+    <Key>
+      <PropertyRef Name="Booking ID" />
+      <PropertyRef Name="Passenger phone number" />
+      <PropertyRef Name="Employee phone number" />
+    </Key>
+    <Property Name="Booking ID" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="Passenger ID" Type="char" MaxLength="20" />
+    <Property Name="Ticket ID" Type="char" MaxLength="20" />
+    <Property Name="Passenger name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Passenger gender" Type="bit" />
+    <Property Name="Passenger phone number" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="Employee name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Employee gender" Type="bit" />
+    <Property Name="Employee phone number" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="Booking time" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BusManagement.dbo.V_BUSSTATIONINFOR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="V_BUSSTATIONINFOR">
+    <Key>
+      <PropertyRef Name="Address" />
+      <PropertyRef Name="Region" />
+    </Key>
+    <Property Name="id_place" Type="char" MaxLength="20" />
+    <Property Name="Phone number" Type="char" MaxLength="20" />
+    <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Region" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BusManagement.dbo.V_DRIVERINFOR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="V_DRIVERINFOR">
+    <Key>
+      <PropertyRef Name="Employees ID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Phone Number" />
+      <PropertyRef Name="Lisence Level" />
+    </Key>
+    <Property Name="Employees ID" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone Number" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="Gender" Type="bit" />
+    <Property Name="Lisence Level" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="Type" Type="bit" />
+    <Property Name="State" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BusManagement.dbo.V_EMPLOYEEINFOR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="V_EMPLOYEEINFOR">
+    <Key>
+      <PropertyRef Name="Employees ID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Phone Number" />
+    </Key>
+    <Property Name="Employees ID" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone Number" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="Gender" Type="bit" />
+    <Property Name="State" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BusManagement.dbo.V_ROUTEINFOR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="V_ROUTEINFOR">
+    <Key>
+      <PropertyRef Name="id_route" />
+      <PropertyRef Name="Start point" />
+      <PropertyRef Name="End point" />
+      <PropertyRef Name="Distance" />
+    </Key>
+    <Property Name="id_route" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="Start point" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="End point" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Distance" Type="float" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BusManagement.dbo.V_TRIPINFOR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="V_TRIPINFOR">
+    <Key>
+      <PropertyRef Name="Trip ID" />
+      <PropertyRef Name="Registration number of bus" />
+      <PropertyRef Name="Start point" />
+      <PropertyRef Name="End point" />
+      <PropertyRef Name="Departure time" />
+      <PropertyRef Name="Duration" />
+    </Key>
+    <Property Name="Trip ID" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="Registration number of bus" Type="char" MaxLength="15" Nullable="false" />
+    <Property Name="Start point" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="End point" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Departure time" Type="datetime" Nullable="false" />
+    <Property Name="Duration" Type="int" Nullable="false" />
+    <Property Name="Remain seat" Type="tinyint" />
+    <Property Name="Status" Type="char" MaxLength="15" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="V_USERINFOR">
+    <Key>
+      <PropertyRef Name="id_passenger" />
+      <PropertyRef Name="phone_number" />
+      <PropertyRef Name="username" />
+      <PropertyRef Name="password" />
+    </Key>
+    <Property Name="id_passenger" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+    <Property Name="phone_number" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_agent_event_id_agent">
+    <End Role="AGENT" Type="Self.AGENT" Multiplicity="1" />
+    <End Role="AGENT_EVENT" Type="Self.AGENT_EVENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AGENT">
+        <PropertyRef Name="id_agent" />
+      </Principal>
+      <Dependent Role="AGENT_EVENT">
+        <PropertyRef Name="id_agent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_agent_event_id_event">
+    <End Role="EVENT" Type="Self.EVENT" Multiplicity="1" />
+    <End Role="AGENT_EVENT" Type="Self.AGENT_EVENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EVENT">
+        <PropertyRef Name="id_event" />
+      </Principal>
+      <Dependent Role="AGENT_EVENT">
+        <PropertyRef Name="id_event" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_agent_id_cash_reserve">
+    <End Role="CASHRESERVE" Type="Self.CASHRESERVE" Multiplicity="0..1" />
+    <End Role="AGENT" Type="Self.AGENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CASHRESERVE">
+        <PropertyRef Name="id_cash_reserve" />
+      </Principal>
+      <Dependent Role="AGENT">
+        <PropertyRef Name="id_cash_reserve" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_agent_id_place">
+    <End Role="PLACE" Type="Self.PLACE" Multiplicity="0..1" />
+    <End Role="AGENT" Type="Self.AGENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PLACE">
+        <PropertyRef Name="id_place" />
+      </Principal>
+      <Dependent Role="AGENT">
+        <PropertyRef Name="id_place" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_agent_policy_id_agent">
+    <End Role="AGENT" Type="Self.AGENT" Multiplicity="1" />
+    <End Role="AGENT_POLICY" Type="Self.AGENT_POLICY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AGENT">
+        <PropertyRef Name="id_agent" />
+      </Principal>
+      <Dependent Role="AGENT_POLICY">
+        <PropertyRef Name="id_agent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_agent_policy_id_policy">
+    <End Role="PACKAGEPRICEPOLICY" Type="Self.PACKAGEPRICEPOLICY" Multiplicity="1" />
+    <End Role="AGENT_POLICY" Type="Self.AGENT_POLICY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PACKAGEPRICEPOLICY">
+        <PropertyRef Name="id_policy" />
+      </Principal>
+      <Dependent Role="AGENT_POLICY">
+        <PropertyRef Name="id_policy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_agent_refund_id_agent">
+    <End Role="AGENT" Type="Self.AGENT" Multiplicity="1" />
+    <End Role="AGENT_REFUND" Type="Self.AGENT_REFUND" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AGENT">
+        <PropertyRef Name="id_agent" />
+      </Principal>
+      <Dependent Role="AGENT_REFUND">
+        <PropertyRef Name="id_agent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_agent_refund_id_refund">
+    <End Role="REFUND" Type="Self.REFUND" Multiplicity="1" />
+    <End Role="AGENT_REFUND" Type="Self.AGENT_REFUND" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REFUND">
+        <PropertyRef Name="id_refund" />
+      </Principal>
+      <Dependent Role="AGENT_REFUND">
+        <PropertyRef Name="id_refund" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_agent_trip_id_agent">
+    <End Role="AGENT" Type="Self.AGENT" Multiplicity="1" />
+    <End Role="AGENT_TRIP" Type="Self.AGENT_TRIP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AGENT">
+        <PropertyRef Name="id_agent" />
+      </Principal>
+      <Dependent Role="AGENT_TRIP">
+        <PropertyRef Name="id_agent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_agent_trip_id_trip">
+    <End Role="TRIP" Type="Self.TRIP" Multiplicity="1" />
+    <End Role="AGENT_TRIP" Type="Self.AGENT_TRIP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRIP">
+        <PropertyRef Name="id_trip" />
+      </Principal>
+      <Dependent Role="AGENT_TRIP">
+        <PropertyRef Name="id_trip" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_booking_id_employee">
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="0..1" />
+    <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE">
+        <PropertyRef Name="id_employee" />
+      </Principal>
+      <Dependent Role="BOOKING">
+        <PropertyRef Name="id_employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_booking_id_passenger">
+    <End Role="PASSENGER" Type="Self.PASSENGER" Multiplicity="0..1" />
+    <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PASSENGER">
+        <PropertyRef Name="id_passenger" />
+      </Principal>
+      <Dependent Role="BOOKING">
+        <PropertyRef Name="id_passenger" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_booking_id_ticket">
+    <End Role="TICKET" Type="Self.TICKET" Multiplicity="0..1" />
+    <End Role="BOOKING" Type="Self.BOOKING" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TICKET">
+        <PropertyRef Name="id_ticket" />
+      </Principal>
+      <Dependent Role="BOOKING">
+        <PropertyRef Name="id_ticket" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_busroute_busstation_id_bus_route">
+    <End Role="BUSROUTE" Type="Self.BUSROUTE" Multiplicity="1" />
+    <End Role="BUSROUTE_BUSSTATION" Type="Self.BUSROUTE_BUSSTATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BUSROUTE">
+        <PropertyRef Name="id_route" />
+      </Principal>
+      <Dependent Role="BUSROUTE_BUSSTATION">
+        <PropertyRef Name="id_bus_route" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_busroute_busstation_id_bus_station">
+    <End Role="BUSSTATION" Type="Self.BUSSTATION" Multiplicity="1" />
+    <End Role="BUSROUTE_BUSSTATION" Type="Self.BUSROUTE_BUSSTATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BUSSTATION">
+        <PropertyRef Name="id_bus_station" />
+      </Principal>
+      <Dependent Role="BUSROUTE_BUSSTATION">
+        <PropertyRef Name="id_bus_station" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_busroute_id_end_bus_station">
+    <End Role="BUSSTATION" Type="Self.BUSSTATION" Multiplicity="0..1" />
+    <End Role="BUSROUTE" Type="Self.BUSROUTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BUSSTATION">
+        <PropertyRef Name="id_bus_station" />
+      </Principal>
+      <Dependent Role="BUSROUTE">
+        <PropertyRef Name="id_end_station" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_busroute_id_start_bus_station">
+    <End Role="BUSSTATION" Type="Self.BUSSTATION" Multiplicity="0..1" />
+    <End Role="BUSROUTE" Type="Self.BUSROUTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BUSSTATION">
+        <PropertyRef Name="id_bus_station" />
+      </Principal>
+      <Dependent Role="BUSROUTE">
+        <PropertyRef Name="id_start_station" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_busstation_id_place">
+    <End Role="PLACE" Type="Self.PLACE" Multiplicity="0..1" />
+    <End Role="BUSSTATION" Type="Self.BUSSTATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PLACE">
+        <PropertyRef Name="id_place" />
+      </Principal>
+      <Dependent Role="BUSSTATION">
+        <PropertyRef Name="id_place" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_employee_id_account">
+    <End Role="SYSTEMACCOUNT" Type="Self.SYSTEMACCOUNT" Multiplicity="0..1" />
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SYSTEMACCOUNT">
+        <PropertyRef Name="id_account" />
+      </Principal>
+      <Dependent Role="EMPLOYEE">
+        <PropertyRef Name="id_account" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_employee_id_agent">
+    <End Role="AGENT" Type="Self.AGENT" Multiplicity="0..1" />
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AGENT">
+        <PropertyRef Name="id_agent" />
+      </Principal>
+      <Dependent Role="EMPLOYEE">
+        <PropertyRef Name="id_agent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_employee_position_id_employee">
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="1" />
+    <End Role="EMPLOYEE_POSITION" Type="Self.EMPLOYEE_POSITION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE">
+        <PropertyRef Name="id_employee" />
+      </Principal>
+      <Dependent Role="EMPLOYEE_POSITION">
+        <PropertyRef Name="id_employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_employee_position_id_position">
+    <End Role="POSITION" Type="Self.POSITION" Multiplicity="1" />
+    <End Role="EMPLOYEE_POSITION" Type="Self.EMPLOYEE_POSITION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="POSITION">
+        <PropertyRef Name="id_position" />
+      </Principal>
+      <Dependent Role="EMPLOYEE_POSITION">
+        <PropertyRef Name="id_position" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_employee_ticket_id_employee">
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="1" />
+    <End Role="EMPLOYEE_TICKET" Type="Self.EMPLOYEE_TICKET" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE">
+        <PropertyRef Name="id_employee" />
+      </Principal>
+      <Dependent Role="EMPLOYEE_TICKET">
+        <PropertyRef Name="id_employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_employee_ticket_id_ticket">
+    <End Role="TICKET" Type="Self.TICKET" Multiplicity="1" />
+    <End Role="EMPLOYEE_TICKET" Type="Self.EMPLOYEE_TICKET" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TICKET">
+        <PropertyRef Name="id_ticket" />
+      </Principal>
+      <Dependent Role="EMPLOYEE_TICKET">
+        <PropertyRef Name="id_ticket" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_package_id_trip">
+    <End Role="TRIP" Type="Self.TRIP" Multiplicity="0..1" />
+    <End Role="PACKAGE" Type="Self.PACKAGE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRIP">
+        <PropertyRef Name="id_trip" />
+      </Principal>
+      <Dependent Role="PACKAGE">
+        <PropertyRef Name="id_trip" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_position_privilege_id_position">
+    <End Role="POSITION" Type="Self.POSITION" Multiplicity="1" />
+    <End Role="POSITION_PRIVILEGE" Type="Self.POSITION_PRIVILEGE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="POSITION">
+        <PropertyRef Name="id_position" />
+      </Principal>
+      <Dependent Role="POSITION_PRIVILEGE">
+        <PropertyRef Name="id_position" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_position_privilege_id_privilege">
+    <End Role="PRIVILEGE" Type="Self.PRIVILEGE" Multiplicity="1" />
+    <End Role="POSITION_PRIVILEGE" Type="Self.POSITION_PRIVILEGE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRIVILEGE">
+        <PropertyRef Name="id_privilege" />
+      </Principal>
+      <Dependent Role="POSITION_PRIVILEGE">
+        <PropertyRef Name="id_privilege" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ticket_id_trip">
+    <End Role="TRIP" Type="Self.TRIP" Multiplicity="0..1" />
+    <End Role="TICKET" Type="Self.TICKET" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRIP">
+        <PropertyRef Name="id_trip" />
+      </Principal>
+      <Dependent Role="TICKET">
+        <PropertyRef Name="id_trip" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_trip_driver_id_driver">
+    <End Role="DRIVER" Type="Self.DRIVER" Multiplicity="1" />
+    <End Role="TRIP_DRIVER" Type="Self.TRIP_DRIVER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DRIVER">
+        <PropertyRef Name="id_driver" />
+      </Principal>
+      <Dependent Role="TRIP_DRIVER">
+        <PropertyRef Name="id_driver" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_trip_driver_id_trip">
+    <End Role="TRIP" Type="Self.TRIP" Multiplicity="1" />
+    <End Role="TRIP_DRIVER" Type="Self.TRIP_DRIVER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRIP">
+        <PropertyRef Name="id_trip" />
+      </Principal>
+      <Dependent Role="TRIP_DRIVER">
+        <PropertyRef Name="id_trip" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_trip_id_bus">
+    <End Role="BUS" Type="Self.BUS" Multiplicity="0..1" />
+    <End Role="TRIP" Type="Self.TRIP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BUS">
+        <PropertyRef Name="id_bus" />
+      </Principal>
+      <Dependent Role="TRIP">
+        <PropertyRef Name="id_bus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_trip_id_bus_route">
+    <End Role="BUSROUTE" Type="Self.BUSROUTE" Multiplicity="0..1" />
+    <End Role="TRIP" Type="Self.TRIP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BUSROUTE">
+        <PropertyRef Name="id_route" />
+      </Principal>
+      <Dependent Role="TRIP">
+        <PropertyRef Name="id_bus_route" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PK_passengerAccount_id_passenger">
+    <End Role="PASSENGER" Type="Self.PASSENGER" Multiplicity="0..1" />
+    <End Role="PASSENGERACCOUNT" Type="Self.PASSENGERACCOUNT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PASSENGER">
+        <PropertyRef Name="id_passenger" />
+      </Principal>
+      <Dependent Role="PASSENGERACCOUNT">
+        <PropertyRef Name="id_passenger" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="func_auto_id_account" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
+  <Function Name="func_auto_id_agent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
+  <Function Name="func_auto_id_booking" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
+  <Function Name="func_auto_id_bus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
+  <Function Name="func_auto_id_busroute" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
+  <Function Name="func_auto_id_busstation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
+  <Function Name="func_auto_id_cashreserve" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
+  <Function Name="func_auto_id_employee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
+  <Function Name="func_auto_id_event" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
+  <Function Name="func_auto_id_package" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
+  <Function Name="func_auto_id_passenger" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
+  <Function Name="func_auto_id_policy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
+  <Function Name="func_auto_id_position" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
+  <Function Name="func_auto_id_privilege" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
+  <Function Name="func_auto_id_refund" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
+  <Function Name="func_auto_id_ticket" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
+  <Function Name="func_auto_id_trip" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
+  <Function Name="func_AutoDefaultIdEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
+  <Function Name="func_GetAvailabelSeat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idTrip" Type="char" Mode="In" />
+    <Parameter Name="type" Type="bit" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="seat_number" Type="char" MaxLength="15" Nullable="false" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="pro_AddBooking" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_ticket" Type="char" Mode="In" />
+    <Parameter Name="id_passenger" Type="char" Mode="In" />
+    <Parameter Name="id_employee" Type="char" Mode="In" />
+  </Function>
+  <Function Name="pro_AddDefaultBooking" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_ticket" Type="char" Mode="In" />
+    <Parameter Name="id_passenger" Type="char" Mode="In" />
+  </Function>
+  <Function Name="pro_AddPassenger" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_passenger" Type="char" Mode="In" />
+    <Parameter Name="name" Type="nvarchar" Mode="In" />
+    <Parameter Name="phone" Type="char" Mode="In" />
+  </Function>
+  <Function Name="pro_AddPassengerAccount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_passenger" Type="char" Mode="In" />
+    <Parameter Name="username" Type="varchar" Mode="In" />
+    <Parameter Name="password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="pro_CancelTicket" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_ticket" Type="char" Mode="In" />
+  </Function>
+  <Function Name="pro_SetCancelTrip" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_trip" Type="char" Mode="In" />
+  </Function>
+  <Function Name="pro_SetFinishTrip" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_trip" Type="char" Mode="In" />
+  </Function>
+  <Function Name="pro_SetGoingTrip" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id_trip" Type="char" Mode="In" />
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="BusManagementModelStoreContainer">
+    <EntitySet Name="AGENT" EntityType="Self.AGENT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AGENT_EVENT" EntityType="Self.AGENT_EVENT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AGENT_POLICY" EntityType="Self.AGENT_POLICY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AGENT_REFUND" EntityType="Self.AGENT_REFUND" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AGENT_TRIP" EntityType="Self.AGENT_TRIP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BOOKING" EntityType="Self.BOOKING" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BUS" EntityType="Self.BUS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BUSROUTE" EntityType="Self.BUSROUTE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BUSROUTE_BUSSTATION" EntityType="Self.BUSROUTE_BUSSTATION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BUSSTATION" EntityType="Self.BUSSTATION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CASHRESERVE" EntityType="Self.CASHRESERVE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DRIVER" EntityType="Self.DRIVER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EMPLOYEE" EntityType="Self.EMPLOYEE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EMPLOYEE_POSITION" EntityType="Self.EMPLOYEE_POSITION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EMPLOYEE_TICKET" EntityType="Self.EMPLOYEE_TICKET" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EVENT" EntityType="Self.EVENT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PACKAGE" EntityType="Self.PACKAGE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PACKAGEPRICEPOLICY" EntityType="Self.PACKAGEPRICEPOLICY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PASSENGER" EntityType="Self.PASSENGER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PASSENGERACCOUNT" EntityType="Self.PASSENGERACCOUNT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PLACE" EntityType="Self.PLACE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="POSITION" EntityType="Self.POSITION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="POSITION_PRIVILEGE" EntityType="Self.POSITION_PRIVILEGE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRIVILEGE" EntityType="Self.PRIVILEGE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="REFUND" EntityType="Self.REFUND" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SYSTEMACCOUNT" EntityType="Self.SYSTEMACCOUNT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TICKET" EntityType="Self.TICKET" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TRIP" EntityType="Self.TRIP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TRIP_DRIVER" EntityType="Self.TRIP_DRIVER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="V_AGENTINFOR" EntityType="Self.V_AGENTINFOR" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [V_AGENTINFOR].[Agent ID] AS [Agent ID], 
+    [V_AGENTINFOR].[Phone] AS [Phone], 
+    [V_AGENTINFOR].[Address] AS [Address], 
+    [V_AGENTINFOR].[Region] AS [Region]
+    FROM [dbo].[V_AGENTINFOR] AS [V_AGENTINFOR]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_AVAILABLETRIP" EntityType="Self.V_AVAILABLETRIP" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [V_AVAILABLETRIP].[Trip ID] AS [Trip ID], 
+    [V_AVAILABLETRIP].[Registration number of bus] AS [Registration number of bus], 
+    [V_AVAILABLETRIP].[Start point] AS [Start point], 
+    [V_AVAILABLETRIP].[End point] AS [End point], 
+    [V_AVAILABLETRIP].[Departure time] AS [Departure time], 
+    [V_AVAILABLETRIP].[Duration] AS [Duration], 
+    [V_AVAILABLETRIP].[Remain seat] AS [Remain seat], 
+    [V_AVAILABLETRIP].[Status] AS [Status]
+    FROM [dbo].[V_AVAILABLETRIP] AS [V_AVAILABLETRIP]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_BOOKEDTICKET" EntityType="Self.V_BOOKEDTICKET" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [V_BOOKEDTICKET].[Passenger ID] AS [Passenger ID], 
+    [V_BOOKEDTICKET].[Ticket ID] AS [Ticket ID], 
+    [V_BOOKEDTICKET].[Fare] AS [Fare], 
+    [V_BOOKEDTICKET].[Type] AS [Type], 
+    [V_BOOKEDTICKET].[Seat number] AS [Seat number], 
+    [V_BOOKEDTICKET].[Start point] AS [Start point], 
+    [V_BOOKEDTICKET].[End point] AS [End point], 
+    [V_BOOKEDTICKET].[Departure time] AS [Departure time], 
+    [V_BOOKEDTICKET].[Distance] AS [Distance], 
+    [V_BOOKEDTICKET].[Duration] AS [Duration], 
+    [V_BOOKEDTICKET].[Registration number of bus] AS [Registration number of bus], 
+    [V_BOOKEDTICKET].[Booking time] AS [Booking time]
+    FROM [dbo].[V_BOOKEDTICKET] AS [V_BOOKEDTICKET]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_BOOKINGINFOR" EntityType="Self.V_BOOKINGINFOR" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [V_BOOKINGINFOR].[Booking ID] AS [Booking ID], 
+    [V_BOOKINGINFOR].[Passenger ID] AS [Passenger ID], 
+    [V_BOOKINGINFOR].[Ticket ID] AS [Ticket ID], 
+    [V_BOOKINGINFOR].[Passenger name] AS [Passenger name], 
+    [V_BOOKINGINFOR].[Passenger gender] AS [Passenger gender], 
+    [V_BOOKINGINFOR].[Passenger phone number] AS [Passenger phone number], 
+    [V_BOOKINGINFOR].[Employee name] AS [Employee name], 
+    [V_BOOKINGINFOR].[Employee gender] AS [Employee gender], 
+    [V_BOOKINGINFOR].[Employee phone number] AS [Employee phone number], 
+    [V_BOOKINGINFOR].[Booking time] AS [Booking time]
+    FROM [dbo].[V_BOOKINGINFOR] AS [V_BOOKINGINFOR]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_BUSSTATIONINFOR" EntityType="Self.V_BUSSTATIONINFOR" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [V_BUSSTATIONINFOR].[id_place] AS [id_place], 
+    [V_BUSSTATIONINFOR].[Phone number] AS [Phone number], 
+    [V_BUSSTATIONINFOR].[Address] AS [Address], 
+    [V_BUSSTATIONINFOR].[Region] AS [Region]
+    FROM [dbo].[V_BUSSTATIONINFOR] AS [V_BUSSTATIONINFOR]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_DRIVERINFOR" EntityType="Self.V_DRIVERINFOR" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [V_DRIVERINFOR].[Employees ID] AS [Employees ID], 
+    [V_DRIVERINFOR].[Name] AS [Name], 
+    [V_DRIVERINFOR].[Phone Number] AS [Phone Number], 
+    [V_DRIVERINFOR].[Gender] AS [Gender], 
+    [V_DRIVERINFOR].[Lisence Level] AS [Lisence Level], 
+    [V_DRIVERINFOR].[Type] AS [Type], 
+    [V_DRIVERINFOR].[State] AS [State]
+    FROM [dbo].[V_DRIVERINFOR] AS [V_DRIVERINFOR]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_EMPLOYEEINFOR" EntityType="Self.V_EMPLOYEEINFOR" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [V_EMPLOYEEINFOR].[Employees ID] AS [Employees ID], 
+    [V_EMPLOYEEINFOR].[Name] AS [Name], 
+    [V_EMPLOYEEINFOR].[Phone Number] AS [Phone Number], 
+    [V_EMPLOYEEINFOR].[Gender] AS [Gender], 
+    [V_EMPLOYEEINFOR].[State] AS [State]
+    FROM [dbo].[V_EMPLOYEEINFOR] AS [V_EMPLOYEEINFOR]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_ROUTEINFOR" EntityType="Self.V_ROUTEINFOR" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [V_ROUTEINFOR].[id_route] AS [id_route], 
+    [V_ROUTEINFOR].[Start point] AS [Start point], 
+    [V_ROUTEINFOR].[End point] AS [End point], 
+    [V_ROUTEINFOR].[Distance] AS [Distance]
+    FROM [dbo].[V_ROUTEINFOR] AS [V_ROUTEINFOR]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_TRIPINFOR" EntityType="Self.V_TRIPINFOR" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [V_TRIPINFOR].[Trip ID] AS [Trip ID], 
+    [V_TRIPINFOR].[Registration number of bus] AS [Registration number of bus], 
+    [V_TRIPINFOR].[Start point] AS [Start point], 
+    [V_TRIPINFOR].[End point] AS [End point], 
+    [V_TRIPINFOR].[Departure time] AS [Departure time], 
+    [V_TRIPINFOR].[Duration] AS [Duration], 
+    [V_TRIPINFOR].[Remain seat] AS [Remain seat], 
+    [V_TRIPINFOR].[Status] AS [Status]
+    FROM [dbo].[V_TRIPINFOR] AS [V_TRIPINFOR]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_USERINFOR" EntityType="Self.V_USERINFOR" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [V_USERINFOR].[id_passenger] AS [id_passenger], 
+    [V_USERINFOR].[name] AS [name], 
+    [V_USERINFOR].[phone_number] AS [phone_number], 
+    [V_USERINFOR].[username] AS [username], 
+    [V_USERINFOR].[password] AS [password]
+    FROM [dbo].[V_USERINFOR] AS [V_USERINFOR]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_agent_event_id_agent" Association="Self.FK_agent_event_id_agent">
+      <End Role="AGENT" EntitySet="AGENT" />
+      <End Role="AGENT_EVENT" EntitySet="AGENT_EVENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_agent_event_id_event" Association="Self.FK_agent_event_id_event">
+      <End Role="EVENT" EntitySet="EVENT" />
+      <End Role="AGENT_EVENT" EntitySet="AGENT_EVENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_agent_id_cash_reserve" Association="Self.FK_agent_id_cash_reserve">
+      <End Role="CASHRESERVE" EntitySet="CASHRESERVE" />
+      <End Role="AGENT" EntitySet="AGENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_agent_id_place" Association="Self.FK_agent_id_place">
+      <End Role="PLACE" EntitySet="PLACE" />
+      <End Role="AGENT" EntitySet="AGENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_agent_policy_id_agent" Association="Self.FK_agent_policy_id_agent">
+      <End Role="AGENT" EntitySet="AGENT" />
+      <End Role="AGENT_POLICY" EntitySet="AGENT_POLICY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_agent_policy_id_policy" Association="Self.FK_agent_policy_id_policy">
+      <End Role="PACKAGEPRICEPOLICY" EntitySet="PACKAGEPRICEPOLICY" />
+      <End Role="AGENT_POLICY" EntitySet="AGENT_POLICY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_agent_refund_id_agent" Association="Self.FK_agent_refund_id_agent">
+      <End Role="AGENT" EntitySet="AGENT" />
+      <End Role="AGENT_REFUND" EntitySet="AGENT_REFUND" />
+    </AssociationSet>
+    <AssociationSet Name="FK_agent_refund_id_refund" Association="Self.FK_agent_refund_id_refund">
+      <End Role="REFUND" EntitySet="REFUND" />
+      <End Role="AGENT_REFUND" EntitySet="AGENT_REFUND" />
+    </AssociationSet>
+    <AssociationSet Name="FK_agent_trip_id_agent" Association="Self.FK_agent_trip_id_agent">
+      <End Role="AGENT" EntitySet="AGENT" />
+      <End Role="AGENT_TRIP" EntitySet="AGENT_TRIP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_agent_trip_id_trip" Association="Self.FK_agent_trip_id_trip">
+      <End Role="TRIP" EntitySet="TRIP" />
+      <End Role="AGENT_TRIP" EntitySet="AGENT_TRIP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_booking_id_employee" Association="Self.FK_booking_id_employee">
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+      <End Role="BOOKING" EntitySet="BOOKING" />
+    </AssociationSet>
+    <AssociationSet Name="FK_booking_id_passenger" Association="Self.FK_booking_id_passenger">
+      <End Role="PASSENGER" EntitySet="PASSENGER" />
+      <End Role="BOOKING" EntitySet="BOOKING" />
+    </AssociationSet>
+    <AssociationSet Name="FK_booking_id_ticket" Association="Self.FK_booking_id_ticket">
+      <End Role="TICKET" EntitySet="TICKET" />
+      <End Role="BOOKING" EntitySet="BOOKING" />
+    </AssociationSet>
+    <AssociationSet Name="FK_busroute_busstation_id_bus_route" Association="Self.FK_busroute_busstation_id_bus_route">
+      <End Role="BUSROUTE" EntitySet="BUSROUTE" />
+      <End Role="BUSROUTE_BUSSTATION" EntitySet="BUSROUTE_BUSSTATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_busroute_busstation_id_bus_station" Association="Self.FK_busroute_busstation_id_bus_station">
+      <End Role="BUSSTATION" EntitySet="BUSSTATION" />
+      <End Role="BUSROUTE_BUSSTATION" EntitySet="BUSROUTE_BUSSTATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_busroute_id_end_bus_station" Association="Self.FK_busroute_id_end_bus_station">
+      <End Role="BUSSTATION" EntitySet="BUSSTATION" />
+      <End Role="BUSROUTE" EntitySet="BUSROUTE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_busroute_id_start_bus_station" Association="Self.FK_busroute_id_start_bus_station">
+      <End Role="BUSSTATION" EntitySet="BUSSTATION" />
+      <End Role="BUSROUTE" EntitySet="BUSROUTE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_busstation_id_place" Association="Self.FK_busstation_id_place">
+      <End Role="PLACE" EntitySet="PLACE" />
+      <End Role="BUSSTATION" EntitySet="BUSSTATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_employee_id_account" Association="Self.FK_employee_id_account">
+      <End Role="SYSTEMACCOUNT" EntitySet="SYSTEMACCOUNT" />
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_employee_id_agent" Association="Self.FK_employee_id_agent">
+      <End Role="AGENT" EntitySet="AGENT" />
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_employee_position_id_employee" Association="Self.FK_employee_position_id_employee">
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+      <End Role="EMPLOYEE_POSITION" EntitySet="EMPLOYEE_POSITION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_employee_position_id_position" Association="Self.FK_employee_position_id_position">
+      <End Role="POSITION" EntitySet="POSITION" />
+      <End Role="EMPLOYEE_POSITION" EntitySet="EMPLOYEE_POSITION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_employee_ticket_id_employee" Association="Self.FK_employee_ticket_id_employee">
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+      <End Role="EMPLOYEE_TICKET" EntitySet="EMPLOYEE_TICKET" />
+    </AssociationSet>
+    <AssociationSet Name="FK_employee_ticket_id_ticket" Association="Self.FK_employee_ticket_id_ticket">
+      <End Role="TICKET" EntitySet="TICKET" />
+      <End Role="EMPLOYEE_TICKET" EntitySet="EMPLOYEE_TICKET" />
+    </AssociationSet>
+    <AssociationSet Name="FK_package_id_trip" Association="Self.FK_package_id_trip">
+      <End Role="TRIP" EntitySet="TRIP" />
+      <End Role="PACKAGE" EntitySet="PACKAGE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_position_privilege_id_position" Association="Self.FK_position_privilege_id_position">
+      <End Role="POSITION" EntitySet="POSITION" />
+      <End Role="POSITION_PRIVILEGE" EntitySet="POSITION_PRIVILEGE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_position_privilege_id_privilege" Association="Self.FK_position_privilege_id_privilege">
+      <End Role="PRIVILEGE" EntitySet="PRIVILEGE" />
+      <End Role="POSITION_PRIVILEGE" EntitySet="POSITION_PRIVILEGE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ticket_id_trip" Association="Self.FK_ticket_id_trip">
+      <End Role="TRIP" EntitySet="TRIP" />
+      <End Role="TICKET" EntitySet="TICKET" />
+    </AssociationSet>
+    <AssociationSet Name="FK_trip_driver_id_driver" Association="Self.FK_trip_driver_id_driver">
+      <End Role="DRIVER" EntitySet="DRIVER" />
+      <End Role="TRIP_DRIVER" EntitySet="TRIP_DRIVER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_trip_driver_id_trip" Association="Self.FK_trip_driver_id_trip">
+      <End Role="TRIP" EntitySet="TRIP" />
+      <End Role="TRIP_DRIVER" EntitySet="TRIP_DRIVER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_trip_id_bus" Association="Self.FK_trip_id_bus">
+      <End Role="BUS" EntitySet="BUS" />
+      <End Role="TRIP" EntitySet="TRIP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_trip_id_bus_route" Association="Self.FK_trip_id_bus_route">
+      <End Role="BUSROUTE" EntitySet="BUSROUTE" />
+      <End Role="TRIP" EntitySet="TRIP" />
+    </AssociationSet>
+    <AssociationSet Name="PK_passengerAccount_id_passenger" Association="Self.PK_passengerAccount_id_passenger">
+      <End Role="PASSENGER" EntitySet="PASSENGER" />
+      <End Role="PASSENGERACCOUNT" EntitySet="PASSENGERACCOUNT" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
