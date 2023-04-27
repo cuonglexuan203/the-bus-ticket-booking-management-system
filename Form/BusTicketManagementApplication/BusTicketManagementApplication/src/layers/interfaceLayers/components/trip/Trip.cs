@@ -1,6 +1,7 @@
 ﻿using BusTicketManagementApplication.src.layers.businessLayers;
 using BusTicketManagementApplication.src.layers.interfaceLayers.components.booking;
 using BusTicketManagementApplication.src.layers.interfaceLayers.components.home;
+using BusTicketManagementApplication.src.layers.interfaceLayers.components.staff;
 using BusTicketManagementApplication.src.layers.interfaceLayers.Data;
 using System;
 using System.Collections.Generic;
@@ -31,9 +32,15 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.t
         {
             InitializeComponent();
             this.parentForm = parent;
+            //
+            if (!UserData.IsPassenger)
+            {
+                this.BtnBooking.Hide();
+            }
         }
         private void Trip_Load(object sender, EventArgs e)
         {
+            
             LoadDefaultPlace();
         }
         // common functions
@@ -52,7 +59,15 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.t
         private void FilterTrips()
         {
             BSTrip bSTrip = new BSTrip();
-            this.DgvMainData.DataSource = bSTrip.SearchAvailableTrips(searchInput, source, destination, departureTime);
+            if (this.parentForm.MainFeatureIndex == 1)
+            {
+                this.DgvMainData.DataSource = bSTrip.SearchAvailableTrips(searchInput, source, destination, departureTime);
+
+            }
+            else if (this.parentForm.MainFeatureIndex == 6 && StaffNavigationbar.NavIndex == 1)
+            {
+                this.DgvMainData.DataSource = bSTrip.SearchTrips(searchInput, source, destination, departureTime);
+            }
         }
 
 

@@ -70,11 +70,11 @@ inner join PLACE as b on a.id_place = b.id_place
 
 go
 
-create view V_AGENTINFOR as
-select a.id_agent as [Agent ID], a.phone as [Phone], a.address as [Address], b.region as [Region] 
+create view [dbo].[V_AGENTINFOR] as
+select a.id_agent as [Agent ID], a.phone as [Phone], a.address as [Address], b.region as [Region] , c.counter as [Money]
 from AGENT as a
 inner join PLACE as b on a.id_place = b.id_place
-
+inner join CASHRESERVE as c on a.id_cash_reserve = c.id_cash_reserve
 go
 --
 create view [dbo].[V_EMPLOYEEINFOR] as

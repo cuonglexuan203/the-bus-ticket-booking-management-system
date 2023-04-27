@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusTicketManagementApplication.src.layers.interfaceLayers.controllers.interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.booking
 {
-    public partial class BookingNavigationBar : Form
+    public partial class BookingNavigationBar : Form, INavigationBar
     {
         private static int navIndex = 0;
         private App parentForm;
@@ -26,7 +27,7 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.b
 
         public static int NavIndex { get => navIndex; set => navIndex = value; }
 
-        private void Handler_NavBtn_Click(object sender, EventArgs e)
+        public void Handler_NavBtn_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
             int tag = Convert.ToInt16(button.Tag.ToString());
@@ -34,7 +35,8 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.b
             this.parentForm.MainFeatureIndex = 4; // virtual number
         }
 
-        private void PnlMainContainer_Paint(object sender, PaintEventArgs e)
+
+        public void PnlMainContainer_Paint(object sender, PaintEventArgs e)
         {
             Button selectedBtn = null;
             if (navIndex == 0)

@@ -40,7 +40,25 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
             return res.ToList();
         }
 
-        
+        public List<V_TRIPINFOR> SearchTrips(string input, string src, string des, DateTime dateTime)
+        {
+            BusManagementEntities db = new BusManagementEntities();
+
+            var res = db.V_TRIPINFOR.Where(d => d.Departure_time > dateTime);
+            if (src != "All")
+            {
+                res = res.Where(d => d.Start_point == src);
+            }
+            if (des != "All")
+            {
+                res = res.Where(d => d.End_point == des);
+            }
+            if (!string.IsNullOrEmpty(input))
+            {
+                res = res.Where(d => d.Trip_ID.Contains(input.Trim()));
+            }
+            return res.ToList();
+        }
 
     }
 }

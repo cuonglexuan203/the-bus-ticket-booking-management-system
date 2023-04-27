@@ -249,6 +249,7 @@ warning 6002: The table/view 'BusManagement.dbo.V_AGENTINFOR' does not have a pr
           <Property Name="Phone" Type="char" MaxLength="20" Nullable="false" />
           <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Region" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Money" Type="money" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'BusManagement.dbo.V_AVAILABLETRIP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -887,7 +888,8 @@ warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a pri
     [V_AGENTINFOR].[Agent ID] AS [Agent ID], 
     [V_AGENTINFOR].[Phone] AS [Phone], 
     [V_AGENTINFOR].[Address] AS [Address], 
-    [V_AGENTINFOR].[Region] AS [Region]
+    [V_AGENTINFOR].[Region] AS [Region], 
+    [V_AGENTINFOR].[Money] AS [Money]
     FROM [dbo].[V_AGENTINFOR] AS [V_AGENTINFOR]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="V_AVAILABLETRIP" EntityType="Self.V_AVAILABLETRIP" store:Type="Views" store:Schema="dbo">
@@ -1567,6 +1569,7 @@ warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a pri
           <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
           <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Region" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Money" Type="Decimal" Precision="19" Scale="4" />
         </EntityType>
         <EntityType Name="V_AVAILABLETRIP">
           <Key>
@@ -2152,6 +2155,7 @@ warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a pri
           <EntitySetMapping Name="V_AGENTINFOR">
             <EntityTypeMapping TypeName="BusManagementModel.V_AGENTINFOR">
               <MappingFragment StoreEntitySet="V_AGENTINFOR">
+                <ScalarProperty Name="Money" ColumnName="Money" />
                 <ScalarProperty Name="Region" ColumnName="Region" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />

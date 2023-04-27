@@ -86,6 +86,16 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusManagementDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BusManagementDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BusManagementDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BusManagementDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="HomePage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,7 +206,6 @@
     <Compile Include="src\dbConnection\V_BOOKINGINFOR.cs">
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="src\dbConnection\V_BUSINFOR.cs" />
     <Compile Include="src\dbConnection\V_BUSSTATIONINFOR.cs">
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
@@ -217,16 +226,37 @@
     </Compile>
     <Compile Include="src\env\locals\LocalEnv.cs" />
     <Compile Include="src\env\statics\StaticEnv.cs" />
+    <Compile Include="src\layers\businessLayers\BSAgent.cs" />
     <Compile Include="src\layers\businessLayers\BSBooked.cs" />
     <Compile Include="src\layers\businessLayers\BSBooking.cs" />
     <Compile Include="src\layers\businessLayers\BSBus.cs" />
+    <Compile Include="src\layers\businessLayers\BSEmployee.cs" />
     <Compile Include="src\layers\businessLayers\BSLogin.cs" />
     <Compile Include="src\layers\businessLayers\BSMain.cs" />
     <Compile Include="src\layers\businessLayers\BSPassenger.cs" />
     <Compile Include="src\layers\businessLayers\BSPlace.cs" />
+    <Compile Include="src\layers\businessLayers\BSPosition.cs" />
     <Compile Include="src\layers\businessLayers\BSRoute.cs" />
     <Compile Include="src\layers\businessLayers\BSTicket.cs" />
     <Compile Include="src\layers\businessLayers\BSTrip.cs" />
+    <Compile Include="src\layers\interfaceLayers\components\admin\AdminNavigationBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\admin\AdminNavigationBar.Designer.cs">
+      <DependentUpon>AdminNavigationBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\admin\CashReserve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\admin\CashReserve.Designer.cs">
+      <DependentUpon>CashReserve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\admin\Employee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\admin\Employee.Designer.cs">
+      <DependentUpon>Employee.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\layers\interfaceLayers\components\booking\Booked.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -287,6 +317,18 @@
     <Compile Include="src\layers\interfaceLayers\components\setting\ChangePassword.Designer.cs">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\staff\Passenger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\staff\Passenger.Designer.cs">
+      <DependentUpon>Passenger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\staff\StaffNavigationBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\staff\StaffNavigationBar.Designer.cs">
+      <DependentUpon>StaffNavigationBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\layers\interfaceLayers\components\trip\Trip.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -295,6 +337,7 @@
     </Compile>
     <Compile Include="src\layers\interfaceLayers\controllers\EmailSender.cs" />
     <Compile Include="src\layers\interfaceLayers\controllers\interfaces\IEmailSender.cs" />
+    <Compile Include="src\layers\interfaceLayers\controllers\interfaces\INavigationBar.cs" />
     <Compile Include="src\layers\interfaceLayers\customizeUI\initialData\InitData.cs" />
     <Compile Include="src\layers\interfaceLayers\customizeUI\initialUI\InitUI.cs">
       <SubType>Form</SubType>
@@ -313,6 +356,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="src\layers\interfaceLayers\components\admin\AdminNavigationBar.resx">
+      <DependentUpon>AdminNavigationBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\layers\interfaceLayers\components\admin\CashReserve.resx">
+      <DependentUpon>CashReserve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\layers\interfaceLayers\components\admin\Employee.resx">
+      <DependentUpon>Employee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\layers\interfaceLayers\components\booking\Booked.resx">
       <DependentUpon>Booked.cs</DependentUpon>
     </EmbeddedResource>
@@ -343,9 +395,37 @@
     <EmbeddedResource Include="src\layers\interfaceLayers\components\setting\ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="src\layers\interfaceLayers\components\staff\Passenger.resx">
+      <DependentUpon>Passenger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\layers\interfaceLayers\components\staff\StaffNavigationBar.resx">
+      <DependentUpon>StaffNavigationBar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\layers\interfaceLayers\components\trip\Trip.resx">
       <DependentUpon>Trip.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="BusManagementDataSet.xsc">
+      <DependentUpon>BusManagementDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BusManagementDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BusManagementDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BusManagementDataSet.xss">
+      <DependentUpon>BusManagementDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BusManagementDataSet1.xsc">
+      <DependentUpon>BusManagementDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="BusManagementDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BusManagementDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BusManagementDataSet1.xss">
+      <DependentUpon>BusManagementDataSet1.xsd</DependentUpon>
+    </None>
     <None Include="BusTicketManagementApplication.src.dbConnection.V_BOOKEDTICKET.datasource" />
     <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.AGENT.datasource" />
     <None Include="Datasource\BusTicketManagementApplication.src.dbConnection.BOOKING.datasource" />

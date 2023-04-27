@@ -18,7 +18,7 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.Data
         //
         private static bool isAdmin = false;
         private static bool isStaff = false;
-        private static bool isPassenger = false;
+        private static bool isPassenger = true;
         //
         private static string systemId = string.Empty;
         //
@@ -60,7 +60,7 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.Data
             //
             isAdmin = false;
             isStaff = false;
-            isPassenger = false;
+            isPassenger = true;
             systemId = string.Empty;
             //
             fullName = string.Empty;

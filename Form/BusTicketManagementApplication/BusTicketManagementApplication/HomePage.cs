@@ -19,6 +19,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Button = System.Windows.Forms.Button;
 using KeyEventArgs = System.Windows.Forms.KeyEventArgs;
 using BusTicketManagementApplication.src.layers.interfaceLayers.components.setting;
+using BusTicketManagementApplication.src.layers.interfaceLayers.components.staff;
+using BusTicketManagementApplication.src.layers.interfaceLayers.components.admin;
+using BusTicketManagementApplication.src.layers.businessLayers;
 
 namespace BusTicketManagementApplication
 {
@@ -91,6 +94,38 @@ namespace BusTicketManagementApplication
                             {
                                 break;
                             }
+                        case 6:
+                            {
+                                RenderActiveForm(new StaffNavigationbar(this), this.PnlNavigationBar);
+                                //
+                                Form renderForm = new Passenger();
+                                if (StaffNavigationbar.NavIndex == 0)
+                                {
+
+                                }
+                                else if(StaffNavigationbar.NavIndex == 1)
+                                {
+                                    renderForm = new Trip(this);
+                                }
+                                RenderActiveForm(renderForm, this.PnlFillContent);
+                                break;
+                            }
+                        case 7:
+                            {
+                                RenderActiveForm(new AdminNavigationBar(this), this.PnlNavigationBar);
+                                //
+                                Form renderForm = new CashReserve();
+                                if (AdminNavigationBar.NavIndex == 0)
+                                {
+
+                                }
+                                else if (AdminNavigationBar.NavIndex == 1)
+                                {
+                                    renderForm = new Employee();
+                                }
+                                RenderActiveForm(renderForm, this.PnlFillContent);
+                                break;
+                            }
                     }
                 }
 
@@ -133,6 +168,17 @@ namespace BusTicketManagementApplication
                 if(loginResult == DialogResult.OK)
                 {
                     UserData.Islogin = true;
+                    HideAdminUI();
+                    if (UserData.IsStaff)
+                    {
+
+                        ShowStaffUI();
+                    }
+                    else if (UserData.IsAdmin)
+                    {
+                        ShowAdminUI();
+                    }
+
                 }
             }
             return UserData.Islogin;
@@ -197,7 +243,7 @@ namespace BusTicketManagementApplication
         {
             foreach (Control ctr in featureItems[featureIndex])
             {
-                ctr.BackColor = Color.White;
+                ctr.BackColor = Color.Gainsboro;
             }
         }
         private void Handler_Features_Click(object sender, EventArgs e)
@@ -272,63 +318,30 @@ namespace BusTicketManagementApplication
             this.PcbSetting.BackColor = Color.Transparent;
             this.BtnSetting.ForeColor = Color.White;
         }
-
+        private void SetBackgroundColor_HoverControl(Control ctr, Color color)
+        {
+            for (int i = 0; i < featureItems.Count; i++)
+            {
+                if (i != mainFeatureIndex)
+                {
+                    if (featureItems[i][0] == ctr || featureItems[i][1] == ctr)
+                    {
+                        featureItems[i][0].BackColor = color;
+                        featureItems[i][1].BackColor = color;
+                    }
+                }
+            }
+        }
         private void Handler_Features_MouseEnter(object sender, EventArgs e)
         {
-            Button btn = sender as Button;
-            if (btn == this.BtnHome)
-            {
-                this.PcbHome.BackColor = Color.Gainsboro;
-            }
-            else if (btn == this.BtnTrip)
-            {
-                this.PcbTrip.BackColor = Color.Gainsboro;
-            }
-            else if (btn == this.BtnBus)
-            {
-                this.PcbBus.BackColor = Color.Gainsboro;
-            }
-            else if (btn == this.BtnDriver)
-            {
-                this.PcbDriver.BackColor = Color.Gainsboro;
-            }
-            else if (btn == this.BtnBooking)
-            {
-                this.PcbBooking.BackColor = Color.Gainsboro;
-            }
-            else if (btn == this.BtnAboutUs)
-            {
-                this.PcbAboutUs.BackColor = Color.Gainsboro;
-            }
+            Control curCtrl = sender as Control;
+            SetBackgroundColor_HoverControl(curCtrl, Color.Gainsboro);
         }
 
         private void Handler_Features_MouseLeave(object sender, EventArgs e)
         {
-            Button btn = sender as Button;
-            if (btn == this.BtnHome)
-            {
-                this.PcbHome.BackColor = Color.Transparent;
-            }
-            else if (btn == this.BtnTrip)
-            {
-                this.PcbTrip.BackColor = Color.Transparent;
-            }
-            else if (btn == this.BtnBus)
-            {
-                this.PcbBus.BackColor = Color.Transparent;
-            }
-            else if (btn == this.BtnDriver)
-            {
-                this.PcbDriver.BackColor = Color.Transparent;
-            }
-            else if (btn == this.BtnBooking)
-            {
-                this.PcbBooking.BackColor = Color.Transparent;
-            }
-            else if (btn == this.BtnAboutUs)
-            {
-                this.PcbAboutUs.BackColor = Color.Transparent;
-            }
+            Control curCtrl = sender as Control;
+            SetBackgroundColor_HoverControl(curCtrl, Color.Transparent);
         }
 
         private void BtnChangePassword_Click(object sender, EventArgs e)

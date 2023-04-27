@@ -38,5 +38,23 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
                 MessageBox.Show("Can not find out the passenger!");
             }
         }
+        public List<PASSENGER> SearchPassenger(string input, int tag)
+        {
+            BusManagementEntities db = new BusManagementEntities();
+
+            var res = db.PASSENGERs.ToList();
+            if (!string.IsNullOrEmpty(input))
+            {
+                if(tag == 0)
+                {
+                    res = res.Where(d => d.id_passenger.Contains(input.Trim())).ToList();
+                }
+                else if(tag == 1)
+                {
+                    res = res.Where(d => d.name.Contains(input.Trim())).ToList();
+                }
+            }
+            return res.ToList();
+        }
     }
 }
