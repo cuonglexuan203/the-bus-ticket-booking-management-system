@@ -256,7 +256,6 @@ namespace BusTicketManagementApplication
             {
                 SetTagIndex(sender);
             }
-            
         }
         private void SetTagIndex(object sender)
         {

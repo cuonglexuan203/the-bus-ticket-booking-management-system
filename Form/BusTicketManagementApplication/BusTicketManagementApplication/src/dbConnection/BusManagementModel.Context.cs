@@ -14,12 +14,22 @@ namespace BusTicketManagementApplication.src.dbConnection
     using System.Data.Entity.Infrastructure;
     using System.Data.Entity.Core.Objects;
     using System.Linq;
-    
+    using BusTicketManagementApplication.src.env.statics;
+
     public partial class BusManagementEntities : DbContext
     {
-        public BusManagementEntities()
-            : base("name=BusManagementEntities")
+        //public BusManagementEntities()
+        //    : base("name=BusManagementEntities")
+        //{
+        //}
+        
+        public BusManagementEntities() : base(StaticEnv.GetEFConnectionString())
         {
+
+        }
+        public BusManagementEntities(bool type) : base("name=BusManagementEntities")
+        {
+
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -178,13 +188,22 @@ namespace BusTicketManagementApplication.src.dbConnection
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pro_CancelTicket", id_ticketParameter);
         }
     
-        public virtual ObjectResult<pro_DisableEmployee_Result1> pro_DisableEmployee(string id_employee)
+        public virtual ObjectResult<Nullable<int>> pro_CheckUniqueUser(string username)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("username", username) :
+                new ObjectParameter("username", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("pro_CheckUniqueUser", usernameParameter);
+        }
+    
+        public virtual ObjectResult<pro_DisableEmployee_Result2> pro_DisableEmployee(string id_employee)
         {
             var id_employeeParameter = id_employee != null ?
                 new ObjectParameter("id_employee", id_employee) :
                 new ObjectParameter("id_employee", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pro_DisableEmployee_Result1>("pro_DisableEmployee", id_employeeParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pro_DisableEmployee_Result2>("pro_DisableEmployee", id_employeeParameter);
         }
     
         public virtual int pro_SetCancelTrip(string id_trip)
@@ -269,7 +288,7 @@ namespace BusTicketManagementApplication.src.dbConnection
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_dropdiagram", diagramnameParameter, owner_idParameter);
         }
     
-        public virtual ObjectResult<sp_helpdiagramdefinition_Result3> sp_helpdiagramdefinition(string diagramname, Nullable<int> owner_id)
+        public virtual ObjectResult<sp_helpdiagramdefinition_Result4> sp_helpdiagramdefinition(string diagramname, Nullable<int> owner_id)
         {
             var diagramnameParameter = diagramname != null ?
                 new ObjectParameter("diagramname", diagramname) :
@@ -279,10 +298,10 @@ namespace BusTicketManagementApplication.src.dbConnection
                 new ObjectParameter("owner_id", owner_id) :
                 new ObjectParameter("owner_id", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagramdefinition_Result3>("sp_helpdiagramdefinition", diagramnameParameter, owner_idParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagramdefinition_Result4>("sp_helpdiagramdefinition", diagramnameParameter, owner_idParameter);
         }
     
-        public virtual ObjectResult<sp_helpdiagrams_Result3> sp_helpdiagrams(string diagramname, Nullable<int> owner_id)
+        public virtual ObjectResult<sp_helpdiagrams_Result4> sp_helpdiagrams(string diagramname, Nullable<int> owner_id)
         {
             var diagramnameParameter = diagramname != null ?
                 new ObjectParameter("diagramname", diagramname) :
@@ -292,7 +311,7 @@ namespace BusTicketManagementApplication.src.dbConnection
                 new ObjectParameter("owner_id", owner_id) :
                 new ObjectParameter("owner_id", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagrams_Result3>("sp_helpdiagrams", diagramnameParameter, owner_idParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagrams_Result4>("sp_helpdiagrams", diagramnameParameter, owner_idParameter);
         }
     
         public virtual int sp_renamediagram(string diagramname, Nullable<int> owner_id, string new_diagramname)
@@ -315,15 +334,6 @@ namespace BusTicketManagementApplication.src.dbConnection
         public virtual int sp_upgraddiagrams()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
-        }
-    
-        public virtual ObjectResult<Nullable<int>> pro_CheckUniqueUser(string username)
-        {
-            var usernameParameter = username != null ?
-                new ObjectParameter("username", username) :
-                new ObjectParameter("username", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("pro_CheckUniqueUser", usernameParameter);
         }
     }
 }
