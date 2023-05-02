@@ -32,6 +32,13 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.b
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Bus));
             this.dgvMainData = new System.Windows.Forms.DataGridView();
+            this.idbusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.registrationnumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.capacityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.busBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.GbSearchBox = new System.Windows.Forms.GroupBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.cbSearch = new System.Windows.Forms.ComboBox();
@@ -42,19 +49,11 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.b
             this.lblFilter = new System.Windows.Forms.Label();
             this.PnlApp = new System.Windows.Forms.Panel();
             this.BtnBooking = new System.Windows.Forms.Button();
-            this.idbusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.registrationnumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.capacityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.tRIPsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.busBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMainData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.busBindingSource)).BeginInit();
             this.GbSearchBox.SuspendLayout();
             this.pnlFilter.SuspendLayout();
             this.PnlApp.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.busBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvMainData
@@ -72,8 +71,7 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.b
             this.modelDataGridViewTextBoxColumn,
             this.capacityDataGridViewTextBoxColumn,
             this.statusDataGridViewTextBoxColumn,
-            this.typeDataGridViewCheckBoxColumn,
-            this.tRIPsDataGridViewTextBoxColumn});
+            this.typeDataGridViewCheckBoxColumn});
             this.dgvMainData.DataSource = this.busBindingSource;
             this.dgvMainData.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvMainData.GridColor = System.Drawing.SystemColors.ButtonFace;
@@ -85,8 +83,67 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.b
             this.dgvMainData.RowHeadersVisible = false;
             this.dgvMainData.RowHeadersWidth = 51;
             this.dgvMainData.RowTemplate.Height = 40;
+            this.dgvMainData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMainData.Size = new System.Drawing.Size(1304, 348);
             this.dgvMainData.TabIndex = 12;
+            // 
+            // idbusDataGridViewTextBoxColumn
+            // 
+            this.idbusDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.idbusDataGridViewTextBoxColumn.DataPropertyName = "id_bus";
+            this.idbusDataGridViewTextBoxColumn.HeaderText = "ID_bus";
+            this.idbusDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idbusDataGridViewTextBoxColumn.Name = "idbusDataGridViewTextBoxColumn";
+            this.idbusDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // registrationnumberDataGridViewTextBoxColumn
+            // 
+            this.registrationnumberDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.registrationnumberDataGridViewTextBoxColumn.DataPropertyName = "registration_number";
+            this.registrationnumberDataGridViewTextBoxColumn.HeaderText = "Registration_number";
+            this.registrationnumberDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.registrationnumberDataGridViewTextBoxColumn.Name = "registrationnumberDataGridViewTextBoxColumn";
+            this.registrationnumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // modelDataGridViewTextBoxColumn
+            // 
+            this.modelDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.modelDataGridViewTextBoxColumn.DataPropertyName = "model";
+            this.modelDataGridViewTextBoxColumn.HeaderText = "Model";
+            this.modelDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
+            this.modelDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // capacityDataGridViewTextBoxColumn
+            // 
+            this.capacityDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.capacityDataGridViewTextBoxColumn.DataPropertyName = "capacity";
+            this.capacityDataGridViewTextBoxColumn.HeaderText = "Capacity";
+            this.capacityDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.capacityDataGridViewTextBoxColumn.Name = "capacityDataGridViewTextBoxColumn";
+            this.capacityDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            this.statusDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // typeDataGridViewCheckBoxColumn
+            // 
+            this.typeDataGridViewCheckBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.typeDataGridViewCheckBoxColumn.DataPropertyName = "type";
+            this.typeDataGridViewCheckBoxColumn.HeaderText = "Type";
+            this.typeDataGridViewCheckBoxColumn.MinimumWidth = 6;
+            this.typeDataGridViewCheckBoxColumn.Name = "typeDataGridViewCheckBoxColumn";
+            this.typeDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // busBindingSource
+            // 
+            this.busBindingSource.DataSource = typeof(BusTicketManagementApplication.src.dbConnection.BUS);
             // 
             // GbSearchBox
             // 
@@ -220,66 +277,6 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.b
             this.BtnBooking.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnBooking.UseVisualStyleBackColor = false;
             // 
-            // idbusDataGridViewTextBoxColumn
-            // 
-            this.idbusDataGridViewTextBoxColumn.DataPropertyName = "id_bus";
-            this.idbusDataGridViewTextBoxColumn.HeaderText = "id_bus";
-            this.idbusDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idbusDataGridViewTextBoxColumn.Name = "idbusDataGridViewTextBoxColumn";
-            this.idbusDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // registrationnumberDataGridViewTextBoxColumn
-            // 
-            this.registrationnumberDataGridViewTextBoxColumn.DataPropertyName = "registration_number";
-            this.registrationnumberDataGridViewTextBoxColumn.HeaderText = "registration_number";
-            this.registrationnumberDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.registrationnumberDataGridViewTextBoxColumn.Name = "registrationnumberDataGridViewTextBoxColumn";
-            this.registrationnumberDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // modelDataGridViewTextBoxColumn
-            // 
-            this.modelDataGridViewTextBoxColumn.DataPropertyName = "model";
-            this.modelDataGridViewTextBoxColumn.HeaderText = "model";
-            this.modelDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
-            this.modelDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // capacityDataGridViewTextBoxColumn
-            // 
-            this.capacityDataGridViewTextBoxColumn.DataPropertyName = "capacity";
-            this.capacityDataGridViewTextBoxColumn.HeaderText = "capacity";
-            this.capacityDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.capacityDataGridViewTextBoxColumn.Name = "capacityDataGridViewTextBoxColumn";
-            this.capacityDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "status";
-            this.statusDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            this.statusDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // typeDataGridViewCheckBoxColumn
-            // 
-            this.typeDataGridViewCheckBoxColumn.DataPropertyName = "type";
-            this.typeDataGridViewCheckBoxColumn.HeaderText = "type";
-            this.typeDataGridViewCheckBoxColumn.MinimumWidth = 6;
-            this.typeDataGridViewCheckBoxColumn.Name = "typeDataGridViewCheckBoxColumn";
-            this.typeDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
-            // tRIPsDataGridViewTextBoxColumn
-            // 
-            this.tRIPsDataGridViewTextBoxColumn.DataPropertyName = "TRIPs";
-            this.tRIPsDataGridViewTextBoxColumn.HeaderText = "TRIPs";
-            this.tRIPsDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.tRIPsDataGridViewTextBoxColumn.Name = "tRIPsDataGridViewTextBoxColumn";
-            this.tRIPsDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // busBindingSource
-            // 
-            this.busBindingSource.DataSource = typeof(BusTicketManagementApplication.src.dbConnection.BUS);
-            // 
             // Bus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
@@ -297,12 +294,12 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.b
             this.Text = "Bus";
             this.Load += new System.EventHandler(this.Bus_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMainData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.busBindingSource)).EndInit();
             this.GbSearchBox.ResumeLayout(false);
             this.GbSearchBox.PerformLayout();
             this.pnlFilter.ResumeLayout(false);
             this.pnlFilter.PerformLayout();
             this.PnlApp.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.busBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -327,6 +324,5 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.b
         private System.Windows.Forms.DataGridViewTextBoxColumn capacityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn typeDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tRIPsDataGridViewTextBoxColumn;
     }
 }

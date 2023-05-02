@@ -34,7 +34,7 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
             BusManagementEntities db = new BusManagementEntities(StaticEnv.GetDefaultEFConnectionString());
             return db.V_EMPLOYEEINFOR.Count(d => d.Employees_ID == employeeId && d.Position == "administrator") > 0;
         }
-        public bool ValidateUser(string username, string password,ref string passengerId, ref string employeeId, ref string errMsg)
+        public bool ValidateUser(string username, string password, ref string passengerId, ref string employeeId, ref string errMsg)
         {
             try
             {
@@ -60,19 +60,19 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
                 errMsg = "Username or Password is incorrect!";
                 passengerId = string.Empty;
             }
-            catch(SqlException err)
+            catch (SqlException err)
             {
                 errMsg = err.Message;
                 MessageBox.Show(errMsg);
             }
-            catch(Exception err)
+            catch (Exception err)
             {
                 errMsg = err.Message;
                 MessageBox.Show(errMsg);
             }
             return false;
         }
-        public bool CreateNewUser(string username, string password,string name, string phone,ref string passengerId, ref string errMsg)
+        public bool CreateNewUser(string username, string password, string name, string phone, ref string passengerId, ref string errMsg)
         {
             passengerId = string.Empty;
             try
@@ -135,39 +135,41 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
             //
             try
             {
-                BusManagementEntities db = new BusManagementEntities();
+                BusManagementEntities db = new BusManagementEntities(StaticEnv.GetDefaultEFConnectionString());
                 if (UserData.IsPassenger)
                 {
-                    var curUser = db.PASSENGERACCOUNTs.Where(d => d.username == username).FirstOrDefault();
-                    //
-                    if (curUser == null)
-                    {
-                        res = false;
-                        return res;
-                    }
-                    //
-                    curUser.password = newPassword;
+                    //var curUser = db.PASSENGERACCOUNTs.Where(d => d.username == username).FirstOrDefault();
+                    ////
+                    //if (curUser == null)
+                    //{
+                    //    res = false;
+                    //    return res;
+                    //}
+                    ////
+                    //curUser.password = newPassword;
+                    db.pro_ChangePassengerPassword(username, newPassword);
                 }
                 else
                 {
-                    var curUser = db.SYSTEMACCOUNTs.Where(d => d.username == username).FirstOrDefault();
-                    if (curUser == null)
-                    {
-                        res = false;
-                        return res;
-                    }
-                    curUser.pass = newPassword;
+                    //var curUser = db.SYSTEMACCOUNTs.Where(d => d.username == username).FirstOrDefault();
+                    //if (curUser == null)
+                    //{
+                    //    res = false;
+                    //    return res;
+                    //}
+                    //curUser.pass = newPassword;
+                    db.pro_ChangeSystemPassword(username, newPassword);
                 }
-                db.SaveChanges();
             }
             catch (SqlException err)
             {
                 MessageBox.Show(err.Message);
                 return false;
             }
-            catch(Exception err)
+            catch (Exception err)
             {
                 MessageBox.Show(err.Message);
+                return false;
             }
             return res;
         }

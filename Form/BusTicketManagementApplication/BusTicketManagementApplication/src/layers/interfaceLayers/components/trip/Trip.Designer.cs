@@ -174,6 +174,7 @@
             this.statusDataGridViewTextBoxColumn});
             this.DgvMainData.DataSource = this.vTRIPINFORBindingSource;
             this.DgvMainData.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.DgvMainData.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.DgvMainData.Location = new System.Drawing.Point(0, 163);
             this.DgvMainData.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.DgvMainData.MultiSelect = false;

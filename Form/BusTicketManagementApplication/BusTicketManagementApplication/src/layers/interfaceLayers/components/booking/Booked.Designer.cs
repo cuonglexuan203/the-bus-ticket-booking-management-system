@@ -40,12 +40,6 @@
             this.DtpDepartureTime = new System.Windows.Forms.DateTimePicker();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.DgvMainData = new System.Windows.Forms.DataGridView();
-            this.BtnSearchIcon = new System.Windows.Forms.Button();
-            this.TbSearch = new System.Windows.Forms.TextBox();
-            this.LbSelectedId = new System.Windows.Forms.Label();
-            this.LbId = new System.Windows.Forms.Label();
-            this.GbSearchBox = new System.Windows.Forms.GroupBox();
-            this.PnlApp = new System.Windows.Forms.Panel();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,11 +52,17 @@
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vBOOKEDTICKETBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.BtnSearchIcon = new System.Windows.Forms.Button();
+            this.TbSearch = new System.Windows.Forms.TextBox();
+            this.LbSelectedId = new System.Windows.Forms.Label();
+            this.LbId = new System.Windows.Forms.Label();
+            this.GbSearchBox = new System.Windows.Forms.GroupBox();
+            this.PnlApp = new System.Windows.Forms.Panel();
             this.PnlFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvMainData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vBOOKEDTICKETBindingSource)).BeginInit();
             this.GbSearchBox.SuspendLayout();
             this.PnlApp.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vBOOKEDTICKETBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // PnlMainContainer
@@ -199,6 +199,7 @@
             this.dataGridViewTextBoxColumn21});
             this.DgvMainData.DataSource = this.vBOOKEDTICKETBindingSource;
             this.DgvMainData.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.DgvMainData.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.DgvMainData.Location = new System.Drawing.Point(0, 164);
             this.DgvMainData.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.DgvMainData.MultiSelect = false;
@@ -212,83 +213,6 @@
             this.DgvMainData.Size = new System.Drawing.Size(965, 434);
             this.DgvMainData.TabIndex = 9;
             this.DgvMainData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvMainData_CellClick);
-            // 
-            // BtnSearchIcon
-            // 
-            this.BtnSearchIcon.BackColor = System.Drawing.Color.Transparent;
-            this.BtnSearchIcon.FlatAppearance.BorderSize = 0;
-            this.BtnSearchIcon.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.BtnSearchIcon.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.BtnSearchIcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnSearchIcon.Image = ((System.Drawing.Image)(resources.GetObject("BtnSearchIcon.Image")));
-            this.BtnSearchIcon.Location = new System.Drawing.Point(421, 21);
-            this.BtnSearchIcon.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnSearchIcon.Name = "BtnSearchIcon";
-            this.BtnSearchIcon.Size = new System.Drawing.Size(35, 35);
-            this.BtnSearchIcon.TabIndex = 1;
-            this.BtnSearchIcon.TabStop = false;
-            this.BtnSearchIcon.UseVisualStyleBackColor = false;
-            this.BtnSearchIcon.Click += new System.EventHandler(this.BtnSearchIcon_Click);
-            // 
-            // TbSearch
-            // 
-            this.TbSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TbSearch.Location = new System.Drawing.Point(13, 28);
-            this.TbSearch.Margin = new System.Windows.Forms.Padding(0);
-            this.TbSearch.Name = "TbSearch";
-            this.TbSearch.Size = new System.Drawing.Size(398, 21);
-            this.TbSearch.TabIndex = 0;
-            this.TbSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TbSearch_KeyDown);
-            this.TbSearch.Leave += new System.EventHandler(this.TbSearch_Leave);
-            // 
-            // LbSelectedId
-            // 
-            this.LbSelectedId.AutoSize = true;
-            this.LbSelectedId.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LbSelectedId.Location = new System.Drawing.Point(77, 116);
-            this.LbSelectedId.Margin = new System.Windows.Forms.Padding(0);
-            this.LbSelectedId.Name = "LbSelectedId";
-            this.LbSelectedId.Size = new System.Drawing.Size(0, 21);
-            this.LbSelectedId.TabIndex = 12;
-            // 
-            // LbId
-            // 
-            this.LbId.AutoSize = true;
-            this.LbId.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LbId.Location = new System.Drawing.Point(34, 116);
-            this.LbId.Margin = new System.Windows.Forms.Padding(0);
-            this.LbId.Name = "LbId";
-            this.LbId.Size = new System.Drawing.Size(43, 21);
-            this.LbId.TabIndex = 9;
-            this.LbId.Text = "ID:";
-            // 
-            // GbSearchBox
-            // 
-            this.GbSearchBox.Controls.Add(this.BtnSearchIcon);
-            this.GbSearchBox.Controls.Add(this.TbSearch);
-            this.GbSearchBox.Location = new System.Drawing.Point(25, 3);
-            this.GbSearchBox.Margin = new System.Windows.Forms.Padding(0);
-            this.GbSearchBox.Name = "GbSearchBox";
-            this.GbSearchBox.Padding = new System.Windows.Forms.Padding(0);
-            this.GbSearchBox.Size = new System.Drawing.Size(496, 62);
-            this.GbSearchBox.TabIndex = 11;
-            this.GbSearchBox.TabStop = false;
-            this.GbSearchBox.Text = "Search";
-            // 
-            // PnlApp
-            // 
-            this.PnlApp.Controls.Add(this.LbSelectedId);
-            this.PnlApp.Controls.Add(this.LbId);
-            this.PnlApp.Controls.Add(this.GbSearchBox);
-            this.PnlApp.Controls.Add(this.BtnCancel);
-            this.PnlApp.Controls.Add(this.DgvMainData);
-            this.PnlApp.Controls.Add(this.PnlFilter);
-            this.PnlApp.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlApp.Location = new System.Drawing.Point(0, 0);
-            this.PnlApp.Margin = new System.Windows.Forms.Padding(0);
-            this.PnlApp.Name = "PnlApp";
-            this.PnlApp.Size = new System.Drawing.Size(965, 598);
-            this.PnlApp.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn11
             // 
@@ -393,6 +317,83 @@
             // 
             this.vBOOKEDTICKETBindingSource.DataSource = typeof(BusTicketManagementApplication.src.dbConnection.V_BOOKEDTICKET);
             // 
+            // BtnSearchIcon
+            // 
+            this.BtnSearchIcon.BackColor = System.Drawing.Color.Transparent;
+            this.BtnSearchIcon.FlatAppearance.BorderSize = 0;
+            this.BtnSearchIcon.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BtnSearchIcon.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BtnSearchIcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSearchIcon.Image = ((System.Drawing.Image)(resources.GetObject("BtnSearchIcon.Image")));
+            this.BtnSearchIcon.Location = new System.Drawing.Point(421, 21);
+            this.BtnSearchIcon.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnSearchIcon.Name = "BtnSearchIcon";
+            this.BtnSearchIcon.Size = new System.Drawing.Size(35, 35);
+            this.BtnSearchIcon.TabIndex = 1;
+            this.BtnSearchIcon.TabStop = false;
+            this.BtnSearchIcon.UseVisualStyleBackColor = false;
+            this.BtnSearchIcon.Click += new System.EventHandler(this.BtnSearchIcon_Click);
+            // 
+            // TbSearch
+            // 
+            this.TbSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TbSearch.Location = new System.Drawing.Point(13, 28);
+            this.TbSearch.Margin = new System.Windows.Forms.Padding(0);
+            this.TbSearch.Name = "TbSearch";
+            this.TbSearch.Size = new System.Drawing.Size(398, 21);
+            this.TbSearch.TabIndex = 0;
+            this.TbSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TbSearch_KeyDown);
+            this.TbSearch.Leave += new System.EventHandler(this.TbSearch_Leave);
+            // 
+            // LbSelectedId
+            // 
+            this.LbSelectedId.AutoSize = true;
+            this.LbSelectedId.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LbSelectedId.Location = new System.Drawing.Point(77, 116);
+            this.LbSelectedId.Margin = new System.Windows.Forms.Padding(0);
+            this.LbSelectedId.Name = "LbSelectedId";
+            this.LbSelectedId.Size = new System.Drawing.Size(0, 21);
+            this.LbSelectedId.TabIndex = 12;
+            // 
+            // LbId
+            // 
+            this.LbId.AutoSize = true;
+            this.LbId.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LbId.Location = new System.Drawing.Point(34, 116);
+            this.LbId.Margin = new System.Windows.Forms.Padding(0);
+            this.LbId.Name = "LbId";
+            this.LbId.Size = new System.Drawing.Size(43, 21);
+            this.LbId.TabIndex = 9;
+            this.LbId.Text = "ID:";
+            // 
+            // GbSearchBox
+            // 
+            this.GbSearchBox.Controls.Add(this.BtnSearchIcon);
+            this.GbSearchBox.Controls.Add(this.TbSearch);
+            this.GbSearchBox.Location = new System.Drawing.Point(25, 3);
+            this.GbSearchBox.Margin = new System.Windows.Forms.Padding(0);
+            this.GbSearchBox.Name = "GbSearchBox";
+            this.GbSearchBox.Padding = new System.Windows.Forms.Padding(0);
+            this.GbSearchBox.Size = new System.Drawing.Size(496, 62);
+            this.GbSearchBox.TabIndex = 11;
+            this.GbSearchBox.TabStop = false;
+            this.GbSearchBox.Text = "Search";
+            // 
+            // PnlApp
+            // 
+            this.PnlApp.Controls.Add(this.LbSelectedId);
+            this.PnlApp.Controls.Add(this.LbId);
+            this.PnlApp.Controls.Add(this.GbSearchBox);
+            this.PnlApp.Controls.Add(this.BtnCancel);
+            this.PnlApp.Controls.Add(this.DgvMainData);
+            this.PnlApp.Controls.Add(this.PnlFilter);
+            this.PnlApp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PnlApp.Location = new System.Drawing.Point(0, 0);
+            this.PnlApp.Margin = new System.Windows.Forms.Padding(0);
+            this.PnlApp.Name = "PnlApp";
+            this.PnlApp.Size = new System.Drawing.Size(965, 598);
+            this.PnlApp.TabIndex = 1;
+            // 
             // Booked
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
@@ -410,11 +411,11 @@
             this.PnlFilter.ResumeLayout(false);
             this.PnlFilter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvMainData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vBOOKEDTICKETBindingSource)).EndInit();
             this.GbSearchBox.ResumeLayout(false);
             this.GbSearchBox.PerformLayout();
             this.PnlApp.ResumeLayout(false);
             this.PnlApp.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vBOOKEDTICKETBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

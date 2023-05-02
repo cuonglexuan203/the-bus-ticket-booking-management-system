@@ -189,6 +189,9 @@
     <Compile Include="src\dbConnection\pro_DisableEmployee_Result2.cs">
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="src\dbConnection\pro_DisableEmployee_Result3.cs">
+      <DependentUpon>BusManagementModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="src\dbConnection\REFUND.cs">
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
@@ -207,6 +210,9 @@
     <Compile Include="src\dbConnection\sp_helpdiagramdefinition_Result4.cs">
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="src\dbConnection\sp_helpdiagramdefinition_Result5.cs">
+      <DependentUpon>BusManagementModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="src\dbConnection\sp_helpdiagrams_Result.cs">
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
@@ -220,6 +226,9 @@
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
     <Compile Include="src\dbConnection\sp_helpdiagrams_Result4.cs">
+      <DependentUpon>BusManagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="src\dbConnection\sp_helpdiagrams_Result5.cs">
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
     <Compile Include="src\dbConnection\sysdiagram.cs">
@@ -270,6 +279,8 @@
     <Compile Include="src\layers\businessLayers\BSBooked.cs" />
     <Compile Include="src\layers\businessLayers\BSBooking.cs" />
     <Compile Include="src\layers\businessLayers\BSBus.cs" />
+    <Compile Include="src\layers\businessLayers\BSBusStation.cs" />
+    <Compile Include="src\layers\businessLayers\BSDriver.cs" />
     <Compile Include="src\layers\businessLayers\BSEmployee.cs" />
     <Compile Include="src\layers\businessLayers\BSLogin.cs" />
     <Compile Include="src\layers\businessLayers\BSMain.cs" />
@@ -279,6 +290,30 @@
     <Compile Include="src\layers\businessLayers\BSRoute.cs" />
     <Compile Include="src\layers\businessLayers\BSTicket.cs" />
     <Compile Include="src\layers\businessLayers\BSTrip.cs" />
+    <Compile Include="src\layers\interfaceLayers\components\aboutUs\AboutUs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\aboutUs\AboutUs.Designer.cs">
+      <DependentUpon>AboutUs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\aboutUs\AboutUsNavigationBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\aboutUs\AboutUsNavigationBar.Designer.cs">
+      <DependentUpon>AboutUsNavigationBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\aboutUs\BusRoute.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\aboutUs\BusRoute.Designer.cs">
+      <DependentUpon>BusRoute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\aboutUs\BusStation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\aboutUs\BusStation.Designer.cs">
+      <DependentUpon>BusStation.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\layers\interfaceLayers\components\admin\AdminNavigationBar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -326,6 +361,12 @@
     </Compile>
     <Compile Include="src\layers\interfaceLayers\components\bus\Bus.Designer.cs">
       <DependentUpon>Bus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\driver\Driver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\driver\Driver.Designer.cs">
+      <DependentUpon>Driver.cs</DependentUpon>
     </Compile>
     <Compile Include="src\layers\interfaceLayers\components\home\Home.cs">
       <SubType>Form</SubType>
@@ -396,6 +437,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="src\layers\interfaceLayers\components\aboutUs\AboutUs.resx">
+      <DependentUpon>AboutUs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\layers\interfaceLayers\components\aboutUs\AboutUsNavigationBar.resx">
+      <DependentUpon>AboutUsNavigationBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\layers\interfaceLayers\components\aboutUs\BusRoute.resx">
+      <DependentUpon>BusRoute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\layers\interfaceLayers\components\aboutUs\BusStation.resx">
+      <DependentUpon>BusStation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\layers\interfaceLayers\components\admin\AdminNavigationBar.resx">
       <DependentUpon>AdminNavigationBar.cs</DependentUpon>
     </EmbeddedResource>
@@ -419,6 +472,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="src\layers\interfaceLayers\components\bus\Bus.resx">
       <DependentUpon>Bus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\layers\interfaceLayers\components\driver\Driver.resx">
+      <DependentUpon>Driver.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\layers\interfaceLayers\components\home\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
@@ -520,12 +576,26 @@
     <Folder Include="src\asset\cursor\" />
     <Folder Include="src\asset\sound\" />
     <Folder Include="src\dbConnection\DataSet\" />
-    <Folder Include="src\layers\interfaceLayers\components\aboutUs\" />
-    <Folder Include="src\layers\interfaceLayers\components\driver\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\resourceAboutUs.bmp" />
+    <None Include="src\asset\img\components\aboutUs\pic1.jpg" />
+    <None Include="src\asset\img\components\aboutUs\pic2.png" />
+    <None Include="src\asset\img\components\aboutUs\pic3.png" />
+    <None Include="src\asset\img\components\aboutUs\pic4.png" />
     <None Include="src\asset\img\dashboardIcon\home.png" />
     <None Include="src\asset\img\logo\brandLogo.png" />
+    <None Include="src\asset\img\components\home\home1.png" />
+    <None Include="src\asset\img\components\home\home.png" />
+    <None Include="src\asset\img\components\home\home2.png" />
+    <None Include="src\asset\img\components\home\Cantho.png" />
+    <None Include="src\asset\img\components\home\Danang.png" />
+    <None Include="src\asset\img\components\home\Hanoi.png" />
+    <None Include="src\asset\img\components\home\Namcan.png" />
+    <None Include="src\asset\img\components\home\SG.png" />
+    <None Include="src\asset\img\components\home\home3.png" />
+    <None Include="src\asset\img\components\home\chevron-left.png" />
+    <None Include="src\asset\img\components\home\chevron-right.png" />
     <Content Include="src\dbConnection\BusManagementModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>BusManagementModel.Context.cs</LastGenOutput>

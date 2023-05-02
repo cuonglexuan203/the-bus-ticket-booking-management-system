@@ -19,7 +19,7 @@ namespace BusTicketManagementApplication.src.dbConnection
         public string Phone_Number { get; set; }
         public Nullable<bool> Gender { get; set; }
         public string Lisence_Level { get; set; }
-        public Nullable<bool> Type { get; set; }
-        public Nullable<bool> State { get; set; }
+        public string Type { get; set; }
+        public string State { get; set; }
     }
 }

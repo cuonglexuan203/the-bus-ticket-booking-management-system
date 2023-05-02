@@ -138,3 +138,48 @@ BEGIN
 END
 go
 --
+
+CREATE PROC dbo.[pro_ChangePassengerPassword] (@username varchar(50), @new_password varchar(50))
+AS
+BEGIN
+	SET XACT_ABORT ON;
+
+	BEGIN TRAN;
+	BEGIN TRY
+		UPDATE PASSENGERACCOUNT SET password = @new_password WHERE username = @username;
+
+		DECLARE @query nvarchar(MAX);
+		SET @query = 'ALTER LOGIN ' + QUOTENAME(@username) + ' WITH PASSWORD = ''' + @new_password + ''';';
+		EXEC (@query);
+
+		COMMIT TRAN;
+	END TRY
+	BEGIN CATCH
+		ROLLBACK TRAN;
+		THROW;
+	END CATCH;
+END;
+
+go
+--
+CREATE PROC dbo.[pro_ChangeSystemPassword] (@username varchar(50), @new_password varchar(50))
+AS
+BEGIN
+	SET XACT_ABORT ON;
+
+	BEGIN TRAN;
+	BEGIN TRY
+		UPDATE SYSTEMACCOUNT SET pass = @new_password WHERE username = @username;
+
+		DECLARE @query nvarchar(MAX);
+		SET @query = 'ALTER LOGIN ' + QUOTENAME(@username) + ' WITH PASSWORD = ''' + @new_password + ''';';
+		EXEC (@query);
+
+		COMMIT TRAN;
+	END TRY
+	BEGIN CATCH
+		ROLLBACK TRAN;
+		THROW;
+	END CATCH;
+END;
+

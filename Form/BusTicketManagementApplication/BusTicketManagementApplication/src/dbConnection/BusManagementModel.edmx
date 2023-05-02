@@ -335,17 +335,18 @@ warning 6002: The table/view 'BusManagement.dbo.V_DRIVERINFOR' does not have a p
         <EntityType Name="V_DRIVERINFOR">
           <Key>
             <PropertyRef Name="Employees ID" />
-            <PropertyRef Name="Name" />
             <PropertyRef Name="Phone Number" />
             <PropertyRef Name="Lisence Level" />
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="State" />
           </Key>
           <Property Name="Employees ID" Type="char" MaxLength="20" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Phone Number" Type="char" MaxLength="20" Nullable="false" />
           <Property Name="Gender" Type="bit" />
           <Property Name="Lisence Level" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="Type" Type="bit" />
-          <Property Name="State" Type="bit" />
+          <Property Name="Type" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="State" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'BusManagement.dbo.V_EMPLOYEEINFOR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -818,6 +819,14 @@ warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a pri
         <Function Name="pro_CancelTicket" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_ticket" Type="char" Mode="In" />
         </Function>
+        <Function Name="pro_ChangePassengerPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="varchar" Mode="In" />
+          <Parameter Name="new_password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="pro_ChangeSystemPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="varchar" Mode="In" />
+          <Parameter Name="new_password" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="pro_CheckUniqueUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="username" Type="varchar" Mode="In" />
         </Function>
@@ -1121,88 +1130,6 @@ warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a pri
     <edmx:ConceptualModels>
       <Schema Namespace="BusManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="BusManagementEntities" annotation:LazyLoadingEnabled="true">
-          <FunctionImport Name="func_GetAvailabelSeat" IsComposable="true" ReturnType="Collection(String)">
-            <Parameter Name="idTrip" Mode="In" Type="String" />
-            <Parameter Name="type" Mode="In" Type="Boolean" />
-          </FunctionImport>
-          <FunctionImport Name="pro_AddBooking">
-            <Parameter Name="id_ticket" Mode="In" Type="String" />
-            <Parameter Name="id_passenger" Mode="In" Type="String" />
-            <Parameter Name="id_employee" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="pro_AddDefaultBooking">
-            <Parameter Name="id_ticket" Mode="In" Type="String" />
-            <Parameter Name="id_passenger" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="pro_AddEmployeeAccount">
-            <Parameter Name="username" Mode="In" Type="String" />
-            <Parameter Name="password" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="pro_AddPassenger">
-            <Parameter Name="id_passenger" Mode="In" Type="String" />
-            <Parameter Name="name" Mode="In" Type="String" />
-            <Parameter Name="phone" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="pro_AddPassengerAccount">
-            <Parameter Name="id_passenger" Mode="In" Type="String" />
-            <Parameter Name="username" Mode="In" Type="String" />
-            <Parameter Name="password" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="pro_AssignPassengerPrivilege">
-          <Parameter Name="id_passenger" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="pro_AssignSystemPrivilege">
-            <Parameter Name="id_employee" Mode="In" Type="String" />
-            <Parameter Name="id_position" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="pro_CancelTicket">
-          <Parameter Name="id_ticket" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="pro_CheckUniqueUser" ReturnType="Collection(Int32)">
-          <Parameter Name="username" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="pro_DisableEmployee" ReturnType="Collection(BusManagementModel.pro_DisableEmployee_Result2)">
-          <Parameter Name="id_employee" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="pro_SetCancelTrip">
-          <Parameter Name="id_trip" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="pro_SetFinishTrip">
-          <Parameter Name="id_trip" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="pro_SetGoingTrip">
-          <Parameter Name="id_trip" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_alterdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
-          </FunctionImport>
-          <FunctionImport Name="sp_creatediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
-          </FunctionImport>
-          <FunctionImport Name="sp_dropdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(BusManagementModel.sp_helpdiagramdefinition_Result4)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(BusManagementModel.sp_helpdiagrams_Result4)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_renamediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="new_diagramname" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_upgraddiagrams" />
           <EntitySet Name="AGENTs" EntityType="BusManagementModel.AGENT" />
           <EntitySet Name="BOOKINGs" EntityType="BusManagementModel.BOOKING" />
           <EntitySet Name="Buses" EntityType="BusManagementModel.BUS" />
@@ -1315,7 +1242,97 @@ warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a pri
             <End Role="DRIVER" EntitySet="DRIVERs" />
             <End Role="TRIP" EntitySet="TRIPs" />
           </AssociationSet>
-          </EntityContainer>
+          <FunctionImport Name="func_GetAvailabelSeat" IsComposable="true" ReturnType="Collection(String)">
+            <Parameter Name="idTrip" Mode="In" Type="String" />
+            <Parameter Name="type" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="pro_AddBooking">
+            <Parameter Name="id_ticket" Mode="In" Type="String" />
+            <Parameter Name="id_passenger" Mode="In" Type="String" />
+            <Parameter Name="id_employee" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pro_AddDefaultBooking">
+            <Parameter Name="id_ticket" Mode="In" Type="String" />
+            <Parameter Name="id_passenger" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pro_AddEmployeeAccount">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pro_AddPassenger">
+            <Parameter Name="id_passenger" Mode="In" Type="String" />
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="phone" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pro_AddPassengerAccount">
+            <Parameter Name="id_passenger" Mode="In" Type="String" />
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pro_AssignPassengerPrivilege">
+          <Parameter Name="id_passenger" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pro_AssignSystemPrivilege">
+            <Parameter Name="id_employee" Mode="In" Type="String" />
+            <Parameter Name="id_position" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pro_CancelTicket">
+          <Parameter Name="id_ticket" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pro_CheckUniqueUser" ReturnType="Collection(Int32)">
+          <Parameter Name="username" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pro_DisableEmployee" ReturnType="Collection(BusManagementModel.pro_DisableEmployee_Result3)">
+          <Parameter Name="id_employee" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pro_SetCancelTrip">
+          <Parameter Name="id_trip" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pro_SetFinishTrip">
+          <Parameter Name="id_trip" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pro_SetGoingTrip">
+          <Parameter Name="id_trip" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(BusManagementModel.sp_helpdiagramdefinition_Result5)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(BusManagementModel.sp_helpdiagrams_Result5)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="pro_ChangePassengerPassword">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="new_password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pro_ChangeSystemPassword">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="new_password" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
           <Property Type="Binary" Name="definition" Nullable="true" />
@@ -1735,17 +1752,18 @@ warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a pri
         <EntityType Name="V_DRIVERINFOR">
           <Key>
             <PropertyRef Name="Employees_ID" />
-            <PropertyRef Name="Name" />
             <PropertyRef Name="Phone_Number" />
             <PropertyRef Name="Lisence_Level" />
+            <PropertyRef Name="Type" />
+            <PropertyRef Name="State" />
           </Key>
           <Property Name="Employees_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Phone_Number" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
           <Property Name="Gender" Type="Boolean" />
           <Property Name="Lisence_Level" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="Type" Type="Boolean" />
-          <Property Name="State" Type="Boolean" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="V_EMPLOYEEINFOR">
           <Key>
@@ -2007,67 +2025,37 @@ warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a pri
           <End Type="BusManagementModel.DRIVER" Role="DRIVER" Multiplicity="*" />
           <End Type="BusManagementModel.TRIP" Role="TRIP" Multiplicity="*" />
         </Association>
+        <ComplexType Name="pro_DisableEmployee_Result3">
+          <Property Type="String" Name="id_employee" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="id_account" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="id_agent" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="address" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="phone_number" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="identity_number" Nullable="false" MaxLength="20" />
+          <Property Type="Decimal" Name="salary" Nullable="false" Precision="19" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="birthdate" Nullable="false" />
+          <Property Type="Boolean" Name="gender" Nullable="true" />
+          <Property Type="Boolean" Name="state" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagramdefinition_Result5">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result5">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="BusManagementModelStoreContainer" CdmEntityContainer="BusManagementEntities">
-          <FunctionImportMapping FunctionImportName="func_GetAvailabelSeat" FunctionName="BusManagementModel.Store.func_GetAvailabelSeat" />
-          <FunctionImportMapping FunctionImportName="pro_AddBooking" FunctionName="BusManagementModel.Store.pro_AddBooking" />
-          <FunctionImportMapping FunctionImportName="pro_AddDefaultBooking" FunctionName="BusManagementModel.Store.pro_AddDefaultBooking" />
-          <FunctionImportMapping FunctionImportName="pro_AddEmployeeAccount" FunctionName="BusManagementModel.Store.pro_AddEmployeeAccount" />
-          <FunctionImportMapping FunctionImportName="pro_AddPassenger" FunctionName="BusManagementModel.Store.pro_AddPassenger" />
-          <FunctionImportMapping FunctionImportName="pro_AddPassengerAccount" FunctionName="BusManagementModel.Store.pro_AddPassengerAccount" />
-          <FunctionImportMapping FunctionImportName="pro_AssignPassengerPrivilege" FunctionName="BusManagementModel.Store.pro_AssignPassengerPrivilege" />
-          <FunctionImportMapping FunctionImportName="pro_AssignSystemPrivilege" FunctionName="BusManagementModel.Store.pro_AssignSystemPrivilege" />
-          <FunctionImportMapping FunctionImportName="pro_CancelTicket" FunctionName="BusManagementModel.Store.pro_CancelTicket" />
-          <FunctionImportMapping FunctionImportName="pro_CheckUniqueUser" FunctionName="BusManagementModel.Store.pro_CheckUniqueUser" />
-          <FunctionImportMapping FunctionImportName="pro_DisableEmployee" FunctionName="BusManagementModel.Store.pro_DisableEmployee">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="BusManagementModel.pro_DisableEmployee_Result2">
-                <ScalarProperty Name="id_employee" ColumnName="id_employee" />
-                <ScalarProperty Name="id_account" ColumnName="id_account" />
-                <ScalarProperty Name="id_agent" ColumnName="id_agent" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="address" ColumnName="address" />
-                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
-                <ScalarProperty Name="identity_number" ColumnName="identity_number" />
-                <ScalarProperty Name="salary" ColumnName="salary" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="birthdate" ColumnName="birthdate" />
-                <ScalarProperty Name="gender" ColumnName="gender" />
-                <ScalarProperty Name="state" ColumnName="state" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="pro_SetCancelTrip" FunctionName="BusManagementModel.Store.pro_SetCancelTrip" />
-          <FunctionImportMapping FunctionImportName="pro_SetFinishTrip" FunctionName="BusManagementModel.Store.pro_SetFinishTrip" />
-          <FunctionImportMapping FunctionImportName="pro_SetGoingTrip" FunctionName="BusManagementModel.Store.pro_SetGoingTrip" />
-          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="BusManagementModel.Store.sp_alterdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="BusManagementModel.Store.sp_creatediagram" />
-          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="BusManagementModel.Store.sp_dropdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="BusManagementModel.Store.sp_helpdiagramdefinition">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="BusManagementModel.sp_helpdiagramdefinition_Result4">
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="BusManagementModel.Store.sp_helpdiagrams">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="BusManagementModel.sp_helpdiagrams_Result4">
-                <ScalarProperty Name="Database" ColumnName="Database" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Owner" ColumnName="Owner" />
-                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="BusManagementModel.Store.sp_renamediagram" />
-          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="BusManagementModel.Store.sp_upgraddiagrams" />
           <EntitySetMapping Name="AGENTs">
             <EntityTypeMapping TypeName="BusManagementModel.AGENT">
               <MappingFragment StoreEntitySet="AGENT">
@@ -2451,7 +2439,64 @@ warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a pri
               <ScalarProperty Name="id_driver" ColumnName="id_driver" />
             </EndProperty>
           </AssociationSetMapping>
-          </EntityContainerMapping>
+          <FunctionImportMapping FunctionImportName="func_GetAvailabelSeat" FunctionName="BusManagementModel.Store.func_GetAvailabelSeat" />
+          <FunctionImportMapping FunctionImportName="pro_AddBooking" FunctionName="BusManagementModel.Store.pro_AddBooking" />
+          <FunctionImportMapping FunctionImportName="pro_AddDefaultBooking" FunctionName="BusManagementModel.Store.pro_AddDefaultBooking" />
+          <FunctionImportMapping FunctionImportName="pro_AddEmployeeAccount" FunctionName="BusManagementModel.Store.pro_AddEmployeeAccount" />
+          <FunctionImportMapping FunctionImportName="pro_AddPassenger" FunctionName="BusManagementModel.Store.pro_AddPassenger" />
+          <FunctionImportMapping FunctionImportName="pro_AddPassengerAccount" FunctionName="BusManagementModel.Store.pro_AddPassengerAccount" />
+          <FunctionImportMapping FunctionImportName="pro_AssignPassengerPrivilege" FunctionName="BusManagementModel.Store.pro_AssignPassengerPrivilege" />
+          <FunctionImportMapping FunctionImportName="pro_AssignSystemPrivilege" FunctionName="BusManagementModel.Store.pro_AssignSystemPrivilege" />
+          <FunctionImportMapping FunctionImportName="pro_CancelTicket" FunctionName="BusManagementModel.Store.pro_CancelTicket" />
+          <FunctionImportMapping FunctionImportName="pro_CheckUniqueUser" FunctionName="BusManagementModel.Store.pro_CheckUniqueUser" />
+          <FunctionImportMapping FunctionImportName="pro_DisableEmployee" FunctionName="BusManagementModel.Store.pro_DisableEmployee">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BusManagementModel.pro_DisableEmployee_Result3">
+                <ScalarProperty Name="id_employee" ColumnName="id_employee" />
+                <ScalarProperty Name="id_account" ColumnName="id_account" />
+                <ScalarProperty Name="id_agent" ColumnName="id_agent" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="identity_number" ColumnName="identity_number" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="birthdate" ColumnName="birthdate" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="state" ColumnName="state" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pro_SetCancelTrip" FunctionName="BusManagementModel.Store.pro_SetCancelTrip" />
+          <FunctionImportMapping FunctionImportName="pro_SetFinishTrip" FunctionName="BusManagementModel.Store.pro_SetFinishTrip" />
+          <FunctionImportMapping FunctionImportName="pro_SetGoingTrip" FunctionName="BusManagementModel.Store.pro_SetGoingTrip" />
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="BusManagementModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="BusManagementModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="BusManagementModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="BusManagementModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BusManagementModel.sp_helpdiagramdefinition_Result5">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="BusManagementModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BusManagementModel.sp_helpdiagrams_Result5">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="BusManagementModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="BusManagementModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="pro_ChangePassengerPassword" FunctionName="BusManagementModel.Store.pro_ChangePassengerPassword" />
+          <FunctionImportMapping FunctionImportName="pro_ChangeSystemPassword" FunctionName="BusManagementModel.Store.pro_ChangeSystemPassword" />
+        </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

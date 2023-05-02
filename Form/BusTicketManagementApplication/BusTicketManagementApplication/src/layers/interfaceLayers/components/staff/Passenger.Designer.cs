@@ -96,7 +96,7 @@
             this.LbSelectedId.Location = new System.Drawing.Point(77, 116);
             this.LbSelectedId.Margin = new System.Windows.Forms.Padding(0);
             this.LbSelectedId.Name = "LbSelectedId";
-            this.LbSelectedId.Size = new System.Drawing.Size(0, 21);
+            this.LbSelectedId.Size = new System.Drawing.Size(0, 22);
             this.LbSelectedId.TabIndex = 12;
             // 
             // LbId
@@ -106,7 +106,7 @@
             this.LbId.Location = new System.Drawing.Point(34, 116);
             this.LbId.Margin = new System.Windows.Forms.Padding(0);
             this.LbId.Name = "LbId";
-            this.LbId.Size = new System.Drawing.Size(43, 21);
+            this.LbId.Size = new System.Drawing.Size(32, 22);
             this.LbId.TabIndex = 9;
             this.LbId.Text = "ID:";
             // 
@@ -158,7 +158,7 @@
             this.CbField.Margin = new System.Windows.Forms.Padding(0);
             this.CbField.MaxDropDownItems = 10;
             this.CbField.Name = "CbField";
-            this.CbField.Size = new System.Drawing.Size(175, 29);
+            this.CbField.Size = new System.Drawing.Size(175, 30);
             this.CbField.TabIndex = 6;
             this.CbField.TabStop = false;
             this.CbField.SelectedIndexChanged += new System.EventHandler(this.CbField_SelectedIndexChanged);
@@ -171,7 +171,7 @@
             this.label1.Location = new System.Drawing.Point(402, 116);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 21);
+            this.label1.Size = new System.Drawing.Size(0, 22);
             this.label1.TabIndex = 14;
             // 
             // LbSelectedName
@@ -181,7 +181,7 @@
             this.LbSelectedName.Location = new System.Drawing.Point(380, 116);
             this.LbSelectedName.Margin = new System.Windows.Forms.Padding(0);
             this.LbSelectedName.Name = "LbSelectedName";
-            this.LbSelectedName.Size = new System.Drawing.Size(0, 21);
+            this.LbSelectedName.Size = new System.Drawing.Size(0, 22);
             this.LbSelectedName.TabIndex = 14;
             // 
             // label2
@@ -191,7 +191,7 @@
             this.label2.Location = new System.Drawing.Point(482, 289);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 21);
+            this.label2.Size = new System.Drawing.Size(0, 22);
             this.label2.TabIndex = 14;
             // 
             // LbName
@@ -201,7 +201,7 @@
             this.LbName.Location = new System.Drawing.Point(315, 116);
             this.LbName.Margin = new System.Windows.Forms.Padding(0);
             this.LbName.Name = "LbName";
-            this.LbName.Size = new System.Drawing.Size(65, 21);
+            this.LbName.Size = new System.Drawing.Size(62, 22);
             this.LbName.TabIndex = 13;
             this.LbName.Text = "Name:";
             // 
@@ -224,6 +224,7 @@
             this.emailDataGridViewTextBoxColumn});
             this.DgvMainData.DataSource = this.pASSENGERBindingSource;
             this.DgvMainData.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.DgvMainData.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.DgvMainData.Location = new System.Drawing.Point(0, 164);
             this.DgvMainData.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.DgvMainData.MultiSelect = false;
@@ -310,11 +311,11 @@
             // 
             // Passenger
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(965, 598);
             this.Controls.Add(this.PnlApp);
-            this.Font = new System.Drawing.Font("Hack NF", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(4);

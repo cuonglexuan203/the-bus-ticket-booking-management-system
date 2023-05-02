@@ -535,3 +535,5 @@ insert into POSITION(type) values ('security guard');
 insert into POSITION(type) values ('porter');
 --
 --
+-- DRIVER
+insert into DRIVER values('emp_0000000005', 'F', 0, 0);

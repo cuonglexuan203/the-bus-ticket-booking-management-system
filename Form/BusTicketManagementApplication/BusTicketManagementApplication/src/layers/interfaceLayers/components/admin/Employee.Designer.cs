@@ -290,6 +290,7 @@
             this.positionDataGridViewTextBoxColumn});
             this.DgvMainData.DataSource = this.vEMPLOYEEINFORBindingSource;
             this.DgvMainData.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.DgvMainData.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.DgvMainData.Location = new System.Drawing.Point(0, 164);
             this.DgvMainData.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.DgvMainData.MultiSelect = false;

@@ -8,6 +8,7 @@ grant select, insert, delete, references on BOOKING to rol_Passenger;
 grant select on BUS to rol_Passenger;
 grant select on BUSROUTE to rol_Passenger;
 grant select on BUSSTATION to rol_Passenger;
+grant select on BUSROUTE_BUSSTATION TO rol_Passenger;
 grant select, insert, update, references on PASSENGER to rol_Passenger;
 grant select, insert, update, references on PASSENGERACCOUNT to rol_Passenger;
 grant select on PLACE to rol_Passenger;
@@ -20,6 +21,7 @@ grant select on V_AVAILABLETRIP to rol_Passenger;
 grant select on V_BOOKEDTICKET to rol_Passenger;
 grant select on V_BOOKINGINFOR to rol_Passenger;
 grant select on V_BUSSTATIONINFOR to rol_Passenger;
+grant select on V_DRIVERINFOR to rol_Passenger;
 grant select on V_ROUTEINFOR to rol_Passenger;
 grant select on V_TRIPINFOR to rol_Passenger;
 grant select on V_USERINFOR to rol_Passenger;
@@ -31,6 +33,7 @@ grant execute on dbo.pro_AddDefaultBooking to rol_Passenger;
 grant execute on dbo.pro_AddPassenger to rol_Passenger;
 grant execute on dbo.pro_AddPassengerAccount to rol_Passenger
 grant execute on dbo.pro_CancelTicket to rol_Passenger;
+grant execute on dbo.pro_ChangePassengerPassword to rol_Passenger;
 --
 -- grant functions
 grant execute on dbo.func_auto_id_booking to rol_Passenger;
@@ -66,6 +69,7 @@ grant select, insert, delete, references on BOOKING to rol_Staff;
 grant select on BUS to rol_Staff;
 grant select on BUSROUTE to rol_Staff;
 grant select on BUSSTATION to rol_Staff;
+grant select on BUSROUTE_BUSSTATION TO rol_Staff;
 grant select, insert, update, delete, references on PASSENGER to rol_Staff;
 grant select, insert, update, delete, references on PASSENGERACCOUNT to rol_Staff;
 grant select on PLACE to rol_Staff;
@@ -94,6 +98,9 @@ grant execute on dbo.pro_AddDefaultBooking to rol_Staff;
 grant execute on dbo.pro_AddPassenger to rol_Staff;
 grant execute on dbo.pro_AddPassengerAccount to rol_Staff
 grant execute on dbo.pro_CancelTicket to rol_Staff;
+grant execute on dbo.pro_ChangePassengerPassword to rol_Staff;
+grant execute on dbo.pro_ChangeSystemPassword to rol_Staff;
+
 --
 -- grant functions
 grant execute on dbo.func_auto_id_booking to rol_Staff;

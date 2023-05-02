@@ -34,8 +34,7 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.s
             }
             //
             BSLogin bslogin = new BSLogin();
-            V_USERINFOR curUser = bslogin.GetUser(UserData.GetPassengerId());
-            if (curPassword != curUser.password.Trim())
+            if (curPassword != UserData.Password)
             {
                 this.LbNotifiedMessage.Text = "Current password is not correct!";
                 this.LbNotifiedMessage.Show();
@@ -49,12 +48,15 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.s
                 return;
             }
             //
-            bool res = bslogin.ChangeUserPassword(curUser.username.Trim(), newPassword);
+            bool res = bslogin.ChangeUserPassword(UserData.Username, newPassword);
             if (!res)
             {
                 this.LbNotifiedMessage.Text =  "Change password failed.";
                 return;
             }
+            //
+            UserData.Password = newPassword;
+            //
             this.LbNotifiedMessage.Text = "Change password succsessfully!"; 
             this.LbNotifiedMessage.Show();
             ClearInput();

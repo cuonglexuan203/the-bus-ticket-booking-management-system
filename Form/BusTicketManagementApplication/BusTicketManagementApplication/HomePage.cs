@@ -4,6 +4,8 @@ using BusTicketManagementApplication.src.layers.interfaceLayers.components.login
 using BusTicketManagementApplication.src.layers.interfaceLayers.components.Profile;
 using BusTicketManagementApplication.src.layers.interfaceLayers.components.trip;
 using BusTicketManagementApplication.src.layers.interfaceLayers.components.bus;
+using BusTicketManagementApplication.src.layers.interfaceLayers.components.aboutUs;
+using BusTicketManagementApplication.src.layers.interfaceLayers.components.driver;
 using BusTicketManagementApplication.src.layers.interfaceLayers.Data;
 using System;
 using System.Collections.Generic;
@@ -64,11 +66,11 @@ namespace BusTicketManagementApplication
                         case 2:
                             {
                                 RenderActiveForm(new Bus(this), this.PnlFillContent);
-
                                 break;
                             }
                         case 3:
                             {
+                                RenderActiveForm(new Driver(), this.PnlFillContent);
                                 break;
                             }
                         case 4:
@@ -92,6 +94,22 @@ namespace BusTicketManagementApplication
                             }
                         case 5:
                             {
+                                RenderActiveForm(new AboutUsNavigationBar(this), this.PnlNavigationBar);
+
+                                Form renderform = new Form();
+                                if (AboutUsNavigationBar.NavIndex == 0)
+                                {
+                                    renderform = new AboutUs();
+                                }
+                                else if (AboutUsNavigationBar.NavIndex == 1)
+                                {
+                                    renderform = new BusStation();
+                                }
+                                else if (AboutUsNavigationBar.NavIndex == 2)
+                                {
+                                    renderform = new BusRoute();
+                                }
+                                RenderActiveForm(renderform, this.PnlFillContent);
                                 break;
                             }
                         case 6:

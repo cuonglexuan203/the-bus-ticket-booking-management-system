@@ -85,9 +85,17 @@ from EMPLOYEE as a left join EMPLOYEE_POSITION as b on a.id_employee = b.id_empl
 
 go
 --
-create view V_DRIVERINFOR as
+create view [dbo].[V_DRIVERINFOR] as
 select a.id_employee as [Employees ID], a.name as [Name], a.phone_number as [Phone Number], a.gender as [Gender]
-, b.lisence_level as [Lisence Level], b.type as [Type], b.[state] as [State]
+, b.lisence_level as [Lisence Level], 
+case
+	when b.type = 0 then 'Interprovince'
+	else 'Transit'
+end as [Type],
+case
+	when b.state = 1 then 'Is driving'
+	else 'Idle'
+end as [State]
 from EMPLOYEE as a inner join DRIVER as b on a.id_employee = b.id_driver
 go
 --
