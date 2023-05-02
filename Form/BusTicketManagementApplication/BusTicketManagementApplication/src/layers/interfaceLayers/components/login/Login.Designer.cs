@@ -34,6 +34,7 @@
             this.LbSignUp = new System.Windows.Forms.Label();
             this.BtnLogin = new System.Windows.Forms.Button();
             this.PnlInput = new System.Windows.Forms.Panel();
+            this.ChbShow = new System.Windows.Forms.CheckBox();
             this.PnlPassword = new System.Windows.Forms.Panel();
             this.LbPlaceholderPassword = new System.Windows.Forms.Label();
             this.TbPassword = new System.Windows.Forms.TextBox();
@@ -46,7 +47,6 @@
             this.PcbUsername = new System.Windows.Forms.PictureBox();
             this.LbUsername = new System.Windows.Forms.Label();
             this.LbLogin = new System.Windows.Forms.Label();
-            this.ChbShow = new System.Windows.Forms.CheckBox();
             this.PnlMainContainer.SuspendLayout();
             this.PnlInput.SuspendLayout();
             this.PnlPassword.SuspendLayout();
@@ -105,8 +105,7 @@
             this.BtnLogin.Margin = new System.Windows.Forms.Padding(0);
             this.BtnLogin.Name = "BtnLogin";
             this.BtnLogin.Size = new System.Drawing.Size(392, 56);
-            this.BtnLogin.TabIndex = 2;
-            this.BtnLogin.TabStop = false;
+            this.BtnLogin.TabIndex = 5;
             this.BtnLogin.Text = "Login";
             this.BtnLogin.UseVisualStyleBackColor = false;
             this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
@@ -124,6 +123,19 @@
             this.PnlInput.Size = new System.Drawing.Size(422, 354);
             this.PnlInput.TabIndex = 1;
             this.PnlInput.Click += new System.EventHandler(this.Handler_Focus);
+            // 
+            // ChbShow
+            // 
+            this.ChbShow.AutoSize = true;
+            this.ChbShow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(72)))), ((int)(((byte)(107)))));
+            this.ChbShow.Location = new System.Drawing.Point(34, 274);
+            this.ChbShow.Name = "ChbShow";
+            this.ChbShow.Size = new System.Drawing.Size(175, 25);
+            this.ChbShow.TabIndex = 4;
+            this.ChbShow.TabStop = false;
+            this.ChbShow.Text = "Show password";
+            this.ChbShow.UseVisualStyleBackColor = true;
+            this.ChbShow.CheckedChanged += new System.EventHandler(this.ChbShow_CheckedChanged);
             // 
             // PnlPassword
             // 
@@ -260,18 +272,6 @@
             this.LbLogin.TabIndex = 0;
             this.LbLogin.Text = "Login";
             this.LbLogin.Click += new System.EventHandler(this.Handler_Focus);
-            // 
-            // ChbShow
-            // 
-            this.ChbShow.AutoSize = true;
-            this.ChbShow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(72)))), ((int)(((byte)(107)))));
-            this.ChbShow.Location = new System.Drawing.Point(34, 274);
-            this.ChbShow.Name = "ChbShow";
-            this.ChbShow.Size = new System.Drawing.Size(175, 25);
-            this.ChbShow.TabIndex = 4;
-            this.ChbShow.Text = "Show password";
-            this.ChbShow.UseVisualStyleBackColor = true;
-            this.ChbShow.CheckedChanged += new System.EventHandler(this.ChbShow_CheckedChanged);
             // 
             // Login
             // 

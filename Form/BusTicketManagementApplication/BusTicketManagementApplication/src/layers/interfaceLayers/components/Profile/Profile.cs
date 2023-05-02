@@ -38,7 +38,6 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.P
             if (this.TbFullname.Enabled)
             {
                 
-                string passengerId = UserData.GetPassengerId().Trim();
                 string email = null;
                 if (!string.IsNullOrEmpty(this.TbEmail.Text.Trim()))
                 {
@@ -66,7 +65,23 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.P
                     MessageBox.Show("The full name and phone fields can not be empty!");
                     return;
                 }
-                new BSPassenger().UpdatePassenger(passengerId, fullname, phone, email, gender);
+                bool response = false;
+                if (!UserData.IsPassenger)
+                {
+                    string employeeId = UserData.GetSystemId();
+                    response = new BSPassenger().UpdateEmployee(employeeId, fullname, phone, email, gender);
+                }
+                else
+                {
+                    string passengerId = UserData.GetPassengerId();
+                    response = new BSPassenger().UpdatePassenger(passengerId, fullname, phone, email, gender);
+                }
+                //
+                if (!response)
+                {
+                    MessageBox.Show("Update failed!");
+                    return;
+                }
                 SetUserInfor(fullname, phone, email, gender);
                 MessageBox.Show("Update successfully!");
             }

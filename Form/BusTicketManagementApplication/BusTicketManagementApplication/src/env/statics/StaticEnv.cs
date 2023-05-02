@@ -26,10 +26,10 @@ namespace BusTicketManagementApplication.src.env.statics
         }
         public static string GetEFConnectionString(string username, string password)
         => $"metadata=res://*/src.dbConnection.BusManagementModel.csdl|res://*/src.dbConnection.BusManagementModel.ssdl|res://*/src.dbConnection.BusManagementModel.msl;provider=System.Data.SqlClient;provider connection string=\"data source=(local);initial catalog=BusManagement;user id={username};password={password};MultipleActiveResultSets=True;App=EntityFramework\"";
-
-        //public static string GetEFConnectionString()
-        //    => "metadata=res://*/src.dbConnection.BusManagementModel.csdl|res://*/src.dbConnection.BusManagementModel.ssdl|res://*/src.dbConnection.BusManagementModel.msl;provider=System.Data.SqlClient;provider connection string=\"data source=(local);initial catalog=BusManagement;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework\"";
         public static string GetEFConnectionString()
             => $"metadata=res://*/src.dbConnection.BusManagementModel.csdl|res://*/src.dbConnection.BusManagementModel.ssdl|res://*/src.dbConnection.BusManagementModel.msl;provider=System.Data.SqlClient;provider connection string=\"data source=(local);initial catalog=BusManagement;user id={UserData.Username};password={UserData.Password};MultipleActiveResultSets=True;App=EntityFramework\"";
+
+        public static string GetDefaultEFConnectionString()
+            => "metadata=res://*/src.dbConnection.BusManagementModel.csdl|res://*/src.dbConnection.BusManagementModel.ssdl|res://*/src.dbConnection.BusManagementModel.msl;provider=System.Data.SqlClient;provider connection string=\"data source=(local);initial catalog=BusManagement;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework\"";
     }
 }

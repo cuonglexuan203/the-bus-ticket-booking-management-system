@@ -32,6 +32,7 @@
             this.LbErrorMessage = new System.Windows.Forms.Label();
             this.LbLogin = new System.Windows.Forms.Label();
             this.PnlUserInput = new System.Windows.Forms.Panel();
+            this.ChbShow = new System.Windows.Forms.CheckBox();
             this.PnlPhone = new System.Windows.Forms.Panel();
             this.TbPhone = new System.Windows.Forms.TextBox();
             this.LbPhone = new System.Windows.Forms.Label();
@@ -46,7 +47,6 @@
             this.LbUsername = new System.Windows.Forms.Label();
             this.LbSignUp = new System.Windows.Forms.Label();
             this.BtnSignUp = new System.Windows.Forms.Button();
-            this.ChbShow = new System.Windows.Forms.CheckBox();
             this.PnlMainContainer.SuspendLayout();
             this.PnlUserInput.SuspendLayout();
             this.PnlPhone.SuspendLayout();
@@ -107,6 +107,19 @@
             this.PnlUserInput.TabIndex = 5;
             this.PnlUserInput.Click += new System.EventHandler(this.Handler_Click);
             // 
+            // ChbShow
+            // 
+            this.ChbShow.AutoSize = true;
+            this.ChbShow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(72)))), ((int)(((byte)(107)))));
+            this.ChbShow.Location = new System.Drawing.Point(41, 365);
+            this.ChbShow.Name = "ChbShow";
+            this.ChbShow.Size = new System.Drawing.Size(175, 25);
+            this.ChbShow.TabIndex = 8;
+            this.ChbShow.TabStop = false;
+            this.ChbShow.Text = "Show password";
+            this.ChbShow.UseVisualStyleBackColor = true;
+            this.ChbShow.CheckedChanged += new System.EventHandler(this.ChbShow_CheckedChanged);
+            // 
             // PnlPhone
             // 
             this.PnlPhone.Controls.Add(this.TbPhone);
@@ -153,7 +166,7 @@
             this.TbFullName.Location = new System.Drawing.Point(15, 41);
             this.TbFullName.Name = "TbFullName";
             this.TbFullName.Size = new System.Drawing.Size(390, 21);
-            this.TbFullName.TabIndex = 4;
+            this.TbFullName.TabIndex = 3;
             // 
             // LbFullName
             // 
@@ -183,7 +196,7 @@
             this.TbPassword.Name = "TbPassword";
             this.TbPassword.PasswordChar = '*';
             this.TbPassword.Size = new System.Drawing.Size(390, 21);
-            this.TbPassword.TabIndex = 4;
+            this.TbPassword.TabIndex = 2;
             // 
             // LbPassword
             // 
@@ -212,7 +225,7 @@
             this.TbUsername.Location = new System.Drawing.Point(15, 41);
             this.TbUsername.Name = "TbUsername";
             this.TbUsername.Size = new System.Drawing.Size(390, 21);
-            this.TbUsername.TabIndex = 4;
+            this.TbUsername.TabIndex = 1;
             // 
             // LbUsername
             // 
@@ -246,25 +259,12 @@
             this.BtnSignUp.Margin = new System.Windows.Forms.Padding(0);
             this.BtnSignUp.Name = "BtnSignUp";
             this.BtnSignUp.Size = new System.Drawing.Size(392, 56);
-            this.BtnSignUp.TabIndex = 3;
-            this.BtnSignUp.TabStop = false;
+            this.BtnSignUp.TabIndex = 5;
             this.BtnSignUp.Text = "Sign Up";
             this.BtnSignUp.UseVisualStyleBackColor = false;
             this.BtnSignUp.Click += new System.EventHandler(this.BtnSignUp_Click);
             this.BtnSignUp.MouseEnter += new System.EventHandler(this.BtnSignUp_MouseEnter);
             this.BtnSignUp.MouseLeave += new System.EventHandler(this.BtnSignUp_MouseLeave);
-            // 
-            // ChbShow
-            // 
-            this.ChbShow.AutoSize = true;
-            this.ChbShow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(72)))), ((int)(((byte)(107)))));
-            this.ChbShow.Location = new System.Drawing.Point(41, 365);
-            this.ChbShow.Name = "ChbShow";
-            this.ChbShow.Size = new System.Drawing.Size(175, 25);
-            this.ChbShow.TabIndex = 8;
-            this.ChbShow.Text = "Show password";
-            this.ChbShow.UseVisualStyleBackColor = true;
-            this.ChbShow.CheckedChanged += new System.EventHandler(this.ChbShow_CheckedChanged);
             // 
             // SignUp
             // 

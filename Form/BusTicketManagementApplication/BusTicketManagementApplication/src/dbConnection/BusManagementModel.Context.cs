@@ -18,20 +18,14 @@ namespace BusTicketManagementApplication.src.dbConnection
 
     public partial class BusManagementEntities : DbContext
     {
-        //public BusManagementEntities()
-        //    : base("name=BusManagementEntities")
-        //{
-        //}
-        
         public BusManagementEntities() : base(StaticEnv.GetEFConnectionString())
         {
-
         }
-        public BusManagementEntities(bool type) : base("name=BusManagementEntities")
+        public BusManagementEntities(string connectionStr) : base(connectionStr)
         {
 
         }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

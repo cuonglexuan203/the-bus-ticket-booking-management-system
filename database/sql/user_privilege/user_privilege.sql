@@ -120,3 +120,7 @@ deny update, insert, delete, references on TRIP to rol_Staff;
 --
 exec sp_addrole rol_Admin;
 grant control on DATABASE::BusManagement to rol_Admin;
+grant alter any user to rol_Admin;
+
+-- use master
+-- grant alter any login to admin01

@@ -21,8 +21,9 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
             BusManagementEntities db = new BusManagementEntities();
             return db.PASSENGERs.Where(d => d.id_passenger == passengerId).FirstOrDefault();
         }
-        public void UpdatePassenger(string passengerId, string fullname, string phone, string email, bool? gender)
+        public bool UpdatePassenger(string passengerId, string fullname, string phone, string email, bool? gender)
         {
+            bool res = true;
             BusManagementEntities db = new BusManagementEntities();
             var curPassenger = db.PASSENGERs.Where(d => d.id_passenger == passengerId).FirstOrDefault();
             if (curPassenger != null)
@@ -36,7 +37,29 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
             else
             {
                 MessageBox.Show("Can not find out the passenger!");
+                res = false;
             }
+            return res;
+        }
+        public bool UpdateEmployee(string employeeId, string fullname, string phone, string email, bool? gender)
+        {
+            bool res = true;
+            BusManagementEntities db = new BusManagementEntities();
+            var curPassenger = db.EMPLOYEEs.Where(d => d.id_employee == employeeId).FirstOrDefault();
+            if (curPassenger != null)
+            {
+                curPassenger.name = fullname;
+                curPassenger.phone_number = phone;
+                curPassenger.email = email;
+                curPassenger.gender = gender;
+                db.SaveChanges();
+            }
+            else
+            {
+                MessageBox.Show("Can not find out the employee!");
+                res = false;
+            }
+            return res;
         }
         public List<PASSENGER> SearchPassenger(string input, int tag)
         {

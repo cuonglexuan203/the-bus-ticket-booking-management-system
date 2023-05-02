@@ -5,6 +5,7 @@ using BusTicketManagementApplication.src.layers.interfaceLayers.components.setti
 using BusTicketManagementApplication.src.layers.interfaceLayers.components.trip;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,6 +23,17 @@ namespace BusTicketManagementApplication
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new App());
+            try
+            {
+            }
+            catch (SqlException err)
+            {
+                MessageBox.Show(err.Message);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
