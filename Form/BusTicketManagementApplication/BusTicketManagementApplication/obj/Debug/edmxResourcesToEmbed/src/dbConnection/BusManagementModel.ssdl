@@ -813,6 +813,9 @@ warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a pri
   <Function Name="pro_CancelTicket" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id_ticket" Type="char" Mode="In" />
   </Function>
+  <Function Name="pro_CheckUniqueUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="pro_DisableEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="id_employee" Type="char" Mode="In" />
   </Function>

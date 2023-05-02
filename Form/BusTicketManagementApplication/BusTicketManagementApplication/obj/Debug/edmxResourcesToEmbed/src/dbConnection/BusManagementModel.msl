@@ -4,42 +4,16 @@
     <FunctionImportMapping FunctionImportName="func_GetAvailabelSeat" FunctionName="BusManagementModel.Store.func_GetAvailabelSeat" />
     <FunctionImportMapping FunctionImportName="pro_AddBooking" FunctionName="BusManagementModel.Store.pro_AddBooking" />
     <FunctionImportMapping FunctionImportName="pro_AddDefaultBooking" FunctionName="BusManagementModel.Store.pro_AddDefaultBooking" />
-    <FunctionImportMapping FunctionImportName="pro_CancelTicket" FunctionName="BusManagementModel.Store.pro_CancelTicket" />
-    <FunctionImportMapping FunctionImportName="pro_SetCancelTrip" FunctionName="BusManagementModel.Store.pro_SetCancelTrip" />
-    <FunctionImportMapping FunctionImportName="pro_SetFinishTrip" FunctionName="BusManagementModel.Store.pro_SetFinishTrip" />
-    <FunctionImportMapping FunctionImportName="pro_SetGoingTrip" FunctionName="BusManagementModel.Store.pro_SetGoingTrip" />
-    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="BusManagementModel.Store.sp_alterdiagram" />
-    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="BusManagementModel.Store.sp_creatediagram" />
-    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="BusManagementModel.Store.sp_dropdiagram" />
-    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="BusManagementModel.Store.sp_helpdiagramdefinition">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="BusManagementModel.sp_helpdiagramdefinition_Result2">
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="definition" ColumnName="definition" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="BusManagementModel.Store.sp_helpdiagrams">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="BusManagementModel.sp_helpdiagrams_Result2">
-          <ScalarProperty Name="Database" ColumnName="Database" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Owner" ColumnName="Owner" />
-          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="BusManagementModel.Store.sp_renamediagram" />
-    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="BusManagementModel.Store.sp_upgraddiagrams" />
     <FunctionImportMapping FunctionImportName="pro_AddEmployeeAccount" FunctionName="BusManagementModel.Store.pro_AddEmployeeAccount" />
     <FunctionImportMapping FunctionImportName="pro_AddPassenger" FunctionName="BusManagementModel.Store.pro_AddPassenger" />
     <FunctionImportMapping FunctionImportName="pro_AddPassengerAccount" FunctionName="BusManagementModel.Store.pro_AddPassengerAccount" />
     <FunctionImportMapping FunctionImportName="pro_AssignPassengerPrivilege" FunctionName="BusManagementModel.Store.pro_AssignPassengerPrivilege" />
     <FunctionImportMapping FunctionImportName="pro_AssignSystemPrivilege" FunctionName="BusManagementModel.Store.pro_AssignSystemPrivilege" />
+    <FunctionImportMapping FunctionImportName="pro_CancelTicket" FunctionName="BusManagementModel.Store.pro_CancelTicket" />
+    <FunctionImportMapping FunctionImportName="pro_CheckUniqueUser" FunctionName="BusManagementModel.Store.pro_CheckUniqueUser" />
     <FunctionImportMapping FunctionImportName="pro_DisableEmployee" FunctionName="BusManagementModel.Store.pro_DisableEmployee">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="BusManagementModel.pro_DisableEmployee_Result">
+        <ComplexTypeMapping TypeName="BusManagementModel.pro_DisableEmployee_Result2">
           <ScalarProperty Name="id_employee" ColumnName="id_employee" />
           <ScalarProperty Name="id_account" ColumnName="id_account" />
           <ScalarProperty Name="id_agent" ColumnName="id_agent" />
@@ -55,6 +29,33 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="pro_SetCancelTrip" FunctionName="BusManagementModel.Store.pro_SetCancelTrip" />
+    <FunctionImportMapping FunctionImportName="pro_SetFinishTrip" FunctionName="BusManagementModel.Store.pro_SetFinishTrip" />
+    <FunctionImportMapping FunctionImportName="pro_SetGoingTrip" FunctionName="BusManagementModel.Store.pro_SetGoingTrip" />
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="BusManagementModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="BusManagementModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="BusManagementModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="BusManagementModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BusManagementModel.sp_helpdiagramdefinition_Result4">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="BusManagementModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BusManagementModel.sp_helpdiagrams_Result4">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="BusManagementModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="BusManagementModel.Store.sp_upgraddiagrams" />
     <EntitySetMapping Name="AGENTs">
       <EntityTypeMapping TypeName="BusManagementModel.AGENT">
         <MappingFragment StoreEntitySet="AGENT">

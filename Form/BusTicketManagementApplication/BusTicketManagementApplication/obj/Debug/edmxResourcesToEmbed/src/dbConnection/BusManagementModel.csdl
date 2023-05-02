@@ -14,8 +14,35 @@
       <Parameter Name="id_ticket" Mode="In" Type="String" />
       <Parameter Name="id_passenger" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="pro_AddEmployeeAccount">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pro_AddPassenger">
+      <Parameter Name="id_passenger" Mode="In" Type="String" />
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="phone" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pro_AddPassengerAccount">
+      <Parameter Name="id_passenger" Mode="In" Type="String" />
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pro_AssignPassengerPrivilege">
+      <Parameter Name="id_passenger" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pro_AssignSystemPrivilege">
+      <Parameter Name="id_employee" Mode="In" Type="String" />
+      <Parameter Name="id_position" Mode="In" Type="String" />
+    </FunctionImport>
     <FunctionImport Name="pro_CancelTicket">
       <Parameter Name="id_ticket" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pro_CheckUniqueUser" ReturnType="Collection(Int32)">
+      <Parameter Name="username" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="pro_DisableEmployee" ReturnType="Collection(BusManagementModel.pro_DisableEmployee_Result2)">
+      <Parameter Name="id_employee" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="pro_SetCancelTrip">
       <Parameter Name="id_trip" Mode="In" Type="String" />
@@ -42,11 +69,11 @@
       <Parameter Name="diagramname" Mode="In" Type="String" />
       <Parameter Name="owner_id" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(BusManagementModel.sp_helpdiagramdefinition_Result2)">
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(BusManagementModel.sp_helpdiagramdefinition_Result4)">
       <Parameter Name="diagramname" Mode="In" Type="String" />
       <Parameter Name="owner_id" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(BusManagementModel.sp_helpdiagrams_Result2)">
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(BusManagementModel.sp_helpdiagrams_Result4)">
       <Parameter Name="diagramname" Mode="In" Type="String" />
       <Parameter Name="owner_id" Mode="In" Type="Int32" />
     </FunctionImport>
@@ -56,30 +83,6 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
-    <FunctionImport Name="pro_AddEmployeeAccount">
-      <Parameter Name="username" Mode="In" Type="String" />
-      <Parameter Name="password" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="pro_AddPassenger">
-      <Parameter Name="id_passenger" Mode="In" Type="String" />
-      <Parameter Name="name" Mode="In" Type="String" />
-      <Parameter Name="phone" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="pro_AddPassengerAccount">
-      <Parameter Name="id_passenger" Mode="In" Type="String" />
-      <Parameter Name="username" Mode="In" Type="String" />
-      <Parameter Name="password" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="pro_AssignPassengerPrivilege">
-      <Parameter Name="id_passenger" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="pro_AssignSystemPrivilege">
-      <Parameter Name="id_employee" Mode="In" Type="String" />
-      <Parameter Name="id_position" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="pro_DisableEmployee" ReturnType="Collection(BusManagementModel.pro_DisableEmployee_Result)">
-      <Parameter Name="id_employee" Mode="In" Type="String" />
-    </FunctionImport>
     <EntitySet Name="AGENTs" EntityType="BusManagementModel.AGENT" />
     <EntitySet Name="BOOKINGs" EntityType="BusManagementModel.BOOKING" />
     <EntitySet Name="Buses" EntityType="BusManagementModel.BUS" />
@@ -257,6 +260,56 @@
     <Property Type="DateTime" Name="birthdate" Nullable="false" />
     <Property Type="Boolean" Name="gender" Nullable="true" />
     <Property Type="Boolean" Name="state" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="pro_DisableEmployee_Result1">
+    <Property Type="String" Name="id_employee" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="id_account" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="id_agent" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="address" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="phone_number" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="identity_number" Nullable="false" MaxLength="20" />
+    <Property Type="Decimal" Name="salary" Nullable="false" Precision="19" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="birthdate" Nullable="false" />
+    <Property Type="Boolean" Name="gender" Nullable="true" />
+    <Property Type="Boolean" Name="state" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result3">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result3">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="pro_DisableEmployee_Result2">
+    <Property Type="String" Name="id_employee" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="id_account" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="id_agent" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="address" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="phone_number" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="identity_number" Nullable="false" MaxLength="20" />
+    <Property Type="Decimal" Name="salary" Nullable="false" Precision="19" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="birthdate" Nullable="false" />
+    <Property Type="Boolean" Name="gender" Nullable="true" />
+    <Property Type="Boolean" Name="state" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result4">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result4">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
   <EntityType Name="AGENT">
     <Key>
