@@ -53,11 +53,9 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.s
             if (!res)
             {
                 this.LbNotifiedMessage.Text =  "Change password failed.";
+                return;
             }
-            else
-            {
-                this.LbNotifiedMessage.Text = "Change password succsessfully!";
-            }
+            this.LbNotifiedMessage.Text = "Change password succsessfully!"; 
             this.LbNotifiedMessage.Show();
             ClearInput();
         }

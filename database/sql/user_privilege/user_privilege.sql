@@ -35,7 +35,7 @@ grant execute on dbo.pro_CancelTicket to rol_Passenger;
 -- grant functions
 grant execute on dbo.func_auto_id_booking to rol_Passenger;
 grant execute on dbo.func_auto_id_passenger to rol_Passenger;
---grant execute on dbo.func_GetAvailabelSeat to rol_Passenger;
+grant select on dbo.func_GetAvailabelSeat to rol_Passenger;
 
 --
 -- deny 
@@ -98,7 +98,7 @@ grant execute on dbo.pro_CancelTicket to rol_Staff;
 -- grant functions
 grant execute on dbo.func_auto_id_booking to rol_Staff;
 grant execute on dbo.func_auto_id_passenger to rol_Staff;
---grant execute on dbo.func_GetAvailabelSeat to rol_Staff;
+grant select on dbo.func_GetAvailabelSeat to rol_Staff;
 grant execute on dbo.func_auto_id_employee to rol_Staff;
 
 --
@@ -120,3 +120,7 @@ deny update, insert, delete, references on TRIP to rol_Staff;
 --
 exec sp_addrole rol_Admin;
 grant control on DATABASE::BusManagement to rol_Admin;
+grant alter any user to rol_Admin;
+
+-- use master
+-- grant alter any login to admin01

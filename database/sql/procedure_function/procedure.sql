@@ -122,7 +122,7 @@ begin
 end
 go
 --
-create PROCEDURE pro_CheckUniqueUser(@username varchar(50))
+CREATE PROCEDURE [dbo].[pro_CheckUniqueUser](@username varchar(50))
 AS
 BEGIN
     DECLARE @count int, @errMsg nvarchar(MAX)
@@ -132,6 +132,9 @@ BEGIN
     BEGIN
         SET @errMsg = 'Username has already been taken.';
         RAISERROR(@errMsg, 16, 1);
+		return;
     END
     SELECT @count
 END
+go
+--

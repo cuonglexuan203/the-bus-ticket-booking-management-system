@@ -73,6 +73,7 @@ namespace BusTicketManagementApplication.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+<<<<<<< HEAD
         internal static System.Drawing.Bitmap Cantho {
             get {
                 object obj = ResourceManager.GetObject("Cantho", resourceCulture);
@@ -123,12 +124,15 @@ namespace BusTicketManagementApplication.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+=======
+>>>>>>> f1c7a3a6bc00ed57fad9359615ce8e15578fbbe1
         internal static System.Drawing.Bitmap home {
             get {
                 object obj = ResourceManager.GetObject("home", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+<<<<<<< HEAD
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -229,5 +233,7 @@ namespace BusTicketManagementApplication.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+=======
+>>>>>>> f1c7a3a6bc00ed57fad9359615ce8e15578fbbe1
     }
 }

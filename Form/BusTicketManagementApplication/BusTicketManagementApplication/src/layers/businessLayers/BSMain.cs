@@ -1,6 +1,7 @@
 ﻿using BusTicketManagementApplication.src.dbConnection;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -59,6 +60,11 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
         {
             BusManagementEntities db = new BusManagementEntities();
             string query = $"select dbo.{funcName}()";  
+            return db.Database.SqlQuery<string>(query).ToList().FirstOrDefault().ToString();
+        }
+        public static string RunFunc(DbContext db, string funcName)
+        {
+            string query = $"select dbo.{funcName}()";
             return db.Database.SqlQuery<string>(query).ToList().FirstOrDefault().ToString();
         }
 

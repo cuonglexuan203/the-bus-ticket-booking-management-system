@@ -1,4 +1,5 @@
 ﻿using BusTicketManagementApplication.src.layers.businessLayers;
+using BusTicketManagementApplication.src.layers.interfaceLayers.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -90,11 +91,21 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.a
             {
                 BSEmployee bsemployee = new BSEmployee();
                 string deleteEmployeeId = this.LbSelectedId.Text.Trim();
+                if (deleteEmployeeId == UserData.GetSystemId())
+                {
+                    MessageBox.Show("Can not disable the current employee!");
+                    return;
+                }
                 bool res = bsemployee.DeleteEmployee(deleteEmployeeId);
                 //
                 if (!res)
                 {
                     MessageBox.Show("Can't delete the employee!");
+                }
+                else
+                {
+                    MessageBox.Show("The employee has been disabled!");
+                    FilterEmployees();
                 }
             }
             catch (SqlException sqlerr)

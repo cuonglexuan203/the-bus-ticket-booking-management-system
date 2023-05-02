@@ -512,6 +512,8 @@ INSERT INTO SYSTEMACCOUNT(username,pass) values ('admin03','admin')
 INSERT INTO SYSTEMACCOUNT(username,pass) values ('admin04','admin')
 INSERT INTO SYSTEMACCOUNT(username,pass) values ('admin05','admin')
 
+
+
 -- 
         
 INSERT INTO EMPLOYEE(id_account,id_agent, name,address, phone_number, identity_number, salary, birthdate, gender, state) values ('acc_0000000001','age_0000000005',N'system employee',N'Số 50, đường Nguyễn Tất Thành, phường 5, thành phố Cà Mau, tỉnh Cà Mau','0111111111', '12345678910', 3123, '12-12-2012', 0, 1);
@@ -520,7 +522,8 @@ INSERT INTO EMPLOYEE(id_account,id_agent, name,address, phone_number, identity_n
 INSERT INTO EMPLOYEE(id_account,id_agent, name,address, phone_number, identity_number, salary, birthdate, gender, state) values ('acc_0000000004','age_0000000002','Justin C',N'Số 20, đường Hùng Vương, phường Đồng Xuân, thành phố Gia Nghĩa, tỉnh Đăk Nông', '0555555555', '12345678910', 5367852, '12-12-2000', 1, 1);
 INSERT INTO EMPLOYEE(id_account,id_agent, name,address, phone_number, identity_number, salary, birthdate, gender, state) values ('acc_0000000005','age_0000000001','Lucky D',N'Số 10, đường Y Ngông, phường Tân Lợi, thành phố Buôn Ma Thuột, tỉnh Đăk Lăk', '0888888888', '12345678910', 5465123, '12-12-2000', 1, 1);
 
-
+--
+exec pro_AssignSystemPrivilege 'emp_0000000001',  'pos_0000000001'
 --
 insert into POSITION(type) values ('administrator');
 insert into POSITION(type) values ('planner');

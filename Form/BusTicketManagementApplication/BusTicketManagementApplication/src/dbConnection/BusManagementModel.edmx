@@ -1158,7 +1158,10 @@ warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a pri
           <FunctionImport Name="pro_CancelTicket">
           <Parameter Name="id_ticket" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="pro_DisableEmployee" ReturnType="Collection(BusManagementModel.pro_DisableEmployee_Result1)">
+          <FunctionImport Name="pro_CheckUniqueUser" ReturnType="Collection(Int32)">
+          <Parameter Name="username" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pro_DisableEmployee" ReturnType="Collection(BusManagementModel.pro_DisableEmployee_Result2)">
           <Parameter Name="id_employee" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pro_SetCancelTrip">
@@ -1186,11 +1189,11 @@ warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a pri
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(BusManagementModel.sp_helpdiagramdefinition_Result3)">
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(BusManagementModel.sp_helpdiagramdefinition_Result4)">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(BusManagementModel.sp_helpdiagrams_Result3)">
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(BusManagementModel.sp_helpdiagrams_Result4)">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -1312,10 +1315,7 @@ warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a pri
             <End Role="DRIVER" EntitySet="DRIVERs" />
             <End Role="TRIP" EntitySet="TRIPs" />
           </AssociationSet>
-          <FunctionImport Name="pro_CheckUniqueUser" ReturnType="Collection(Int32)">
-            <Parameter Name="username" Mode="In" Type="String" />
-          </FunctionImport>
-        </EntityContainer>
+          </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
           <Property Type="Binary" Name="definition" Nullable="true" />
@@ -1400,6 +1400,31 @@ warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a pri
           <Property Type="Binary" Name="definition" Nullable="true" />
         </ComplexType>
         <ComplexType Name="sp_helpdiagrams_Result3">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="pro_DisableEmployee_Result2">
+          <Property Type="String" Name="id_employee" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="id_account" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="id_agent" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="address" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="phone_number" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="identity_number" Nullable="false" MaxLength="20" />
+          <Property Type="Decimal" Name="salary" Nullable="false" Precision="19" />
+          <Property Type="String" Name="email" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="birthdate" Nullable="false" />
+          <Property Type="Boolean" Name="gender" Nullable="true" />
+          <Property Type="Boolean" Name="state" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagramdefinition_Result4">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result4">
           <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
           <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
           <Property Type="Int32" Name="ID" Nullable="false" />
@@ -1997,9 +2022,10 @@ warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a pri
           <FunctionImportMapping FunctionImportName="pro_AssignPassengerPrivilege" FunctionName="BusManagementModel.Store.pro_AssignPassengerPrivilege" />
           <FunctionImportMapping FunctionImportName="pro_AssignSystemPrivilege" FunctionName="BusManagementModel.Store.pro_AssignSystemPrivilege" />
           <FunctionImportMapping FunctionImportName="pro_CancelTicket" FunctionName="BusManagementModel.Store.pro_CancelTicket" />
+          <FunctionImportMapping FunctionImportName="pro_CheckUniqueUser" FunctionName="BusManagementModel.Store.pro_CheckUniqueUser" />
           <FunctionImportMapping FunctionImportName="pro_DisableEmployee" FunctionName="BusManagementModel.Store.pro_DisableEmployee">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="BusManagementModel.pro_DisableEmployee_Result1">
+              <ComplexTypeMapping TypeName="BusManagementModel.pro_DisableEmployee_Result2">
                 <ScalarProperty Name="id_employee" ColumnName="id_employee" />
                 <ScalarProperty Name="id_account" ColumnName="id_account" />
                 <ScalarProperty Name="id_agent" ColumnName="id_agent" />
@@ -2023,7 +2049,7 @@ warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a pri
           <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="BusManagementModel.Store.sp_dropdiagram" />
           <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="BusManagementModel.Store.sp_helpdiagramdefinition">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="BusManagementModel.sp_helpdiagramdefinition_Result3">
+              <ComplexTypeMapping TypeName="BusManagementModel.sp_helpdiagramdefinition_Result4">
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
               </ComplexTypeMapping>
@@ -2031,7 +2057,7 @@ warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a pri
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="BusManagementModel.Store.sp_helpdiagrams">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="BusManagementModel.sp_helpdiagrams_Result3">
+              <ComplexTypeMapping TypeName="BusManagementModel.sp_helpdiagrams_Result4">
                 <ScalarProperty Name="Database" ColumnName="Database" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -2425,8 +2451,7 @@ warning 6002: The table/view 'BusManagement.dbo.V_USERINFOR' does not have a pri
               <ScalarProperty Name="id_driver" ColumnName="id_driver" />
             </EndProperty>
           </AssociationSetMapping>
-          <FunctionImportMapping FunctionImportName="pro_CheckUniqueUser" FunctionName="BusManagementModel.Store.pro_CheckUniqueUser" />
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
