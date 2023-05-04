@@ -21,11 +21,11 @@ namespace BusTicketManagementApplication
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new App());
             try
             {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new App());
             }
             catch (SqlException err)
             {
