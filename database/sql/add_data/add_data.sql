@@ -537,3 +537,54 @@ insert into POSITION(type) values ('porter');
 --
 -- DRIVER
 insert into DRIVER values('emp_0000000005', 'F', 0, 0);
+
+
+--
+--use busmanagement
+--go
+----
+--drop user cuongle123
+--drop user admin01
+--drop user admin02
+--drop user admin03
+--drop user admin04
+--drop user admin05
+--drop user cuongleok
+--go
+----
+--drop login cuongle123
+--drop login admin01
+--drop login admin02
+--drop login admin03
+--drop login admin04
+--drop login admin05
+--drop login cuongleok
+--go
+----
+--create login cuongle123 with password='123a', default_database=[BusManagement], check_expiration = off, check_policy = off
+--create login admin01 with password='admin', default_database=[BusManagement], check_expiration = off, check_policy = off
+--create login admin02 with password='admin', default_database=[BusManagement], check_expiration = off, check_policy = off
+--create login admin03 with password='admin', default_database=[BusManagement], check_expiration = off, check_policy = off
+--create login admin04 with password='admin', default_database=[BusManagement], check_expiration = off, check_policy = off
+--create login admin05 with password='admin', default_database=[BusManagement], check_expiration = off, check_policy = off
+--create login cuongleok with password='123a', default_database=[BusManagement], check_expiration = off, check_policy = off
+
+--go
+----
+
+--create user cuongle123 for login cuongle123
+--create user cuongleok for login cuongleok
+--create user admin01 for login admin01
+--create user admin02 for login admin02
+--create user admin03 for login admin03
+--create user admin04 for login admin04
+--create user admin05 for login admin05
+
+
+--exec sp_addrolemember rol_Passenger, cuongle123
+--exec sp_addrolemember rol_Passenger, cuongleok
+--exec sp_addrolemember rol_Admin, admin01
+--exec sp_addrolemember rol_Staff, admin02
+--exec sp_addrolemember rol_Staff, admin03
+--exec sp_addrolemember rol_Staff, admin04
+--exec sp_addrolemember rol_Staff, admin05
