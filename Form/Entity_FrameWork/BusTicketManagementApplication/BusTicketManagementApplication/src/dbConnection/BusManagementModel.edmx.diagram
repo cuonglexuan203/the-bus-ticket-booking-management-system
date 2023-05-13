@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="86531bbe5d5342169bcd0f2cb2216891" Name="Diagram1" ZoomLevel="35">
+        
+        
+
+        
+        
+        
+        
+        
+        
+        
+=======
+        
+=======
+        
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; f1c7a3a6bc00ed57fad9359615ce8e15578fbbe1
+        
+        
+        
+        
+        
+        
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 4c9b1254df28c019dc6045736df408648859c99d
+=======
+        
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; f1c7a3a6bc00ed57fad9359615ce8e15578fbbe1
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        <EntityTypeShape EntityType="BusManagementModel.AGENT" Width="1.5" PointX="11.123281912469903" PointY="31.252493202338226" />
+        <EntityTypeShape EntityType="BusManagementModel.BOOKING" Width="1.5" PointX="0.91838919414132325" PointY="29.09666259451614" />
+        <EntityTypeShape EntityType="BusManagementModel.BUS" Width="1.5" PointX="9.8069014147887472" PointY="27.251050514751604" />
+        <EntityTypeShape EntityType="BusManagementModel.BUSROUTE" Width="1.5" PointX="5.702361984971148" PointY="17.756148286981578" />
+        <EntityTypeShape EntityType="BusManagementModel.BUSSTATION" Width="1.5" PointX="6.7755326548477317" PointY="6.5977989614930932" />
+        <EntityTypeShape EntityType="BusManagementModel.CASHRESERVE" Width="1.5" PointX="6.659186507882171" PointY="2.5131247949381939" />
+        <EntityTypeShape EntityType="BusManagementModel.DRIVER" Width="1.5" PointX="8.2818036546380274" PointY="22.065579722665987" />
+        <EntityTypeShape EntityType="BusManagementModel.EMPLOYEE" Width="1.5" PointX="1.6767495058834319" PointY="21.50778960693059" />
+        <EntityTypeShape EntityType="BusManagementModel.EVENT" Width="1.5" PointX="3.7177391404834292" PointY="24.417782124326465" />
+        <EntityTypeShape EntityType="BusManagementModel.PASSENGER" Width="1.5" PointX="9.4698929048468781" PointY="5.99732479732359" />
+        <EntityTypeShape EntityType="BusManagementModel.PASSENGERACCOUNT" Width="1.5" PointX="2.9025911162153779" PointY="29.519001810587479" />
+        <EntityTypeShape EntityType="BusManagementModel.PLACE" Width="1.5" PointX="1.8512022075481722" PointY="15.186255223670162" />
+        <EntityTypeShape EntityType="BusManagementModel.POSITION" Width="1.5" PointX="6.6765914627707525" PointY="23.540783878201985" />
+        <EntityTypeShape EntityType="BusManagementModel.REFUND" Width="1.5" PointX="0.77425378597073891" PointY="4.0849368591257074" />
+        <EntityTypeShape EntityType="BusManagementModel.sysdiagram" Width="1.5" PointX="5.8929933187984833" PointY="28.369560418822598" />
+        <EntityTypeShape EntityType="BusManagementModel.SYSTEMACCOUNT" Width="1.5" PointX="8.0625254903279835" PointY="1.5333051241623727" />
+        <EntityTypeShape EntityType="BusManagementModel.TICKET" Width="1.5" PointX="9.6815395530692943" PointY="14.037099531868984" />
+        <EntityTypeShape EntityType="BusManagementModel.TRIP" Width="1.5" PointX="9.1178481435020675" PointY="28.9208189681735" />
+        <EntityTypeShape EntityType="BusManagementModel.V_AGENTINFOR" Width="1.5" PointX="3.4187702887778966" PointY="8.79461963884282" />
+        <EntityTypeShape EntityType="BusManagementModel.V_AVAILABLETRIP" Width="1.5" PointX="8.39031867887374" PointY="26.012670096947193" />
+        <EntityTypeShape EntityType="BusManagementModel.V_BOOKEDTICKET" Width="1.5" PointX="2.912740963936197" PointY="17.673312120918794" />
+        <EntityTypeShape EntityType="BusManagementModel.V_BOOKINGINFOR" Width="1.5" PointX="8.6044181066585779" PointY="27.83952945277073" />
+        <EntityTypeShape EntityType="BusManagementModel.V_BUSSTATIONINFOR" Width="1.5" PointX="6.7126707447286087" PointY="31.360895707905708" />
+        <EntityTypeShape EntityType="BusManagementModel.V_DRIVERINFOR" Width="1.5" PointX="8.5121537095458031" PointY="25.990214315238507" />
+        <EntityTypeShape EntityType="BusManagementModel.V_EMPLOYEEINFOR" Width="1.5" PointX="8.6358997526745789" PointY="14.387153036141374" />
+        <EntityTypeShape EntityType="BusManagementModel.V_ROUTEINFOR" Width="1.5" PointX="8.7970621310160784" PointY="9.6500220939749948" />
+        <EntityTypeShape EntityType="BusManagementModel.V_TRIPINFOR" Width="1.5" PointX="4.1777513530933073" PointY="25.904355821155178" />
+        <EntityTypeShape EntityType="BusManagementModel.V_USERINFOR" Width="1.5" PointX="3.6957621871008364" PointY="0.14308328933226097" />
+        <AssociationConnector Association="BusManagementModel.FK_agent_id_cash_reserve" />
+        <AssociationConnector Association="BusManagementModel.FK_agent_id_place" />
+        <AssociationConnector Association="BusManagementModel.FK_employee_id_agent" />
+        <AssociationConnector Association="BusManagementModel.FK_booking_id_employee" />
+        <AssociationConnector Association="BusManagementModel.FK_booking_id_passenger" />
+        <AssociationConnector Association="BusManagementModel.FK_booking_id_ticket" />
+        <AssociationConnector Association="BusManagementModel.FK_trip_id_bus" />
+        <AssociationConnector Association="BusManagementModel.FK_busroute_id_end_bus_station" />
+        <AssociationConnector Association="BusManagementModel.FK_busroute_id_start_bus_station" />
+        <AssociationConnector Association="BusManagementModel.FK_trip_id_bus_route" />
+        <AssociationConnector Association="BusManagementModel.FK_busstation_id_place" />
+        <AssociationConnector Association="BusManagementModel.FK_employee_id_account" />
+        <AssociationConnector Association="BusManagementModel.PK_passengerAccount_id_passenger" />
+        <AssociationConnector Association="BusManagementModel.FK_ticket_id_trip" />
+        <AssociationConnector Association="BusManagementModel.AGENT_EVENT" />
+        <AssociationConnector Association="BusManagementModel.AGENT_REFUND" />
+        <AssociationConnector Association="BusManagementModel.AGENT_TRIP" />
+        <AssociationConnector Association="BusManagementModel.BUSROUTE_BUSSTATION" />
+        <AssociationConnector Association="BusManagementModel.EMPLOYEE_POSITION" />
+        <AssociationConnector Association="BusManagementModel.EMPLOYEE_TICKET" />
+        <AssociationConnector Association="BusManagementModel.TRIP_DRIVER" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

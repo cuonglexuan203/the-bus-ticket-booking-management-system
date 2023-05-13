@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="BusManagementDataSet1" targetNamespace="http://tempuri.org/BusManagementDataSet1.xsd" xmlns:mstns="http://tempuri.org/BusManagementDataSet1.xsd" xmlns="http://tempuri.org/BusManagementDataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BusManagementConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BusManagementConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.BusTicketManagementApplication.Properties.Settings.GlobalReference.Default.BusManagementConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_AGENTINFORTableAdapter" GeneratorDataComponentClassName="V_AGENTINFORTableAdapter" Name="V_AGENTINFOR" UserDataComponentName="V_AGENTINFORTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BusManagementConnectionString (Settings)" DbObjectName="BusManagement.dbo.V_AGENTINFOR" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT [Agent ID], Phone, Address, Region, Money FROM dbo.V_AGENTINFOR</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Agent ID" DataSetColumn="Agent ID" />
+              <Mapping SourceColumn="Phone" DataSetColumn="Phone" />
+              <Mapping SourceColumn="Address" DataSetColumn="Address" />
+              <Mapping SourceColumn="Region" DataSetColumn="Region" />
+              <Mapping SourceColumn="Money" DataSetColumn="Money" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="BusManagementDataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="BusManagementDataSet1" msprop:Generator_DataSetName="BusManagementDataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="V_AGENTINFOR" msprop:Generator_RowEvHandlerName="V_AGENTINFORRowChangeEventHandler" msprop:Generator_RowDeletedName="V_AGENTINFORRowDeleted" msprop:Generator_RowDeletingName="V_AGENTINFORRowDeleting" msprop:Generator_RowEvArgName="V_AGENTINFORRowChangeEvent" msprop:Generator_TablePropName="V_AGENTINFOR" msprop:Generator_RowChangedName="V_AGENTINFORRowChanged" msprop:Generator_RowChangingName="V_AGENTINFORRowChanging" msprop:Generator_TableClassName="V_AGENTINFORDataTable" msprop:Generator_RowClassName="V_AGENTINFORRow" msprop:Generator_TableVarName="tableV_AGENTINFOR" msprop:Generator_UserTableName="V_AGENTINFOR">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Agent_x0020_ID" msprop:Generator_ColumnPropNameInRow="Agent_ID" msprop:Generator_ColumnPropNameInTable="Agent_IDColumn" msprop:Generator_ColumnVarNameInTable="columnAgent_ID" msprop:Generator_UserColumnName="Agent ID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Phone" msprop:Generator_ColumnPropNameInRow="Phone" msprop:Generator_ColumnPropNameInTable="PhoneColumn" msprop:Generator_ColumnVarNameInTable="columnPhone" msprop:Generator_UserColumnName="Phone">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Address" msprop:Generator_ColumnPropNameInRow="Address" msprop:Generator_ColumnPropNameInTable="AddressColumn" msprop:Generator_ColumnVarNameInTable="columnAddress" msprop:Generator_UserColumnName="Address">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Region" msprop:Generator_ColumnPropNameInRow="Region" msprop:Generator_ColumnPropNameInTable="RegionColumn" msprop:Generator_ColumnVarNameInTable="columnRegion" msprop:Generator_UserColumnName="Region">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Money" msprop:Generator_ColumnPropNameInRow="Money" msprop:Generator_ColumnPropNameInTable="MoneyColumn" msprop:Generator_ColumnVarNameInTable="columnMoney" msprop:Generator_UserColumnName="Money" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:V_AGENTINFOR" />
+      <xs:field xpath="mstns:Agent_x0020_ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
