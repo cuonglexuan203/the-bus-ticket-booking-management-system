@@ -1,56 +1,55 @@
-﻿using System;
+﻿using BusTicketManagementApplication.src.dbConnection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BusTicketManagementApplication.src.dbConnection;
 
 namespace BusTicketManagementApplication.src.layers.businessLayers
 {
     class BSBus
     {
+
         public List<BUS> GetAllBus()
         {
-            using ( BusManangementEntities db = new BusManagementEntities() )
-            {
-                return db.Buses.ToList();
-            }
+
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
+            var res = db.BUS.ToList();
+            return res;
         }
 
         public List<BUS> SearchBusByID(string input, bool type)
         {
-            using ( BusManagementEntities db = new BusManagementEntities())
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
+
+            var res = FilterBus(type);
+            if (!string.IsNullOrEmpty(input))
             {
-                var query = FilterBus(db, type);
-
-                if (!string.IsNullOrEmpty(input))
-                {
-                    query = query.Where(d => d.id_bus.Contains(input));
-                }
-
-                return query.ToList();
+                res = res.Where(d => d.id_bus.Contains(input)).ToList();
+                return res.ToList();
             }
+            return res.ToList();
         }
 
         public List<BUS> SearchBusByRegistrationNumber(string input, bool type)
         {
-            using (BusManagementEntities db = new BusManagementEntities())
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
+
+            var res = FilterBus(type);
+            if (!string.IsNullOrEmpty(input))
             {
-                var query = FilterBus(db, type);
-
-                if (!string.IsNullOrEmpty(input))
-                {
-                    query = query.Where(d => d.registration_number.Contains(input));
-                }
-
-                return query.ToList();
+                res = res.Where(d => d.registration_number.Contains(input)).ToList();
+                return res.ToList();
             }
+            return res.ToList();
         }
 
-        private IQueryable<BUS> FilterBus(BusManagementEntities db, bool type)
+        public List<BUS> FilterBus(bool type)
         {
-            return db.Buses.Where(d => d.type == type);
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
+
+            var res = db.BUS.Where(d => d.type == type);
+            return res.ToList();
         }
     }
 }
-

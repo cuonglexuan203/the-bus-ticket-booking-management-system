@@ -106,7 +106,7 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.b
                 MessageBox.Show("Please select the ticket to cancel!");
                 return;
             }
-            BusManagementEntities db = new BusManagementEntities();
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
             //
             db.pro_CancelTicket(this.LbSelectedId.Text.Trim());
             this.LbSelectedId.Text = string.Empty;

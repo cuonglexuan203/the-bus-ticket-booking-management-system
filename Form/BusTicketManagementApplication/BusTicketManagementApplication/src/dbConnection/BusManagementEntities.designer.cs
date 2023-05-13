@@ -23,138 +23,122 @@ namespace BusTicketManagementApplication.src.dbConnection
 	
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="BusManagement")]
-	public partial class BusManagementDataContext : System.Data.Linq.DataContext
+	public partial class BusManagementEntitiesDataContext : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertTRIP_DRIVER(TRIP_DRIVER instance);
-    partial void UpdateTRIP_DRIVER(TRIP_DRIVER instance);
-    partial void DeleteTRIP_DRIVER(TRIP_DRIVER instance);
-    partial void InsertTRIP(TRIP instance);
-    partial void UpdateTRIP(TRIP instance);
-    partial void DeleteTRIP(TRIP instance);
-    partial void InsertTICKET(TICKET instance);
-    partial void UpdateTICKET(TICKET instance);
-    partial void DeleteTICKET(TICKET instance);
-    partial void InsertSYSTEMACCOUNT(SYSTEMACCOUNT instance);
-    partial void UpdateSYSTEMACCOUNT(SYSTEMACCOUNT instance);
-    partial void DeleteSYSTEMACCOUNT(SYSTEMACCOUNT instance);
-    partial void InsertREFUND(REFUND instance);
-    partial void UpdateREFUND(REFUND instance);
-    partial void DeleteREFUND(REFUND instance);
-    partial void InsertPOSITION(POSITION instance);
-    partial void UpdatePOSITION(POSITION instance);
-    partial void DeletePOSITION(POSITION instance);
-    partial void InsertPLACE(PLACE instance);
-    partial void UpdatePLACE(PLACE instance);
-    partial void DeletePLACE(PLACE instance);
-    partial void InsertPASSENGERACCOUNT(PASSENGERACCOUNT instance);
-    partial void UpdatePASSENGERACCOUNT(PASSENGERACCOUNT instance);
-    partial void DeletePASSENGERACCOUNT(PASSENGERACCOUNT instance);
-    partial void InsertPASSENGER(PASSENGER instance);
-    partial void UpdatePASSENGER(PASSENGER instance);
-    partial void DeletePASSENGER(PASSENGER instance);
-    partial void InsertEVENT(EVENT instance);
-    partial void UpdateEVENT(EVENT instance);
-    partial void DeleteEVENT(EVENT instance);
-    partial void InsertEMPLOYEE_TICKET(EMPLOYEE_TICKET instance);
-    partial void UpdateEMPLOYEE_TICKET(EMPLOYEE_TICKET instance);
-    partial void DeleteEMPLOYEE_TICKET(EMPLOYEE_TICKET instance);
-    partial void InsertEMPLOYEE_POSITION(EMPLOYEE_POSITION instance);
-    partial void UpdateEMPLOYEE_POSITION(EMPLOYEE_POSITION instance);
-    partial void DeleteEMPLOYEE_POSITION(EMPLOYEE_POSITION instance);
-    partial void InsertEMPLOYEE(EMPLOYEE instance);
-    partial void UpdateEMPLOYEE(EMPLOYEE instance);
-    partial void DeleteEMPLOYEE(EMPLOYEE instance);
-    partial void InsertDRIVER(DRIVER instance);
-    partial void UpdateDRIVER(DRIVER instance);
-    partial void DeleteDRIVER(DRIVER instance);
-    partial void InsertCASHRESERVE(CASHRESERVE instance);
-    partial void UpdateCASHRESERVE(CASHRESERVE instance);
-    partial void DeleteCASHRESERVE(CASHRESERVE instance);
-    partial void InsertBUSSTATION(BUSSTATION instance);
-    partial void UpdateBUSSTATION(BUSSTATION instance);
-    partial void DeleteBUSSTATION(BUSSTATION instance);
-    partial void InsertBUSROUTE_BUSSTATION(BUSROUTE_BUSSTATION instance);
-    partial void UpdateBUSROUTE_BUSSTATION(BUSROUTE_BUSSTATION instance);
-    partial void DeleteBUSROUTE_BUSSTATION(BUSROUTE_BUSSTATION instance);
-    partial void InsertBUSROUTE(BUSROUTE instance);
-    partial void UpdateBUSROUTE(BUSROUTE instance);
-    partial void DeleteBUSROUTE(BUSROUTE instance);
-    partial void InsertBUS(BUS instance);
-    partial void UpdateBUS(BUS instance);
-    partial void DeleteBUS(BUS instance);
-    partial void InsertBOOKING(BOOKING instance);
-    partial void UpdateBOOKING(BOOKING instance);
-    partial void DeleteBOOKING(BOOKING instance);
-    partial void InsertAGENT_TRIP(AGENT_TRIP instance);
-    partial void UpdateAGENT_TRIP(AGENT_TRIP instance);
-    partial void DeleteAGENT_TRIP(AGENT_TRIP instance);
-    partial void InsertAGENT_REFUND(AGENT_REFUND instance);
-    partial void UpdateAGENT_REFUND(AGENT_REFUND instance);
-    partial void DeleteAGENT_REFUND(AGENT_REFUND instance);
-    partial void InsertAGENT_EVENT(AGENT_EVENT instance);
-    partial void UpdateAGENT_EVENT(AGENT_EVENT instance);
-    partial void DeleteAGENT_EVENT(AGENT_EVENT instance);
     partial void InsertAGENT(AGENT instance);
     partial void UpdateAGENT(AGENT instance);
     partial void DeleteAGENT(AGENT instance);
+    partial void InsertSYSTEMACCOUNT(SYSTEMACCOUNT instance);
+    partial void UpdateSYSTEMACCOUNT(SYSTEMACCOUNT instance);
+    partial void DeleteSYSTEMACCOUNT(SYSTEMACCOUNT instance);
+    partial void InsertAGENT_EVENT(AGENT_EVENT instance);
+    partial void UpdateAGENT_EVENT(AGENT_EVENT instance);
+    partial void DeleteAGENT_EVENT(AGENT_EVENT instance);
+    partial void InsertAGENT_REFUND(AGENT_REFUND instance);
+    partial void UpdateAGENT_REFUND(AGENT_REFUND instance);
+    partial void DeleteAGENT_REFUND(AGENT_REFUND instance);
+    partial void InsertAGENT_TRIP(AGENT_TRIP instance);
+    partial void UpdateAGENT_TRIP(AGENT_TRIP instance);
+    partial void DeleteAGENT_TRIP(AGENT_TRIP instance);
+    partial void InsertBOOKING(BOOKING instance);
+    partial void UpdateBOOKING(BOOKING instance);
+    partial void DeleteBOOKING(BOOKING instance);
+    partial void InsertBUS(BUS instance);
+    partial void UpdateBUS(BUS instance);
+    partial void DeleteBUS(BUS instance);
+    partial void InsertBUSROUTE(BUSROUTE instance);
+    partial void UpdateBUSROUTE(BUSROUTE instance);
+    partial void DeleteBUSROUTE(BUSROUTE instance);
+    partial void InsertBUSROUTE_BUSSTATION(BUSROUTE_BUSSTATION instance);
+    partial void UpdateBUSROUTE_BUSSTATION(BUSROUTE_BUSSTATION instance);
+    partial void DeleteBUSROUTE_BUSSTATION(BUSROUTE_BUSSTATION instance);
+    partial void InsertBUSSTATION(BUSSTATION instance);
+    partial void UpdateBUSSTATION(BUSSTATION instance);
+    partial void DeleteBUSSTATION(BUSSTATION instance);
+    partial void InsertCASHRESERVE(CASHRESERVE instance);
+    partial void UpdateCASHRESERVE(CASHRESERVE instance);
+    partial void DeleteCASHRESERVE(CASHRESERVE instance);
+    partial void InsertDRIVER(DRIVER instance);
+    partial void UpdateDRIVER(DRIVER instance);
+    partial void DeleteDRIVER(DRIVER instance);
+    partial void InsertEMPLOYEE(EMPLOYEE instance);
+    partial void UpdateEMPLOYEE(EMPLOYEE instance);
+    partial void DeleteEMPLOYEE(EMPLOYEE instance);
+    partial void InsertEMPLOYEE_POSITION(EMPLOYEE_POSITION instance);
+    partial void UpdateEMPLOYEE_POSITION(EMPLOYEE_POSITION instance);
+    partial void DeleteEMPLOYEE_POSITION(EMPLOYEE_POSITION instance);
+    partial void InsertEMPLOYEE_TICKET(EMPLOYEE_TICKET instance);
+    partial void UpdateEMPLOYEE_TICKET(EMPLOYEE_TICKET instance);
+    partial void DeleteEMPLOYEE_TICKET(EMPLOYEE_TICKET instance);
+    partial void InsertEVENT(EVENT instance);
+    partial void UpdateEVENT(EVENT instance);
+    partial void DeleteEVENT(EVENT instance);
+    partial void InsertPASSENGER(PASSENGER instance);
+    partial void UpdatePASSENGER(PASSENGER instance);
+    partial void DeletePASSENGER(PASSENGER instance);
+    partial void InsertPASSENGERACCOUNT(PASSENGERACCOUNT instance);
+    partial void UpdatePASSENGERACCOUNT(PASSENGERACCOUNT instance);
+    partial void DeletePASSENGERACCOUNT(PASSENGERACCOUNT instance);
+    partial void InsertPLACE(PLACE instance);
+    partial void UpdatePLACE(PLACE instance);
+    partial void DeletePLACE(PLACE instance);
+    partial void InsertPOSITION(POSITION instance);
+    partial void UpdatePOSITION(POSITION instance);
+    partial void DeletePOSITION(POSITION instance);
+    partial void InsertREFUND(REFUND instance);
+    partial void UpdateREFUND(REFUND instance);
+    partial void DeleteREFUND(REFUND instance);
+    partial void InsertTRIP_DRIVER(TRIP_DRIVER instance);
+    partial void UpdateTRIP_DRIVER(TRIP_DRIVER instance);
+    partial void DeleteTRIP_DRIVER(TRIP_DRIVER instance);
+    partial void InsertTICKET(TICKET instance);
+    partial void UpdateTICKET(TICKET instance);
+    partial void DeleteTICKET(TICKET instance);
+    partial void InsertTRIP(TRIP instance);
+    partial void UpdateTRIP(TRIP instance);
+    partial void DeleteTRIP(TRIP instance);
     #endregion
 		
-		public BusManagementDataContext() : 
+		public BusManagementEntitiesDataContext() : 
 				base(global::BusTicketManagementApplication.Properties.Settings.Default.BusManagementConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public BusManagementDataContext(string connection) : 
+		public BusManagementEntitiesDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public BusManagementDataContext(System.Data.IDbConnection connection) : 
+		public BusManagementEntitiesDataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public BusManagementDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public BusManagementEntitiesDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public BusManagementDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public BusManagementEntitiesDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<TRIP_DRIVER> TRIP_DRIVERs
+		public System.Data.Linq.Table<AGENT> AGENTs
 		{
 			get
 			{
-				return this.GetTable<TRIP_DRIVER>();
-			}
-		}
-		
-		public System.Data.Linq.Table<TRIP> TRIPs
-		{
-			get
-			{
-				return this.GetTable<TRIP>();
-			}
-		}
-		
-		public System.Data.Linq.Table<TICKET> TICKETs
-		{
-			get
-			{
-				return this.GetTable<TICKET>();
+				return this.GetTable<AGENT>();
 			}
 		}
 		
@@ -166,139 +150,11 @@ namespace BusTicketManagementApplication.src.dbConnection
 			}
 		}
 		
-		public System.Data.Linq.Table<REFUND> REFUNDs
+		public System.Data.Linq.Table<AGENT_EVENT> AGENT_EVENTs
 		{
 			get
 			{
-				return this.GetTable<REFUND>();
-			}
-		}
-		
-		public System.Data.Linq.Table<POSITION> POSITIONs
-		{
-			get
-			{
-				return this.GetTable<POSITION>();
-			}
-		}
-		
-		public System.Data.Linq.Table<PLACE> PLACEs
-		{
-			get
-			{
-				return this.GetTable<PLACE>();
-			}
-		}
-		
-		public System.Data.Linq.Table<PASSENGERACCOUNT> PASSENGERACCOUNTs
-		{
-			get
-			{
-				return this.GetTable<PASSENGERACCOUNT>();
-			}
-		}
-		
-		public System.Data.Linq.Table<PASSENGER> PASSENGERs
-		{
-			get
-			{
-				return this.GetTable<PASSENGER>();
-			}
-		}
-		
-		public System.Data.Linq.Table<EVENT> EVENTs
-		{
-			get
-			{
-				return this.GetTable<EVENT>();
-			}
-		}
-		
-		public System.Data.Linq.Table<EMPLOYEE_TICKET> EMPLOYEE_TICKETs
-		{
-			get
-			{
-				return this.GetTable<EMPLOYEE_TICKET>();
-			}
-		}
-		
-		public System.Data.Linq.Table<EMPLOYEE_POSITION> EMPLOYEE_POSITIONs
-		{
-			get
-			{
-				return this.GetTable<EMPLOYEE_POSITION>();
-			}
-		}
-		
-		public System.Data.Linq.Table<EMPLOYEE> EMPLOYEEs
-		{
-			get
-			{
-				return this.GetTable<EMPLOYEE>();
-			}
-		}
-		
-		public System.Data.Linq.Table<DRIVER> DRIVERs
-		{
-			get
-			{
-				return this.GetTable<DRIVER>();
-			}
-		}
-		
-		public System.Data.Linq.Table<CASHRESERVE> CASHRESERVEs
-		{
-			get
-			{
-				return this.GetTable<CASHRESERVE>();
-			}
-		}
-		
-		public System.Data.Linq.Table<BUSSTATION> BUSSTATIONs
-		{
-			get
-			{
-				return this.GetTable<BUSSTATION>();
-			}
-		}
-		
-		public System.Data.Linq.Table<BUSROUTE_BUSSTATION> BUSROUTE_BUSSTATIONs
-		{
-			get
-			{
-				return this.GetTable<BUSROUTE_BUSSTATION>();
-			}
-		}
-		
-		public System.Data.Linq.Table<BUSROUTE> BUSROUTEs
-		{
-			get
-			{
-				return this.GetTable<BUSROUTE>();
-			}
-		}
-		
-		public System.Data.Linq.Table<BUS> BUS
-		{
-			get
-			{
-				return this.GetTable<BUS>();
-			}
-		}
-		
-		public System.Data.Linq.Table<BOOKING> BOOKINGs
-		{
-			get
-			{
-				return this.GetTable<BOOKING>();
-			}
-		}
-		
-		public System.Data.Linq.Table<AGENT_TRIP> AGENT_TRIPs
-		{
-			get
-			{
-				return this.GetTable<AGENT_TRIP>();
+				return this.GetTable<AGENT_EVENT>();
 			}
 		}
 		
@@ -310,19 +166,163 @@ namespace BusTicketManagementApplication.src.dbConnection
 			}
 		}
 		
-		public System.Data.Linq.Table<AGENT_EVENT> AGENT_EVENTs
+		public System.Data.Linq.Table<AGENT_TRIP> AGENT_TRIPs
 		{
 			get
 			{
-				return this.GetTable<AGENT_EVENT>();
+				return this.GetTable<AGENT_TRIP>();
 			}
 		}
 		
-		public System.Data.Linq.Table<AGENT> AGENTs
+		public System.Data.Linq.Table<BOOKING> BOOKINGs
 		{
 			get
 			{
-				return this.GetTable<AGENT>();
+				return this.GetTable<BOOKING>();
+			}
+		}
+		
+		public System.Data.Linq.Table<BUS> BUS
+		{
+			get
+			{
+				return this.GetTable<BUS>();
+			}
+		}
+		
+		public System.Data.Linq.Table<BUSROUTE> BUSROUTEs
+		{
+			get
+			{
+				return this.GetTable<BUSROUTE>();
+			}
+		}
+		
+		public System.Data.Linq.Table<BUSROUTE_BUSSTATION> BUSROUTE_BUSSTATIONs
+		{
+			get
+			{
+				return this.GetTable<BUSROUTE_BUSSTATION>();
+			}
+		}
+		
+		public System.Data.Linq.Table<BUSSTATION> BUSSTATIONs
+		{
+			get
+			{
+				return this.GetTable<BUSSTATION>();
+			}
+		}
+		
+		public System.Data.Linq.Table<CASHRESERVE> CASHRESERVEs
+		{
+			get
+			{
+				return this.GetTable<CASHRESERVE>();
+			}
+		}
+		
+		public System.Data.Linq.Table<DRIVER> DRIVERs
+		{
+			get
+			{
+				return this.GetTable<DRIVER>();
+			}
+		}
+		
+		public System.Data.Linq.Table<EMPLOYEE> EMPLOYEEs
+		{
+			get
+			{
+				return this.GetTable<EMPLOYEE>();
+			}
+		}
+		
+		public System.Data.Linq.Table<EMPLOYEE_POSITION> EMPLOYEE_POSITIONs
+		{
+			get
+			{
+				return this.GetTable<EMPLOYEE_POSITION>();
+			}
+		}
+		
+		public System.Data.Linq.Table<EMPLOYEE_TICKET> EMPLOYEE_TICKETs
+		{
+			get
+			{
+				return this.GetTable<EMPLOYEE_TICKET>();
+			}
+		}
+		
+		public System.Data.Linq.Table<EVENT> EVENTs
+		{
+			get
+			{
+				return this.GetTable<EVENT>();
+			}
+		}
+		
+		public System.Data.Linq.Table<PASSENGER> PASSENGERs
+		{
+			get
+			{
+				return this.GetTable<PASSENGER>();
+			}
+		}
+		
+		public System.Data.Linq.Table<PASSENGERACCOUNT> PASSENGERACCOUNTs
+		{
+			get
+			{
+				return this.GetTable<PASSENGERACCOUNT>();
+			}
+		}
+		
+		public System.Data.Linq.Table<PLACE> PLACEs
+		{
+			get
+			{
+				return this.GetTable<PLACE>();
+			}
+		}
+		
+		public System.Data.Linq.Table<POSITION> POSITIONs
+		{
+			get
+			{
+				return this.GetTable<POSITION>();
+			}
+		}
+		
+		public System.Data.Linq.Table<REFUND> REFUNDs
+		{
+			get
+			{
+				return this.GetTable<REFUND>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TRIP_DRIVER> TRIP_DRIVERs
+		{
+			get
+			{
+				return this.GetTable<TRIP_DRIVER>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TICKET> TICKETs
+		{
+			get
+			{
+				return this.GetTable<TICKET>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TRIP> TRIPs
+		{
+			get
+			{
+				return this.GetTable<TRIP>();
 			}
 		}
 		
@@ -331,14 +331,6 @@ namespace BusTicketManagementApplication.src.dbConnection
 			get
 			{
 				return this.GetTable<V_AGENTINFOR>();
-			}
-		}
-		
-		public System.Data.Linq.Table<V_USERINFOR> V_USERINFORs
-		{
-			get
-			{
-				return this.GetTable<V_USERINFOR>();
 			}
 		}
 		
@@ -406,17 +398,18 @@ namespace BusTicketManagementApplication.src.dbConnection
 			}
 		}
 		
+		public System.Data.Linq.Table<V_USERINFOR> V_USERINFORs
+		{
+			get
+			{
+				return this.GetTable<V_USERINFOR>();
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.pro_AddBooking")]
 		public int pro_AddBooking([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(20)")] string id_ticket, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(20)")] string id_passenger, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(20)")] string id_employee)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_ticket, id_passenger, id_employee);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.pro_SetGoingTrip")]
-		public int pro_SetGoingTrip([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(20)")] string id_trip)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_trip);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -473,6 +466,13 @@ namespace BusTicketManagementApplication.src.dbConnection
 		public int pro_ChangePassengerPassword([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string new_password)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username, new_password);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.pro_SetGoingTrip")]
+		public int pro_SetGoingTrip([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Char(20)")] string id_trip)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_trip);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -626,409 +626,196 @@ namespace BusTicketManagementApplication.src.dbConnection
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TRIP_DRIVER")]
-	public partial class TRIP_DRIVER : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AGENT")]
+	public partial class AGENT : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _id_trip;
+		private string _id_agent;
 		
-		private string _id_driver;
+		private string _id_cash_reserve;
 		
-		private EntityRef<TRIP> _TRIP;
+		private string _id_place;
 		
-		private EntityRef<DRIVER> _DRIVER;
+		private string _address;
 		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_tripChanging(string value);
-    partial void Onid_tripChanged();
-    partial void Onid_driverChanging(string value);
-    partial void Onid_driverChanged();
-    #endregion
+		private string _phone;
 		
-		public TRIP_DRIVER()
-		{
-			this._TRIP = default(EntityRef<TRIP>);
-			this._DRIVER = default(EntityRef<DRIVER>);
-			OnCreated();
-		}
+		private EntitySet<AGENT_EVENT> _AGENT_EVENTs;
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_trip", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string id_trip
-		{
-			get
-			{
-				return this._id_trip;
-			}
-			set
-			{
-				if ((this._id_trip != value))
-				{
-					if (this._TRIP.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_tripChanging(value);
-					this.SendPropertyChanging();
-					this._id_trip = value;
-					this.SendPropertyChanged("id_trip");
-					this.Onid_tripChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_driver", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string id_driver
-		{
-			get
-			{
-				return this._id_driver;
-			}
-			set
-			{
-				if ((this._id_driver != value))
-				{
-					if (this._DRIVER.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_driverChanging(value);
-					this.SendPropertyChanging();
-					this._id_driver = value;
-					this.SendPropertyChanged("id_driver");
-					this.Onid_driverChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TRIP_TRIP_DRIVER", Storage="_TRIP", ThisKey="id_trip", OtherKey="id_trip", IsForeignKey=true)]
-		public TRIP TRIP
-		{
-			get
-			{
-				return this._TRIP.Entity;
-			}
-			set
-			{
-				TRIP previousValue = this._TRIP.Entity;
-				if (((previousValue != value) 
-							|| (this._TRIP.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TRIP.Entity = null;
-						previousValue.TRIP_DRIVERs.Remove(this);
-					}
-					this._TRIP.Entity = value;
-					if ((value != null))
-					{
-						value.TRIP_DRIVERs.Add(this);
-						this._id_trip = value.id_trip;
-					}
-					else
-					{
-						this._id_trip = default(string);
-					}
-					this.SendPropertyChanged("TRIP");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DRIVER_TRIP_DRIVER", Storage="_DRIVER", ThisKey="id_driver", OtherKey="id_driver", IsForeignKey=true)]
-		public DRIVER DRIVER
-		{
-			get
-			{
-				return this._DRIVER.Entity;
-			}
-			set
-			{
-				DRIVER previousValue = this._DRIVER.Entity;
-				if (((previousValue != value) 
-							|| (this._DRIVER.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._DRIVER.Entity = null;
-						previousValue.TRIP_DRIVERs.Remove(this);
-					}
-					this._DRIVER.Entity = value;
-					if ((value != null))
-					{
-						value.TRIP_DRIVERs.Add(this);
-						this._id_driver = value.id_driver;
-					}
-					else
-					{
-						this._id_driver = default(string);
-					}
-					this.SendPropertyChanged("DRIVER");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TRIP")]
-	public partial class TRIP : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _id_trip;
-		
-		private string _id_bus;
-		
-		private string _id_bus_route;
-		
-		private System.DateTime _departure_time;
-		
-		private int _duration;
-		
-		private System.Nullable<byte> _booked_seat;
-		
-		private string _status;
-		
-		private EntitySet<TRIP_DRIVER> _TRIP_DRIVERs;
-		
-		private EntitySet<TICKET> _TICKETs;
+		private EntitySet<AGENT_REFUND> _AGENT_REFUNDs;
 		
 		private EntitySet<AGENT_TRIP> _AGENT_TRIPs;
 		
-		private EntityRef<BUSROUTE> _BUSROUTE;
+		private EntitySet<EMPLOYEE> _EMPLOYEEs;
 		
-		private EntityRef<BUS> _BUS;
+		private EntityRef<CASHRESERVE> _CASHRESERVE;
+		
+		private EntityRef<PLACE> _PLACE;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void Onid_tripChanging(string value);
-    partial void Onid_tripChanged();
-    partial void Onid_busChanging(string value);
-    partial void Onid_busChanged();
-    partial void Onid_bus_routeChanging(string value);
-    partial void Onid_bus_routeChanged();
-    partial void Ondeparture_timeChanging(System.DateTime value);
-    partial void Ondeparture_timeChanged();
-    partial void OndurationChanging(int value);
-    partial void OndurationChanged();
-    partial void Onbooked_seatChanging(System.Nullable<byte> value);
-    partial void Onbooked_seatChanged();
-    partial void OnstatusChanging(string value);
-    partial void OnstatusChanged();
+    partial void Onid_agentChanging(string value);
+    partial void Onid_agentChanged();
+    partial void Onid_cash_reserveChanging(string value);
+    partial void Onid_cash_reserveChanged();
+    partial void Onid_placeChanging(string value);
+    partial void Onid_placeChanged();
+    partial void OnaddressChanging(string value);
+    partial void OnaddressChanged();
+    partial void OnphoneChanging(string value);
+    partial void OnphoneChanged();
     #endregion
 		
-		public TRIP()
+		public AGENT()
 		{
-			this._TRIP_DRIVERs = new EntitySet<TRIP_DRIVER>(new Action<TRIP_DRIVER>(this.attach_TRIP_DRIVERs), new Action<TRIP_DRIVER>(this.detach_TRIP_DRIVERs));
-			this._TICKETs = new EntitySet<TICKET>(new Action<TICKET>(this.attach_TICKETs), new Action<TICKET>(this.detach_TICKETs));
+			this._AGENT_EVENTs = new EntitySet<AGENT_EVENT>(new Action<AGENT_EVENT>(this.attach_AGENT_EVENTs), new Action<AGENT_EVENT>(this.detach_AGENT_EVENTs));
+			this._AGENT_REFUNDs = new EntitySet<AGENT_REFUND>(new Action<AGENT_REFUND>(this.attach_AGENT_REFUNDs), new Action<AGENT_REFUND>(this.detach_AGENT_REFUNDs));
 			this._AGENT_TRIPs = new EntitySet<AGENT_TRIP>(new Action<AGENT_TRIP>(this.attach_AGENT_TRIPs), new Action<AGENT_TRIP>(this.detach_AGENT_TRIPs));
-			this._BUSROUTE = default(EntityRef<BUSROUTE>);
-			this._BUS = default(EntityRef<BUS>);
+			this._EMPLOYEEs = new EntitySet<EMPLOYEE>(new Action<EMPLOYEE>(this.attach_EMPLOYEEs), new Action<EMPLOYEE>(this.detach_EMPLOYEEs));
+			this._CASHRESERVE = default(EntityRef<CASHRESERVE>);
+			this._PLACE = default(EntityRef<PLACE>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_trip", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string id_trip
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_agent", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string id_agent
 		{
 			get
 			{
-				return this._id_trip;
+				return this._id_agent;
 			}
 			set
 			{
-				if ((this._id_trip != value))
+				if ((this._id_agent != value))
 				{
-					this.Onid_tripChanging(value);
+					this.Onid_agentChanging(value);
 					this.SendPropertyChanging();
-					this._id_trip = value;
-					this.SendPropertyChanged("id_trip");
-					this.Onid_tripChanged();
+					this._id_agent = value;
+					this.SendPropertyChanged("id_agent");
+					this.Onid_agentChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_bus", DbType="Char(20)")]
-		public string id_bus
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_cash_reserve", DbType="Char(20)")]
+		public string id_cash_reserve
 		{
 			get
 			{
-				return this._id_bus;
+				return this._id_cash_reserve;
 			}
 			set
 			{
-				if ((this._id_bus != value))
+				if ((this._id_cash_reserve != value))
 				{
-					if (this._BUS.HasLoadedOrAssignedValue)
+					if (this._CASHRESERVE.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.Onid_busChanging(value);
+					this.Onid_cash_reserveChanging(value);
 					this.SendPropertyChanging();
-					this._id_bus = value;
-					this.SendPropertyChanged("id_bus");
-					this.Onid_busChanged();
+					this._id_cash_reserve = value;
+					this.SendPropertyChanged("id_cash_reserve");
+					this.Onid_cash_reserveChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_bus_route", DbType="Char(20)")]
-		public string id_bus_route
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_place", DbType="Char(20)")]
+		public string id_place
 		{
 			get
 			{
-				return this._id_bus_route;
+				return this._id_place;
 			}
 			set
 			{
-				if ((this._id_bus_route != value))
+				if ((this._id_place != value))
 				{
-					if (this._BUSROUTE.HasLoadedOrAssignedValue)
+					if (this._PLACE.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.Onid_bus_routeChanging(value);
+					this.Onid_placeChanging(value);
 					this.SendPropertyChanging();
-					this._id_bus_route = value;
-					this.SendPropertyChanged("id_bus_route");
-					this.Onid_bus_routeChanged();
+					this._id_place = value;
+					this.SendPropertyChanged("id_place");
+					this.Onid_placeChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_departure_time", DbType="DateTime NOT NULL")]
-		public System.DateTime departure_time
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_address", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string address
 		{
 			get
 			{
-				return this._departure_time;
+				return this._address;
 			}
 			set
 			{
-				if ((this._departure_time != value))
+				if ((this._address != value))
 				{
-					this.Ondeparture_timeChanging(value);
+					this.OnaddressChanging(value);
 					this.SendPropertyChanging();
-					this._departure_time = value;
-					this.SendPropertyChanged("departure_time");
-					this.Ondeparture_timeChanged();
+					this._address = value;
+					this.SendPropertyChanged("address");
+					this.OnaddressChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_duration", DbType="Int NOT NULL")]
-		public int duration
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phone", DbType="Char(20) NOT NULL", CanBeNull=false)]
+		public string phone
 		{
 			get
 			{
-				return this._duration;
+				return this._phone;
 			}
 			set
 			{
-				if ((this._duration != value))
+				if ((this._phone != value))
 				{
-					this.OndurationChanging(value);
+					this.OnphoneChanging(value);
 					this.SendPropertyChanging();
-					this._duration = value;
-					this.SendPropertyChanged("duration");
-					this.OndurationChanged();
+					this._phone = value;
+					this.SendPropertyChanged("phone");
+					this.OnphoneChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_booked_seat", DbType="TinyInt")]
-		public System.Nullable<byte> booked_seat
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AGENT_AGENT_EVENT", Storage="_AGENT_EVENTs", ThisKey="id_agent", OtherKey="id_agent")]
+		public EntitySet<AGENT_EVENT> AGENT_EVENTs
 		{
 			get
 			{
-				return this._booked_seat;
+				return this._AGENT_EVENTs;
 			}
 			set
 			{
-				if ((this._booked_seat != value))
-				{
-					this.Onbooked_seatChanging(value);
-					this.SendPropertyChanging();
-					this._booked_seat = value;
-					this.SendPropertyChanged("booked_seat");
-					this.Onbooked_seatChanged();
-				}
+				this._AGENT_EVENTs.Assign(value);
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Char(15)")]
-		public string status
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AGENT_AGENT_REFUND", Storage="_AGENT_REFUNDs", ThisKey="id_agent", OtherKey="id_agent")]
+		public EntitySet<AGENT_REFUND> AGENT_REFUNDs
 		{
 			get
 			{
-				return this._status;
+				return this._AGENT_REFUNDs;
 			}
 			set
 			{
-				if ((this._status != value))
-				{
-					this.OnstatusChanging(value);
-					this.SendPropertyChanging();
-					this._status = value;
-					this.SendPropertyChanged("status");
-					this.OnstatusChanged();
-				}
+				this._AGENT_REFUNDs.Assign(value);
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TRIP_TRIP_DRIVER", Storage="_TRIP_DRIVERs", ThisKey="id_trip", OtherKey="id_trip")]
-		public EntitySet<TRIP_DRIVER> TRIP_DRIVERs
-		{
-			get
-			{
-				return this._TRIP_DRIVERs;
-			}
-			set
-			{
-				this._TRIP_DRIVERs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TRIP_TICKET", Storage="_TICKETs", ThisKey="id_trip", OtherKey="id_trip")]
-		public EntitySet<TICKET> TICKETs
-		{
-			get
-			{
-				return this._TICKETs;
-			}
-			set
-			{
-				this._TICKETs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TRIP_AGENT_TRIP", Storage="_AGENT_TRIPs", ThisKey="id_trip", OtherKey="id_trip")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AGENT_AGENT_TRIP", Storage="_AGENT_TRIPs", ThisKey="id_agent", OtherKey="id_agent")]
 		public EntitySet<AGENT_TRIP> AGENT_TRIPs
 		{
 			get
@@ -1041,70 +828,83 @@ namespace BusTicketManagementApplication.src.dbConnection
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BUSROUTE_TRIP", Storage="_BUSROUTE", ThisKey="id_bus_route", OtherKey="id_route", IsForeignKey=true)]
-		public BUSROUTE BUSROUTE
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AGENT_EMPLOYEE", Storage="_EMPLOYEEs", ThisKey="id_agent", OtherKey="id_agent")]
+		public EntitySet<EMPLOYEE> EMPLOYEEs
 		{
 			get
 			{
-				return this._BUSROUTE.Entity;
+				return this._EMPLOYEEs;
 			}
 			set
 			{
-				BUSROUTE previousValue = this._BUSROUTE.Entity;
+				this._EMPLOYEEs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CASHRESERVE_AGENT", Storage="_CASHRESERVE", ThisKey="id_cash_reserve", OtherKey="id_cash_reserve", IsForeignKey=true)]
+		public CASHRESERVE CASHRESERVE
+		{
+			get
+			{
+				return this._CASHRESERVE.Entity;
+			}
+			set
+			{
+				CASHRESERVE previousValue = this._CASHRESERVE.Entity;
 				if (((previousValue != value) 
-							|| (this._BUSROUTE.HasLoadedOrAssignedValue == false)))
+							|| (this._CASHRESERVE.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._BUSROUTE.Entity = null;
-						previousValue.TRIPs.Remove(this);
+						this._CASHRESERVE.Entity = null;
+						previousValue.AGENTs.Remove(this);
 					}
-					this._BUSROUTE.Entity = value;
+					this._CASHRESERVE.Entity = value;
 					if ((value != null))
 					{
-						value.TRIPs.Add(this);
-						this._id_bus_route = value.id_route;
+						value.AGENTs.Add(this);
+						this._id_cash_reserve = value.id_cash_reserve;
 					}
 					else
 					{
-						this._id_bus_route = default(string);
+						this._id_cash_reserve = default(string);
 					}
-					this.SendPropertyChanged("BUSROUTE");
+					this.SendPropertyChanged("CASHRESERVE");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BUS_TRIP", Storage="_BUS", ThisKey="id_bus", OtherKey="id_bus", IsForeignKey=true)]
-		public BUS BUS
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PLACE_AGENT", Storage="_PLACE", ThisKey="id_place", OtherKey="id_place", IsForeignKey=true)]
+		public PLACE PLACE
 		{
 			get
 			{
-				return this._BUS.Entity;
+				return this._PLACE.Entity;
 			}
 			set
 			{
-				BUS previousValue = this._BUS.Entity;
+				PLACE previousValue = this._PLACE.Entity;
 				if (((previousValue != value) 
-							|| (this._BUS.HasLoadedOrAssignedValue == false)))
+							|| (this._PLACE.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._BUS.Entity = null;
-						previousValue.TRIPs.Remove(this);
+						this._PLACE.Entity = null;
+						previousValue.AGENTs.Remove(this);
 					}
-					this._BUS.Entity = value;
+					this._PLACE.Entity = value;
 					if ((value != null))
 					{
-						value.TRIPs.Add(this);
-						this._id_bus = value.id_bus;
+						value.AGENTs.Add(this);
+						this._id_place = value.id_place;
 					}
 					else
 					{
-						this._id_bus = default(string);
+						this._id_place = default(string);
 					}
-					this.SendPropertyChanged("BUS");
+					this.SendPropertyChanged("PLACE");
 				}
 			}
 		}
@@ -1129,319 +929,52 @@ namespace BusTicketManagementApplication.src.dbConnection
 			}
 		}
 		
-		private void attach_TRIP_DRIVERs(TRIP_DRIVER entity)
+		private void attach_AGENT_EVENTs(AGENT_EVENT entity)
 		{
 			this.SendPropertyChanging();
-			entity.TRIP = this;
+			entity.AGENT = this;
 		}
 		
-		private void detach_TRIP_DRIVERs(TRIP_DRIVER entity)
+		private void detach_AGENT_EVENTs(AGENT_EVENT entity)
 		{
 			this.SendPropertyChanging();
-			entity.TRIP = null;
+			entity.AGENT = null;
 		}
 		
-		private void attach_TICKETs(TICKET entity)
+		private void attach_AGENT_REFUNDs(AGENT_REFUND entity)
 		{
 			this.SendPropertyChanging();
-			entity.TRIP = this;
+			entity.AGENT = this;
 		}
 		
-		private void detach_TICKETs(TICKET entity)
+		private void detach_AGENT_REFUNDs(AGENT_REFUND entity)
 		{
 			this.SendPropertyChanging();
-			entity.TRIP = null;
+			entity.AGENT = null;
 		}
 		
 		private void attach_AGENT_TRIPs(AGENT_TRIP entity)
 		{
 			this.SendPropertyChanging();
-			entity.TRIP = this;
+			entity.AGENT = this;
 		}
 		
 		private void detach_AGENT_TRIPs(AGENT_TRIP entity)
 		{
 			this.SendPropertyChanging();
-			entity.TRIP = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TICKET")]
-	public partial class TICKET : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _id_ticket;
-		
-		private string _id_trip;
-		
-		private System.Nullable<bool> _status;
-		
-		private decimal _fare;
-		
-		private System.Nullable<bool> _type;
-		
-		private string _seat_number;
-		
-		private EntitySet<EMPLOYEE_TICKET> _EMPLOYEE_TICKETs;
-		
-		private EntitySet<BOOKING> _BOOKINGs;
-		
-		private EntityRef<TRIP> _TRIP;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_ticketChanging(string value);
-    partial void Onid_ticketChanged();
-    partial void Onid_tripChanging(string value);
-    partial void Onid_tripChanged();
-    partial void OnstatusChanging(System.Nullable<bool> value);
-    partial void OnstatusChanged();
-    partial void OnfareChanging(decimal value);
-    partial void OnfareChanged();
-    partial void OntypeChanging(System.Nullable<bool> value);
-    partial void OntypeChanged();
-    partial void Onseat_numberChanging(string value);
-    partial void Onseat_numberChanged();
-    #endregion
-		
-		public TICKET()
-		{
-			this._EMPLOYEE_TICKETs = new EntitySet<EMPLOYEE_TICKET>(new Action<EMPLOYEE_TICKET>(this.attach_EMPLOYEE_TICKETs), new Action<EMPLOYEE_TICKET>(this.detach_EMPLOYEE_TICKETs));
-			this._BOOKINGs = new EntitySet<BOOKING>(new Action<BOOKING>(this.attach_BOOKINGs), new Action<BOOKING>(this.detach_BOOKINGs));
-			this._TRIP = default(EntityRef<TRIP>);
-			OnCreated();
+			entity.AGENT = null;
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_ticket", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string id_ticket
-		{
-			get
-			{
-				return this._id_ticket;
-			}
-			set
-			{
-				if ((this._id_ticket != value))
-				{
-					this.Onid_ticketChanging(value);
-					this.SendPropertyChanging();
-					this._id_ticket = value;
-					this.SendPropertyChanged("id_ticket");
-					this.Onid_ticketChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_trip", DbType="Char(20)")]
-		public string id_trip
-		{
-			get
-			{
-				return this._id_trip;
-			}
-			set
-			{
-				if ((this._id_trip != value))
-				{
-					if (this._TRIP.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_tripChanging(value);
-					this.SendPropertyChanging();
-					this._id_trip = value;
-					this.SendPropertyChanged("id_trip");
-					this.Onid_tripChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Bit")]
-		public System.Nullable<bool> status
-		{
-			get
-			{
-				return this._status;
-			}
-			set
-			{
-				if ((this._status != value))
-				{
-					this.OnstatusChanging(value);
-					this.SendPropertyChanging();
-					this._status = value;
-					this.SendPropertyChanged("status");
-					this.OnstatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fare", DbType="Money NOT NULL")]
-		public decimal fare
-		{
-			get
-			{
-				return this._fare;
-			}
-			set
-			{
-				if ((this._fare != value))
-				{
-					this.OnfareChanging(value);
-					this.SendPropertyChanging();
-					this._fare = value;
-					this.SendPropertyChanged("fare");
-					this.OnfareChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_type", DbType="Bit")]
-		public System.Nullable<bool> type
-		{
-			get
-			{
-				return this._type;
-			}
-			set
-			{
-				if ((this._type != value))
-				{
-					this.OntypeChanging(value);
-					this.SendPropertyChanging();
-					this._type = value;
-					this.SendPropertyChanged("type");
-					this.OntypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_seat_number", DbType="Char(15) NOT NULL", CanBeNull=false)]
-		public string seat_number
-		{
-			get
-			{
-				return this._seat_number;
-			}
-			set
-			{
-				if ((this._seat_number != value))
-				{
-					this.Onseat_numberChanging(value);
-					this.SendPropertyChanging();
-					this._seat_number = value;
-					this.SendPropertyChanged("seat_number");
-					this.Onseat_numberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TICKET_EMPLOYEE_TICKET", Storage="_EMPLOYEE_TICKETs", ThisKey="id_ticket", OtherKey="id_ticket")]
-		public EntitySet<EMPLOYEE_TICKET> EMPLOYEE_TICKETs
-		{
-			get
-			{
-				return this._EMPLOYEE_TICKETs;
-			}
-			set
-			{
-				this._EMPLOYEE_TICKETs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TICKET_BOOKING", Storage="_BOOKINGs", ThisKey="id_ticket", OtherKey="id_ticket")]
-		public EntitySet<BOOKING> BOOKINGs
-		{
-			get
-			{
-				return this._BOOKINGs;
-			}
-			set
-			{
-				this._BOOKINGs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TRIP_TICKET", Storage="_TRIP", ThisKey="id_trip", OtherKey="id_trip", IsForeignKey=true)]
-		public TRIP TRIP
-		{
-			get
-			{
-				return this._TRIP.Entity;
-			}
-			set
-			{
-				TRIP previousValue = this._TRIP.Entity;
-				if (((previousValue != value) 
-							|| (this._TRIP.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TRIP.Entity = null;
-						previousValue.TICKETs.Remove(this);
-					}
-					this._TRIP.Entity = value;
-					if ((value != null))
-					{
-						value.TICKETs.Add(this);
-						this._id_trip = value.id_trip;
-					}
-					else
-					{
-						this._id_trip = default(string);
-					}
-					this.SendPropertyChanged("TRIP");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_EMPLOYEE_TICKETs(EMPLOYEE_TICKET entity)
+		private void attach_EMPLOYEEs(EMPLOYEE entity)
 		{
 			this.SendPropertyChanging();
-			entity.TICKET = this;
+			entity.AGENT = this;
 		}
 		
-		private void detach_EMPLOYEE_TICKETs(EMPLOYEE_TICKET entity)
+		private void detach_EMPLOYEEs(EMPLOYEE entity)
 		{
 			this.SendPropertyChanging();
-			entity.TICKET = null;
-		}
-		
-		private void attach_BOOKINGs(BOOKING entity)
-		{
-			this.SendPropertyChanging();
-			entity.TICKET = this;
-		}
-		
-		private void detach_BOOKINGs(BOOKING entity)
-		{
-			this.SendPropertyChanging();
-			entity.TICKET = null;
+			entity.AGENT = null;
 		}
 	}
 	
@@ -1583,1412 +1116,38 @@ namespace BusTicketManagementApplication.src.dbConnection
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.REFUND")]
-	public partial class REFUND : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AGENT_EVENT")]
+	public partial class AGENT_EVENT : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _id_refund;
-		
-		private string _refund_name;
-		
-		private System.Nullable<double> _refund_percent;
-		
-		private EntitySet<AGENT_REFUND> _AGENT_REFUNDs;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_refundChanging(string value);
-    partial void Onid_refundChanged();
-    partial void Onrefund_nameChanging(string value);
-    partial void Onrefund_nameChanged();
-    partial void Onrefund_percentChanging(System.Nullable<double> value);
-    partial void Onrefund_percentChanged();
-    #endregion
-		
-		public REFUND()
-		{
-			this._AGENT_REFUNDs = new EntitySet<AGENT_REFUND>(new Action<AGENT_REFUND>(this.attach_AGENT_REFUNDs), new Action<AGENT_REFUND>(this.detach_AGENT_REFUNDs));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_refund", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string id_refund
-		{
-			get
-			{
-				return this._id_refund;
-			}
-			set
-			{
-				if ((this._id_refund != value))
-				{
-					this.Onid_refundChanging(value);
-					this.SendPropertyChanging();
-					this._id_refund = value;
-					this.SendPropertyChanged("id_refund");
-					this.Onid_refundChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_refund_name", DbType="Char(50) NOT NULL", CanBeNull=false)]
-		public string refund_name
-		{
-			get
-			{
-				return this._refund_name;
-			}
-			set
-			{
-				if ((this._refund_name != value))
-				{
-					this.Onrefund_nameChanging(value);
-					this.SendPropertyChanging();
-					this._refund_name = value;
-					this.SendPropertyChanged("refund_name");
-					this.Onrefund_nameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_refund_percent", DbType="Float")]
-		public System.Nullable<double> refund_percent
-		{
-			get
-			{
-				return this._refund_percent;
-			}
-			set
-			{
-				if ((this._refund_percent != value))
-				{
-					this.Onrefund_percentChanging(value);
-					this.SendPropertyChanging();
-					this._refund_percent = value;
-					this.SendPropertyChanged("refund_percent");
-					this.Onrefund_percentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="REFUND_AGENT_REFUND", Storage="_AGENT_REFUNDs", ThisKey="id_refund", OtherKey="id_refund")]
-		public EntitySet<AGENT_REFUND> AGENT_REFUNDs
-		{
-			get
-			{
-				return this._AGENT_REFUNDs;
-			}
-			set
-			{
-				this._AGENT_REFUNDs.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_AGENT_REFUNDs(AGENT_REFUND entity)
-		{
-			this.SendPropertyChanging();
-			entity.REFUND = this;
-		}
-		
-		private void detach_AGENT_REFUNDs(AGENT_REFUND entity)
-		{
-			this.SendPropertyChanging();
-			entity.REFUND = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.POSITION")]
-	public partial class POSITION : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _id_position;
-		
-		private string _type;
-		
-		private EntitySet<EMPLOYEE_POSITION> _EMPLOYEE_POSITIONs;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_positionChanging(string value);
-    partial void Onid_positionChanged();
-    partial void OntypeChanging(string value);
-    partial void OntypeChanged();
-    #endregion
-		
-		public POSITION()
-		{
-			this._EMPLOYEE_POSITIONs = new EntitySet<EMPLOYEE_POSITION>(new Action<EMPLOYEE_POSITION>(this.attach_EMPLOYEE_POSITIONs), new Action<EMPLOYEE_POSITION>(this.detach_EMPLOYEE_POSITIONs));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_position", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string id_position
-		{
-			get
-			{
-				return this._id_position;
-			}
-			set
-			{
-				if ((this._id_position != value))
-				{
-					this.Onid_positionChanging(value);
-					this.SendPropertyChanging();
-					this._id_position = value;
-					this.SendPropertyChanged("id_position");
-					this.Onid_positionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_type", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string type
-		{
-			get
-			{
-				return this._type;
-			}
-			set
-			{
-				if ((this._type != value))
-				{
-					this.OntypeChanging(value);
-					this.SendPropertyChanging();
-					this._type = value;
-					this.SendPropertyChanged("type");
-					this.OntypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="POSITION_EMPLOYEE_POSITION", Storage="_EMPLOYEE_POSITIONs", ThisKey="id_position", OtherKey="id_position")]
-		public EntitySet<EMPLOYEE_POSITION> EMPLOYEE_POSITIONs
-		{
-			get
-			{
-				return this._EMPLOYEE_POSITIONs;
-			}
-			set
-			{
-				this._EMPLOYEE_POSITIONs.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_EMPLOYEE_POSITIONs(EMPLOYEE_POSITION entity)
-		{
-			this.SendPropertyChanging();
-			entity.POSITION = this;
-		}
-		
-		private void detach_EMPLOYEE_POSITIONs(EMPLOYEE_POSITION entity)
-		{
-			this.SendPropertyChanging();
-			entity.POSITION = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PLACE")]
-	public partial class PLACE : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _id_place;
-		
-		private string _region;
-		
-		private EntitySet<BUSSTATION> _BUSSTATIONs;
-		
-		private EntitySet<AGENT> _AGENTs;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_placeChanging(string value);
-    partial void Onid_placeChanged();
-    partial void OnregionChanging(string value);
-    partial void OnregionChanged();
-    #endregion
-		
-		public PLACE()
-		{
-			this._BUSSTATIONs = new EntitySet<BUSSTATION>(new Action<BUSSTATION>(this.attach_BUSSTATIONs), new Action<BUSSTATION>(this.detach_BUSSTATIONs));
-			this._AGENTs = new EntitySet<AGENT>(new Action<AGENT>(this.attach_AGENTs), new Action<AGENT>(this.detach_AGENTs));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_place", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string id_place
-		{
-			get
-			{
-				return this._id_place;
-			}
-			set
-			{
-				if ((this._id_place != value))
-				{
-					this.Onid_placeChanging(value);
-					this.SendPropertyChanging();
-					this._id_place = value;
-					this.SendPropertyChanged("id_place");
-					this.Onid_placeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_region", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string region
-		{
-			get
-			{
-				return this._region;
-			}
-			set
-			{
-				if ((this._region != value))
-				{
-					this.OnregionChanging(value);
-					this.SendPropertyChanging();
-					this._region = value;
-					this.SendPropertyChanged("region");
-					this.OnregionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PLACE_BUSSTATION", Storage="_BUSSTATIONs", ThisKey="id_place", OtherKey="id_place")]
-		public EntitySet<BUSSTATION> BUSSTATIONs
-		{
-			get
-			{
-				return this._BUSSTATIONs;
-			}
-			set
-			{
-				this._BUSSTATIONs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PLACE_AGENT", Storage="_AGENTs", ThisKey="id_place", OtherKey="id_place")]
-		public EntitySet<AGENT> AGENTs
-		{
-			get
-			{
-				return this._AGENTs;
-			}
-			set
-			{
-				this._AGENTs.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_BUSSTATIONs(BUSSTATION entity)
-		{
-			this.SendPropertyChanging();
-			entity.PLACE = this;
-		}
-		
-		private void detach_BUSSTATIONs(BUSSTATION entity)
-		{
-			this.SendPropertyChanging();
-			entity.PLACE = null;
-		}
-		
-		private void attach_AGENTs(AGENT entity)
-		{
-			this.SendPropertyChanging();
-			entity.PLACE = this;
-		}
-		
-		private void detach_AGENTs(AGENT entity)
-		{
-			this.SendPropertyChanging();
-			entity.PLACE = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PASSENGERACCOUNT")]
-	public partial class PASSENGERACCOUNT : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _id_passenger;
-		
-		private string _username;
-		
-		private string _password;
-		
-		private EntityRef<PASSENGER> _PASSENGER;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_passengerChanging(string value);
-    partial void Onid_passengerChanged();
-    partial void OnusernameChanging(string value);
-    partial void OnusernameChanged();
-    partial void OnpasswordChanging(string value);
-    partial void OnpasswordChanged();
-    #endregion
-		
-		public PASSENGERACCOUNT()
-		{
-			this._PASSENGER = default(EntityRef<PASSENGER>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_passenger", DbType="Char(20)")]
-		public string id_passenger
-		{
-			get
-			{
-				return this._id_passenger;
-			}
-			set
-			{
-				if ((this._id_passenger != value))
-				{
-					if (this._PASSENGER.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_passengerChanging(value);
-					this.SendPropertyChanging();
-					this._id_passenger = value;
-					this.SendPropertyChanged("id_passenger");
-					this.Onid_passengerChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string username
-		{
-			get
-			{
-				return this._username;
-			}
-			set
-			{
-				if ((this._username != value))
-				{
-					this.OnusernameChanging(value);
-					this.SendPropertyChanging();
-					this._username = value;
-					this.SendPropertyChanged("username");
-					this.OnusernameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string password
-		{
-			get
-			{
-				return this._password;
-			}
-			set
-			{
-				if ((this._password != value))
-				{
-					this.OnpasswordChanging(value);
-					this.SendPropertyChanging();
-					this._password = value;
-					this.SendPropertyChanged("password");
-					this.OnpasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PASSENGER_PASSENGERACCOUNT", Storage="_PASSENGER", ThisKey="id_passenger", OtherKey="id_passenger", IsForeignKey=true)]
-		public PASSENGER PASSENGER
-		{
-			get
-			{
-				return this._PASSENGER.Entity;
-			}
-			set
-			{
-				PASSENGER previousValue = this._PASSENGER.Entity;
-				if (((previousValue != value) 
-							|| (this._PASSENGER.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._PASSENGER.Entity = null;
-						previousValue.PASSENGERACCOUNTs.Remove(this);
-					}
-					this._PASSENGER.Entity = value;
-					if ((value != null))
-					{
-						value.PASSENGERACCOUNTs.Add(this);
-						this._id_passenger = value.id_passenger;
-					}
-					else
-					{
-						this._id_passenger = default(string);
-					}
-					this.SendPropertyChanged("PASSENGER");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PASSENGER")]
-	public partial class PASSENGER : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _id_passenger;
-		
-		private string _name;
-		
-		private string _phone_number;
-		
-		private string _address;
-		
-		private string _identity_number;
-		
-		private System.Nullable<bool> _gender;
-		
-		private string _email;
-		
-		private EntitySet<PASSENGERACCOUNT> _PASSENGERACCOUNTs;
-		
-		private EntitySet<BOOKING> _BOOKINGs;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_passengerChanging(string value);
-    partial void Onid_passengerChanged();
-    partial void OnnameChanging(string value);
-    partial void OnnameChanged();
-    partial void Onphone_numberChanging(string value);
-    partial void Onphone_numberChanged();
-    partial void OnaddressChanging(string value);
-    partial void OnaddressChanged();
-    partial void Onidentity_numberChanging(string value);
-    partial void Onidentity_numberChanged();
-    partial void OngenderChanging(System.Nullable<bool> value);
-    partial void OngenderChanged();
-    partial void OnemailChanging(string value);
-    partial void OnemailChanged();
-    #endregion
-		
-		public PASSENGER()
-		{
-			this._PASSENGERACCOUNTs = new EntitySet<PASSENGERACCOUNT>(new Action<PASSENGERACCOUNT>(this.attach_PASSENGERACCOUNTs), new Action<PASSENGERACCOUNT>(this.detach_PASSENGERACCOUNTs));
-			this._BOOKINGs = new EntitySet<BOOKING>(new Action<BOOKING>(this.attach_BOOKINGs), new Action<BOOKING>(this.detach_BOOKINGs));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_passenger", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string id_passenger
-		{
-			get
-			{
-				return this._id_passenger;
-			}
-			set
-			{
-				if ((this._id_passenger != value))
-				{
-					this.Onid_passengerChanging(value);
-					this.SendPropertyChanging();
-					this._id_passenger = value;
-					this.SendPropertyChanged("id_passenger");
-					this.Onid_passengerChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(50)")]
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this.OnnameChanging(value);
-					this.SendPropertyChanging();
-					this._name = value;
-					this.SendPropertyChanged("name");
-					this.OnnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phone_number", DbType="Char(20) NOT NULL", CanBeNull=false)]
-		public string phone_number
-		{
-			get
-			{
-				return this._phone_number;
-			}
-			set
-			{
-				if ((this._phone_number != value))
-				{
-					this.Onphone_numberChanging(value);
-					this.SendPropertyChanging();
-					this._phone_number = value;
-					this.SendPropertyChanged("phone_number");
-					this.Onphone_numberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_address", DbType="NVarChar(100)")]
-		public string address
-		{
-			get
-			{
-				return this._address;
-			}
-			set
-			{
-				if ((this._address != value))
-				{
-					this.OnaddressChanging(value);
-					this.SendPropertyChanging();
-					this._address = value;
-					this.SendPropertyChanged("address");
-					this.OnaddressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_identity_number", DbType="Char(20)")]
-		public string identity_number
-		{
-			get
-			{
-				return this._identity_number;
-			}
-			set
-			{
-				if ((this._identity_number != value))
-				{
-					this.Onidentity_numberChanging(value);
-					this.SendPropertyChanging();
-					this._identity_number = value;
-					this.SendPropertyChanged("identity_number");
-					this.Onidentity_numberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gender", DbType="Bit")]
-		public System.Nullable<bool> gender
-		{
-			get
-			{
-				return this._gender;
-			}
-			set
-			{
-				if ((this._gender != value))
-				{
-					this.OngenderChanging(value);
-					this.SendPropertyChanging();
-					this._gender = value;
-					this.SendPropertyChanged("gender");
-					this.OngenderChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="Char(50)")]
-		public string email
-		{
-			get
-			{
-				return this._email;
-			}
-			set
-			{
-				if ((this._email != value))
-				{
-					this.OnemailChanging(value);
-					this.SendPropertyChanging();
-					this._email = value;
-					this.SendPropertyChanged("email");
-					this.OnemailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PASSENGER_PASSENGERACCOUNT", Storage="_PASSENGERACCOUNTs", ThisKey="id_passenger", OtherKey="id_passenger")]
-		public EntitySet<PASSENGERACCOUNT> PASSENGERACCOUNTs
-		{
-			get
-			{
-				return this._PASSENGERACCOUNTs;
-			}
-			set
-			{
-				this._PASSENGERACCOUNTs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PASSENGER_BOOKING", Storage="_BOOKINGs", ThisKey="id_passenger", OtherKey="id_passenger")]
-		public EntitySet<BOOKING> BOOKINGs
-		{
-			get
-			{
-				return this._BOOKINGs;
-			}
-			set
-			{
-				this._BOOKINGs.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_PASSENGERACCOUNTs(PASSENGERACCOUNT entity)
-		{
-			this.SendPropertyChanging();
-			entity.PASSENGER = this;
-		}
-		
-		private void detach_PASSENGERACCOUNTs(PASSENGERACCOUNT entity)
-		{
-			this.SendPropertyChanging();
-			entity.PASSENGER = null;
-		}
-		
-		private void attach_BOOKINGs(BOOKING entity)
-		{
-			this.SendPropertyChanging();
-			entity.PASSENGER = this;
-		}
-		
-		private void detach_BOOKINGs(BOOKING entity)
-		{
-			this.SendPropertyChanging();
-			entity.PASSENGER = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EVENT")]
-	public partial class EVENT : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _id_event;
-		
-		private string _discount_type;
-		
-		private System.Nullable<double> _discount_percent;
-		
-		private EntitySet<AGENT_EVENT> _AGENT_EVENTs;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_eventChanging(string value);
-    partial void Onid_eventChanged();
-    partial void Ondiscount_typeChanging(string value);
-    partial void Ondiscount_typeChanged();
-    partial void Ondiscount_percentChanging(System.Nullable<double> value);
-    partial void Ondiscount_percentChanged();
-    #endregion
-		
-		public EVENT()
-		{
-			this._AGENT_EVENTs = new EntitySet<AGENT_EVENT>(new Action<AGENT_EVENT>(this.attach_AGENT_EVENTs), new Action<AGENT_EVENT>(this.detach_AGENT_EVENTs));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_event", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string id_event
-		{
-			get
-			{
-				return this._id_event;
-			}
-			set
-			{
-				if ((this._id_event != value))
-				{
-					this.Onid_eventChanging(value);
-					this.SendPropertyChanging();
-					this._id_event = value;
-					this.SendPropertyChanged("id_event");
-					this.Onid_eventChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_discount_type", DbType="Char(50) NOT NULL", CanBeNull=false)]
-		public string discount_type
-		{
-			get
-			{
-				return this._discount_type;
-			}
-			set
-			{
-				if ((this._discount_type != value))
-				{
-					this.Ondiscount_typeChanging(value);
-					this.SendPropertyChanging();
-					this._discount_type = value;
-					this.SendPropertyChanged("discount_type");
-					this.Ondiscount_typeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_discount_percent", DbType="Float")]
-		public System.Nullable<double> discount_percent
-		{
-			get
-			{
-				return this._discount_percent;
-			}
-			set
-			{
-				if ((this._discount_percent != value))
-				{
-					this.Ondiscount_percentChanging(value);
-					this.SendPropertyChanging();
-					this._discount_percent = value;
-					this.SendPropertyChanged("discount_percent");
-					this.Ondiscount_percentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EVENT_AGENT_EVENT", Storage="_AGENT_EVENTs", ThisKey="id_event", OtherKey="id_event")]
-		public EntitySet<AGENT_EVENT> AGENT_EVENTs
-		{
-			get
-			{
-				return this._AGENT_EVENTs;
-			}
-			set
-			{
-				this._AGENT_EVENTs.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_AGENT_EVENTs(AGENT_EVENT entity)
-		{
-			this.SendPropertyChanging();
-			entity.EVENT = this;
-		}
-		
-		private void detach_AGENT_EVENTs(AGENT_EVENT entity)
-		{
-			this.SendPropertyChanging();
-			entity.EVENT = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EMPLOYEE_TICKET")]
-	public partial class EMPLOYEE_TICKET : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _id_employee;
-		
-		private string _id_ticket;
-		
-		private EntityRef<TICKET> _TICKET;
-		
-		private EntityRef<EMPLOYEE> _EMPLOYEE;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_employeeChanging(string value);
-    partial void Onid_employeeChanged();
-    partial void Onid_ticketChanging(string value);
-    partial void Onid_ticketChanged();
-    #endregion
-		
-		public EMPLOYEE_TICKET()
-		{
-			this._TICKET = default(EntityRef<TICKET>);
-			this._EMPLOYEE = default(EntityRef<EMPLOYEE>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_employee", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string id_employee
-		{
-			get
-			{
-				return this._id_employee;
-			}
-			set
-			{
-				if ((this._id_employee != value))
-				{
-					if (this._EMPLOYEE.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_employeeChanging(value);
-					this.SendPropertyChanging();
-					this._id_employee = value;
-					this.SendPropertyChanged("id_employee");
-					this.Onid_employeeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_ticket", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string id_ticket
-		{
-			get
-			{
-				return this._id_ticket;
-			}
-			set
-			{
-				if ((this._id_ticket != value))
-				{
-					if (this._TICKET.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_ticketChanging(value);
-					this.SendPropertyChanging();
-					this._id_ticket = value;
-					this.SendPropertyChanged("id_ticket");
-					this.Onid_ticketChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TICKET_EMPLOYEE_TICKET", Storage="_TICKET", ThisKey="id_ticket", OtherKey="id_ticket", IsForeignKey=true)]
-		public TICKET TICKET
-		{
-			get
-			{
-				return this._TICKET.Entity;
-			}
-			set
-			{
-				TICKET previousValue = this._TICKET.Entity;
-				if (((previousValue != value) 
-							|| (this._TICKET.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TICKET.Entity = null;
-						previousValue.EMPLOYEE_TICKETs.Remove(this);
-					}
-					this._TICKET.Entity = value;
-					if ((value != null))
-					{
-						value.EMPLOYEE_TICKETs.Add(this);
-						this._id_ticket = value.id_ticket;
-					}
-					else
-					{
-						this._id_ticket = default(string);
-					}
-					this.SendPropertyChanged("TICKET");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EMPLOYEE_EMPLOYEE_TICKET", Storage="_EMPLOYEE", ThisKey="id_employee", OtherKey="id_employee", IsForeignKey=true)]
-		public EMPLOYEE EMPLOYEE
-		{
-			get
-			{
-				return this._EMPLOYEE.Entity;
-			}
-			set
-			{
-				EMPLOYEE previousValue = this._EMPLOYEE.Entity;
-				if (((previousValue != value) 
-							|| (this._EMPLOYEE.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._EMPLOYEE.Entity = null;
-						previousValue.EMPLOYEE_TICKETs.Remove(this);
-					}
-					this._EMPLOYEE.Entity = value;
-					if ((value != null))
-					{
-						value.EMPLOYEE_TICKETs.Add(this);
-						this._id_employee = value.id_employee;
-					}
-					else
-					{
-						this._id_employee = default(string);
-					}
-					this.SendPropertyChanged("EMPLOYEE");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EMPLOYEE_POSITION")]
-	public partial class EMPLOYEE_POSITION : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _id_employee;
-		
-		private string _id_position;
-		
-		private EntityRef<POSITION> _POSITION;
-		
-		private EntityRef<EMPLOYEE> _EMPLOYEE;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_employeeChanging(string value);
-    partial void Onid_employeeChanged();
-    partial void Onid_positionChanging(string value);
-    partial void Onid_positionChanged();
-    #endregion
-		
-		public EMPLOYEE_POSITION()
-		{
-			this._POSITION = default(EntityRef<POSITION>);
-			this._EMPLOYEE = default(EntityRef<EMPLOYEE>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_employee", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string id_employee
-		{
-			get
-			{
-				return this._id_employee;
-			}
-			set
-			{
-				if ((this._id_employee != value))
-				{
-					if (this._EMPLOYEE.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_employeeChanging(value);
-					this.SendPropertyChanging();
-					this._id_employee = value;
-					this.SendPropertyChanged("id_employee");
-					this.Onid_employeeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_position", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string id_position
-		{
-			get
-			{
-				return this._id_position;
-			}
-			set
-			{
-				if ((this._id_position != value))
-				{
-					if (this._POSITION.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_positionChanging(value);
-					this.SendPropertyChanging();
-					this._id_position = value;
-					this.SendPropertyChanged("id_position");
-					this.Onid_positionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="POSITION_EMPLOYEE_POSITION", Storage="_POSITION", ThisKey="id_position", OtherKey="id_position", IsForeignKey=true)]
-		public POSITION POSITION
-		{
-			get
-			{
-				return this._POSITION.Entity;
-			}
-			set
-			{
-				POSITION previousValue = this._POSITION.Entity;
-				if (((previousValue != value) 
-							|| (this._POSITION.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._POSITION.Entity = null;
-						previousValue.EMPLOYEE_POSITIONs.Remove(this);
-					}
-					this._POSITION.Entity = value;
-					if ((value != null))
-					{
-						value.EMPLOYEE_POSITIONs.Add(this);
-						this._id_position = value.id_position;
-					}
-					else
-					{
-						this._id_position = default(string);
-					}
-					this.SendPropertyChanged("POSITION");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EMPLOYEE_EMPLOYEE_POSITION", Storage="_EMPLOYEE", ThisKey="id_employee", OtherKey="id_employee", IsForeignKey=true)]
-		public EMPLOYEE EMPLOYEE
-		{
-			get
-			{
-				return this._EMPLOYEE.Entity;
-			}
-			set
-			{
-				EMPLOYEE previousValue = this._EMPLOYEE.Entity;
-				if (((previousValue != value) 
-							|| (this._EMPLOYEE.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._EMPLOYEE.Entity = null;
-						previousValue.EMPLOYEE_POSITIONs.Remove(this);
-					}
-					this._EMPLOYEE.Entity = value;
-					if ((value != null))
-					{
-						value.EMPLOYEE_POSITIONs.Add(this);
-						this._id_employee = value.id_employee;
-					}
-					else
-					{
-						this._id_employee = default(string);
-					}
-					this.SendPropertyChanged("EMPLOYEE");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EMPLOYEE")]
-	public partial class EMPLOYEE : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _id_employee;
-		
-		private string _id_account;
 		
 		private string _id_agent;
 		
-		private string _name;
-		
-		private string _address;
-		
-		private string _phone_number;
-		
-		private string _identity_number;
-		
-		private decimal _salary;
-		
-		private string _email;
-		
-		private System.DateTime _birthdate;
-		
-		private System.Nullable<bool> _gender;
-		
-		private System.Nullable<bool> _state;
-		
-		private EntitySet<EMPLOYEE_TICKET> _EMPLOYEE_TICKETs;
-		
-		private EntitySet<EMPLOYEE_POSITION> _EMPLOYEE_POSITIONs;
-		
-		private EntitySet<BOOKING> _BOOKINGs;
-		
-		private EntityRef<SYSTEMACCOUNT> _SYSTEMACCOUNT;
+		private string _id_event;
 		
 		private EntityRef<AGENT> _AGENT;
+		
+		private EntityRef<EVENT> _EVENT;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void Onid_employeeChanging(string value);
-    partial void Onid_employeeChanged();
-    partial void Onid_accountChanging(string value);
-    partial void Onid_accountChanged();
     partial void Onid_agentChanging(string value);
     partial void Onid_agentChanged();
-    partial void OnnameChanging(string value);
-    partial void OnnameChanged();
-    partial void OnaddressChanging(string value);
-    partial void OnaddressChanged();
-    partial void Onphone_numberChanging(string value);
-    partial void Onphone_numberChanged();
-    partial void Onidentity_numberChanging(string value);
-    partial void Onidentity_numberChanged();
-    partial void OnsalaryChanging(decimal value);
-    partial void OnsalaryChanged();
-    partial void OnemailChanging(string value);
-    partial void OnemailChanged();
-    partial void OnbirthdateChanging(System.DateTime value);
-    partial void OnbirthdateChanged();
-    partial void OngenderChanging(System.Nullable<bool> value);
-    partial void OngenderChanged();
-    partial void OnstateChanging(System.Nullable<bool> value);
-    partial void OnstateChanged();
+    partial void Onid_eventChanging(string value);
+    partial void Onid_eventChanged();
     #endregion
 		
-		public EMPLOYEE()
+		public AGENT_EVENT()
 		{
-			this._EMPLOYEE_TICKETs = new EntitySet<EMPLOYEE_TICKET>(new Action<EMPLOYEE_TICKET>(this.attach_EMPLOYEE_TICKETs), new Action<EMPLOYEE_TICKET>(this.detach_EMPLOYEE_TICKETs));
-			this._EMPLOYEE_POSITIONs = new EntitySet<EMPLOYEE_POSITION>(new Action<EMPLOYEE_POSITION>(this.attach_EMPLOYEE_POSITIONs), new Action<EMPLOYEE_POSITION>(this.detach_EMPLOYEE_POSITIONs));
-			this._BOOKINGs = new EntitySet<BOOKING>(new Action<BOOKING>(this.attach_BOOKINGs), new Action<BOOKING>(this.detach_BOOKINGs));
-			this._SYSTEMACCOUNT = default(EntityRef<SYSTEMACCOUNT>);
 			this._AGENT = default(EntityRef<AGENT>);
+			this._EVENT = default(EntityRef<EVENT>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_employee", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string id_employee
-		{
-			get
-			{
-				return this._id_employee;
-			}
-			set
-			{
-				if ((this._id_employee != value))
-				{
-					this.Onid_employeeChanging(value);
-					this.SendPropertyChanging();
-					this._id_employee = value;
-					this.SendPropertyChanged("id_employee");
-					this.Onid_employeeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_account", DbType="Char(20)")]
-		public string id_account
-		{
-			get
-			{
-				return this._id_account;
-			}
-			set
-			{
-				if ((this._id_account != value))
-				{
-					if (this._SYSTEMACCOUNT.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_accountChanging(value);
-					this.SendPropertyChanging();
-					this._id_account = value;
-					this.SendPropertyChanged("id_account");
-					this.Onid_accountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_agent", DbType="Char(20)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_agent", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string id_agent
 		{
 			get
@@ -3012,260 +1171,31 @@ namespace BusTicketManagementApplication.src.dbConnection
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(50)")]
-		public string name
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_event", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string id_event
 		{
 			get
 			{
-				return this._name;
+				return this._id_event;
 			}
 			set
 			{
-				if ((this._name != value))
+				if ((this._id_event != value))
 				{
-					this.OnnameChanging(value);
-					this.SendPropertyChanging();
-					this._name = value;
-					this.SendPropertyChanged("name");
-					this.OnnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_address", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string address
-		{
-			get
-			{
-				return this._address;
-			}
-			set
-			{
-				if ((this._address != value))
-				{
-					this.OnaddressChanging(value);
-					this.SendPropertyChanging();
-					this._address = value;
-					this.SendPropertyChanged("address");
-					this.OnaddressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phone_number", DbType="Char(20) NOT NULL", CanBeNull=false)]
-		public string phone_number
-		{
-			get
-			{
-				return this._phone_number;
-			}
-			set
-			{
-				if ((this._phone_number != value))
-				{
-					this.Onphone_numberChanging(value);
-					this.SendPropertyChanging();
-					this._phone_number = value;
-					this.SendPropertyChanged("phone_number");
-					this.Onphone_numberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_identity_number", DbType="Char(20) NOT NULL", CanBeNull=false)]
-		public string identity_number
-		{
-			get
-			{
-				return this._identity_number;
-			}
-			set
-			{
-				if ((this._identity_number != value))
-				{
-					this.Onidentity_numberChanging(value);
-					this.SendPropertyChanging();
-					this._identity_number = value;
-					this.SendPropertyChanged("identity_number");
-					this.Onidentity_numberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_salary", DbType="Money NOT NULL")]
-		public decimal salary
-		{
-			get
-			{
-				return this._salary;
-			}
-			set
-			{
-				if ((this._salary != value))
-				{
-					this.OnsalaryChanging(value);
-					this.SendPropertyChanging();
-					this._salary = value;
-					this.SendPropertyChanged("salary");
-					this.OnsalaryChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="Char(50)")]
-		public string email
-		{
-			get
-			{
-				return this._email;
-			}
-			set
-			{
-				if ((this._email != value))
-				{
-					this.OnemailChanging(value);
-					this.SendPropertyChanging();
-					this._email = value;
-					this.SendPropertyChanged("email");
-					this.OnemailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_birthdate", DbType="Date NOT NULL")]
-		public System.DateTime birthdate
-		{
-			get
-			{
-				return this._birthdate;
-			}
-			set
-			{
-				if ((this._birthdate != value))
-				{
-					this.OnbirthdateChanging(value);
-					this.SendPropertyChanging();
-					this._birthdate = value;
-					this.SendPropertyChanged("birthdate");
-					this.OnbirthdateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gender", DbType="Bit")]
-		public System.Nullable<bool> gender
-		{
-			get
-			{
-				return this._gender;
-			}
-			set
-			{
-				if ((this._gender != value))
-				{
-					this.OngenderChanging(value);
-					this.SendPropertyChanging();
-					this._gender = value;
-					this.SendPropertyChanged("gender");
-					this.OngenderChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_state", DbType="Bit")]
-		public System.Nullable<bool> state
-		{
-			get
-			{
-				return this._state;
-			}
-			set
-			{
-				if ((this._state != value))
-				{
-					this.OnstateChanging(value);
-					this.SendPropertyChanging();
-					this._state = value;
-					this.SendPropertyChanged("state");
-					this.OnstateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EMPLOYEE_EMPLOYEE_TICKET", Storage="_EMPLOYEE_TICKETs", ThisKey="id_employee", OtherKey="id_employee")]
-		public EntitySet<EMPLOYEE_TICKET> EMPLOYEE_TICKETs
-		{
-			get
-			{
-				return this._EMPLOYEE_TICKETs;
-			}
-			set
-			{
-				this._EMPLOYEE_TICKETs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EMPLOYEE_EMPLOYEE_POSITION", Storage="_EMPLOYEE_POSITIONs", ThisKey="id_employee", OtherKey="id_employee")]
-		public EntitySet<EMPLOYEE_POSITION> EMPLOYEE_POSITIONs
-		{
-			get
-			{
-				return this._EMPLOYEE_POSITIONs;
-			}
-			set
-			{
-				this._EMPLOYEE_POSITIONs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EMPLOYEE_BOOKING", Storage="_BOOKINGs", ThisKey="id_employee", OtherKey="id_employee")]
-		public EntitySet<BOOKING> BOOKINGs
-		{
-			get
-			{
-				return this._BOOKINGs;
-			}
-			set
-			{
-				this._BOOKINGs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SYSTEMACCOUNT_EMPLOYEE", Storage="_SYSTEMACCOUNT", ThisKey="id_account", OtherKey="id_account", IsForeignKey=true, DeleteRule="SET NULL")]
-		public SYSTEMACCOUNT SYSTEMACCOUNT
-		{
-			get
-			{
-				return this._SYSTEMACCOUNT.Entity;
-			}
-			set
-			{
-				SYSTEMACCOUNT previousValue = this._SYSTEMACCOUNT.Entity;
-				if (((previousValue != value) 
-							|| (this._SYSTEMACCOUNT.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
+					if (this._EVENT.HasLoadedOrAssignedValue)
 					{
-						this._SYSTEMACCOUNT.Entity = null;
-						previousValue.EMPLOYEEs.Remove(this);
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this._SYSTEMACCOUNT.Entity = value;
-					if ((value != null))
-					{
-						value.EMPLOYEEs.Add(this);
-						this._id_account = value.id_account;
-					}
-					else
-					{
-						this._id_account = default(string);
-					}
-					this.SendPropertyChanged("SYSTEMACCOUNT");
+					this.Onid_eventChanging(value);
+					this.SendPropertyChanging();
+					this._id_event = value;
+					this.SendPropertyChanged("id_event");
+					this.Onid_eventChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AGENT_EMPLOYEE", Storage="_AGENT", ThisKey="id_agent", OtherKey="id_agent", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AGENT_AGENT_EVENT", Storage="_AGENT", ThisKey="id_agent", OtherKey="id_agent", IsForeignKey=true)]
 		public AGENT AGENT
 		{
 			get
@@ -3282,12 +1212,12 @@ namespace BusTicketManagementApplication.src.dbConnection
 					if ((previousValue != null))
 					{
 						this._AGENT.Entity = null;
-						previousValue.EMPLOYEEs.Remove(this);
+						previousValue.AGENT_EVENTs.Remove(this);
 					}
 					this._AGENT.Entity = value;
 					if ((value != null))
 					{
-						value.EMPLOYEEs.Add(this);
+						value.AGENT_EVENTs.Add(this);
 						this._id_agent = value.id_agent;
 					}
 					else
@@ -3299,789 +1229,36 @@ namespace BusTicketManagementApplication.src.dbConnection
 			}
 		}
 		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_EMPLOYEE_TICKETs(EMPLOYEE_TICKET entity)
-		{
-			this.SendPropertyChanging();
-			entity.EMPLOYEE = this;
-		}
-		
-		private void detach_EMPLOYEE_TICKETs(EMPLOYEE_TICKET entity)
-		{
-			this.SendPropertyChanging();
-			entity.EMPLOYEE = null;
-		}
-		
-		private void attach_EMPLOYEE_POSITIONs(EMPLOYEE_POSITION entity)
-		{
-			this.SendPropertyChanging();
-			entity.EMPLOYEE = this;
-		}
-		
-		private void detach_EMPLOYEE_POSITIONs(EMPLOYEE_POSITION entity)
-		{
-			this.SendPropertyChanging();
-			entity.EMPLOYEE = null;
-		}
-		
-		private void attach_BOOKINGs(BOOKING entity)
-		{
-			this.SendPropertyChanging();
-			entity.EMPLOYEE = this;
-		}
-		
-		private void detach_BOOKINGs(BOOKING entity)
-		{
-			this.SendPropertyChanging();
-			entity.EMPLOYEE = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DRIVER")]
-	public partial class DRIVER : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _id_driver;
-		
-		private string _lisence_level;
-		
-		private System.Nullable<bool> _type;
-		
-		private System.Nullable<bool> _state;
-		
-		private EntitySet<TRIP_DRIVER> _TRIP_DRIVERs;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_driverChanging(string value);
-    partial void Onid_driverChanged();
-    partial void Onlisence_levelChanging(string value);
-    partial void Onlisence_levelChanged();
-    partial void OntypeChanging(System.Nullable<bool> value);
-    partial void OntypeChanged();
-    partial void OnstateChanging(System.Nullable<bool> value);
-    partial void OnstateChanged();
-    #endregion
-		
-		public DRIVER()
-		{
-			this._TRIP_DRIVERs = new EntitySet<TRIP_DRIVER>(new Action<TRIP_DRIVER>(this.attach_TRIP_DRIVERs), new Action<TRIP_DRIVER>(this.detach_TRIP_DRIVERs));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_driver", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string id_driver
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EVENT_AGENT_EVENT", Storage="_EVENT", ThisKey="id_event", OtherKey="id_event", IsForeignKey=true)]
+		public EVENT EVENT
 		{
 			get
 			{
-				return this._id_driver;
+				return this._EVENT.Entity;
 			}
 			set
 			{
-				if ((this._id_driver != value))
-				{
-					this.Onid_driverChanging(value);
-					this.SendPropertyChanging();
-					this._id_driver = value;
-					this.SendPropertyChanged("id_driver");
-					this.Onid_driverChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lisence_level", DbType="Char(10) NOT NULL", CanBeNull=false)]
-		public string lisence_level
-		{
-			get
-			{
-				return this._lisence_level;
-			}
-			set
-			{
-				if ((this._lisence_level != value))
-				{
-					this.Onlisence_levelChanging(value);
-					this.SendPropertyChanging();
-					this._lisence_level = value;
-					this.SendPropertyChanged("lisence_level");
-					this.Onlisence_levelChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_type", DbType="Bit")]
-		public System.Nullable<bool> type
-		{
-			get
-			{
-				return this._type;
-			}
-			set
-			{
-				if ((this._type != value))
-				{
-					this.OntypeChanging(value);
-					this.SendPropertyChanging();
-					this._type = value;
-					this.SendPropertyChanged("type");
-					this.OntypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_state", DbType="Bit")]
-		public System.Nullable<bool> state
-		{
-			get
-			{
-				return this._state;
-			}
-			set
-			{
-				if ((this._state != value))
-				{
-					this.OnstateChanging(value);
-					this.SendPropertyChanging();
-					this._state = value;
-					this.SendPropertyChanged("state");
-					this.OnstateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DRIVER_TRIP_DRIVER", Storage="_TRIP_DRIVERs", ThisKey="id_driver", OtherKey="id_driver")]
-		public EntitySet<TRIP_DRIVER> TRIP_DRIVERs
-		{
-			get
-			{
-				return this._TRIP_DRIVERs;
-			}
-			set
-			{
-				this._TRIP_DRIVERs.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_TRIP_DRIVERs(TRIP_DRIVER entity)
-		{
-			this.SendPropertyChanging();
-			entity.DRIVER = this;
-		}
-		
-		private void detach_TRIP_DRIVERs(TRIP_DRIVER entity)
-		{
-			this.SendPropertyChanging();
-			entity.DRIVER = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CASHRESERVE")]
-	public partial class CASHRESERVE : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _id_cash_reserve;
-		
-		private System.Nullable<decimal> _counter;
-		
-		private EntitySet<AGENT> _AGENTs;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_cash_reserveChanging(string value);
-    partial void Onid_cash_reserveChanged();
-    partial void OncounterChanging(System.Nullable<decimal> value);
-    partial void OncounterChanged();
-    #endregion
-		
-		public CASHRESERVE()
-		{
-			this._AGENTs = new EntitySet<AGENT>(new Action<AGENT>(this.attach_AGENTs), new Action<AGENT>(this.detach_AGENTs));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_cash_reserve", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string id_cash_reserve
-		{
-			get
-			{
-				return this._id_cash_reserve;
-			}
-			set
-			{
-				if ((this._id_cash_reserve != value))
-				{
-					this.Onid_cash_reserveChanging(value);
-					this.SendPropertyChanging();
-					this._id_cash_reserve = value;
-					this.SendPropertyChanged("id_cash_reserve");
-					this.Onid_cash_reserveChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_counter", DbType="Money")]
-		public System.Nullable<decimal> counter
-		{
-			get
-			{
-				return this._counter;
-			}
-			set
-			{
-				if ((this._counter != value))
-				{
-					this.OncounterChanging(value);
-					this.SendPropertyChanging();
-					this._counter = value;
-					this.SendPropertyChanged("counter");
-					this.OncounterChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CASHRESERVE_AGENT", Storage="_AGENTs", ThisKey="id_cash_reserve", OtherKey="id_cash_reserve")]
-		public EntitySet<AGENT> AGENTs
-		{
-			get
-			{
-				return this._AGENTs;
-			}
-			set
-			{
-				this._AGENTs.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_AGENTs(AGENT entity)
-		{
-			this.SendPropertyChanging();
-			entity.CASHRESERVE = this;
-		}
-		
-		private void detach_AGENTs(AGENT entity)
-		{
-			this.SendPropertyChanging();
-			entity.CASHRESERVE = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BUSSTATION")]
-	public partial class BUSSTATION : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _id_bus_station;
-		
-		private string _id_place;
-		
-		private string _address;
-		
-		private int _bus_capacity;
-		
-		private System.Nullable<int> _count_current_bus;
-		
-		private string _phone;
-		
-		private EntitySet<BUSROUTE_BUSSTATION> _BUSROUTE_BUSSTATIONs;
-		
-		private EntitySet<BUSROUTE> _BUSROUTEs;
-		
-		private EntitySet<BUSROUTE> _BUSROUTEs1;
-		
-		private EntityRef<PLACE> _PLACE;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_bus_stationChanging(string value);
-    partial void Onid_bus_stationChanged();
-    partial void Onid_placeChanging(string value);
-    partial void Onid_placeChanged();
-    partial void OnaddressChanging(string value);
-    partial void OnaddressChanged();
-    partial void Onbus_capacityChanging(int value);
-    partial void Onbus_capacityChanged();
-    partial void Oncount_current_busChanging(System.Nullable<int> value);
-    partial void Oncount_current_busChanged();
-    partial void OnphoneChanging(string value);
-    partial void OnphoneChanged();
-    #endregion
-		
-		public BUSSTATION()
-		{
-			this._BUSROUTE_BUSSTATIONs = new EntitySet<BUSROUTE_BUSSTATION>(new Action<BUSROUTE_BUSSTATION>(this.attach_BUSROUTE_BUSSTATIONs), new Action<BUSROUTE_BUSSTATION>(this.detach_BUSROUTE_BUSSTATIONs));
-			this._BUSROUTEs = new EntitySet<BUSROUTE>(new Action<BUSROUTE>(this.attach_BUSROUTEs), new Action<BUSROUTE>(this.detach_BUSROUTEs));
-			this._BUSROUTEs1 = new EntitySet<BUSROUTE>(new Action<BUSROUTE>(this.attach_BUSROUTEs1), new Action<BUSROUTE>(this.detach_BUSROUTEs1));
-			this._PLACE = default(EntityRef<PLACE>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_bus_station", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string id_bus_station
-		{
-			get
-			{
-				return this._id_bus_station;
-			}
-			set
-			{
-				if ((this._id_bus_station != value))
-				{
-					this.Onid_bus_stationChanging(value);
-					this.SendPropertyChanging();
-					this._id_bus_station = value;
-					this.SendPropertyChanged("id_bus_station");
-					this.Onid_bus_stationChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_place", DbType="Char(20)")]
-		public string id_place
-		{
-			get
-			{
-				return this._id_place;
-			}
-			set
-			{
-				if ((this._id_place != value))
-				{
-					if (this._PLACE.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_placeChanging(value);
-					this.SendPropertyChanging();
-					this._id_place = value;
-					this.SendPropertyChanged("id_place");
-					this.Onid_placeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_address", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string address
-		{
-			get
-			{
-				return this._address;
-			}
-			set
-			{
-				if ((this._address != value))
-				{
-					this.OnaddressChanging(value);
-					this.SendPropertyChanging();
-					this._address = value;
-					this.SendPropertyChanged("address");
-					this.OnaddressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bus_capacity", DbType="Int NOT NULL")]
-		public int bus_capacity
-		{
-			get
-			{
-				return this._bus_capacity;
-			}
-			set
-			{
-				if ((this._bus_capacity != value))
-				{
-					this.Onbus_capacityChanging(value);
-					this.SendPropertyChanging();
-					this._bus_capacity = value;
-					this.SendPropertyChanged("bus_capacity");
-					this.Onbus_capacityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_count_current_bus", DbType="Int")]
-		public System.Nullable<int> count_current_bus
-		{
-			get
-			{
-				return this._count_current_bus;
-			}
-			set
-			{
-				if ((this._count_current_bus != value))
-				{
-					this.Oncount_current_busChanging(value);
-					this.SendPropertyChanging();
-					this._count_current_bus = value;
-					this.SendPropertyChanged("count_current_bus");
-					this.Oncount_current_busChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phone", DbType="Char(20)")]
-		public string phone
-		{
-			get
-			{
-				return this._phone;
-			}
-			set
-			{
-				if ((this._phone != value))
-				{
-					this.OnphoneChanging(value);
-					this.SendPropertyChanging();
-					this._phone = value;
-					this.SendPropertyChanged("phone");
-					this.OnphoneChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BUSSTATION_BUSROUTE_BUSSTATION", Storage="_BUSROUTE_BUSSTATIONs", ThisKey="id_bus_station", OtherKey="id_bus_station")]
-		public EntitySet<BUSROUTE_BUSSTATION> BUSROUTE_BUSSTATIONs
-		{
-			get
-			{
-				return this._BUSROUTE_BUSSTATIONs;
-			}
-			set
-			{
-				this._BUSROUTE_BUSSTATIONs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BUSSTATION_BUSROUTE", Storage="_BUSROUTEs", ThisKey="id_bus_station", OtherKey="id_end_station")]
-		public EntitySet<BUSROUTE> BUSROUTEs
-		{
-			get
-			{
-				return this._BUSROUTEs;
-			}
-			set
-			{
-				this._BUSROUTEs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BUSSTATION_BUSROUTE1", Storage="_BUSROUTEs1", ThisKey="id_bus_station", OtherKey="id_start_station")]
-		public EntitySet<BUSROUTE> BUSROUTEs1
-		{
-			get
-			{
-				return this._BUSROUTEs1;
-			}
-			set
-			{
-				this._BUSROUTEs1.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PLACE_BUSSTATION", Storage="_PLACE", ThisKey="id_place", OtherKey="id_place", IsForeignKey=true)]
-		public PLACE PLACE
-		{
-			get
-			{
-				return this._PLACE.Entity;
-			}
-			set
-			{
-				PLACE previousValue = this._PLACE.Entity;
+				EVENT previousValue = this._EVENT.Entity;
 				if (((previousValue != value) 
-							|| (this._PLACE.HasLoadedOrAssignedValue == false)))
+							|| (this._EVENT.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._PLACE.Entity = null;
-						previousValue.BUSSTATIONs.Remove(this);
+						this._EVENT.Entity = null;
+						previousValue.AGENT_EVENTs.Remove(this);
 					}
-					this._PLACE.Entity = value;
+					this._EVENT.Entity = value;
 					if ((value != null))
 					{
-						value.BUSSTATIONs.Add(this);
-						this._id_place = value.id_place;
+						value.AGENT_EVENTs.Add(this);
+						this._id_event = value.id_event;
 					}
 					else
 					{
-						this._id_place = default(string);
+						this._id_event = default(string);
 					}
-					this.SendPropertyChanged("PLACE");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_BUSROUTE_BUSSTATIONs(BUSROUTE_BUSSTATION entity)
-		{
-			this.SendPropertyChanging();
-			entity.BUSSTATION = this;
-		}
-		
-		private void detach_BUSROUTE_BUSSTATIONs(BUSROUTE_BUSSTATION entity)
-		{
-			this.SendPropertyChanging();
-			entity.BUSSTATION = null;
-		}
-		
-		private void attach_BUSROUTEs(BUSROUTE entity)
-		{
-			this.SendPropertyChanging();
-			entity.BUSSTATION = this;
-		}
-		
-		private void detach_BUSROUTEs(BUSROUTE entity)
-		{
-			this.SendPropertyChanging();
-			entity.BUSSTATION = null;
-		}
-		
-		private void attach_BUSROUTEs1(BUSROUTE entity)
-		{
-			this.SendPropertyChanging();
-			entity.BUSSTATION1 = this;
-		}
-		
-		private void detach_BUSROUTEs1(BUSROUTE entity)
-		{
-			this.SendPropertyChanging();
-			entity.BUSSTATION1 = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BUSROUTE_BUSSTATION")]
-	public partial class BUSROUTE_BUSSTATION : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _id_bus_route;
-		
-		private string _id_bus_station;
-		
-		private EntityRef<BUSSTATION> _BUSSTATION;
-		
-		private EntityRef<BUSROUTE> _BUSROUTE;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_bus_routeChanging(string value);
-    partial void Onid_bus_routeChanged();
-    partial void Onid_bus_stationChanging(string value);
-    partial void Onid_bus_stationChanged();
-    #endregion
-		
-		public BUSROUTE_BUSSTATION()
-		{
-			this._BUSSTATION = default(EntityRef<BUSSTATION>);
-			this._BUSROUTE = default(EntityRef<BUSROUTE>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_bus_route", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string id_bus_route
-		{
-			get
-			{
-				return this._id_bus_route;
-			}
-			set
-			{
-				if ((this._id_bus_route != value))
-				{
-					if (this._BUSROUTE.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_bus_routeChanging(value);
-					this.SendPropertyChanging();
-					this._id_bus_route = value;
-					this.SendPropertyChanged("id_bus_route");
-					this.Onid_bus_routeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_bus_station", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string id_bus_station
-		{
-			get
-			{
-				return this._id_bus_station;
-			}
-			set
-			{
-				if ((this._id_bus_station != value))
-				{
-					if (this._BUSSTATION.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_bus_stationChanging(value);
-					this.SendPropertyChanging();
-					this._id_bus_station = value;
-					this.SendPropertyChanged("id_bus_station");
-					this.Onid_bus_stationChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BUSSTATION_BUSROUTE_BUSSTATION", Storage="_BUSSTATION", ThisKey="id_bus_station", OtherKey="id_bus_station", IsForeignKey=true)]
-		public BUSSTATION BUSSTATION
-		{
-			get
-			{
-				return this._BUSSTATION.Entity;
-			}
-			set
-			{
-				BUSSTATION previousValue = this._BUSSTATION.Entity;
-				if (((previousValue != value) 
-							|| (this._BUSSTATION.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._BUSSTATION.Entity = null;
-						previousValue.BUSROUTE_BUSSTATIONs.Remove(this);
-					}
-					this._BUSSTATION.Entity = value;
-					if ((value != null))
-					{
-						value.BUSROUTE_BUSSTATIONs.Add(this);
-						this._id_bus_station = value.id_bus_station;
-					}
-					else
-					{
-						this._id_bus_station = default(string);
-					}
-					this.SendPropertyChanged("BUSSTATION");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BUSROUTE_BUSROUTE_BUSSTATION", Storage="_BUSROUTE", ThisKey="id_bus_route", OtherKey="id_route", IsForeignKey=true)]
-		public BUSROUTE BUSROUTE
-		{
-			get
-			{
-				return this._BUSROUTE.Entity;
-			}
-			set
-			{
-				BUSROUTE previousValue = this._BUSROUTE.Entity;
-				if (((previousValue != value) 
-							|| (this._BUSROUTE.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._BUSROUTE.Entity = null;
-						previousValue.BUSROUTE_BUSSTATIONs.Remove(this);
-					}
-					this._BUSROUTE.Entity = value;
-					if ((value != null))
-					{
-						value.BUSROUTE_BUSSTATIONs.Add(this);
-						this._id_bus_route = value.id_route;
-					}
-					else
-					{
-						this._id_bus_route = default(string);
-					}
-					this.SendPropertyChanged("BUSROUTE");
+					this.SendPropertyChanged("EVENT");
 				}
 			}
 		}
@@ -4107,229 +1284,149 @@ namespace BusTicketManagementApplication.src.dbConnection
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BUSROUTE")]
-	public partial class BUSROUTE : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AGENT_REFUND")]
+	public partial class AGENT_REFUND : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _id_route;
+		private string _id_agent;
 		
-		private string _id_start_station;
+		private string _id_refund;
 		
-		private string _id_end_station;
+		private EntityRef<AGENT> _AGENT;
 		
-		private double _distance;
-		
-		private EntitySet<TRIP> _TRIPs;
-		
-		private EntitySet<BUSROUTE_BUSSTATION> _BUSROUTE_BUSSTATIONs;
-		
-		private EntityRef<BUSSTATION> _BUSSTATION;
-		
-		private EntityRef<BUSSTATION> _BUSSTATION1;
+		private EntityRef<REFUND> _REFUND;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void Onid_routeChanging(string value);
-    partial void Onid_routeChanged();
-    partial void Onid_start_stationChanging(string value);
-    partial void Onid_start_stationChanged();
-    partial void Onid_end_stationChanging(string value);
-    partial void Onid_end_stationChanged();
-    partial void OndistanceChanging(double value);
-    partial void OndistanceChanged();
+    partial void Onid_agentChanging(string value);
+    partial void Onid_agentChanged();
+    partial void Onid_refundChanging(string value);
+    partial void Onid_refundChanged();
     #endregion
 		
-		public BUSROUTE()
+		public AGENT_REFUND()
 		{
-			this._TRIPs = new EntitySet<TRIP>(new Action<TRIP>(this.attach_TRIPs), new Action<TRIP>(this.detach_TRIPs));
-			this._BUSROUTE_BUSSTATIONs = new EntitySet<BUSROUTE_BUSSTATION>(new Action<BUSROUTE_BUSSTATION>(this.attach_BUSROUTE_BUSSTATIONs), new Action<BUSROUTE_BUSSTATION>(this.detach_BUSROUTE_BUSSTATIONs));
-			this._BUSSTATION = default(EntityRef<BUSSTATION>);
-			this._BUSSTATION1 = default(EntityRef<BUSSTATION>);
+			this._AGENT = default(EntityRef<AGENT>);
+			this._REFUND = default(EntityRef<REFUND>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_route", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string id_route
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_agent", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string id_agent
 		{
 			get
 			{
-				return this._id_route;
+				return this._id_agent;
 			}
 			set
 			{
-				if ((this._id_route != value))
+				if ((this._id_agent != value))
 				{
-					this.Onid_routeChanging(value);
-					this.SendPropertyChanging();
-					this._id_route = value;
-					this.SendPropertyChanged("id_route");
-					this.Onid_routeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_start_station", DbType="Char(20)")]
-		public string id_start_station
-		{
-			get
-			{
-				return this._id_start_station;
-			}
-			set
-			{
-				if ((this._id_start_station != value))
-				{
-					if (this._BUSSTATION1.HasLoadedOrAssignedValue)
+					if (this._AGENT.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.Onid_start_stationChanging(value);
+					this.Onid_agentChanging(value);
 					this.SendPropertyChanging();
-					this._id_start_station = value;
-					this.SendPropertyChanged("id_start_station");
-					this.Onid_start_stationChanged();
+					this._id_agent = value;
+					this.SendPropertyChanged("id_agent");
+					this.Onid_agentChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_end_station", DbType="Char(20)")]
-		public string id_end_station
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_refund", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string id_refund
 		{
 			get
 			{
-				return this._id_end_station;
+				return this._id_refund;
 			}
 			set
 			{
-				if ((this._id_end_station != value))
+				if ((this._id_refund != value))
 				{
-					if (this._BUSSTATION.HasLoadedOrAssignedValue)
+					if (this._REFUND.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.Onid_end_stationChanging(value);
+					this.Onid_refundChanging(value);
 					this.SendPropertyChanging();
-					this._id_end_station = value;
-					this.SendPropertyChanged("id_end_station");
-					this.Onid_end_stationChanged();
+					this._id_refund = value;
+					this.SendPropertyChanged("id_refund");
+					this.Onid_refundChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_distance", DbType="Float NOT NULL")]
-		public double distance
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AGENT_AGENT_REFUND", Storage="_AGENT", ThisKey="id_agent", OtherKey="id_agent", IsForeignKey=true)]
+		public AGENT AGENT
 		{
 			get
 			{
-				return this._distance;
+				return this._AGENT.Entity;
 			}
 			set
 			{
-				if ((this._distance != value))
-				{
-					this.OndistanceChanging(value);
-					this.SendPropertyChanging();
-					this._distance = value;
-					this.SendPropertyChanged("distance");
-					this.OndistanceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BUSROUTE_TRIP", Storage="_TRIPs", ThisKey="id_route", OtherKey="id_bus_route")]
-		public EntitySet<TRIP> TRIPs
-		{
-			get
-			{
-				return this._TRIPs;
-			}
-			set
-			{
-				this._TRIPs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BUSROUTE_BUSROUTE_BUSSTATION", Storage="_BUSROUTE_BUSSTATIONs", ThisKey="id_route", OtherKey="id_bus_route")]
-		public EntitySet<BUSROUTE_BUSSTATION> BUSROUTE_BUSSTATIONs
-		{
-			get
-			{
-				return this._BUSROUTE_BUSSTATIONs;
-			}
-			set
-			{
-				this._BUSROUTE_BUSSTATIONs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BUSSTATION_BUSROUTE", Storage="_BUSSTATION", ThisKey="id_end_station", OtherKey="id_bus_station", IsForeignKey=true)]
-		public BUSSTATION BUSSTATION
-		{
-			get
-			{
-				return this._BUSSTATION.Entity;
-			}
-			set
-			{
-				BUSSTATION previousValue = this._BUSSTATION.Entity;
+				AGENT previousValue = this._AGENT.Entity;
 				if (((previousValue != value) 
-							|| (this._BUSSTATION.HasLoadedOrAssignedValue == false)))
+							|| (this._AGENT.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._BUSSTATION.Entity = null;
-						previousValue.BUSROUTEs.Remove(this);
+						this._AGENT.Entity = null;
+						previousValue.AGENT_REFUNDs.Remove(this);
 					}
-					this._BUSSTATION.Entity = value;
+					this._AGENT.Entity = value;
 					if ((value != null))
 					{
-						value.BUSROUTEs.Add(this);
-						this._id_end_station = value.id_bus_station;
+						value.AGENT_REFUNDs.Add(this);
+						this._id_agent = value.id_agent;
 					}
 					else
 					{
-						this._id_end_station = default(string);
+						this._id_agent = default(string);
 					}
-					this.SendPropertyChanged("BUSSTATION");
+					this.SendPropertyChanged("AGENT");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BUSSTATION_BUSROUTE1", Storage="_BUSSTATION1", ThisKey="id_start_station", OtherKey="id_bus_station", IsForeignKey=true)]
-		public BUSSTATION BUSSTATION1
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="REFUND_AGENT_REFUND", Storage="_REFUND", ThisKey="id_refund", OtherKey="id_refund", IsForeignKey=true)]
+		public REFUND REFUND
 		{
 			get
 			{
-				return this._BUSSTATION1.Entity;
+				return this._REFUND.Entity;
 			}
 			set
 			{
-				BUSSTATION previousValue = this._BUSSTATION1.Entity;
+				REFUND previousValue = this._REFUND.Entity;
 				if (((previousValue != value) 
-							|| (this._BUSSTATION1.HasLoadedOrAssignedValue == false)))
+							|| (this._REFUND.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._BUSSTATION1.Entity = null;
-						previousValue.BUSROUTEs1.Remove(this);
+						this._REFUND.Entity = null;
+						previousValue.AGENT_REFUNDs.Remove(this);
 					}
-					this._BUSSTATION1.Entity = value;
+					this._REFUND.Entity = value;
 					if ((value != null))
 					{
-						value.BUSROUTEs1.Add(this);
-						this._id_start_station = value.id_bus_station;
+						value.AGENT_REFUNDs.Add(this);
+						this._id_refund = value.id_refund;
 					}
 					else
 					{
-						this._id_start_station = default(string);
+						this._id_refund = default(string);
 					}
-					this.SendPropertyChanged("BUSSTATION1");
+					this.SendPropertyChanged("REFUND");
 				}
 			}
 		}
@@ -4352,207 +1449,153 @@ namespace BusTicketManagementApplication.src.dbConnection
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_TRIPs(TRIP entity)
-		{
-			this.SendPropertyChanging();
-			entity.BUSROUTE = this;
-		}
-		
-		private void detach_TRIPs(TRIP entity)
-		{
-			this.SendPropertyChanging();
-			entity.BUSROUTE = null;
-		}
-		
-		private void attach_BUSROUTE_BUSSTATIONs(BUSROUTE_BUSSTATION entity)
-		{
-			this.SendPropertyChanging();
-			entity.BUSROUTE = this;
-		}
-		
-		private void detach_BUSROUTE_BUSSTATIONs(BUSROUTE_BUSSTATION entity)
-		{
-			this.SendPropertyChanging();
-			entity.BUSROUTE = null;
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BUS")]
-	public partial class BUS : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AGENT_TRIP")]
+	public partial class AGENT_TRIP : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _id_bus;
+		private string _id_agent;
 		
-		private string _registration_number;
+		private string _id_trip;
 		
-		private string _model;
+		private EntityRef<AGENT> _AGENT;
 		
-		private System.Nullable<byte> _capacity;
-		
-		private string _status;
-		
-		private bool _type;
-		
-		private EntitySet<TRIP> _TRIPs;
+		private EntityRef<TRIP> _TRIP;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void Onid_busChanging(string value);
-    partial void Onid_busChanged();
-    partial void Onregistration_numberChanging(string value);
-    partial void Onregistration_numberChanged();
-    partial void OnmodelChanging(string value);
-    partial void OnmodelChanged();
-    partial void OncapacityChanging(System.Nullable<byte> value);
-    partial void OncapacityChanged();
-    partial void OnstatusChanging(string value);
-    partial void OnstatusChanged();
-    partial void OntypeChanging(bool value);
-    partial void OntypeChanged();
+    partial void Onid_agentChanging(string value);
+    partial void Onid_agentChanged();
+    partial void Onid_tripChanging(string value);
+    partial void Onid_tripChanged();
     #endregion
 		
-		public BUS()
+		public AGENT_TRIP()
 		{
-			this._TRIPs = new EntitySet<TRIP>(new Action<TRIP>(this.attach_TRIPs), new Action<TRIP>(this.detach_TRIPs));
+			this._AGENT = default(EntityRef<AGENT>);
+			this._TRIP = default(EntityRef<TRIP>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_bus", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string id_bus
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_agent", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string id_agent
 		{
 			get
 			{
-				return this._id_bus;
+				return this._id_agent;
 			}
 			set
 			{
-				if ((this._id_bus != value))
+				if ((this._id_agent != value))
 				{
-					this.Onid_busChanging(value);
+					if (this._AGENT.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_agentChanging(value);
 					this.SendPropertyChanging();
-					this._id_bus = value;
-					this.SendPropertyChanged("id_bus");
-					this.Onid_busChanged();
+					this._id_agent = value;
+					this.SendPropertyChanged("id_agent");
+					this.Onid_agentChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_registration_number", DbType="Char(15) NOT NULL", CanBeNull=false)]
-		public string registration_number
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_trip", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string id_trip
 		{
 			get
 			{
-				return this._registration_number;
+				return this._id_trip;
 			}
 			set
 			{
-				if ((this._registration_number != value))
+				if ((this._id_trip != value))
 				{
-					this.Onregistration_numberChanging(value);
+					if (this._TRIP.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_tripChanging(value);
 					this.SendPropertyChanging();
-					this._registration_number = value;
-					this.SendPropertyChanged("registration_number");
-					this.Onregistration_numberChanged();
+					this._id_trip = value;
+					this.SendPropertyChanged("id_trip");
+					this.Onid_tripChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_model", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string model
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AGENT_AGENT_TRIP", Storage="_AGENT", ThisKey="id_agent", OtherKey="id_agent", IsForeignKey=true)]
+		public AGENT AGENT
 		{
 			get
 			{
-				return this._model;
+				return this._AGENT.Entity;
 			}
 			set
 			{
-				if ((this._model != value))
+				AGENT previousValue = this._AGENT.Entity;
+				if (((previousValue != value) 
+							|| (this._AGENT.HasLoadedOrAssignedValue == false)))
 				{
-					this.OnmodelChanging(value);
 					this.SendPropertyChanging();
-					this._model = value;
-					this.SendPropertyChanged("model");
-					this.OnmodelChanged();
+					if ((previousValue != null))
+					{
+						this._AGENT.Entity = null;
+						previousValue.AGENT_TRIPs.Remove(this);
+					}
+					this._AGENT.Entity = value;
+					if ((value != null))
+					{
+						value.AGENT_TRIPs.Add(this);
+						this._id_agent = value.id_agent;
+					}
+					else
+					{
+						this._id_agent = default(string);
+					}
+					this.SendPropertyChanged("AGENT");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_capacity", DbType="TinyInt")]
-		public System.Nullable<byte> capacity
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TRIP_AGENT_TRIP", Storage="_TRIP", ThisKey="id_trip", OtherKey="id_trip", IsForeignKey=true)]
+		public TRIP TRIP
 		{
 			get
 			{
-				return this._capacity;
+				return this._TRIP.Entity;
 			}
 			set
 			{
-				if ((this._capacity != value))
+				TRIP previousValue = this._TRIP.Entity;
+				if (((previousValue != value) 
+							|| (this._TRIP.HasLoadedOrAssignedValue == false)))
 				{
-					this.OncapacityChanging(value);
 					this.SendPropertyChanging();
-					this._capacity = value;
-					this.SendPropertyChanged("capacity");
-					this.OncapacityChanged();
+					if ((previousValue != null))
+					{
+						this._TRIP.Entity = null;
+						previousValue.AGENT_TRIPs.Remove(this);
+					}
+					this._TRIP.Entity = value;
+					if ((value != null))
+					{
+						value.AGENT_TRIPs.Add(this);
+						this._id_trip = value.id_trip;
+					}
+					else
+					{
+						this._id_trip = default(string);
+					}
+					this.SendPropertyChanged("TRIP");
 				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Char(15) NOT NULL", CanBeNull=false)]
-		public string status
-		{
-			get
-			{
-				return this._status;
-			}
-			set
-			{
-				if ((this._status != value))
-				{
-					this.OnstatusChanging(value);
-					this.SendPropertyChanging();
-					this._status = value;
-					this.SendPropertyChanged("status");
-					this.OnstatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_type", DbType="Bit NOT NULL")]
-		public bool type
-		{
-			get
-			{
-				return this._type;
-			}
-			set
-			{
-				if ((this._type != value))
-				{
-					this.OntypeChanging(value);
-					this.SendPropertyChanging();
-					this._type = value;
-					this.SendPropertyChanged("type");
-					this.OntypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BUS_TRIP", Storage="_TRIPs", ThisKey="id_bus", OtherKey="id_bus")]
-		public EntitySet<TRIP> TRIPs
-		{
-			get
-			{
-				return this._TRIPs;
-			}
-			set
-			{
-				this._TRIPs.Assign(value);
 			}
 		}
 		
@@ -4574,18 +1617,6 @@ namespace BusTicketManagementApplication.src.dbConnection
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_TRIPs(TRIP entity)
-		{
-			this.SendPropertyChanging();
-			entity.BUS = this;
-		}
-		
-		private void detach_TRIPs(TRIP entity)
-		{
-			this.SendPropertyChanging();
-			entity.BUS = null;
 		}
 	}
 	
@@ -4870,149 +1901,631 @@ namespace BusTicketManagementApplication.src.dbConnection
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AGENT_TRIP")]
-	public partial class AGENT_TRIP : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BUS")]
+	public partial class BUS : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _id_agent;
+		private string _id_bus;
 		
-		private string _id_trip;
+		private string _registration_number;
 		
-		private EntityRef<TRIP> _TRIP;
+		private string _model;
 		
-		private EntityRef<AGENT> _AGENT;
+		private System.Nullable<byte> _capacity;
+		
+		private string _status;
+		
+		private bool _type;
+		
+		private EntitySet<TRIP> _TRIPs;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void Onid_agentChanging(string value);
-    partial void Onid_agentChanged();
-    partial void Onid_tripChanging(string value);
-    partial void Onid_tripChanged();
+    partial void Onid_busChanging(string value);
+    partial void Onid_busChanged();
+    partial void Onregistration_numberChanging(string value);
+    partial void Onregistration_numberChanged();
+    partial void OnmodelChanging(string value);
+    partial void OnmodelChanged();
+    partial void OncapacityChanging(System.Nullable<byte> value);
+    partial void OncapacityChanged();
+    partial void OnstatusChanging(string value);
+    partial void OnstatusChanged();
+    partial void OntypeChanging(bool value);
+    partial void OntypeChanged();
     #endregion
 		
-		public AGENT_TRIP()
+		public BUS()
 		{
-			this._TRIP = default(EntityRef<TRIP>);
-			this._AGENT = default(EntityRef<AGENT>);
+			this._TRIPs = new EntitySet<TRIP>(new Action<TRIP>(this.attach_TRIPs), new Action<TRIP>(this.detach_TRIPs));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_agent", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string id_agent
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_bus", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string id_bus
 		{
 			get
 			{
-				return this._id_agent;
+				return this._id_bus;
 			}
 			set
 			{
-				if ((this._id_agent != value))
+				if ((this._id_bus != value))
 				{
-					if (this._AGENT.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_agentChanging(value);
+					this.Onid_busChanging(value);
 					this.SendPropertyChanging();
-					this._id_agent = value;
-					this.SendPropertyChanged("id_agent");
-					this.Onid_agentChanged();
+					this._id_bus = value;
+					this.SendPropertyChanged("id_bus");
+					this.Onid_busChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_trip", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string id_trip
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_registration_number", DbType="Char(15) NOT NULL", CanBeNull=false)]
+		public string registration_number
 		{
 			get
 			{
-				return this._id_trip;
+				return this._registration_number;
 			}
 			set
 			{
-				if ((this._id_trip != value))
+				if ((this._registration_number != value))
 				{
-					if (this._TRIP.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_tripChanging(value);
+					this.Onregistration_numberChanging(value);
 					this.SendPropertyChanging();
-					this._id_trip = value;
-					this.SendPropertyChanged("id_trip");
-					this.Onid_tripChanged();
+					this._registration_number = value;
+					this.SendPropertyChanged("registration_number");
+					this.Onregistration_numberChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TRIP_AGENT_TRIP", Storage="_TRIP", ThisKey="id_trip", OtherKey="id_trip", IsForeignKey=true)]
-		public TRIP TRIP
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_model", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string model
 		{
 			get
 			{
-				return this._TRIP.Entity;
+				return this._model;
 			}
 			set
 			{
-				TRIP previousValue = this._TRIP.Entity;
+				if ((this._model != value))
+				{
+					this.OnmodelChanging(value);
+					this.SendPropertyChanging();
+					this._model = value;
+					this.SendPropertyChanged("model");
+					this.OnmodelChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_capacity", DbType="TinyInt")]
+		public System.Nullable<byte> capacity
+		{
+			get
+			{
+				return this._capacity;
+			}
+			set
+			{
+				if ((this._capacity != value))
+				{
+					this.OncapacityChanging(value);
+					this.SendPropertyChanging();
+					this._capacity = value;
+					this.SendPropertyChanged("capacity");
+					this.OncapacityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Char(15) NOT NULL", CanBeNull=false)]
+		public string status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this.OnstatusChanging(value);
+					this.SendPropertyChanging();
+					this._status = value;
+					this.SendPropertyChanged("status");
+					this.OnstatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_type", DbType="Bit NOT NULL")]
+		public bool type
+		{
+			get
+			{
+				return this._type;
+			}
+			set
+			{
+				if ((this._type != value))
+				{
+					this.OntypeChanging(value);
+					this.SendPropertyChanging();
+					this._type = value;
+					this.SendPropertyChanged("type");
+					this.OntypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BUS_TRIP", Storage="_TRIPs", ThisKey="id_bus", OtherKey="id_bus")]
+		public EntitySet<TRIP> TRIPs
+		{
+			get
+			{
+				return this._TRIPs;
+			}
+			set
+			{
+				this._TRIPs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_TRIPs(TRIP entity)
+		{
+			this.SendPropertyChanging();
+			entity.BUS = this;
+		}
+		
+		private void detach_TRIPs(TRIP entity)
+		{
+			this.SendPropertyChanging();
+			entity.BUS = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BUSROUTE")]
+	public partial class BUSROUTE : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _id_route;
+		
+		private string _id_start_station;
+		
+		private string _id_end_station;
+		
+		private double _distance;
+		
+		private EntitySet<BUSROUTE_BUSSTATION> _BUSROUTE_BUSSTATIONs;
+		
+		private EntitySet<TRIP> _TRIPs;
+		
+		private EntityRef<BUSSTATION> _BUSSTATION;
+		
+		private EntityRef<BUSSTATION> _BUSSTATION1;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_routeChanging(string value);
+    partial void Onid_routeChanged();
+    partial void Onid_start_stationChanging(string value);
+    partial void Onid_start_stationChanged();
+    partial void Onid_end_stationChanging(string value);
+    partial void Onid_end_stationChanged();
+    partial void OndistanceChanging(double value);
+    partial void OndistanceChanged();
+    #endregion
+		
+		public BUSROUTE()
+		{
+			this._BUSROUTE_BUSSTATIONs = new EntitySet<BUSROUTE_BUSSTATION>(new Action<BUSROUTE_BUSSTATION>(this.attach_BUSROUTE_BUSSTATIONs), new Action<BUSROUTE_BUSSTATION>(this.detach_BUSROUTE_BUSSTATIONs));
+			this._TRIPs = new EntitySet<TRIP>(new Action<TRIP>(this.attach_TRIPs), new Action<TRIP>(this.detach_TRIPs));
+			this._BUSSTATION = default(EntityRef<BUSSTATION>);
+			this._BUSSTATION1 = default(EntityRef<BUSSTATION>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_route", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string id_route
+		{
+			get
+			{
+				return this._id_route;
+			}
+			set
+			{
+				if ((this._id_route != value))
+				{
+					this.Onid_routeChanging(value);
+					this.SendPropertyChanging();
+					this._id_route = value;
+					this.SendPropertyChanged("id_route");
+					this.Onid_routeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_start_station", DbType="Char(20)")]
+		public string id_start_station
+		{
+			get
+			{
+				return this._id_start_station;
+			}
+			set
+			{
+				if ((this._id_start_station != value))
+				{
+					if (this._BUSSTATION1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_start_stationChanging(value);
+					this.SendPropertyChanging();
+					this._id_start_station = value;
+					this.SendPropertyChanged("id_start_station");
+					this.Onid_start_stationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_end_station", DbType="Char(20)")]
+		public string id_end_station
+		{
+			get
+			{
+				return this._id_end_station;
+			}
+			set
+			{
+				if ((this._id_end_station != value))
+				{
+					if (this._BUSSTATION.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_end_stationChanging(value);
+					this.SendPropertyChanging();
+					this._id_end_station = value;
+					this.SendPropertyChanged("id_end_station");
+					this.Onid_end_stationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_distance", DbType="Float NOT NULL")]
+		public double distance
+		{
+			get
+			{
+				return this._distance;
+			}
+			set
+			{
+				if ((this._distance != value))
+				{
+					this.OndistanceChanging(value);
+					this.SendPropertyChanging();
+					this._distance = value;
+					this.SendPropertyChanged("distance");
+					this.OndistanceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BUSROUTE_BUSROUTE_BUSSTATION", Storage="_BUSROUTE_BUSSTATIONs", ThisKey="id_route", OtherKey="id_bus_route")]
+		public EntitySet<BUSROUTE_BUSSTATION> BUSROUTE_BUSSTATIONs
+		{
+			get
+			{
+				return this._BUSROUTE_BUSSTATIONs;
+			}
+			set
+			{
+				this._BUSROUTE_BUSSTATIONs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BUSROUTE_TRIP", Storage="_TRIPs", ThisKey="id_route", OtherKey="id_bus_route")]
+		public EntitySet<TRIP> TRIPs
+		{
+			get
+			{
+				return this._TRIPs;
+			}
+			set
+			{
+				this._TRIPs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BUSSTATION_BUSROUTE", Storage="_BUSSTATION", ThisKey="id_end_station", OtherKey="id_bus_station", IsForeignKey=true)]
+		public BUSSTATION BUSSTATION
+		{
+			get
+			{
+				return this._BUSSTATION.Entity;
+			}
+			set
+			{
+				BUSSTATION previousValue = this._BUSSTATION.Entity;
 				if (((previousValue != value) 
-							|| (this._TRIP.HasLoadedOrAssignedValue == false)))
+							|| (this._BUSSTATION.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._TRIP.Entity = null;
-						previousValue.AGENT_TRIPs.Remove(this);
+						this._BUSSTATION.Entity = null;
+						previousValue.BUSROUTEs.Remove(this);
 					}
-					this._TRIP.Entity = value;
+					this._BUSSTATION.Entity = value;
 					if ((value != null))
 					{
-						value.AGENT_TRIPs.Add(this);
-						this._id_trip = value.id_trip;
+						value.BUSROUTEs.Add(this);
+						this._id_end_station = value.id_bus_station;
 					}
 					else
 					{
-						this._id_trip = default(string);
+						this._id_end_station = default(string);
 					}
-					this.SendPropertyChanged("TRIP");
+					this.SendPropertyChanged("BUSSTATION");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AGENT_AGENT_TRIP", Storage="_AGENT", ThisKey="id_agent", OtherKey="id_agent", IsForeignKey=true)]
-		public AGENT AGENT
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BUSSTATION_BUSROUTE1", Storage="_BUSSTATION1", ThisKey="id_start_station", OtherKey="id_bus_station", IsForeignKey=true)]
+		public BUSSTATION BUSSTATION1
 		{
 			get
 			{
-				return this._AGENT.Entity;
+				return this._BUSSTATION1.Entity;
 			}
 			set
 			{
-				AGENT previousValue = this._AGENT.Entity;
+				BUSSTATION previousValue = this._BUSSTATION1.Entity;
 				if (((previousValue != value) 
-							|| (this._AGENT.HasLoadedOrAssignedValue == false)))
+							|| (this._BUSSTATION1.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._AGENT.Entity = null;
-						previousValue.AGENT_TRIPs.Remove(this);
+						this._BUSSTATION1.Entity = null;
+						previousValue.BUSROUTEs1.Remove(this);
 					}
-					this._AGENT.Entity = value;
+					this._BUSSTATION1.Entity = value;
 					if ((value != null))
 					{
-						value.AGENT_TRIPs.Add(this);
-						this._id_agent = value.id_agent;
+						value.BUSROUTEs1.Add(this);
+						this._id_start_station = value.id_bus_station;
 					}
 					else
 					{
-						this._id_agent = default(string);
+						this._id_start_station = default(string);
 					}
-					this.SendPropertyChanged("AGENT");
+					this.SendPropertyChanged("BUSSTATION1");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_BUSROUTE_BUSSTATIONs(BUSROUTE_BUSSTATION entity)
+		{
+			this.SendPropertyChanging();
+			entity.BUSROUTE = this;
+		}
+		
+		private void detach_BUSROUTE_BUSSTATIONs(BUSROUTE_BUSSTATION entity)
+		{
+			this.SendPropertyChanging();
+			entity.BUSROUTE = null;
+		}
+		
+		private void attach_TRIPs(TRIP entity)
+		{
+			this.SendPropertyChanging();
+			entity.BUSROUTE = this;
+		}
+		
+		private void detach_TRIPs(TRIP entity)
+		{
+			this.SendPropertyChanging();
+			entity.BUSROUTE = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BUSROUTE_BUSSTATION")]
+	public partial class BUSROUTE_BUSSTATION : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _id_bus_route;
+		
+		private string _id_bus_station;
+		
+		private EntityRef<BUSROUTE> _BUSROUTE;
+		
+		private EntityRef<BUSSTATION> _BUSSTATION;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_bus_routeChanging(string value);
+    partial void Onid_bus_routeChanged();
+    partial void Onid_bus_stationChanging(string value);
+    partial void Onid_bus_stationChanged();
+    #endregion
+		
+		public BUSROUTE_BUSSTATION()
+		{
+			this._BUSROUTE = default(EntityRef<BUSROUTE>);
+			this._BUSSTATION = default(EntityRef<BUSSTATION>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_bus_route", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string id_bus_route
+		{
+			get
+			{
+				return this._id_bus_route;
+			}
+			set
+			{
+				if ((this._id_bus_route != value))
+				{
+					if (this._BUSROUTE.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_bus_routeChanging(value);
+					this.SendPropertyChanging();
+					this._id_bus_route = value;
+					this.SendPropertyChanged("id_bus_route");
+					this.Onid_bus_routeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_bus_station", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string id_bus_station
+		{
+			get
+			{
+				return this._id_bus_station;
+			}
+			set
+			{
+				if ((this._id_bus_station != value))
+				{
+					if (this._BUSSTATION.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_bus_stationChanging(value);
+					this.SendPropertyChanging();
+					this._id_bus_station = value;
+					this.SendPropertyChanged("id_bus_station");
+					this.Onid_bus_stationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BUSROUTE_BUSROUTE_BUSSTATION", Storage="_BUSROUTE", ThisKey="id_bus_route", OtherKey="id_route", IsForeignKey=true)]
+		public BUSROUTE BUSROUTE
+		{
+			get
+			{
+				return this._BUSROUTE.Entity;
+			}
+			set
+			{
+				BUSROUTE previousValue = this._BUSROUTE.Entity;
+				if (((previousValue != value) 
+							|| (this._BUSROUTE.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._BUSROUTE.Entity = null;
+						previousValue.BUSROUTE_BUSSTATIONs.Remove(this);
+					}
+					this._BUSROUTE.Entity = value;
+					if ((value != null))
+					{
+						value.BUSROUTE_BUSSTATIONs.Add(this);
+						this._id_bus_route = value.id_route;
+					}
+					else
+					{
+						this._id_bus_route = default(string);
+					}
+					this.SendPropertyChanged("BUSROUTE");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BUSSTATION_BUSROUTE_BUSSTATION", Storage="_BUSSTATION", ThisKey="id_bus_station", OtherKey="id_bus_station", IsForeignKey=true)]
+		public BUSSTATION BUSSTATION
+		{
+			get
+			{
+				return this._BUSSTATION.Entity;
+			}
+			set
+			{
+				BUSSTATION previousValue = this._BUSSTATION.Entity;
+				if (((previousValue != value) 
+							|| (this._BUSSTATION.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._BUSSTATION.Entity = null;
+						previousValue.BUSROUTE_BUSSTATIONs.Remove(this);
+					}
+					this._BUSSTATION.Entity = value;
+					if ((value != null))
+					{
+						value.BUSROUTE_BUSSTATIONs.Add(this);
+						this._id_bus_station = value.id_bus_station;
+					}
+					else
+					{
+						this._id_bus_station = default(string);
+					}
+					this.SendPropertyChanged("BUSSTATION");
 				}
 			}
 		}
@@ -5038,367 +2551,29 @@ namespace BusTicketManagementApplication.src.dbConnection
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AGENT_REFUND")]
-	public partial class AGENT_REFUND : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BUSSTATION")]
+	public partial class BUSSTATION : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _id_agent;
-		
-		private string _id_refund;
-		
-		private EntityRef<REFUND> _REFUND;
-		
-		private EntityRef<AGENT> _AGENT;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_agentChanging(string value);
-    partial void Onid_agentChanged();
-    partial void Onid_refundChanging(string value);
-    partial void Onid_refundChanged();
-    #endregion
-		
-		public AGENT_REFUND()
-		{
-			this._REFUND = default(EntityRef<REFUND>);
-			this._AGENT = default(EntityRef<AGENT>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_agent", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string id_agent
-		{
-			get
-			{
-				return this._id_agent;
-			}
-			set
-			{
-				if ((this._id_agent != value))
-				{
-					if (this._AGENT.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_agentChanging(value);
-					this.SendPropertyChanging();
-					this._id_agent = value;
-					this.SendPropertyChanged("id_agent");
-					this.Onid_agentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_refund", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string id_refund
-		{
-			get
-			{
-				return this._id_refund;
-			}
-			set
-			{
-				if ((this._id_refund != value))
-				{
-					if (this._REFUND.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_refundChanging(value);
-					this.SendPropertyChanging();
-					this._id_refund = value;
-					this.SendPropertyChanged("id_refund");
-					this.Onid_refundChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="REFUND_AGENT_REFUND", Storage="_REFUND", ThisKey="id_refund", OtherKey="id_refund", IsForeignKey=true)]
-		public REFUND REFUND
-		{
-			get
-			{
-				return this._REFUND.Entity;
-			}
-			set
-			{
-				REFUND previousValue = this._REFUND.Entity;
-				if (((previousValue != value) 
-							|| (this._REFUND.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._REFUND.Entity = null;
-						previousValue.AGENT_REFUNDs.Remove(this);
-					}
-					this._REFUND.Entity = value;
-					if ((value != null))
-					{
-						value.AGENT_REFUNDs.Add(this);
-						this._id_refund = value.id_refund;
-					}
-					else
-					{
-						this._id_refund = default(string);
-					}
-					this.SendPropertyChanged("REFUND");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AGENT_AGENT_REFUND", Storage="_AGENT", ThisKey="id_agent", OtherKey="id_agent", IsForeignKey=true)]
-		public AGENT AGENT
-		{
-			get
-			{
-				return this._AGENT.Entity;
-			}
-			set
-			{
-				AGENT previousValue = this._AGENT.Entity;
-				if (((previousValue != value) 
-							|| (this._AGENT.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._AGENT.Entity = null;
-						previousValue.AGENT_REFUNDs.Remove(this);
-					}
-					this._AGENT.Entity = value;
-					if ((value != null))
-					{
-						value.AGENT_REFUNDs.Add(this);
-						this._id_agent = value.id_agent;
-					}
-					else
-					{
-						this._id_agent = default(string);
-					}
-					this.SendPropertyChanged("AGENT");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AGENT_EVENT")]
-	public partial class AGENT_EVENT : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _id_agent;
-		
-		private string _id_event;
-		
-		private EntityRef<EVENT> _EVENT;
-		
-		private EntityRef<AGENT> _AGENT;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_agentChanging(string value);
-    partial void Onid_agentChanged();
-    partial void Onid_eventChanging(string value);
-    partial void Onid_eventChanged();
-    #endregion
-		
-		public AGENT_EVENT()
-		{
-			this._EVENT = default(EntityRef<EVENT>);
-			this._AGENT = default(EntityRef<AGENT>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_agent", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string id_agent
-		{
-			get
-			{
-				return this._id_agent;
-			}
-			set
-			{
-				if ((this._id_agent != value))
-				{
-					if (this._AGENT.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_agentChanging(value);
-					this.SendPropertyChanging();
-					this._id_agent = value;
-					this.SendPropertyChanged("id_agent");
-					this.Onid_agentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_event", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string id_event
-		{
-			get
-			{
-				return this._id_event;
-			}
-			set
-			{
-				if ((this._id_event != value))
-				{
-					if (this._EVENT.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_eventChanging(value);
-					this.SendPropertyChanging();
-					this._id_event = value;
-					this.SendPropertyChanged("id_event");
-					this.Onid_eventChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EVENT_AGENT_EVENT", Storage="_EVENT", ThisKey="id_event", OtherKey="id_event", IsForeignKey=true)]
-		public EVENT EVENT
-		{
-			get
-			{
-				return this._EVENT.Entity;
-			}
-			set
-			{
-				EVENT previousValue = this._EVENT.Entity;
-				if (((previousValue != value) 
-							|| (this._EVENT.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._EVENT.Entity = null;
-						previousValue.AGENT_EVENTs.Remove(this);
-					}
-					this._EVENT.Entity = value;
-					if ((value != null))
-					{
-						value.AGENT_EVENTs.Add(this);
-						this._id_event = value.id_event;
-					}
-					else
-					{
-						this._id_event = default(string);
-					}
-					this.SendPropertyChanged("EVENT");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AGENT_AGENT_EVENT", Storage="_AGENT", ThisKey="id_agent", OtherKey="id_agent", IsForeignKey=true)]
-		public AGENT AGENT
-		{
-			get
-			{
-				return this._AGENT.Entity;
-			}
-			set
-			{
-				AGENT previousValue = this._AGENT.Entity;
-				if (((previousValue != value) 
-							|| (this._AGENT.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._AGENT.Entity = null;
-						previousValue.AGENT_EVENTs.Remove(this);
-					}
-					this._AGENT.Entity = value;
-					if ((value != null))
-					{
-						value.AGENT_EVENTs.Add(this);
-						this._id_agent = value.id_agent;
-					}
-					else
-					{
-						this._id_agent = default(string);
-					}
-					this.SendPropertyChanged("AGENT");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AGENT")]
-	public partial class AGENT : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _id_agent;
-		
-		private string _id_cash_reserve;
+		private string _id_bus_station;
 		
 		private string _id_place;
 		
 		private string _address;
 		
+		private int _bus_capacity;
+		
+		private System.Nullable<int> _count_current_bus;
+		
 		private string _phone;
 		
-		private EntitySet<EMPLOYEE> _EMPLOYEEs;
+		private EntitySet<BUSROUTE> _BUSROUTEs;
 		
-		private EntitySet<AGENT_TRIP> _AGENT_TRIPs;
+		private EntitySet<BUSROUTE> _BUSROUTEs1;
 		
-		private EntitySet<AGENT_REFUND> _AGENT_REFUNDs;
-		
-		private EntitySet<AGENT_EVENT> _AGENT_EVENTs;
-		
-		private EntityRef<CASHRESERVE> _CASHRESERVE;
+		private EntitySet<BUSROUTE_BUSSTATION> _BUSROUTE_BUSSTATIONs;
 		
 		private EntityRef<PLACE> _PLACE;
 		
@@ -5406,69 +2581,45 @@ namespace BusTicketManagementApplication.src.dbConnection
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void Onid_agentChanging(string value);
-    partial void Onid_agentChanged();
-    partial void Onid_cash_reserveChanging(string value);
-    partial void Onid_cash_reserveChanged();
+    partial void Onid_bus_stationChanging(string value);
+    partial void Onid_bus_stationChanged();
     partial void Onid_placeChanging(string value);
     partial void Onid_placeChanged();
     partial void OnaddressChanging(string value);
     partial void OnaddressChanged();
+    partial void Onbus_capacityChanging(int value);
+    partial void Onbus_capacityChanged();
+    partial void Oncount_current_busChanging(System.Nullable<int> value);
+    partial void Oncount_current_busChanged();
     partial void OnphoneChanging(string value);
     partial void OnphoneChanged();
     #endregion
 		
-		public AGENT()
+		public BUSSTATION()
 		{
-			this._EMPLOYEEs = new EntitySet<EMPLOYEE>(new Action<EMPLOYEE>(this.attach_EMPLOYEEs), new Action<EMPLOYEE>(this.detach_EMPLOYEEs));
-			this._AGENT_TRIPs = new EntitySet<AGENT_TRIP>(new Action<AGENT_TRIP>(this.attach_AGENT_TRIPs), new Action<AGENT_TRIP>(this.detach_AGENT_TRIPs));
-			this._AGENT_REFUNDs = new EntitySet<AGENT_REFUND>(new Action<AGENT_REFUND>(this.attach_AGENT_REFUNDs), new Action<AGENT_REFUND>(this.detach_AGENT_REFUNDs));
-			this._AGENT_EVENTs = new EntitySet<AGENT_EVENT>(new Action<AGENT_EVENT>(this.attach_AGENT_EVENTs), new Action<AGENT_EVENT>(this.detach_AGENT_EVENTs));
-			this._CASHRESERVE = default(EntityRef<CASHRESERVE>);
+			this._BUSROUTEs = new EntitySet<BUSROUTE>(new Action<BUSROUTE>(this.attach_BUSROUTEs), new Action<BUSROUTE>(this.detach_BUSROUTEs));
+			this._BUSROUTEs1 = new EntitySet<BUSROUTE>(new Action<BUSROUTE>(this.attach_BUSROUTEs1), new Action<BUSROUTE>(this.detach_BUSROUTEs1));
+			this._BUSROUTE_BUSSTATIONs = new EntitySet<BUSROUTE_BUSSTATION>(new Action<BUSROUTE_BUSSTATION>(this.attach_BUSROUTE_BUSSTATIONs), new Action<BUSROUTE_BUSSTATION>(this.detach_BUSROUTE_BUSSTATIONs));
 			this._PLACE = default(EntityRef<PLACE>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_agent", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string id_agent
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_bus_station", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string id_bus_station
 		{
 			get
 			{
-				return this._id_agent;
+				return this._id_bus_station;
 			}
 			set
 			{
-				if ((this._id_agent != value))
+				if ((this._id_bus_station != value))
 				{
-					this.Onid_agentChanging(value);
+					this.Onid_bus_stationChanging(value);
 					this.SendPropertyChanging();
-					this._id_agent = value;
-					this.SendPropertyChanged("id_agent");
-					this.Onid_agentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_cash_reserve", DbType="Char(20)")]
-		public string id_cash_reserve
-		{
-			get
-			{
-				return this._id_cash_reserve;
-			}
-			set
-			{
-				if ((this._id_cash_reserve != value))
-				{
-					if (this._CASHRESERVE.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_cash_reserveChanging(value);
-					this.SendPropertyChanging();
-					this._id_cash_reserve = value;
-					this.SendPropertyChanged("id_cash_reserve");
-					this.Onid_cash_reserveChanged();
+					this._id_bus_station = value;
+					this.SendPropertyChanged("id_bus_station");
+					this.Onid_bus_stationChanged();
 				}
 			}
 		}
@@ -5517,7 +2668,47 @@ namespace BusTicketManagementApplication.src.dbConnection
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phone", DbType="Char(20) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bus_capacity", DbType="Int NOT NULL")]
+		public int bus_capacity
+		{
+			get
+			{
+				return this._bus_capacity;
+			}
+			set
+			{
+				if ((this._bus_capacity != value))
+				{
+					this.Onbus_capacityChanging(value);
+					this.SendPropertyChanging();
+					this._bus_capacity = value;
+					this.SendPropertyChanged("bus_capacity");
+					this.Onbus_capacityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_count_current_bus", DbType="Int")]
+		public System.Nullable<int> count_current_bus
+		{
+			get
+			{
+				return this._count_current_bus;
+			}
+			set
+			{
+				if ((this._count_current_bus != value))
+				{
+					this.Oncount_current_busChanging(value);
+					this.SendPropertyChanging();
+					this._count_current_bus = value;
+					this.SendPropertyChanged("count_current_bus");
+					this.Oncount_current_busChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phone", DbType="Char(20)")]
 		public string phone
 		{
 			get
@@ -5537,93 +2728,46 @@ namespace BusTicketManagementApplication.src.dbConnection
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AGENT_EMPLOYEE", Storage="_EMPLOYEEs", ThisKey="id_agent", OtherKey="id_agent")]
-		public EntitySet<EMPLOYEE> EMPLOYEEs
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BUSSTATION_BUSROUTE", Storage="_BUSROUTEs", ThisKey="id_bus_station", OtherKey="id_end_station")]
+		public EntitySet<BUSROUTE> BUSROUTEs
 		{
 			get
 			{
-				return this._EMPLOYEEs;
+				return this._BUSROUTEs;
 			}
 			set
 			{
-				this._EMPLOYEEs.Assign(value);
+				this._BUSROUTEs.Assign(value);
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AGENT_AGENT_TRIP", Storage="_AGENT_TRIPs", ThisKey="id_agent", OtherKey="id_agent")]
-		public EntitySet<AGENT_TRIP> AGENT_TRIPs
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BUSSTATION_BUSROUTE1", Storage="_BUSROUTEs1", ThisKey="id_bus_station", OtherKey="id_start_station")]
+		public EntitySet<BUSROUTE> BUSROUTEs1
 		{
 			get
 			{
-				return this._AGENT_TRIPs;
+				return this._BUSROUTEs1;
 			}
 			set
 			{
-				this._AGENT_TRIPs.Assign(value);
+				this._BUSROUTEs1.Assign(value);
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AGENT_AGENT_REFUND", Storage="_AGENT_REFUNDs", ThisKey="id_agent", OtherKey="id_agent")]
-		public EntitySet<AGENT_REFUND> AGENT_REFUNDs
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BUSSTATION_BUSROUTE_BUSSTATION", Storage="_BUSROUTE_BUSSTATIONs", ThisKey="id_bus_station", OtherKey="id_bus_station")]
+		public EntitySet<BUSROUTE_BUSSTATION> BUSROUTE_BUSSTATIONs
 		{
 			get
 			{
-				return this._AGENT_REFUNDs;
+				return this._BUSROUTE_BUSSTATIONs;
 			}
 			set
 			{
-				this._AGENT_REFUNDs.Assign(value);
+				this._BUSROUTE_BUSSTATIONs.Assign(value);
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AGENT_AGENT_EVENT", Storage="_AGENT_EVENTs", ThisKey="id_agent", OtherKey="id_agent")]
-		public EntitySet<AGENT_EVENT> AGENT_EVENTs
-		{
-			get
-			{
-				return this._AGENT_EVENTs;
-			}
-			set
-			{
-				this._AGENT_EVENTs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CASHRESERVE_AGENT", Storage="_CASHRESERVE", ThisKey="id_cash_reserve", OtherKey="id_cash_reserve", IsForeignKey=true)]
-		public CASHRESERVE CASHRESERVE
-		{
-			get
-			{
-				return this._CASHRESERVE.Entity;
-			}
-			set
-			{
-				CASHRESERVE previousValue = this._CASHRESERVE.Entity;
-				if (((previousValue != value) 
-							|| (this._CASHRESERVE.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._CASHRESERVE.Entity = null;
-						previousValue.AGENTs.Remove(this);
-					}
-					this._CASHRESERVE.Entity = value;
-					if ((value != null))
-					{
-						value.AGENTs.Add(this);
-						this._id_cash_reserve = value.id_cash_reserve;
-					}
-					else
-					{
-						this._id_cash_reserve = default(string);
-					}
-					this.SendPropertyChanged("CASHRESERVE");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PLACE_AGENT", Storage="_PLACE", ThisKey="id_place", OtherKey="id_place", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PLACE_BUSSTATION", Storage="_PLACE", ThisKey="id_place", OtherKey="id_place", IsForeignKey=true)]
 		public PLACE PLACE
 		{
 			get
@@ -5640,12 +2784,12 @@ namespace BusTicketManagementApplication.src.dbConnection
 					if ((previousValue != null))
 					{
 						this._PLACE.Entity = null;
-						previousValue.AGENTs.Remove(this);
+						previousValue.BUSSTATIONs.Remove(this);
 					}
 					this._PLACE.Entity = value;
 					if ((value != null))
 					{
-						value.AGENTs.Add(this);
+						value.BUSSTATIONs.Add(this);
 						this._id_place = value.id_place;
 					}
 					else
@@ -5677,52 +2821,2908 @@ namespace BusTicketManagementApplication.src.dbConnection
 			}
 		}
 		
-		private void attach_EMPLOYEEs(EMPLOYEE entity)
+		private void attach_BUSROUTEs(BUSROUTE entity)
 		{
 			this.SendPropertyChanging();
-			entity.AGENT = this;
+			entity.BUSSTATION = this;
 		}
 		
-		private void detach_EMPLOYEEs(EMPLOYEE entity)
+		private void detach_BUSROUTEs(BUSROUTE entity)
 		{
 			this.SendPropertyChanging();
-			entity.AGENT = null;
+			entity.BUSSTATION = null;
 		}
 		
-		private void attach_AGENT_TRIPs(AGENT_TRIP entity)
+		private void attach_BUSROUTEs1(BUSROUTE entity)
 		{
 			this.SendPropertyChanging();
-			entity.AGENT = this;
+			entity.BUSSTATION1 = this;
 		}
 		
-		private void detach_AGENT_TRIPs(AGENT_TRIP entity)
+		private void detach_BUSROUTEs1(BUSROUTE entity)
 		{
 			this.SendPropertyChanging();
-			entity.AGENT = null;
+			entity.BUSSTATION1 = null;
 		}
 		
-		private void attach_AGENT_REFUNDs(AGENT_REFUND entity)
+		private void attach_BUSROUTE_BUSSTATIONs(BUSROUTE_BUSSTATION entity)
 		{
 			this.SendPropertyChanging();
-			entity.AGENT = this;
+			entity.BUSSTATION = this;
 		}
 		
-		private void detach_AGENT_REFUNDs(AGENT_REFUND entity)
+		private void detach_BUSROUTE_BUSSTATIONs(BUSROUTE_BUSSTATION entity)
 		{
 			this.SendPropertyChanging();
-			entity.AGENT = null;
+			entity.BUSSTATION = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CASHRESERVE")]
+	public partial class CASHRESERVE : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _id_cash_reserve;
+		
+		private System.Nullable<decimal> _counter;
+		
+		private EntitySet<AGENT> _AGENTs;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_cash_reserveChanging(string value);
+    partial void Onid_cash_reserveChanged();
+    partial void OncounterChanging(System.Nullable<decimal> value);
+    partial void OncounterChanged();
+    #endregion
+		
+		public CASHRESERVE()
+		{
+			this._AGENTs = new EntitySet<AGENT>(new Action<AGENT>(this.attach_AGENTs), new Action<AGENT>(this.detach_AGENTs));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_cash_reserve", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string id_cash_reserve
+		{
+			get
+			{
+				return this._id_cash_reserve;
+			}
+			set
+			{
+				if ((this._id_cash_reserve != value))
+				{
+					this.Onid_cash_reserveChanging(value);
+					this.SendPropertyChanging();
+					this._id_cash_reserve = value;
+					this.SendPropertyChanged("id_cash_reserve");
+					this.Onid_cash_reserveChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_counter", DbType="Money")]
+		public System.Nullable<decimal> counter
+		{
+			get
+			{
+				return this._counter;
+			}
+			set
+			{
+				if ((this._counter != value))
+				{
+					this.OncounterChanging(value);
+					this.SendPropertyChanging();
+					this._counter = value;
+					this.SendPropertyChanged("counter");
+					this.OncounterChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CASHRESERVE_AGENT", Storage="_AGENTs", ThisKey="id_cash_reserve", OtherKey="id_cash_reserve")]
+		public EntitySet<AGENT> AGENTs
+		{
+			get
+			{
+				return this._AGENTs;
+			}
+			set
+			{
+				this._AGENTs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_AGENTs(AGENT entity)
+		{
+			this.SendPropertyChanging();
+			entity.CASHRESERVE = this;
+		}
+		
+		private void detach_AGENTs(AGENT entity)
+		{
+			this.SendPropertyChanging();
+			entity.CASHRESERVE = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DRIVER")]
+	public partial class DRIVER : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _id_driver;
+		
+		private string _lisence_level;
+		
+		private System.Nullable<bool> _type;
+		
+		private System.Nullable<bool> _state;
+		
+		private EntitySet<TRIP_DRIVER> _TRIP_DRIVERs;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_driverChanging(string value);
+    partial void Onid_driverChanged();
+    partial void Onlisence_levelChanging(string value);
+    partial void Onlisence_levelChanged();
+    partial void OntypeChanging(System.Nullable<bool> value);
+    partial void OntypeChanged();
+    partial void OnstateChanging(System.Nullable<bool> value);
+    partial void OnstateChanged();
+    #endregion
+		
+		public DRIVER()
+		{
+			this._TRIP_DRIVERs = new EntitySet<TRIP_DRIVER>(new Action<TRIP_DRIVER>(this.attach_TRIP_DRIVERs), new Action<TRIP_DRIVER>(this.detach_TRIP_DRIVERs));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_driver", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string id_driver
+		{
+			get
+			{
+				return this._id_driver;
+			}
+			set
+			{
+				if ((this._id_driver != value))
+				{
+					this.Onid_driverChanging(value);
+					this.SendPropertyChanging();
+					this._id_driver = value;
+					this.SendPropertyChanged("id_driver");
+					this.Onid_driverChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lisence_level", DbType="Char(10) NOT NULL", CanBeNull=false)]
+		public string lisence_level
+		{
+			get
+			{
+				return this._lisence_level;
+			}
+			set
+			{
+				if ((this._lisence_level != value))
+				{
+					this.Onlisence_levelChanging(value);
+					this.SendPropertyChanging();
+					this._lisence_level = value;
+					this.SendPropertyChanged("lisence_level");
+					this.Onlisence_levelChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_type", DbType="Bit")]
+		public System.Nullable<bool> type
+		{
+			get
+			{
+				return this._type;
+			}
+			set
+			{
+				if ((this._type != value))
+				{
+					this.OntypeChanging(value);
+					this.SendPropertyChanging();
+					this._type = value;
+					this.SendPropertyChanged("type");
+					this.OntypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_state", DbType="Bit")]
+		public System.Nullable<bool> state
+		{
+			get
+			{
+				return this._state;
+			}
+			set
+			{
+				if ((this._state != value))
+				{
+					this.OnstateChanging(value);
+					this.SendPropertyChanging();
+					this._state = value;
+					this.SendPropertyChanged("state");
+					this.OnstateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DRIVER_TRIP_DRIVER", Storage="_TRIP_DRIVERs", ThisKey="id_driver", OtherKey="id_driver")]
+		public EntitySet<TRIP_DRIVER> TRIP_DRIVERs
+		{
+			get
+			{
+				return this._TRIP_DRIVERs;
+			}
+			set
+			{
+				this._TRIP_DRIVERs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_TRIP_DRIVERs(TRIP_DRIVER entity)
+		{
+			this.SendPropertyChanging();
+			entity.DRIVER = this;
+		}
+		
+		private void detach_TRIP_DRIVERs(TRIP_DRIVER entity)
+		{
+			this.SendPropertyChanging();
+			entity.DRIVER = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EMPLOYEE")]
+	public partial class EMPLOYEE : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _id_employee;
+		
+		private string _id_account;
+		
+		private string _id_agent;
+		
+		private string _name;
+		
+		private string _address;
+		
+		private string _phone_number;
+		
+		private string _identity_number;
+		
+		private decimal _salary;
+		
+		private string _email;
+		
+		private System.DateTime _birthdate;
+		
+		private System.Nullable<bool> _gender;
+		
+		private System.Nullable<bool> _state;
+		
+		private EntitySet<BOOKING> _BOOKINGs;
+		
+		private EntitySet<EMPLOYEE_POSITION> _EMPLOYEE_POSITIONs;
+		
+		private EntitySet<EMPLOYEE_TICKET> _EMPLOYEE_TICKETs;
+		
+		private EntityRef<SYSTEMACCOUNT> _SYSTEMACCOUNT;
+		
+		private EntityRef<AGENT> _AGENT;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_employeeChanging(string value);
+    partial void Onid_employeeChanged();
+    partial void Onid_accountChanging(string value);
+    partial void Onid_accountChanged();
+    partial void Onid_agentChanging(string value);
+    partial void Onid_agentChanged();
+    partial void OnnameChanging(string value);
+    partial void OnnameChanged();
+    partial void OnaddressChanging(string value);
+    partial void OnaddressChanged();
+    partial void Onphone_numberChanging(string value);
+    partial void Onphone_numberChanged();
+    partial void Onidentity_numberChanging(string value);
+    partial void Onidentity_numberChanged();
+    partial void OnsalaryChanging(decimal value);
+    partial void OnsalaryChanged();
+    partial void OnemailChanging(string value);
+    partial void OnemailChanged();
+    partial void OnbirthdateChanging(System.DateTime value);
+    partial void OnbirthdateChanged();
+    partial void OngenderChanging(System.Nullable<bool> value);
+    partial void OngenderChanged();
+    partial void OnstateChanging(System.Nullable<bool> value);
+    partial void OnstateChanged();
+    #endregion
+		
+		public EMPLOYEE()
+		{
+			this._BOOKINGs = new EntitySet<BOOKING>(new Action<BOOKING>(this.attach_BOOKINGs), new Action<BOOKING>(this.detach_BOOKINGs));
+			this._EMPLOYEE_POSITIONs = new EntitySet<EMPLOYEE_POSITION>(new Action<EMPLOYEE_POSITION>(this.attach_EMPLOYEE_POSITIONs), new Action<EMPLOYEE_POSITION>(this.detach_EMPLOYEE_POSITIONs));
+			this._EMPLOYEE_TICKETs = new EntitySet<EMPLOYEE_TICKET>(new Action<EMPLOYEE_TICKET>(this.attach_EMPLOYEE_TICKETs), new Action<EMPLOYEE_TICKET>(this.detach_EMPLOYEE_TICKETs));
+			this._SYSTEMACCOUNT = default(EntityRef<SYSTEMACCOUNT>);
+			this._AGENT = default(EntityRef<AGENT>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_employee", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string id_employee
+		{
+			get
+			{
+				return this._id_employee;
+			}
+			set
+			{
+				if ((this._id_employee != value))
+				{
+					this.Onid_employeeChanging(value);
+					this.SendPropertyChanging();
+					this._id_employee = value;
+					this.SendPropertyChanged("id_employee");
+					this.Onid_employeeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_account", DbType="Char(20)")]
+		public string id_account
+		{
+			get
+			{
+				return this._id_account;
+			}
+			set
+			{
+				if ((this._id_account != value))
+				{
+					if (this._SYSTEMACCOUNT.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_accountChanging(value);
+					this.SendPropertyChanging();
+					this._id_account = value;
+					this.SendPropertyChanged("id_account");
+					this.Onid_accountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_agent", DbType="Char(20)")]
+		public string id_agent
+		{
+			get
+			{
+				return this._id_agent;
+			}
+			set
+			{
+				if ((this._id_agent != value))
+				{
+					if (this._AGENT.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_agentChanging(value);
+					this.SendPropertyChanging();
+					this._id_agent = value;
+					this.SendPropertyChanged("id_agent");
+					this.Onid_agentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(50)")]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this.OnnameChanging(value);
+					this.SendPropertyChanging();
+					this._name = value;
+					this.SendPropertyChanged("name");
+					this.OnnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_address", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string address
+		{
+			get
+			{
+				return this._address;
+			}
+			set
+			{
+				if ((this._address != value))
+				{
+					this.OnaddressChanging(value);
+					this.SendPropertyChanging();
+					this._address = value;
+					this.SendPropertyChanged("address");
+					this.OnaddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phone_number", DbType="Char(20) NOT NULL", CanBeNull=false)]
+		public string phone_number
+		{
+			get
+			{
+				return this._phone_number;
+			}
+			set
+			{
+				if ((this._phone_number != value))
+				{
+					this.Onphone_numberChanging(value);
+					this.SendPropertyChanging();
+					this._phone_number = value;
+					this.SendPropertyChanged("phone_number");
+					this.Onphone_numberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_identity_number", DbType="Char(20) NOT NULL", CanBeNull=false)]
+		public string identity_number
+		{
+			get
+			{
+				return this._identity_number;
+			}
+			set
+			{
+				if ((this._identity_number != value))
+				{
+					this.Onidentity_numberChanging(value);
+					this.SendPropertyChanging();
+					this._identity_number = value;
+					this.SendPropertyChanged("identity_number");
+					this.Onidentity_numberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_salary", DbType="Money NOT NULL")]
+		public decimal salary
+		{
+			get
+			{
+				return this._salary;
+			}
+			set
+			{
+				if ((this._salary != value))
+				{
+					this.OnsalaryChanging(value);
+					this.SendPropertyChanging();
+					this._salary = value;
+					this.SendPropertyChanged("salary");
+					this.OnsalaryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="Char(50)")]
+		public string email
+		{
+			get
+			{
+				return this._email;
+			}
+			set
+			{
+				if ((this._email != value))
+				{
+					this.OnemailChanging(value);
+					this.SendPropertyChanging();
+					this._email = value;
+					this.SendPropertyChanged("email");
+					this.OnemailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_birthdate", DbType="Date NOT NULL")]
+		public System.DateTime birthdate
+		{
+			get
+			{
+				return this._birthdate;
+			}
+			set
+			{
+				if ((this._birthdate != value))
+				{
+					this.OnbirthdateChanging(value);
+					this.SendPropertyChanging();
+					this._birthdate = value;
+					this.SendPropertyChanged("birthdate");
+					this.OnbirthdateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gender", DbType="Bit")]
+		public System.Nullable<bool> gender
+		{
+			get
+			{
+				return this._gender;
+			}
+			set
+			{
+				if ((this._gender != value))
+				{
+					this.OngenderChanging(value);
+					this.SendPropertyChanging();
+					this._gender = value;
+					this.SendPropertyChanged("gender");
+					this.OngenderChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_state", DbType="Bit")]
+		public System.Nullable<bool> state
+		{
+			get
+			{
+				return this._state;
+			}
+			set
+			{
+				if ((this._state != value))
+				{
+					this.OnstateChanging(value);
+					this.SendPropertyChanging();
+					this._state = value;
+					this.SendPropertyChanged("state");
+					this.OnstateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EMPLOYEE_BOOKING", Storage="_BOOKINGs", ThisKey="id_employee", OtherKey="id_employee")]
+		public EntitySet<BOOKING> BOOKINGs
+		{
+			get
+			{
+				return this._BOOKINGs;
+			}
+			set
+			{
+				this._BOOKINGs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EMPLOYEE_EMPLOYEE_POSITION", Storage="_EMPLOYEE_POSITIONs", ThisKey="id_employee", OtherKey="id_employee")]
+		public EntitySet<EMPLOYEE_POSITION> EMPLOYEE_POSITIONs
+		{
+			get
+			{
+				return this._EMPLOYEE_POSITIONs;
+			}
+			set
+			{
+				this._EMPLOYEE_POSITIONs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EMPLOYEE_EMPLOYEE_TICKET", Storage="_EMPLOYEE_TICKETs", ThisKey="id_employee", OtherKey="id_employee")]
+		public EntitySet<EMPLOYEE_TICKET> EMPLOYEE_TICKETs
+		{
+			get
+			{
+				return this._EMPLOYEE_TICKETs;
+			}
+			set
+			{
+				this._EMPLOYEE_TICKETs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SYSTEMACCOUNT_EMPLOYEE", Storage="_SYSTEMACCOUNT", ThisKey="id_account", OtherKey="id_account", IsForeignKey=true, DeleteRule="SET NULL")]
+		public SYSTEMACCOUNT SYSTEMACCOUNT
+		{
+			get
+			{
+				return this._SYSTEMACCOUNT.Entity;
+			}
+			set
+			{
+				SYSTEMACCOUNT previousValue = this._SYSTEMACCOUNT.Entity;
+				if (((previousValue != value) 
+							|| (this._SYSTEMACCOUNT.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SYSTEMACCOUNT.Entity = null;
+						previousValue.EMPLOYEEs.Remove(this);
+					}
+					this._SYSTEMACCOUNT.Entity = value;
+					if ((value != null))
+					{
+						value.EMPLOYEEs.Add(this);
+						this._id_account = value.id_account;
+					}
+					else
+					{
+						this._id_account = default(string);
+					}
+					this.SendPropertyChanged("SYSTEMACCOUNT");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="AGENT_EMPLOYEE", Storage="_AGENT", ThisKey="id_agent", OtherKey="id_agent", IsForeignKey=true)]
+		public AGENT AGENT
+		{
+			get
+			{
+				return this._AGENT.Entity;
+			}
+			set
+			{
+				AGENT previousValue = this._AGENT.Entity;
+				if (((previousValue != value) 
+							|| (this._AGENT.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._AGENT.Entity = null;
+						previousValue.EMPLOYEEs.Remove(this);
+					}
+					this._AGENT.Entity = value;
+					if ((value != null))
+					{
+						value.EMPLOYEEs.Add(this);
+						this._id_agent = value.id_agent;
+					}
+					else
+					{
+						this._id_agent = default(string);
+					}
+					this.SendPropertyChanged("AGENT");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_BOOKINGs(BOOKING entity)
+		{
+			this.SendPropertyChanging();
+			entity.EMPLOYEE = this;
+		}
+		
+		private void detach_BOOKINGs(BOOKING entity)
+		{
+			this.SendPropertyChanging();
+			entity.EMPLOYEE = null;
+		}
+		
+		private void attach_EMPLOYEE_POSITIONs(EMPLOYEE_POSITION entity)
+		{
+			this.SendPropertyChanging();
+			entity.EMPLOYEE = this;
+		}
+		
+		private void detach_EMPLOYEE_POSITIONs(EMPLOYEE_POSITION entity)
+		{
+			this.SendPropertyChanging();
+			entity.EMPLOYEE = null;
+		}
+		
+		private void attach_EMPLOYEE_TICKETs(EMPLOYEE_TICKET entity)
+		{
+			this.SendPropertyChanging();
+			entity.EMPLOYEE = this;
+		}
+		
+		private void detach_EMPLOYEE_TICKETs(EMPLOYEE_TICKET entity)
+		{
+			this.SendPropertyChanging();
+			entity.EMPLOYEE = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EMPLOYEE_POSITION")]
+	public partial class EMPLOYEE_POSITION : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _id_employee;
+		
+		private string _id_position;
+		
+		private EntityRef<EMPLOYEE> _EMPLOYEE;
+		
+		private EntityRef<POSITION> _POSITION;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_employeeChanging(string value);
+    partial void Onid_employeeChanged();
+    partial void Onid_positionChanging(string value);
+    partial void Onid_positionChanged();
+    #endregion
+		
+		public EMPLOYEE_POSITION()
+		{
+			this._EMPLOYEE = default(EntityRef<EMPLOYEE>);
+			this._POSITION = default(EntityRef<POSITION>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_employee", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string id_employee
+		{
+			get
+			{
+				return this._id_employee;
+			}
+			set
+			{
+				if ((this._id_employee != value))
+				{
+					if (this._EMPLOYEE.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_employeeChanging(value);
+					this.SendPropertyChanging();
+					this._id_employee = value;
+					this.SendPropertyChanged("id_employee");
+					this.Onid_employeeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_position", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string id_position
+		{
+			get
+			{
+				return this._id_position;
+			}
+			set
+			{
+				if ((this._id_position != value))
+				{
+					if (this._POSITION.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_positionChanging(value);
+					this.SendPropertyChanging();
+					this._id_position = value;
+					this.SendPropertyChanged("id_position");
+					this.Onid_positionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EMPLOYEE_EMPLOYEE_POSITION", Storage="_EMPLOYEE", ThisKey="id_employee", OtherKey="id_employee", IsForeignKey=true)]
+		public EMPLOYEE EMPLOYEE
+		{
+			get
+			{
+				return this._EMPLOYEE.Entity;
+			}
+			set
+			{
+				EMPLOYEE previousValue = this._EMPLOYEE.Entity;
+				if (((previousValue != value) 
+							|| (this._EMPLOYEE.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._EMPLOYEE.Entity = null;
+						previousValue.EMPLOYEE_POSITIONs.Remove(this);
+					}
+					this._EMPLOYEE.Entity = value;
+					if ((value != null))
+					{
+						value.EMPLOYEE_POSITIONs.Add(this);
+						this._id_employee = value.id_employee;
+					}
+					else
+					{
+						this._id_employee = default(string);
+					}
+					this.SendPropertyChanged("EMPLOYEE");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="POSITION_EMPLOYEE_POSITION", Storage="_POSITION", ThisKey="id_position", OtherKey="id_position", IsForeignKey=true)]
+		public POSITION POSITION
+		{
+			get
+			{
+				return this._POSITION.Entity;
+			}
+			set
+			{
+				POSITION previousValue = this._POSITION.Entity;
+				if (((previousValue != value) 
+							|| (this._POSITION.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._POSITION.Entity = null;
+						previousValue.EMPLOYEE_POSITIONs.Remove(this);
+					}
+					this._POSITION.Entity = value;
+					if ((value != null))
+					{
+						value.EMPLOYEE_POSITIONs.Add(this);
+						this._id_position = value.id_position;
+					}
+					else
+					{
+						this._id_position = default(string);
+					}
+					this.SendPropertyChanged("POSITION");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EMPLOYEE_TICKET")]
+	public partial class EMPLOYEE_TICKET : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _id_employee;
+		
+		private string _id_ticket;
+		
+		private EntityRef<EMPLOYEE> _EMPLOYEE;
+		
+		private EntityRef<TICKET> _TICKET;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_employeeChanging(string value);
+    partial void Onid_employeeChanged();
+    partial void Onid_ticketChanging(string value);
+    partial void Onid_ticketChanged();
+    #endregion
+		
+		public EMPLOYEE_TICKET()
+		{
+			this._EMPLOYEE = default(EntityRef<EMPLOYEE>);
+			this._TICKET = default(EntityRef<TICKET>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_employee", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string id_employee
+		{
+			get
+			{
+				return this._id_employee;
+			}
+			set
+			{
+				if ((this._id_employee != value))
+				{
+					if (this._EMPLOYEE.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_employeeChanging(value);
+					this.SendPropertyChanging();
+					this._id_employee = value;
+					this.SendPropertyChanged("id_employee");
+					this.Onid_employeeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_ticket", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string id_ticket
+		{
+			get
+			{
+				return this._id_ticket;
+			}
+			set
+			{
+				if ((this._id_ticket != value))
+				{
+					if (this._TICKET.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_ticketChanging(value);
+					this.SendPropertyChanging();
+					this._id_ticket = value;
+					this.SendPropertyChanged("id_ticket");
+					this.Onid_ticketChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EMPLOYEE_EMPLOYEE_TICKET", Storage="_EMPLOYEE", ThisKey="id_employee", OtherKey="id_employee", IsForeignKey=true)]
+		public EMPLOYEE EMPLOYEE
+		{
+			get
+			{
+				return this._EMPLOYEE.Entity;
+			}
+			set
+			{
+				EMPLOYEE previousValue = this._EMPLOYEE.Entity;
+				if (((previousValue != value) 
+							|| (this._EMPLOYEE.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._EMPLOYEE.Entity = null;
+						previousValue.EMPLOYEE_TICKETs.Remove(this);
+					}
+					this._EMPLOYEE.Entity = value;
+					if ((value != null))
+					{
+						value.EMPLOYEE_TICKETs.Add(this);
+						this._id_employee = value.id_employee;
+					}
+					else
+					{
+						this._id_employee = default(string);
+					}
+					this.SendPropertyChanged("EMPLOYEE");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TICKET_EMPLOYEE_TICKET", Storage="_TICKET", ThisKey="id_ticket", OtherKey="id_ticket", IsForeignKey=true)]
+		public TICKET TICKET
+		{
+			get
+			{
+				return this._TICKET.Entity;
+			}
+			set
+			{
+				TICKET previousValue = this._TICKET.Entity;
+				if (((previousValue != value) 
+							|| (this._TICKET.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TICKET.Entity = null;
+						previousValue.EMPLOYEE_TICKETs.Remove(this);
+					}
+					this._TICKET.Entity = value;
+					if ((value != null))
+					{
+						value.EMPLOYEE_TICKETs.Add(this);
+						this._id_ticket = value.id_ticket;
+					}
+					else
+					{
+						this._id_ticket = default(string);
+					}
+					this.SendPropertyChanged("TICKET");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EVENT")]
+	public partial class EVENT : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _id_event;
+		
+		private string _discount_type;
+		
+		private System.Nullable<double> _discount_percent;
+		
+		private EntitySet<AGENT_EVENT> _AGENT_EVENTs;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_eventChanging(string value);
+    partial void Onid_eventChanged();
+    partial void Ondiscount_typeChanging(string value);
+    partial void Ondiscount_typeChanged();
+    partial void Ondiscount_percentChanging(System.Nullable<double> value);
+    partial void Ondiscount_percentChanged();
+    #endregion
+		
+		public EVENT()
+		{
+			this._AGENT_EVENTs = new EntitySet<AGENT_EVENT>(new Action<AGENT_EVENT>(this.attach_AGENT_EVENTs), new Action<AGENT_EVENT>(this.detach_AGENT_EVENTs));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_event", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string id_event
+		{
+			get
+			{
+				return this._id_event;
+			}
+			set
+			{
+				if ((this._id_event != value))
+				{
+					this.Onid_eventChanging(value);
+					this.SendPropertyChanging();
+					this._id_event = value;
+					this.SendPropertyChanged("id_event");
+					this.Onid_eventChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_discount_type", DbType="Char(50) NOT NULL", CanBeNull=false)]
+		public string discount_type
+		{
+			get
+			{
+				return this._discount_type;
+			}
+			set
+			{
+				if ((this._discount_type != value))
+				{
+					this.Ondiscount_typeChanging(value);
+					this.SendPropertyChanging();
+					this._discount_type = value;
+					this.SendPropertyChanged("discount_type");
+					this.Ondiscount_typeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_discount_percent", DbType="Float")]
+		public System.Nullable<double> discount_percent
+		{
+			get
+			{
+				return this._discount_percent;
+			}
+			set
+			{
+				if ((this._discount_percent != value))
+				{
+					this.Ondiscount_percentChanging(value);
+					this.SendPropertyChanging();
+					this._discount_percent = value;
+					this.SendPropertyChanged("discount_percent");
+					this.Ondiscount_percentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="EVENT_AGENT_EVENT", Storage="_AGENT_EVENTs", ThisKey="id_event", OtherKey="id_event")]
+		public EntitySet<AGENT_EVENT> AGENT_EVENTs
+		{
+			get
+			{
+				return this._AGENT_EVENTs;
+			}
+			set
+			{
+				this._AGENT_EVENTs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 		
 		private void attach_AGENT_EVENTs(AGENT_EVENT entity)
 		{
 			this.SendPropertyChanging();
-			entity.AGENT = this;
+			entity.EVENT = this;
 		}
 		
 		private void detach_AGENT_EVENTs(AGENT_EVENT entity)
 		{
 			this.SendPropertyChanging();
-			entity.AGENT = null;
+			entity.EVENT = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PASSENGER")]
+	public partial class PASSENGER : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _id_passenger;
+		
+		private string _name;
+		
+		private string _phone_number;
+		
+		private string _address;
+		
+		private string _identity_number;
+		
+		private System.Nullable<bool> _gender;
+		
+		private string _email;
+		
+		private EntitySet<BOOKING> _BOOKINGs;
+		
+		private EntitySet<PASSENGERACCOUNT> _PASSENGERACCOUNTs;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_passengerChanging(string value);
+    partial void Onid_passengerChanged();
+    partial void OnnameChanging(string value);
+    partial void OnnameChanged();
+    partial void Onphone_numberChanging(string value);
+    partial void Onphone_numberChanged();
+    partial void OnaddressChanging(string value);
+    partial void OnaddressChanged();
+    partial void Onidentity_numberChanging(string value);
+    partial void Onidentity_numberChanged();
+    partial void OngenderChanging(System.Nullable<bool> value);
+    partial void OngenderChanged();
+    partial void OnemailChanging(string value);
+    partial void OnemailChanged();
+    #endregion
+		
+		public PASSENGER()
+		{
+			this._BOOKINGs = new EntitySet<BOOKING>(new Action<BOOKING>(this.attach_BOOKINGs), new Action<BOOKING>(this.detach_BOOKINGs));
+			this._PASSENGERACCOUNTs = new EntitySet<PASSENGERACCOUNT>(new Action<PASSENGERACCOUNT>(this.attach_PASSENGERACCOUNTs), new Action<PASSENGERACCOUNT>(this.detach_PASSENGERACCOUNTs));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_passenger", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string id_passenger
+		{
+			get
+			{
+				return this._id_passenger;
+			}
+			set
+			{
+				if ((this._id_passenger != value))
+				{
+					this.Onid_passengerChanging(value);
+					this.SendPropertyChanging();
+					this._id_passenger = value;
+					this.SendPropertyChanged("id_passenger");
+					this.Onid_passengerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(50)")]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this.OnnameChanging(value);
+					this.SendPropertyChanging();
+					this._name = value;
+					this.SendPropertyChanged("name");
+					this.OnnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phone_number", DbType="Char(20) NOT NULL", CanBeNull=false)]
+		public string phone_number
+		{
+			get
+			{
+				return this._phone_number;
+			}
+			set
+			{
+				if ((this._phone_number != value))
+				{
+					this.Onphone_numberChanging(value);
+					this.SendPropertyChanging();
+					this._phone_number = value;
+					this.SendPropertyChanged("phone_number");
+					this.Onphone_numberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_address", DbType="NVarChar(100)")]
+		public string address
+		{
+			get
+			{
+				return this._address;
+			}
+			set
+			{
+				if ((this._address != value))
+				{
+					this.OnaddressChanging(value);
+					this.SendPropertyChanging();
+					this._address = value;
+					this.SendPropertyChanged("address");
+					this.OnaddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_identity_number", DbType="Char(20)")]
+		public string identity_number
+		{
+			get
+			{
+				return this._identity_number;
+			}
+			set
+			{
+				if ((this._identity_number != value))
+				{
+					this.Onidentity_numberChanging(value);
+					this.SendPropertyChanging();
+					this._identity_number = value;
+					this.SendPropertyChanged("identity_number");
+					this.Onidentity_numberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gender", DbType="Bit")]
+		public System.Nullable<bool> gender
+		{
+			get
+			{
+				return this._gender;
+			}
+			set
+			{
+				if ((this._gender != value))
+				{
+					this.OngenderChanging(value);
+					this.SendPropertyChanging();
+					this._gender = value;
+					this.SendPropertyChanged("gender");
+					this.OngenderChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="Char(50)")]
+		public string email
+		{
+			get
+			{
+				return this._email;
+			}
+			set
+			{
+				if ((this._email != value))
+				{
+					this.OnemailChanging(value);
+					this.SendPropertyChanging();
+					this._email = value;
+					this.SendPropertyChanged("email");
+					this.OnemailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PASSENGER_BOOKING", Storage="_BOOKINGs", ThisKey="id_passenger", OtherKey="id_passenger")]
+		public EntitySet<BOOKING> BOOKINGs
+		{
+			get
+			{
+				return this._BOOKINGs;
+			}
+			set
+			{
+				this._BOOKINGs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PASSENGER_PASSENGERACCOUNT", Storage="_PASSENGERACCOUNTs", ThisKey="id_passenger", OtherKey="id_passenger")]
+		public EntitySet<PASSENGERACCOUNT> PASSENGERACCOUNTs
+		{
+			get
+			{
+				return this._PASSENGERACCOUNTs;
+			}
+			set
+			{
+				this._PASSENGERACCOUNTs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_BOOKINGs(BOOKING entity)
+		{
+			this.SendPropertyChanging();
+			entity.PASSENGER = this;
+		}
+		
+		private void detach_BOOKINGs(BOOKING entity)
+		{
+			this.SendPropertyChanging();
+			entity.PASSENGER = null;
+		}
+		
+		private void attach_PASSENGERACCOUNTs(PASSENGERACCOUNT entity)
+		{
+			this.SendPropertyChanging();
+			entity.PASSENGER = this;
+		}
+		
+		private void detach_PASSENGERACCOUNTs(PASSENGERACCOUNT entity)
+		{
+			this.SendPropertyChanging();
+			entity.PASSENGER = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PASSENGERACCOUNT")]
+	public partial class PASSENGERACCOUNT : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _id_passenger;
+		
+		private string _username;
+		
+		private string _password;
+		
+		private EntityRef<PASSENGER> _PASSENGER;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_passengerChanging(string value);
+    partial void Onid_passengerChanged();
+    partial void OnusernameChanging(string value);
+    partial void OnusernameChanged();
+    partial void OnpasswordChanging(string value);
+    partial void OnpasswordChanged();
+    #endregion
+		
+		public PASSENGERACCOUNT()
+		{
+			this._PASSENGER = default(EntityRef<PASSENGER>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_passenger", DbType="Char(20)")]
+		public string id_passenger
+		{
+			get
+			{
+				return this._id_passenger;
+			}
+			set
+			{
+				if ((this._id_passenger != value))
+				{
+					if (this._PASSENGER.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_passengerChanging(value);
+					this.SendPropertyChanging();
+					this._id_passenger = value;
+					this.SendPropertyChanged("id_passenger");
+					this.Onid_passengerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string username
+		{
+			get
+			{
+				return this._username;
+			}
+			set
+			{
+				if ((this._username != value))
+				{
+					this.OnusernameChanging(value);
+					this.SendPropertyChanging();
+					this._username = value;
+					this.SendPropertyChanged("username");
+					this.OnusernameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string password
+		{
+			get
+			{
+				return this._password;
+			}
+			set
+			{
+				if ((this._password != value))
+				{
+					this.OnpasswordChanging(value);
+					this.SendPropertyChanging();
+					this._password = value;
+					this.SendPropertyChanged("password");
+					this.OnpasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PASSENGER_PASSENGERACCOUNT", Storage="_PASSENGER", ThisKey="id_passenger", OtherKey="id_passenger", IsForeignKey=true)]
+		public PASSENGER PASSENGER
+		{
+			get
+			{
+				return this._PASSENGER.Entity;
+			}
+			set
+			{
+				PASSENGER previousValue = this._PASSENGER.Entity;
+				if (((previousValue != value) 
+							|| (this._PASSENGER.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._PASSENGER.Entity = null;
+						previousValue.PASSENGERACCOUNTs.Remove(this);
+					}
+					this._PASSENGER.Entity = value;
+					if ((value != null))
+					{
+						value.PASSENGERACCOUNTs.Add(this);
+						this._id_passenger = value.id_passenger;
+					}
+					else
+					{
+						this._id_passenger = default(string);
+					}
+					this.SendPropertyChanged("PASSENGER");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PLACE")]
+	public partial class PLACE : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _id_place;
+		
+		private string _region;
+		
+		private EntitySet<AGENT> _AGENTs;
+		
+		private EntitySet<BUSSTATION> _BUSSTATIONs;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_placeChanging(string value);
+    partial void Onid_placeChanged();
+    partial void OnregionChanging(string value);
+    partial void OnregionChanged();
+    #endregion
+		
+		public PLACE()
+		{
+			this._AGENTs = new EntitySet<AGENT>(new Action<AGENT>(this.attach_AGENTs), new Action<AGENT>(this.detach_AGENTs));
+			this._BUSSTATIONs = new EntitySet<BUSSTATION>(new Action<BUSSTATION>(this.attach_BUSSTATIONs), new Action<BUSSTATION>(this.detach_BUSSTATIONs));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_place", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string id_place
+		{
+			get
+			{
+				return this._id_place;
+			}
+			set
+			{
+				if ((this._id_place != value))
+				{
+					this.Onid_placeChanging(value);
+					this.SendPropertyChanging();
+					this._id_place = value;
+					this.SendPropertyChanged("id_place");
+					this.Onid_placeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_region", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string region
+		{
+			get
+			{
+				return this._region;
+			}
+			set
+			{
+				if ((this._region != value))
+				{
+					this.OnregionChanging(value);
+					this.SendPropertyChanging();
+					this._region = value;
+					this.SendPropertyChanged("region");
+					this.OnregionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PLACE_AGENT", Storage="_AGENTs", ThisKey="id_place", OtherKey="id_place")]
+		public EntitySet<AGENT> AGENTs
+		{
+			get
+			{
+				return this._AGENTs;
+			}
+			set
+			{
+				this._AGENTs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PLACE_BUSSTATION", Storage="_BUSSTATIONs", ThisKey="id_place", OtherKey="id_place")]
+		public EntitySet<BUSSTATION> BUSSTATIONs
+		{
+			get
+			{
+				return this._BUSSTATIONs;
+			}
+			set
+			{
+				this._BUSSTATIONs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_AGENTs(AGENT entity)
+		{
+			this.SendPropertyChanging();
+			entity.PLACE = this;
+		}
+		
+		private void detach_AGENTs(AGENT entity)
+		{
+			this.SendPropertyChanging();
+			entity.PLACE = null;
+		}
+		
+		private void attach_BUSSTATIONs(BUSSTATION entity)
+		{
+			this.SendPropertyChanging();
+			entity.PLACE = this;
+		}
+		
+		private void detach_BUSSTATIONs(BUSSTATION entity)
+		{
+			this.SendPropertyChanging();
+			entity.PLACE = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.POSITION")]
+	public partial class POSITION : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _id_position;
+		
+		private string _type;
+		
+		private EntitySet<EMPLOYEE_POSITION> _EMPLOYEE_POSITIONs;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_positionChanging(string value);
+    partial void Onid_positionChanged();
+    partial void OntypeChanging(string value);
+    partial void OntypeChanged();
+    #endregion
+		
+		public POSITION()
+		{
+			this._EMPLOYEE_POSITIONs = new EntitySet<EMPLOYEE_POSITION>(new Action<EMPLOYEE_POSITION>(this.attach_EMPLOYEE_POSITIONs), new Action<EMPLOYEE_POSITION>(this.detach_EMPLOYEE_POSITIONs));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_position", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string id_position
+		{
+			get
+			{
+				return this._id_position;
+			}
+			set
+			{
+				if ((this._id_position != value))
+				{
+					this.Onid_positionChanging(value);
+					this.SendPropertyChanging();
+					this._id_position = value;
+					this.SendPropertyChanged("id_position");
+					this.Onid_positionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_type", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string type
+		{
+			get
+			{
+				return this._type;
+			}
+			set
+			{
+				if ((this._type != value))
+				{
+					this.OntypeChanging(value);
+					this.SendPropertyChanging();
+					this._type = value;
+					this.SendPropertyChanged("type");
+					this.OntypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="POSITION_EMPLOYEE_POSITION", Storage="_EMPLOYEE_POSITIONs", ThisKey="id_position", OtherKey="id_position")]
+		public EntitySet<EMPLOYEE_POSITION> EMPLOYEE_POSITIONs
+		{
+			get
+			{
+				return this._EMPLOYEE_POSITIONs;
+			}
+			set
+			{
+				this._EMPLOYEE_POSITIONs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_EMPLOYEE_POSITIONs(EMPLOYEE_POSITION entity)
+		{
+			this.SendPropertyChanging();
+			entity.POSITION = this;
+		}
+		
+		private void detach_EMPLOYEE_POSITIONs(EMPLOYEE_POSITION entity)
+		{
+			this.SendPropertyChanging();
+			entity.POSITION = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.REFUND")]
+	public partial class REFUND : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _id_refund;
+		
+		private string _refund_name;
+		
+		private System.Nullable<double> _refund_percent;
+		
+		private EntitySet<AGENT_REFUND> _AGENT_REFUNDs;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_refundChanging(string value);
+    partial void Onid_refundChanged();
+    partial void Onrefund_nameChanging(string value);
+    partial void Onrefund_nameChanged();
+    partial void Onrefund_percentChanging(System.Nullable<double> value);
+    partial void Onrefund_percentChanged();
+    #endregion
+		
+		public REFUND()
+		{
+			this._AGENT_REFUNDs = new EntitySet<AGENT_REFUND>(new Action<AGENT_REFUND>(this.attach_AGENT_REFUNDs), new Action<AGENT_REFUND>(this.detach_AGENT_REFUNDs));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_refund", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string id_refund
+		{
+			get
+			{
+				return this._id_refund;
+			}
+			set
+			{
+				if ((this._id_refund != value))
+				{
+					this.Onid_refundChanging(value);
+					this.SendPropertyChanging();
+					this._id_refund = value;
+					this.SendPropertyChanged("id_refund");
+					this.Onid_refundChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_refund_name", DbType="Char(50) NOT NULL", CanBeNull=false)]
+		public string refund_name
+		{
+			get
+			{
+				return this._refund_name;
+			}
+			set
+			{
+				if ((this._refund_name != value))
+				{
+					this.Onrefund_nameChanging(value);
+					this.SendPropertyChanging();
+					this._refund_name = value;
+					this.SendPropertyChanged("refund_name");
+					this.Onrefund_nameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_refund_percent", DbType="Float")]
+		public System.Nullable<double> refund_percent
+		{
+			get
+			{
+				return this._refund_percent;
+			}
+			set
+			{
+				if ((this._refund_percent != value))
+				{
+					this.Onrefund_percentChanging(value);
+					this.SendPropertyChanging();
+					this._refund_percent = value;
+					this.SendPropertyChanged("refund_percent");
+					this.Onrefund_percentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="REFUND_AGENT_REFUND", Storage="_AGENT_REFUNDs", ThisKey="id_refund", OtherKey="id_refund")]
+		public EntitySet<AGENT_REFUND> AGENT_REFUNDs
+		{
+			get
+			{
+				return this._AGENT_REFUNDs;
+			}
+			set
+			{
+				this._AGENT_REFUNDs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_AGENT_REFUNDs(AGENT_REFUND entity)
+		{
+			this.SendPropertyChanging();
+			entity.REFUND = this;
+		}
+		
+		private void detach_AGENT_REFUNDs(AGENT_REFUND entity)
+		{
+			this.SendPropertyChanging();
+			entity.REFUND = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TRIP_DRIVER")]
+	public partial class TRIP_DRIVER : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _id_trip;
+		
+		private string _id_driver;
+		
+		private EntityRef<DRIVER> _DRIVER;
+		
+		private EntityRef<TRIP> _TRIP;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_tripChanging(string value);
+    partial void Onid_tripChanged();
+    partial void Onid_driverChanging(string value);
+    partial void Onid_driverChanged();
+    #endregion
+		
+		public TRIP_DRIVER()
+		{
+			this._DRIVER = default(EntityRef<DRIVER>);
+			this._TRIP = default(EntityRef<TRIP>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_trip", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string id_trip
+		{
+			get
+			{
+				return this._id_trip;
+			}
+			set
+			{
+				if ((this._id_trip != value))
+				{
+					if (this._TRIP.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_tripChanging(value);
+					this.SendPropertyChanging();
+					this._id_trip = value;
+					this.SendPropertyChanged("id_trip");
+					this.Onid_tripChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_driver", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string id_driver
+		{
+			get
+			{
+				return this._id_driver;
+			}
+			set
+			{
+				if ((this._id_driver != value))
+				{
+					if (this._DRIVER.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_driverChanging(value);
+					this.SendPropertyChanging();
+					this._id_driver = value;
+					this.SendPropertyChanged("id_driver");
+					this.Onid_driverChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DRIVER_TRIP_DRIVER", Storage="_DRIVER", ThisKey="id_driver", OtherKey="id_driver", IsForeignKey=true)]
+		public DRIVER DRIVER
+		{
+			get
+			{
+				return this._DRIVER.Entity;
+			}
+			set
+			{
+				DRIVER previousValue = this._DRIVER.Entity;
+				if (((previousValue != value) 
+							|| (this._DRIVER.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._DRIVER.Entity = null;
+						previousValue.TRIP_DRIVERs.Remove(this);
+					}
+					this._DRIVER.Entity = value;
+					if ((value != null))
+					{
+						value.TRIP_DRIVERs.Add(this);
+						this._id_driver = value.id_driver;
+					}
+					else
+					{
+						this._id_driver = default(string);
+					}
+					this.SendPropertyChanged("DRIVER");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TRIP_TRIP_DRIVER", Storage="_TRIP", ThisKey="id_trip", OtherKey="id_trip", IsForeignKey=true)]
+		public TRIP TRIP
+		{
+			get
+			{
+				return this._TRIP.Entity;
+			}
+			set
+			{
+				TRIP previousValue = this._TRIP.Entity;
+				if (((previousValue != value) 
+							|| (this._TRIP.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TRIP.Entity = null;
+						previousValue.TRIP_DRIVERs.Remove(this);
+					}
+					this._TRIP.Entity = value;
+					if ((value != null))
+					{
+						value.TRIP_DRIVERs.Add(this);
+						this._id_trip = value.id_trip;
+					}
+					else
+					{
+						this._id_trip = default(string);
+					}
+					this.SendPropertyChanged("TRIP");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TICKET")]
+	public partial class TICKET : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _id_ticket;
+		
+		private string _id_trip;
+		
+		private System.Nullable<bool> _status;
+		
+		private decimal _fare;
+		
+		private System.Nullable<bool> _type;
+		
+		private string _seat_number;
+		
+		private EntitySet<BOOKING> _BOOKINGs;
+		
+		private EntitySet<EMPLOYEE_TICKET> _EMPLOYEE_TICKETs;
+		
+		private EntityRef<TRIP> _TRIP;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_ticketChanging(string value);
+    partial void Onid_ticketChanged();
+    partial void Onid_tripChanging(string value);
+    partial void Onid_tripChanged();
+    partial void OnstatusChanging(System.Nullable<bool> value);
+    partial void OnstatusChanged();
+    partial void OnfareChanging(decimal value);
+    partial void OnfareChanged();
+    partial void OntypeChanging(System.Nullable<bool> value);
+    partial void OntypeChanged();
+    partial void Onseat_numberChanging(string value);
+    partial void Onseat_numberChanged();
+    #endregion
+		
+		public TICKET()
+		{
+			this._BOOKINGs = new EntitySet<BOOKING>(new Action<BOOKING>(this.attach_BOOKINGs), new Action<BOOKING>(this.detach_BOOKINGs));
+			this._EMPLOYEE_TICKETs = new EntitySet<EMPLOYEE_TICKET>(new Action<EMPLOYEE_TICKET>(this.attach_EMPLOYEE_TICKETs), new Action<EMPLOYEE_TICKET>(this.detach_EMPLOYEE_TICKETs));
+			this._TRIP = default(EntityRef<TRIP>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_ticket", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string id_ticket
+		{
+			get
+			{
+				return this._id_ticket;
+			}
+			set
+			{
+				if ((this._id_ticket != value))
+				{
+					this.Onid_ticketChanging(value);
+					this.SendPropertyChanging();
+					this._id_ticket = value;
+					this.SendPropertyChanged("id_ticket");
+					this.Onid_ticketChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_trip", DbType="Char(20)")]
+		public string id_trip
+		{
+			get
+			{
+				return this._id_trip;
+			}
+			set
+			{
+				if ((this._id_trip != value))
+				{
+					if (this._TRIP.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_tripChanging(value);
+					this.SendPropertyChanging();
+					this._id_trip = value;
+					this.SendPropertyChanged("id_trip");
+					this.Onid_tripChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Bit")]
+		public System.Nullable<bool> status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this.OnstatusChanging(value);
+					this.SendPropertyChanging();
+					this._status = value;
+					this.SendPropertyChanged("status");
+					this.OnstatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fare", DbType="Money NOT NULL")]
+		public decimal fare
+		{
+			get
+			{
+				return this._fare;
+			}
+			set
+			{
+				if ((this._fare != value))
+				{
+					this.OnfareChanging(value);
+					this.SendPropertyChanging();
+					this._fare = value;
+					this.SendPropertyChanged("fare");
+					this.OnfareChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_type", DbType="Bit")]
+		public System.Nullable<bool> type
+		{
+			get
+			{
+				return this._type;
+			}
+			set
+			{
+				if ((this._type != value))
+				{
+					this.OntypeChanging(value);
+					this.SendPropertyChanging();
+					this._type = value;
+					this.SendPropertyChanged("type");
+					this.OntypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_seat_number", DbType="Char(15) NOT NULL", CanBeNull=false)]
+		public string seat_number
+		{
+			get
+			{
+				return this._seat_number;
+			}
+			set
+			{
+				if ((this._seat_number != value))
+				{
+					this.Onseat_numberChanging(value);
+					this.SendPropertyChanging();
+					this._seat_number = value;
+					this.SendPropertyChanged("seat_number");
+					this.Onseat_numberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TICKET_BOOKING", Storage="_BOOKINGs", ThisKey="id_ticket", OtherKey="id_ticket")]
+		public EntitySet<BOOKING> BOOKINGs
+		{
+			get
+			{
+				return this._BOOKINGs;
+			}
+			set
+			{
+				this._BOOKINGs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TICKET_EMPLOYEE_TICKET", Storage="_EMPLOYEE_TICKETs", ThisKey="id_ticket", OtherKey="id_ticket")]
+		public EntitySet<EMPLOYEE_TICKET> EMPLOYEE_TICKETs
+		{
+			get
+			{
+				return this._EMPLOYEE_TICKETs;
+			}
+			set
+			{
+				this._EMPLOYEE_TICKETs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TRIP_TICKET", Storage="_TRIP", ThisKey="id_trip", OtherKey="id_trip", IsForeignKey=true)]
+		public TRIP TRIP
+		{
+			get
+			{
+				return this._TRIP.Entity;
+			}
+			set
+			{
+				TRIP previousValue = this._TRIP.Entity;
+				if (((previousValue != value) 
+							|| (this._TRIP.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TRIP.Entity = null;
+						previousValue.TICKETs.Remove(this);
+					}
+					this._TRIP.Entity = value;
+					if ((value != null))
+					{
+						value.TICKETs.Add(this);
+						this._id_trip = value.id_trip;
+					}
+					else
+					{
+						this._id_trip = default(string);
+					}
+					this.SendPropertyChanged("TRIP");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_BOOKINGs(BOOKING entity)
+		{
+			this.SendPropertyChanging();
+			entity.TICKET = this;
+		}
+		
+		private void detach_BOOKINGs(BOOKING entity)
+		{
+			this.SendPropertyChanging();
+			entity.TICKET = null;
+		}
+		
+		private void attach_EMPLOYEE_TICKETs(EMPLOYEE_TICKET entity)
+		{
+			this.SendPropertyChanging();
+			entity.TICKET = this;
+		}
+		
+		private void detach_EMPLOYEE_TICKETs(EMPLOYEE_TICKET entity)
+		{
+			this.SendPropertyChanging();
+			entity.TICKET = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TRIP")]
+	public partial class TRIP : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _id_trip;
+		
+		private string _id_bus;
+		
+		private string _id_bus_route;
+		
+		private System.DateTime _departure_time;
+		
+		private int _duration;
+		
+		private System.Nullable<byte> _booked_seat;
+		
+		private string _status;
+		
+		private EntitySet<AGENT_TRIP> _AGENT_TRIPs;
+		
+		private EntitySet<TRIP_DRIVER> _TRIP_DRIVERs;
+		
+		private EntitySet<TICKET> _TICKETs;
+		
+		private EntityRef<BUS> _BUS;
+		
+		private EntityRef<BUSROUTE> _BUSROUTE;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_tripChanging(string value);
+    partial void Onid_tripChanged();
+    partial void Onid_busChanging(string value);
+    partial void Onid_busChanged();
+    partial void Onid_bus_routeChanging(string value);
+    partial void Onid_bus_routeChanged();
+    partial void Ondeparture_timeChanging(System.DateTime value);
+    partial void Ondeparture_timeChanged();
+    partial void OndurationChanging(int value);
+    partial void OndurationChanged();
+    partial void Onbooked_seatChanging(System.Nullable<byte> value);
+    partial void Onbooked_seatChanged();
+    partial void OnstatusChanging(string value);
+    partial void OnstatusChanged();
+    #endregion
+		
+		public TRIP()
+		{
+			this._AGENT_TRIPs = new EntitySet<AGENT_TRIP>(new Action<AGENT_TRIP>(this.attach_AGENT_TRIPs), new Action<AGENT_TRIP>(this.detach_AGENT_TRIPs));
+			this._TRIP_DRIVERs = new EntitySet<TRIP_DRIVER>(new Action<TRIP_DRIVER>(this.attach_TRIP_DRIVERs), new Action<TRIP_DRIVER>(this.detach_TRIP_DRIVERs));
+			this._TICKETs = new EntitySet<TICKET>(new Action<TICKET>(this.attach_TICKETs), new Action<TICKET>(this.detach_TICKETs));
+			this._BUS = default(EntityRef<BUS>);
+			this._BUSROUTE = default(EntityRef<BUSROUTE>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_trip", DbType="Char(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string id_trip
+		{
+			get
+			{
+				return this._id_trip;
+			}
+			set
+			{
+				if ((this._id_trip != value))
+				{
+					this.Onid_tripChanging(value);
+					this.SendPropertyChanging();
+					this._id_trip = value;
+					this.SendPropertyChanged("id_trip");
+					this.Onid_tripChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_bus", DbType="Char(20)")]
+		public string id_bus
+		{
+			get
+			{
+				return this._id_bus;
+			}
+			set
+			{
+				if ((this._id_bus != value))
+				{
+					if (this._BUS.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_busChanging(value);
+					this.SendPropertyChanging();
+					this._id_bus = value;
+					this.SendPropertyChanged("id_bus");
+					this.Onid_busChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_bus_route", DbType="Char(20)")]
+		public string id_bus_route
+		{
+			get
+			{
+				return this._id_bus_route;
+			}
+			set
+			{
+				if ((this._id_bus_route != value))
+				{
+					if (this._BUSROUTE.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_bus_routeChanging(value);
+					this.SendPropertyChanging();
+					this._id_bus_route = value;
+					this.SendPropertyChanged("id_bus_route");
+					this.Onid_bus_routeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_departure_time", DbType="DateTime NOT NULL")]
+		public System.DateTime departure_time
+		{
+			get
+			{
+				return this._departure_time;
+			}
+			set
+			{
+				if ((this._departure_time != value))
+				{
+					this.Ondeparture_timeChanging(value);
+					this.SendPropertyChanging();
+					this._departure_time = value;
+					this.SendPropertyChanged("departure_time");
+					this.Ondeparture_timeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_duration", DbType="Int NOT NULL")]
+		public int duration
+		{
+			get
+			{
+				return this._duration;
+			}
+			set
+			{
+				if ((this._duration != value))
+				{
+					this.OndurationChanging(value);
+					this.SendPropertyChanging();
+					this._duration = value;
+					this.SendPropertyChanged("duration");
+					this.OndurationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_booked_seat", DbType="TinyInt")]
+		public System.Nullable<byte> booked_seat
+		{
+			get
+			{
+				return this._booked_seat;
+			}
+			set
+			{
+				if ((this._booked_seat != value))
+				{
+					this.Onbooked_seatChanging(value);
+					this.SendPropertyChanging();
+					this._booked_seat = value;
+					this.SendPropertyChanged("booked_seat");
+					this.Onbooked_seatChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Char(15)")]
+		public string status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this.OnstatusChanging(value);
+					this.SendPropertyChanging();
+					this._status = value;
+					this.SendPropertyChanged("status");
+					this.OnstatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TRIP_AGENT_TRIP", Storage="_AGENT_TRIPs", ThisKey="id_trip", OtherKey="id_trip")]
+		public EntitySet<AGENT_TRIP> AGENT_TRIPs
+		{
+			get
+			{
+				return this._AGENT_TRIPs;
+			}
+			set
+			{
+				this._AGENT_TRIPs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TRIP_TRIP_DRIVER", Storage="_TRIP_DRIVERs", ThisKey="id_trip", OtherKey="id_trip")]
+		public EntitySet<TRIP_DRIVER> TRIP_DRIVERs
+		{
+			get
+			{
+				return this._TRIP_DRIVERs;
+			}
+			set
+			{
+				this._TRIP_DRIVERs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TRIP_TICKET", Storage="_TICKETs", ThisKey="id_trip", OtherKey="id_trip")]
+		public EntitySet<TICKET> TICKETs
+		{
+			get
+			{
+				return this._TICKETs;
+			}
+			set
+			{
+				this._TICKETs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BUS_TRIP", Storage="_BUS", ThisKey="id_bus", OtherKey="id_bus", IsForeignKey=true)]
+		public BUS BUS
+		{
+			get
+			{
+				return this._BUS.Entity;
+			}
+			set
+			{
+				BUS previousValue = this._BUS.Entity;
+				if (((previousValue != value) 
+							|| (this._BUS.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._BUS.Entity = null;
+						previousValue.TRIPs.Remove(this);
+					}
+					this._BUS.Entity = value;
+					if ((value != null))
+					{
+						value.TRIPs.Add(this);
+						this._id_bus = value.id_bus;
+					}
+					else
+					{
+						this._id_bus = default(string);
+					}
+					this.SendPropertyChanged("BUS");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BUSROUTE_TRIP", Storage="_BUSROUTE", ThisKey="id_bus_route", OtherKey="id_route", IsForeignKey=true)]
+		public BUSROUTE BUSROUTE
+		{
+			get
+			{
+				return this._BUSROUTE.Entity;
+			}
+			set
+			{
+				BUSROUTE previousValue = this._BUSROUTE.Entity;
+				if (((previousValue != value) 
+							|| (this._BUSROUTE.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._BUSROUTE.Entity = null;
+						previousValue.TRIPs.Remove(this);
+					}
+					this._BUSROUTE.Entity = value;
+					if ((value != null))
+					{
+						value.TRIPs.Add(this);
+						this._id_bus_route = value.id_route;
+					}
+					else
+					{
+						this._id_bus_route = default(string);
+					}
+					this.SendPropertyChanged("BUSROUTE");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_AGENT_TRIPs(AGENT_TRIP entity)
+		{
+			this.SendPropertyChanging();
+			entity.TRIP = this;
+		}
+		
+		private void detach_AGENT_TRIPs(AGENT_TRIP entity)
+		{
+			this.SendPropertyChanging();
+			entity.TRIP = null;
+		}
+		
+		private void attach_TRIP_DRIVERs(TRIP_DRIVER entity)
+		{
+			this.SendPropertyChanging();
+			entity.TRIP = this;
+		}
+		
+		private void detach_TRIP_DRIVERs(TRIP_DRIVER entity)
+		{
+			this.SendPropertyChanging();
+			entity.TRIP = null;
+		}
+		
+		private void attach_TICKETs(TICKET entity)
+		{
+			this.SendPropertyChanging();
+			entity.TRIP = this;
+		}
+		
+		private void detach_TICKETs(TICKET entity)
+		{
+			this.SendPropertyChanging();
+			entity.TRIP = null;
 		}
 	}
 	
@@ -5820,105 +5820,6 @@ namespace BusTicketManagementApplication.src.dbConnection
 				if ((this._Money != value))
 				{
 					this._Money = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.V_USERINFOR")]
-	public partial class V_USERINFOR
-	{
-		
-		private string _id_passenger;
-		
-		private string _name;
-		
-		private string _phone_number;
-		
-		private string _username;
-		
-		private string _password;
-		
-		public V_USERINFOR()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_passenger", DbType="Char(20) NOT NULL", CanBeNull=false)]
-		public string id_passenger
-		{
-			get
-			{
-				return this._id_passenger;
-			}
-			set
-			{
-				if ((this._id_passenger != value))
-				{
-					this._id_passenger = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(50)")]
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this._name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phone_number", DbType="Char(20) NOT NULL", CanBeNull=false)]
-		public string phone_number
-		{
-			get
-			{
-				return this._phone_number;
-			}
-			set
-			{
-				if ((this._phone_number != value))
-				{
-					this._phone_number = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string username
-		{
-			get
-			{
-				return this._username;
-			}
-			set
-			{
-				if ((this._username != value))
-				{
-					this._username = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string password
-		{
-			get
-			{
-				return this._password;
-			}
-			set
-			{
-				if ((this._password != value))
-				{
-					this._password = value;
 				}
 			}
 		}
@@ -7143,6 +7044,105 @@ namespace BusTicketManagementApplication.src.dbConnection
 				if ((this._Status != value))
 				{
 					this._Status = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.V_USERINFOR")]
+	public partial class V_USERINFOR
+	{
+		
+		private string _id_passenger;
+		
+		private string _name;
+		
+		private string _phone_number;
+		
+		private string _username;
+		
+		private string _password;
+		
+		public V_USERINFOR()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_passenger", DbType="Char(20) NOT NULL", CanBeNull=false)]
+		public string id_passenger
+		{
+			get
+			{
+				return this._id_passenger;
+			}
+			set
+			{
+				if ((this._id_passenger != value))
+				{
+					this._id_passenger = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NVarChar(50)")]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this._name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phone_number", DbType="Char(20) NOT NULL", CanBeNull=false)]
+		public string phone_number
+		{
+			get
+			{
+				return this._phone_number;
+			}
+			set
+			{
+				if ((this._phone_number != value))
+				{
+					this._phone_number = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string username
+		{
+			get
+			{
+				return this._username;
+			}
+			set
+			{
+				if ((this._username != value))
+				{
+					this._username = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string password
+		{
+			get
+			{
+				return this._password;
+			}
+			set
+			{
+				if ((this._password != value))
+				{
+					this._password = value;
 				}
 			}
 		}

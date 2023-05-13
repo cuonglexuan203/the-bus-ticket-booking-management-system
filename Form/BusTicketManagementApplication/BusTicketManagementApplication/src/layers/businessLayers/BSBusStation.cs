@@ -10,12 +10,12 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
     internal class BSBusStation
     {
 
-        public List<BUS> GetAllStations()
+        public List<V_BUSSTATIONINFOR> GetAllStations()
         {
-            using (BusManagementEnities db = new BusManagementEnities)
-            {
-                return db.GetAllStations.ToList();
-            }
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
+
+            var res = db.V_BUSSTATIONINFORs.ToList();
+            return res;
         }
     }
 }

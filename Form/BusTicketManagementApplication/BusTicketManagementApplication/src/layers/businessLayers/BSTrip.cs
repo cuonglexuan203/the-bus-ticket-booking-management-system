@@ -1,4 +1,4 @@
-﻿//using BusTicketManagementApplication.src.dbConnection;
+﻿using BusTicketManagementApplication.src.dbConnection;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -12,22 +12,22 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
 {
     internal class BSTrip
     {
-        private readonly BusManagementDataContext _db;
+        private readonly BusManagementEntitiesDataContext _db;
 
         public BSTrip()
         {
-            _db = new BusManagementDataContext();
+            _db = new BusManagementEntitiesDataContext();
         }
 
         public List<V_TRIPINFOR> GetAllTrips(DateTime dateTime)
         {
-            var trips = _db.V_TRIPINFOR.ToList();
+            var trips = _db.V_TRIPINFORs.ToList();
             return trips;
         }
 
         public List<V_AVAILABLETRIP> SearchAvailableTrips(string input, string src, string des, DateTime dateTime)
         {
-            var trips = _db.V_AVAILABLETRIP.Where(d => d.Departure_time > dateTime);
+            var trips = _db.V_AVAILABLETRIPs.Where(d => d.Departure_time > dateTime);
 
             if (src != "All")
             {
@@ -49,7 +49,7 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
 
         public List<V_TRIPINFOR> SearchTrips(string input, string src, string des, DateTime dateTime)
         {
-            var trips = _db.V_TRIPINFOR.Where(d => d.Departure_time > dateTime);
+            var trips = _db.V_TRIPINFORs.Where(d => d.Departure_time > dateTime);
 
             if (src != "All")
             {

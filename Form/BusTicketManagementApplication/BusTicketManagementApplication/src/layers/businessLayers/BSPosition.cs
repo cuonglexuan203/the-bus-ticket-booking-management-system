@@ -11,7 +11,7 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
     {
         public List<string> GetPositionNames()
         {
-            BusManagementEntities db = new BusManagementEntities();
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
             var res = db.POSITIONs.Select(d => d.type).ToList();
             return res;
         }

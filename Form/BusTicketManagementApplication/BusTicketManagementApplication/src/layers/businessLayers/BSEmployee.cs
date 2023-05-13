@@ -13,37 +13,30 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
     {
         public List<V_EMPLOYEEINFOR> SearchEmployees(string input, int tag, string position)
         {
-            using (BusManagementEntities db = new BusManagementEntities())
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
+            var res = db.V_EMPLOYEEINFORs.ToList();
+            if (!string.IsNullOrEmpty(input))
             {
-                var query = db.V_EMPLOYEEINFOR.AsQueryable();
-
-                if (!string.IsNullOrEmpty(input))
+                if (tag == 0)
                 {
-                    if (tag == 0)
-                    {
-                        query = query.Where(d => d.Employees_ID.Contains(input.Trim()));
-                    }
-                    else if (tag == 1)
-                    {
-                        query = query.Where(d => d.Name.Contains(input.Trim()));
-                    }
+                    res = res.Where(d => d.Employees_ID.Contains(input.Trim())).ToList();
                 }
-
-                if (position != "All")
+                else if (tag == 1)
                 {
-                    query = query.Where(d => d.Position == position);
+                    res = res.Where(d => d.Name.Contains(input.Trim())).ToList();
                 }
-
-                return query.ToList();
             }
+            //
+            if (position != "All")
+            {
+                res = res.Where(d => d.Position == position).ToList();
+            }
+            return res.ToList();
         }
-
         public bool DeleteEmployee(string employeeId)
         {
-            using (BusManagementEntities db = new BusManagementEntities())
-            {
-                var result = db.pro_DisableEmployee(employeeId).FirstOrDefault();
-                return result?.state == false;
-            }
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
+            return db.pro_DisableEmployee(employeeId).FirstOrDefault().state == false;
         }
     }
+}

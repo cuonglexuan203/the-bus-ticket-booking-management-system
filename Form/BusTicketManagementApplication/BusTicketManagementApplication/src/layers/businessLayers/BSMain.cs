@@ -13,9 +13,9 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
     {
         public static List<int> RunTableValuedFunc(string funcName, List<int> parameters = null)
         {
-            BusManagementEntities db = new BusManagementEntities();
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
             List<int> list = null;
-            
+
             string query = $"select * from {funcName}(";
             if (parameters != null && parameters.Count > 0)
             {
@@ -23,12 +23,12 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
                 query += inputParams;
             }
             query += ")";
-            list = db.Database.SqlQuery<int>(query).ToList();
+            list = db.ExecuteQuery<int>(query).ToList();
             return list;
         }
         public static List<string> RunTableValuedFunc(string funcName, List<string> parameters = null)
         {
-            BusManagementEntities db = new BusManagementEntities();
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
             List<string> list = null;
             string query = $"select * from dbo.{funcName}(";
             if (parameters != null && parameters.Count > 0)
@@ -38,12 +38,12 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
                 query += inputParams;
             }
             query += ")";
-            list = db.Database.SqlQuery<string>(query).ToList();
+            list = db.ExecuteQuery<string>(query).ToList();
             return list;
         }
         public static List<float> RunTableValuedFunc(string funcName, List<float> parameters = null)
         {
-            BusManagementEntities db = new BusManagementEntities();
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
             List<float> list = null;
 
             string query = $"select * from {funcName}(";
@@ -53,31 +53,31 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
                 query += inputParams;
             }
             query += ")";
-            list = db.Database.SqlQuery<float>(query).ToList();
+            list = db.ExecuteQuery<float>(query).ToList();
             return list;
         }
         public static string RunFunc(string funcName)
         {
-            BusManagementEntities db = new BusManagementEntities();
-            string query = $"select dbo.{funcName}()";  
-            return db.Database.SqlQuery<string>(query).ToList().FirstOrDefault().ToString();
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
+            string query = $"select dbo.{funcName}()";
+            return db.ExecuteQuery<string>(query).ToList().FirstOrDefault().ToString();
         }
-        public static string RunFunc(DbContext db, string funcName)
+        public static string RunFunc(BusManagementEntitiesDataContext db, string funcName)
         {
             string query = $"select dbo.{funcName}()";
-            return db.Database.SqlQuery<string>(query).ToList().FirstOrDefault().ToString();
+            return db.ExecuteQuery<string>(query).ToList().FirstOrDefault().ToString();
         }
 
         // modify run proc // redundant
         public static void RunProc(string procName)
         {
-            BusManagementEntities db = new BusManagementEntities();
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
             string query = $"exec dbo.{procName}";
-            db.Database.SqlQuery<string>(query).ToList().FirstOrDefault().ToString();
+            db.ExecuteQuery<string>(query).ToList().FirstOrDefault().ToString();
         }
         public static void RunProc(string procName, List<string> parameters = null)
         {
-            BusManagementEntities db = new BusManagementEntities();
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
             string query = $"exec dbo.{procName} ";
             if (parameters != null && parameters.Count > 0)
             {
@@ -85,8 +85,8 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
                 string inputParams = string.Join(", ", parameters);
                 query += inputParams;
             }
-            db.Database.SqlQuery<string>(query).ToList().FirstOrDefault().ToString();
-            db.SaveChanges();
+            db.ExecuteQuery<string>(query).ToList().FirstOrDefault().ToString();
+            db.SubmitChanges();
         }
 
     }
