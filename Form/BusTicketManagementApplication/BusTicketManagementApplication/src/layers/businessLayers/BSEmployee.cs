@@ -13,30 +13,37 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
     {
         public List<V_EMPLOYEEINFOR> SearchEmployees(string input, int tag, string position)
         {
-            BusManagementEntities db = new BusManagementEntities();
-            var res = db.V_EMPLOYEEINFOR.ToList();
-            if (!string.IsNullOrEmpty(input))
+            using (BusManagementEntities db = new BusManagementEntities())
             {
-                if (tag == 0)
+                var query = db.V_EMPLOYEEINFOR.AsQueryable();
+
+                if (!string.IsNullOrEmpty(input))
                 {
-                    res = res.Where(d => d.Employees_ID.Contains(input.Trim())).ToList();
+                    if (tag == 0)
+                    {
+                        query = query.Where(d => d.Employees_ID.Contains(input.Trim()));
+                    }
+                    else if (tag == 1)
+                    {
+                        query = query.Where(d => d.Name.Contains(input.Trim()));
+                    }
                 }
-                else if (tag == 1)
+
+                if (position != "All")
                 {
-                    res = res.Where(d => d.Name.Contains(input.Trim())).ToList();
+                    query = query.Where(d => d.Position == position);
                 }
+
+                return query.ToList();
             }
-            //
-            if (position != "All")
-            {
-                res = res.Where(d => d.Position == position).ToList();
-            }
-            return res.ToList();
         }
+
         public bool DeleteEmployee(string employeeId)
         {
-            BusManagementEntities db = new BusManagementEntities();
-            return db.pro_DisableEmployee(employeeId).FirstOrDefault().state == false;
+            using (BusManagementEntities db = new BusManagementEntities())
+            {
+                var result = db.pro_DisableEmployee(employeeId).FirstOrDefault();
+                return result?.state == false;
+            }
         }
     }
-}

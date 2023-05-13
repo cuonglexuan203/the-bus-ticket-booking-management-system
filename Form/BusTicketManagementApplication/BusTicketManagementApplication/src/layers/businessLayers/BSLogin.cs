@@ -1,4 +1,4 @@
-﻿using BusTicketManagementApplication.src.dbConnection;
+﻿//using BusTicketManagementApplication.src.dbConnection;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,50 +15,65 @@ using System.Configuration;
 using System.Configuration.Internal;
 using BusTicketManagementApplication.src.env.statics;
 using BusTicketManagementApplication.src.layers.interfaceLayers.Data;
+using BusTicketManagementApplication.src.layers.interfaceLayers.components.staff;
 
 namespace BusTicketManagementApplication.src.layers.businessLayers
 {
     internal class BSLogin
     {
-        public V_USERINFOR GetUser(string passengerId)
+        namespace BusTicketManagementApplication.src.layers.businessLayers
+    {
+        internal class BSLogin
         {
-            BusManagementEntities db = new BusManagementEntities();
-            return db.V_USERINFOR.Where(d => d.id_passenger == passengerId).FirstOrDefault();
+            public V_USERINFOR GetUser(string passengerId)
+            {
+                using (var db = new BusManagementEntities())
+                {
+                    return db.V_USERINFOR.FirstOrDefault(d => d.id_passenger == passengerId);
+                }
+            }
         }
         public V_EMPLOYEEINFOR GetEmployee(string systemId)
         {
-            return new BusManagementEntities().V_EMPLOYEEINFOR.Where(d => d.Employees_ID == systemId).FirstOrDefault();
+            using (var db = new BusManagementEntities())
+            {
+                return db.V_EMPLOYEEINFOR.FirstOrDefault(d => d.Employees_ID == systemId);
+            }
         }
+
         public bool IsAdmin(string employeeId)
         {
-            BusManagementEntities db = new BusManagementEntities(StaticEnv.GetDefaultEFConnectionString());
-            return db.V_EMPLOYEEINFOR.Count(d => d.Employees_ID == employeeId && d.Position == "administrator") > 0;
+            using (var db = new BusManagementEntities(StaticEnv.GetDefaultEFConnectionString()))
+            {
+                return db.V_EMPLOYEEINFOR.Count(d => d.Employees_ID == employeeId && d.Position == "administrator") > 0;
+            }
         }
+
         public bool ValidateUser(string username, string password, ref string passengerId, ref string employeeId, ref string errMsg)
         {
             try
             {
-                BusManagementEntities db = new BusManagementEntities(StaticEnv.GetDefaultEFConnectionString());
-                // init errMsg
-                errMsg = "Login successfully! No error.";
-                passengerId = null;
-                employeeId = null;
-                var curPassenger = db.PASSENGERACCOUNTs.Where(d => d.username == username && d.password == password);
-                if (curPassenger != null && curPassenger.Count() > 0)
+                using (var db = new BusManagementEntities(StaticEnv.GetDefaultEFConnectionString()))
                 {
-                    passengerId = curPassenger.FirstOrDefault().id_passenger.Trim();
-                    return true;
+                    // init errMsg
+                    errMsg = "Login successfully! No error.";
+                    passengerId = null;
+                    employeeId = null;
+                    var curPassenger = db.PASSENGERACCOUNTs.FirstOrDefault(d => d.username == username && d.password == password);
+                    if (curPassenger != null)
+                    {
+                        passengerId = curPassenger.id_passenger?.Trim();
+                        return true;
+                    }
+                    var curEmployee = db.SYSTEMACCOUNTs.FirstOrDefault(d => d.username == username && d.pass == password);
+                    if (curEmployee != null)
+                    {
+                        employeeId = db.EMPLOYEEs.FirstOrDefault(d => d.id_account == curEmployee.id_account)?.id_employee?.Trim();
+                        return true;
+                    }
+                    errMsg = "Username or Password is incorrect!";
+                    passengerId = string.Empty;
                 }
-                //
-                var curEmployee = db.SYSTEMACCOUNTs.Where(d => d.username == username && d.pass == password);
-                if (curEmployee != null && curEmployee.Count() > 0)
-                {
-                    employeeId = db.EMPLOYEEs.Where(d => d.id_account == curEmployee.FirstOrDefault().id_account).FirstOrDefault().id_employee.Trim();
-                    return true;
-                }
-                //
-                errMsg = "Username or Password is incorrect!";
-                passengerId = string.Empty;
             }
             catch (SqlException err)
             {
@@ -72,6 +87,7 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
             }
             return false;
         }
+
         public bool CreateNewUser(string username, string password, string name, string phone, ref string passengerId, ref string errMsg)
         {
             passengerId = string.Empty;
@@ -85,93 +101,24 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
                         return false;
                     }
                 }
-                //
-                BusManagementEntities db = new BusManagementEntities(StaticEnv.GetDefaultEFConnectionString());
 
-                //
-                // way 1
-                //bool uniqueUser = db.PASSENGERACCOUNTs.Count(d => d.username == username) == 0;
-                //if (!uniqueUser)
-                //{
-                //    errMsg = "Username has exist in the system!";
-                //    return false;
-                //}
-                //
-                // way 2
-                // check whether unique username
-                db.Database.ExecuteSqlCommand($"exec pro_CheckUniqueUser @username", new SqlParameter("username", username)); // if there are exist user , throw an sql exception
-                //
-                // in case of unique username
-                string funcName = "func_auto_id_passenger";
-                passengerId = BSMain.RunFunc(db, funcName);
-                if (!string.IsNullOrEmpty(passengerId))
+                using (var db = new BusManagementEntities(StaticEnv.GetDefaultEFConnectionString()))
                 {
-                    db.pro_AddPassenger(passengerId, name, phone);
-                    db.pro_AddPassengerAccount(passengerId, username, password); // add passenger account and assign privilege
-                    errMsg = "Create new user successfully!. No error";
-                }
-                else
-                {
-                    errMsg = "Can't get new passengerId.";
-                    return false;
-                }
-            }
-            catch (SqlException err)
-            {
-                errMsg = err.Message;
-                MessageBox.Show(err.Message.ToString());
-                return false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred: " + ex.Message);
-                return false;
-            }
-            return true;
-        }
-        public bool ChangeUserPassword(string username, string newPassword)
-        {
-            bool res = true;
-            //
-            try
-            {
-                BusManagementEntities db = new BusManagementEntities(StaticEnv.GetDefaultEFConnectionString());
-                if (UserData.IsPassenger)
-                {
-                    //var curUser = db.PASSENGERACCOUNTs.Where(d => d.username == username).FirstOrDefault();
-                    ////
-                    //if (curUser == null)
-                    //{
-                    //    res = false;
-                    //    return res;
-                    //}
-                    ////
-                    //curUser.password = newPassword;
-                    db.pro_ChangePassengerPassword(username, newPassword);
-                }
-                else
-                {
-                    //var curUser = db.SYSTEMACCOUNTs.Where(d => d.username == username).FirstOrDefault();
-                    //if (curUser == null)
-                    //{
-                    //    res = false;
-                    //    return res;
-                    //}
-                    //curUser.pass = newPassword;
-                    db.pro_ChangeSystemPassword(username, newPassword);
-                }
-            }
-            catch (SqlException err)
-            {
-                MessageBox.Show(err.Message);
-                return false;
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show(err.Message);
-                return false;
-            }
-            return res;
-        }
-    }
-}
+                    db.Database.BeginTransaction();
+                    try
+                    {
+                        // check whether unique username
+                        db.Database.ExecuteSqlCommand($"exec pro_CheckUniqueUser @username", new SqlParameter("username", username)); // if there are exist user , throw an sql exception
+
+                        // in case of unique username
+                        string funcName = "func_auto_id_passenger";
+                        passengerId = BSMain.RunFunc(db, funcName);
+
+                        if (string.IsNullOrEmpty(passengerId))
+                        {
+                            errMsg = "Can't get new passengerId.";
+                            return false;
+                        }
+
+                        db.pro_AddPassenger(passengerId, name, phone);
+                        db.pro_AddPassengerAccount(passenger

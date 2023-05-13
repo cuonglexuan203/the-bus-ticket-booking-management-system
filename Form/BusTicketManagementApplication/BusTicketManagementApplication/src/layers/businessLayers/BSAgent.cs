@@ -11,8 +11,8 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
     {
         public List<V_AGENTINFOR> SearchAgents(string input, string region)
         {
-            BusManagementEntities db = new BusManagementEntities();
-            var res = db.V_AGENTINFOR.ToList();
+            BusManagementDataContext db = new BusManagementDataContext();
+            var res = db.sys.ToList();
             if (region != "All")
             {
                 res = db.V_AGENTINFOR.Where(d => d.Region == region).ToList();

@@ -9,47 +9,48 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
 {
     class BSBus
     {
-
         public List<BUS> GetAllBus()
         {
-
-            BusManagementEntities db = new BusManagementEntities();
-            var res = db.Buses.ToList();
-            return res;
+            using ( BusManangementEntities db = new BusManagementEntities() )
+            {
+                return db.Buses.ToList();
+            }
         }
 
         public List<BUS> SearchBusByID(string input, bool type)
         {
-            BusManagementEntities db = new BusManagementEntities();
-
-            var res = FilterBus(type);
-            if (!string.IsNullOrEmpty(input))
+            using ( BusManagementEntities db = new BusManagementEntities())
             {
-                res = res.Where(d => d.id_bus.Contains(input)).ToList();
-                return res.ToList();
+                var query = FilterBus(db, type);
+
+                if (!string.IsNullOrEmpty(input))
+                {
+                    query = query.Where(d => d.id_bus.Contains(input));
+                }
+
+                return query.ToList();
             }
-            return res.ToList();
         }
 
         public List<BUS> SearchBusByRegistrationNumber(string input, bool type)
         {
-            BusManagementEntities db = new BusManagementEntities();
-
-            var res = FilterBus(type);
-            if (!string.IsNullOrEmpty(input))
+            using (BusManagementEntities db = new BusManagementEntities())
             {
-                res = res.Where(d => d.registration_number.Contains(input)).ToList();
-                return res.ToList();
+                var query = FilterBus(db, type);
+
+                if (!string.IsNullOrEmpty(input))
+                {
+                    query = query.Where(d => d.registration_number.Contains(input));
+                }
+
+                return query.ToList();
             }
-            return res.ToList();
         }
 
-        public List<BUS> FilterBus(bool type)
+        private IQueryable<BUS> FilterBus(BusManagementEntities db, bool type)
         {
-            BusManagementEntities db = new BusManagementEntities();
-
-            var res = db.Buses.Where(d => d.type == type);
-            return res.ToList();
+            return db.Buses.Where(d => d.type == type);
         }
     }
 }
+
