@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity.Core.Objects;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,23 +21,23 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
     {
         public V_USERINFOR GetUser(string passengerId)
         {
-            BusManagementEntities db = new BusManagementEntities();
-            return db.V_USERINFOR.Where(d => d.id_passenger == passengerId).FirstOrDefault();
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
+            return db.V_USERINFORs.Where(d => d.id_passenger == passengerId).FirstOrDefault();
         }
         public V_EMPLOYEEINFOR GetEmployee(string systemId)
         {
-            return new BusManagementEntities().V_EMPLOYEEINFOR.Where(d => d.Employees_ID == systemId).FirstOrDefault();
+            return new BusManagementEntitiesDataContext().V_EMPLOYEEINFORs.Where(d => d.Employees_ID == systemId).FirstOrDefault();
         }
         public bool IsAdmin(string employeeId)
         {
-            BusManagementEntities db = new BusManagementEntities(StaticEnv.GetDefaultEFConnectionString());
-            return db.V_EMPLOYEEINFOR.Count(d => d.Employees_ID == employeeId && d.Position == "administrator") > 0;
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext(StaticEnv.GetDefaultEFConnectionString());
+            return db.V_EMPLOYEEINFORs.Count(d => d.Employees_ID == employeeId && d.Position == "administrator") > 0;
         }
         public bool ValidateUser(string username, string password, ref string passengerId, ref string employeeId, ref string errMsg)
         {
             try
             {
-                BusManagementEntities db = new BusManagementEntities(StaticEnv.GetDefaultEFConnectionString());
+                BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext(StaticEnv.GetDefaultEFConnectionString());
                 // init errMsg
                 errMsg = "Login successfully! No error.";
                 passengerId = null;
@@ -86,7 +85,7 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
                     }
                 }
                 //
-                BusManagementEntities db = new BusManagementEntities(StaticEnv.GetDefaultEFConnectionString());
+                BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext(StaticEnv.GetDefaultEFConnectionString());
 
                 //
                 // way 1
@@ -99,7 +98,7 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
                 //
                 // way 2
                 // check whether unique username
-                db.Database.ExecuteSqlCommand($"exec pro_CheckUniqueUser @username", new SqlParameter("username", username)); // if there are exist user , throw an sql exception
+                db.ExecuteCommand($"exec pro_CheckUniqueUser {username}");  // if there are exist user , throw an sql exception
                 //
                 // in case of unique username
                 string funcName = "func_auto_id_passenger";
@@ -135,7 +134,7 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
             //
             try
             {
-                BusManagementEntities db = new BusManagementEntities(StaticEnv.GetDefaultEFConnectionString());
+                BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext(StaticEnv.GetDefaultEFConnectionString());
                 if (UserData.IsPassenger)
                 {
                     //var curUser = db.PASSENGERACCOUNTs.Where(d => d.username == username).FirstOrDefault();

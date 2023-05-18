@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BusManagement" Class="BusManagementEntitiesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=BusManagement;Integrated Security=True" SettingsObjectName="BusTicketManagementApplication.Properties.Settings" SettingsPropertyName="BusManagementConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AGENT" Member="AGENTs">
+    <Type Name="AGENT">
+      <Column Name="id_agent" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_cash_reserve" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="id_place" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="phone" Type="System.String" DbType="Char(20) NOT NULL" CanBeNull="false" />
+      <Association Name="AGENT_AGENT_EVENT" Member="AGENT_EVENTs" ThisKey="id_agent" OtherKey="id_agent" Type="AGENT_EVENT" />
+      <Association Name="AGENT_AGENT_REFUND" Member="AGENT_REFUNDs" ThisKey="id_agent" OtherKey="id_agent" Type="AGENT_REFUND" />
+      <Association Name="AGENT_AGENT_TRIP" Member="AGENT_TRIPs" ThisKey="id_agent" OtherKey="id_agent" Type="AGENT_TRIP" />
+      <Association Name="AGENT_EMPLOYEE" Member="EMPLOYEEs" ThisKey="id_agent" OtherKey="id_agent" Type="EMPLOYEE" />
+      <Association Name="CASHRESERVE_AGENT" Member="CASHRESERVE" ThisKey="id_cash_reserve" OtherKey="id_cash_reserve" Type="CASHRESERVE" IsForeignKey="true" />
+      <Association Name="PLACE_AGENT" Member="PLACE" ThisKey="id_place" OtherKey="id_place" Type="PLACE" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SYSTEMACCOUNT" Member="SYSTEMACCOUNTs">
+    <Type Name="SYSTEMACCOUNT">
+      <Column Name="id_account" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="Char(20) NOT NULL" CanBeNull="false" />
+      <Column Name="pass" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="SYSTEMACCOUNT_EMPLOYEE" Member="EMPLOYEEs" ThisKey="id_account" OtherKey="id_account" Type="EMPLOYEE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AGENT_EVENT" Member="AGENT_EVENTs">
+    <Type Name="AGENT_EVENT">
+      <Column Name="id_agent" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_event" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="AGENT_AGENT_EVENT" Member="AGENT" ThisKey="id_agent" OtherKey="id_agent" Type="AGENT" IsForeignKey="true" />
+      <Association Name="EVENT_AGENT_EVENT" Member="EVENT" ThisKey="id_event" OtherKey="id_event" Type="EVENT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AGENT_REFUND" Member="AGENT_REFUNDs">
+    <Type Name="AGENT_REFUND">
+      <Column Name="id_agent" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_refund" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="AGENT_AGENT_REFUND" Member="AGENT" ThisKey="id_agent" OtherKey="id_agent" Type="AGENT" IsForeignKey="true" />
+      <Association Name="REFUND_AGENT_REFUND" Member="REFUND" ThisKey="id_refund" OtherKey="id_refund" Type="REFUND" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AGENT_TRIP" Member="AGENT_TRIPs">
+    <Type Name="AGENT_TRIP">
+      <Column Name="id_agent" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_trip" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="AGENT_AGENT_TRIP" Member="AGENT" ThisKey="id_agent" OtherKey="id_agent" Type="AGENT" IsForeignKey="true" />
+      <Association Name="TRIP_AGENT_TRIP" Member="TRIP" ThisKey="id_trip" OtherKey="id_trip" Type="TRIP" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BOOKING" Member="BOOKINGs">
+    <Type Name="BOOKING">
+      <Column Name="id_booking" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_ticket" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="id_passenger" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="id_employee" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="booking_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="EMPLOYEE_BOOKING" Member="EMPLOYEE" ThisKey="id_employee" OtherKey="id_employee" Type="EMPLOYEE" IsForeignKey="true" />
+      <Association Name="PASSENGER_BOOKING" Member="PASSENGER" ThisKey="id_passenger" OtherKey="id_passenger" Type="PASSENGER" IsForeignKey="true" />
+      <Association Name="TICKET_BOOKING" Member="TICKET" ThisKey="id_ticket" OtherKey="id_ticket" Type="TICKET" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BUS" Member="BUS">
+    <Type Name="BUS">
+      <Column Name="id_bus" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="registration_number" Type="System.String" DbType="Char(15) NOT NULL" CanBeNull="false" />
+      <Column Name="model" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="capacity" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="status" Type="System.String" DbType="Char(15) NOT NULL" CanBeNull="false" />
+      <Column Name="type" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="BUS_TRIP" Member="TRIPs" ThisKey="id_bus" OtherKey="id_bus" Type="TRIP" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BUSROUTE" Member="BUSROUTEs">
+    <Type Name="BUSROUTE">
+      <Column Name="id_route" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_start_station" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="id_end_station" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="distance" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="BUSROUTE_BUSROUTE_BUSSTATION" Member="BUSROUTE_BUSSTATIONs" ThisKey="id_route" OtherKey="id_bus_route" Type="BUSROUTE_BUSSTATION" />
+      <Association Name="BUSROUTE_TRIP" Member="TRIPs" ThisKey="id_route" OtherKey="id_bus_route" Type="TRIP" />
+      <Association Name="BUSSTATION_BUSROUTE" Member="BUSSTATION" ThisKey="id_end_station" OtherKey="id_bus_station" Type="BUSSTATION" IsForeignKey="true" />
+      <Association Name="BUSSTATION_BUSROUTE1" Member="BUSSTATION1" ThisKey="id_start_station" OtherKey="id_bus_station" Type="BUSSTATION" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BUSROUTE_BUSSTATION" Member="BUSROUTE_BUSSTATIONs">
+    <Type Name="BUSROUTE_BUSSTATION">
+      <Column Name="id_bus_route" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_bus_station" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="BUSROUTE_BUSROUTE_BUSSTATION" Member="BUSROUTE" ThisKey="id_bus_route" OtherKey="id_route" Type="BUSROUTE" IsForeignKey="true" />
+      <Association Name="BUSSTATION_BUSROUTE_BUSSTATION" Member="BUSSTATION" ThisKey="id_bus_station" OtherKey="id_bus_station" Type="BUSSTATION" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BUSSTATION" Member="BUSSTATIONs">
+    <Type Name="BUSSTATION">
+      <Column Name="id_bus_station" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_place" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="bus_capacity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="count_current_bus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="phone" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Association Name="BUSSTATION_BUSROUTE" Member="BUSROUTEs" ThisKey="id_bus_station" OtherKey="id_end_station" Type="BUSROUTE" />
+      <Association Name="BUSSTATION_BUSROUTE1" Member="BUSROUTEs1" ThisKey="id_bus_station" OtherKey="id_start_station" Type="BUSROUTE" />
+      <Association Name="BUSSTATION_BUSROUTE_BUSSTATION" Member="BUSROUTE_BUSSTATIONs" ThisKey="id_bus_station" OtherKey="id_bus_station" Type="BUSROUTE_BUSSTATION" />
+      <Association Name="PLACE_BUSSTATION" Member="PLACE" ThisKey="id_place" OtherKey="id_place" Type="PLACE" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CASHRESERVE" Member="CASHRESERVEs">
+    <Type Name="CASHRESERVE">
+      <Column Name="id_cash_reserve" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="counter" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="CASHRESERVE_AGENT" Member="AGENTs" ThisKey="id_cash_reserve" OtherKey="id_cash_reserve" Type="AGENT" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DRIVER" Member="DRIVERs">
+    <Type Name="DRIVER">
+      <Column Name="id_driver" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="lisence_level" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="type" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="state" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="DRIVER_TRIP_DRIVER" Member="TRIP_DRIVERs" ThisKey="id_driver" OtherKey="id_driver" Type="TRIP_DRIVER" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EMPLOYEE" Member="EMPLOYEEs">
+    <Type Name="EMPLOYEE">
+      <Column Name="id_employee" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_account" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="id_agent" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="phone_number" Type="System.String" DbType="Char(20) NOT NULL" CanBeNull="false" />
+      <Column Name="identity_number" Type="System.String" DbType="Char(20) NOT NULL" CanBeNull="false" />
+      <Column Name="salary" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="birthdate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="gender" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="state" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="EMPLOYEE_BOOKING" Member="BOOKINGs" ThisKey="id_employee" OtherKey="id_employee" Type="BOOKING" />
+      <Association Name="EMPLOYEE_EMPLOYEE_POSITION" Member="EMPLOYEE_POSITIONs" ThisKey="id_employee" OtherKey="id_employee" Type="EMPLOYEE_POSITION" />
+      <Association Name="EMPLOYEE_EMPLOYEE_TICKET" Member="EMPLOYEE_TICKETs" ThisKey="id_employee" OtherKey="id_employee" Type="EMPLOYEE_TICKET" />
+      <Association Name="SYSTEMACCOUNT_EMPLOYEE" Member="SYSTEMACCOUNT" ThisKey="id_account" OtherKey="id_account" Type="SYSTEMACCOUNT" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="AGENT_EMPLOYEE" Member="AGENT" ThisKey="id_agent" OtherKey="id_agent" Type="AGENT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EMPLOYEE_POSITION" Member="EMPLOYEE_POSITIONs">
+    <Type Name="EMPLOYEE_POSITION">
+      <Column Name="id_employee" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_position" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="EMPLOYEE_EMPLOYEE_POSITION" Member="EMPLOYEE" ThisKey="id_employee" OtherKey="id_employee" Type="EMPLOYEE" IsForeignKey="true" />
+      <Association Name="POSITION_EMPLOYEE_POSITION" Member="POSITION" ThisKey="id_position" OtherKey="id_position" Type="POSITION" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EMPLOYEE_TICKET" Member="EMPLOYEE_TICKETs">
+    <Type Name="EMPLOYEE_TICKET">
+      <Column Name="id_employee" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_ticket" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="EMPLOYEE_EMPLOYEE_TICKET" Member="EMPLOYEE" ThisKey="id_employee" OtherKey="id_employee" Type="EMPLOYEE" IsForeignKey="true" />
+      <Association Name="TICKET_EMPLOYEE_TICKET" Member="TICKET" ThisKey="id_ticket" OtherKey="id_ticket" Type="TICKET" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EVENT" Member="EVENTs">
+    <Type Name="EVENT">
+      <Column Name="id_event" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="discount_type" Type="System.String" DbType="Char(50) NOT NULL" CanBeNull="false" />
+      <Column Name="discount_percent" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="EVENT_AGENT_EVENT" Member="AGENT_EVENTs" ThisKey="id_event" OtherKey="id_event" Type="AGENT_EVENT" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PASSENGER" Member="PASSENGERs">
+    <Type Name="PASSENGER">
+      <Column Name="id_passenger" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="phone_number" Type="System.String" DbType="Char(20) NOT NULL" CanBeNull="false" />
+      <Column Name="address" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="identity_number" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="gender" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Association Name="PASSENGER_BOOKING" Member="BOOKINGs" ThisKey="id_passenger" OtherKey="id_passenger" Type="BOOKING" />
+      <Association Name="PASSENGER_PASSENGERACCOUNT" Member="PASSENGERACCOUNTs" ThisKey="id_passenger" OtherKey="id_passenger" Type="PASSENGERACCOUNT" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PASSENGERACCOUNT" Member="PASSENGERACCOUNTs">
+    <Type Name="PASSENGERACCOUNT">
+      <Column Name="id_passenger" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="username" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="PASSENGER_PASSENGERACCOUNT" Member="PASSENGER" ThisKey="id_passenger" OtherKey="id_passenger" Type="PASSENGER" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PLACE" Member="PLACEs">
+    <Type Name="PLACE">
+      <Column Name="id_place" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="region" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="PLACE_AGENT" Member="AGENTs" ThisKey="id_place" OtherKey="id_place" Type="AGENT" />
+      <Association Name="PLACE_BUSSTATION" Member="BUSSTATIONs" ThisKey="id_place" OtherKey="id_place" Type="BUSSTATION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.POSITION" Member="POSITIONs">
+    <Type Name="POSITION">
+      <Column Name="id_position" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="type" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="POSITION_EMPLOYEE_POSITION" Member="EMPLOYEE_POSITIONs" ThisKey="id_position" OtherKey="id_position" Type="EMPLOYEE_POSITION" />
+    </Type>
+  </Table>
+  <Table Name="dbo.REFUND" Member="REFUNDs">
+    <Type Name="REFUND">
+      <Column Name="id_refund" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="refund_name" Type="System.String" DbType="Char(50) NOT NULL" CanBeNull="false" />
+      <Column Name="refund_percent" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="REFUND_AGENT_REFUND" Member="AGENT_REFUNDs" ThisKey="id_refund" OtherKey="id_refund" Type="AGENT_REFUND" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TRIP_DRIVER" Member="TRIP_DRIVERs">
+    <Type Name="TRIP_DRIVER">
+      <Column Name="id_trip" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_driver" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="DRIVER_TRIP_DRIVER" Member="DRIVER" ThisKey="id_driver" OtherKey="id_driver" Type="DRIVER" IsForeignKey="true" />
+      <Association Name="TRIP_TRIP_DRIVER" Member="TRIP" ThisKey="id_trip" OtherKey="id_trip" Type="TRIP" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TICKET" Member="TICKETs">
+    <Type Name="TICKET">
+      <Column Name="id_ticket" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_trip" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="fare" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="type" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="seat_number" Type="System.String" DbType="Char(15) NOT NULL" CanBeNull="false" />
+      <Association Name="TICKET_BOOKING" Member="BOOKINGs" ThisKey="id_ticket" OtherKey="id_ticket" Type="BOOKING" />
+      <Association Name="TICKET_EMPLOYEE_TICKET" Member="EMPLOYEE_TICKETs" ThisKey="id_ticket" OtherKey="id_ticket" Type="EMPLOYEE_TICKET" />
+      <Association Name="TRIP_TICKET" Member="TRIP" ThisKey="id_trip" OtherKey="id_trip" Type="TRIP" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TRIP" Member="TRIPs">
+    <Type Name="TRIP">
+      <Column Name="id_trip" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_bus" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="id_bus_route" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="departure_time" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="duration" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="booked_seat" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="status" Type="System.String" DbType="Char(15)" CanBeNull="true" />
+      <Association Name="TRIP_AGENT_TRIP" Member="AGENT_TRIPs" ThisKey="id_trip" OtherKey="id_trip" Type="AGENT_TRIP" />
+      <Association Name="TRIP_TRIP_DRIVER" Member="TRIP_DRIVERs" ThisKey="id_trip" OtherKey="id_trip" Type="TRIP_DRIVER" />
+      <Association Name="TRIP_TICKET" Member="TICKETs" ThisKey="id_trip" OtherKey="id_trip" Type="TICKET" />
+      <Association Name="BUS_TRIP" Member="BUS" ThisKey="id_bus" OtherKey="id_bus" Type="BUS" IsForeignKey="true" />
+      <Association Name="BUSROUTE_TRIP" Member="BUSROUTE" ThisKey="id_bus_route" OtherKey="id_route" Type="BUSROUTE" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_AGENTINFOR" Member="V_AGENTINFORs">
+    <Type Name="V_AGENTINFOR">
+      <Column Name="[Agent ID]" Member="Agent_ID" Type="System.String" DbType="Char(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="Char(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Region" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Money" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_AVAILABLETRIP" Member="V_AVAILABLETRIPs">
+    <Type Name="V_AVAILABLETRIP">
+      <Column Name="[Trip ID]" Member="Trip_ID" Type="System.String" DbType="Char(20) NOT NULL" CanBeNull="false" />
+      <Column Name="[Registration number of bus]" Member="Registration_number_of_bus" Type="System.String" DbType="Char(15) NOT NULL" CanBeNull="false" />
+      <Column Name="[Start point]" Member="Start_point" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[End point]" Member="End_point" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[Departure time]" Member="Departure_time" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Duration" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Remain seat]" Member="Remain_seat" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="Char(15)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_BOOKEDTICKET" Member="V_BOOKEDTICKETs">
+    <Type Name="V_BOOKEDTICKET">
+      <Column Name="[Passenger ID]" Member="Passenger_ID" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="[Ticket ID]" Member="Ticket_ID" Type="System.String" DbType="Char(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Fare" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="[Seat number]" Member="Seat_number" Type="System.String" DbType="Char(15) NOT NULL" CanBeNull="false" />
+      <Column Name="[Start point]" Member="Start_point" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[End point]" Member="End_point" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[Departure time]" Member="Departure_time" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Distance" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Duration" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Registration number of bus]" Member="Registration_number_of_bus" Type="System.String" DbType="Char(15) NOT NULL" CanBeNull="false" />
+      <Column Name="[Booking time]" Member="Booking_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_BOOKINGINFOR" Member="V_BOOKINGINFORs">
+    <Type Name="V_BOOKINGINFOR">
+      <Column Name="[Booking ID]" Member="Booking_ID" Type="System.String" DbType="Char(20) NOT NULL" CanBeNull="false" />
+      <Column Name="[Passenger ID]" Member="Passenger_ID" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="[Ticket ID]" Member="Ticket_ID" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="[Passenger name]" Member="Passenger_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[Passenger gender]" Member="Passenger_gender" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[Passenger phone number]" Member="Passenger_phone_number" Type="System.String" DbType="Char(20) NOT NULL" CanBeNull="false" />
+      <Column Name="[Employee name]" Member="Employee_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[Employee gender]" Member="Employee_gender" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[Employee phone number]" Member="Employee_phone_number" Type="System.String" DbType="Char(20) NOT NULL" CanBeNull="false" />
+      <Column Name="[Booking time]" Member="Booking_time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_BUSSTATIONINFOR" Member="V_BUSSTATIONINFORs">
+    <Type Name="V_BUSSTATIONINFOR">
+      <Column Name="id_place" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="[Phone number]" Member="Phone_number" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Region" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_DRIVERINFOR" Member="V_DRIVERINFORs">
+    <Type Name="V_DRIVERINFOR">
+      <Column Name="[Employees ID]" Member="Employees_ID" Type="System.String" DbType="Char(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[Phone Number]" Member="Phone_Number" Type="System.String" DbType="Char(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[Lisence Level]" Member="Lisence_Level" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(13) NOT NULL" CanBeNull="false" />
+      <Column Name="State" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_EMPLOYEEINFOR" Member="V_EMPLOYEEINFORs">
+    <Type Name="V_EMPLOYEEINFOR">
+      <Column Name="[Employees ID]" Member="Employees_ID" Type="System.String" DbType="Char(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[Phone Number]" Member="Phone_Number" Type="System.String" DbType="Char(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="[Identity number]" Member="Identity_number" Type="System.String" DbType="Char(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Salary" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Birthday" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="State" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Position" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_ROUTEINFOR" Member="V_ROUTEINFORs">
+    <Type Name="V_ROUTEINFOR">
+      <Column Name="id_route" Type="System.String" DbType="Char(20) NOT NULL" CanBeNull="false" />
+      <Column Name="[Start point]" Member="Start_point" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[End point]" Member="End_point" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Distance" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_TRIPINFOR" Member="V_TRIPINFORs">
+    <Type Name="V_TRIPINFOR">
+      <Column Name="[Trip ID]" Member="Trip_ID" Type="System.String" DbType="Char(20) NOT NULL" CanBeNull="false" />
+      <Column Name="[Registration number of bus]" Member="Registration_number_of_bus" Type="System.String" DbType="Char(15) NOT NULL" CanBeNull="false" />
+      <Column Name="[Start point]" Member="Start_point" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[End point]" Member="End_point" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[Departure time]" Member="Departure_time" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Duration" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Remain seat]" Member="Remain_seat" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="Char(15)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_USERINFOR" Member="V_USERINFORs">
+    <Type Name="V_USERINFOR">
+      <Column Name="id_passenger" Type="System.String" DbType="Char(20) NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="phone_number" Type="System.String" DbType="Char(20) NOT NULL" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="dbo.pro_AddBooking" Method="pro_AddBooking">
+    <Parameter Name="id_ticket" Type="System.String" DbType="Char(20)" />
+    <Parameter Name="id_passenger" Type="System.String" DbType="Char(20)" />
+    <Parameter Name="id_employee" Type="System.String" DbType="Char(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.pro_AddDefaultBooking" Method="pro_AddDefaultBooking">
+    <Parameter Name="id_ticket" Type="System.String" DbType="Char(20)" />
+    <Parameter Name="id_passenger" Type="System.String" DbType="Char(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.pro_AddEmployeeAccount" Method="pro_AddEmployeeAccount">
+    <Parameter Name="username" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="password" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.pro_AddPassenger" Method="pro_AddPassenger">
+    <Parameter Name="id_passenger" Type="System.String" DbType="Char(20)" />
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="phone" Type="System.String" DbType="Char(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.pro_AddPassengerAccount" Method="pro_AddPassengerAccount">
+    <Parameter Name="id_passenger" Type="System.String" DbType="Char(20)" />
+    <Parameter Name="username" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="password" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.pro_AssignPassengerPrivilege" Method="pro_AssignPassengerPrivilege">
+    <Parameter Name="id_passenger" Type="System.String" DbType="Char(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.pro_AssignSystemPrivilege" Method="pro_AssignSystemPrivilege">
+    <Parameter Name="id_employee" Type="System.String" DbType="Char(20)" />
+    <Parameter Name="id_position" Type="System.String" DbType="Char(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.pro_CancelTicket" Method="pro_CancelTicket">
+    <Parameter Name="id_ticket" Type="System.String" DbType="Char(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.pro_ChangePassengerPassword" Method="pro_ChangePassengerPassword">
+    <Parameter Name="username" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="new_password" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.pro_SetGoingTrip" Method="pro_SetGoingTrip">
+    <Parameter Name="id_trip" Type="System.String" DbType="Char(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.pro_ChangeSystemPassword" Method="pro_ChangeSystemPassword">
+    <Parameter Name="username" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="new_password" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.pro_CheckUniqueUser" Method="pro_CheckUniqueUser">
+    <Parameter Name="username" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="pro_CheckUniqueUserResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.pro_DisableEmployee" Method="pro_DisableEmployee">
+    <Parameter Name="id_employee" Type="System.String" DbType="Char(20)" />
+    <ElementType Name="pro_DisableEmployeeResult">
+      <Column Name="id_employee" Type="System.String" DbType="Char(20) NOT NULL" CanBeNull="false" />
+      <Column Name="id_account" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="id_agent" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="phone_number" Type="System.String" DbType="Char(20) NOT NULL" CanBeNull="false" />
+      <Column Name="identity_number" Type="System.String" DbType="Char(20) NOT NULL" CanBeNull="false" />
+      <Column Name="salary" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="birthdate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="gender" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="state" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.pro_SetCancelTrip" Method="pro_SetCancelTrip">
+    <Parameter Name="id_trip" Type="System.String" DbType="Char(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.pro_SetFinishTrip" Method="pro_SetFinishTrip">
+    <Parameter Name="id_trip" Type="System.String" DbType="Char(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.func_auto_id_account" Method="func_auto_id_account" IsComposable="true">
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.func_GetAvailabelSeat" Method="func_GetAvailabelSeat" IsComposable="true">
+    <Parameter Name="idTrip" Type="System.String" DbType="Char(20)" />
+    <Parameter Name="type" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="func_GetAvailabelSeatResult">
+      <Column Name="seat_number" Type="System.String" DbType="Char(15) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.func_auto_id_agent" Method="func_auto_id_agent" IsComposable="true">
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.func_auto_id_booking" Method="func_auto_id_booking" IsComposable="true">
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.func_auto_id_bus" Method="func_auto_id_bus" IsComposable="true">
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.func_auto_id_busroute" Method="func_auto_id_busroute" IsComposable="true">
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.func_auto_id_busstation" Method="func_auto_id_busstation" IsComposable="true">
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.func_auto_id_cashreserve" Method="func_auto_id_cashreserve" IsComposable="true">
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.func_auto_id_employee" Method="func_auto_id_employee" IsComposable="true">
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.func_auto_id_event" Method="func_auto_id_event" IsComposable="true">
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.func_auto_id_package" Method="func_auto_id_package" IsComposable="true">
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.func_auto_id_passenger" Method="func_auto_id_passenger" IsComposable="true">
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.func_auto_id_policy" Method="func_auto_id_policy" IsComposable="true">
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.func_auto_id_position" Method="func_auto_id_position" IsComposable="true">
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.func_auto_id_privilege" Method="func_auto_id_privilege" IsComposable="true">
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.func_auto_id_refund" Method="func_auto_id_refund" IsComposable="true">
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.func_auto_id_ticket" Method="func_auto_id_ticket" IsComposable="true">
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.func_auto_id_trip" Method="func_auto_id_trip" IsComposable="true">
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.func_AutoDefaultIdEmployee" Method="func_AutoDefaultIdEmployee" IsComposable="true">
+    <Return Type="System.String" />
+  </Function>
+</Database>

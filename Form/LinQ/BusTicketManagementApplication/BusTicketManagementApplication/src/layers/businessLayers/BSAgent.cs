@@ -11,11 +11,11 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
     {
         public List<V_AGENTINFOR> SearchAgents(string input, string region)
         {
-            BusManagementEntities db = new BusManagementEntities();
-            var res = db.V_AGENTINFOR.ToList();
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
+            var res = db.V_AGENTINFORs.ToList();
             if (region != "All")
             {
-                res = db.V_AGENTINFOR.Where(d => d.Region == region).ToList();
+                res = db.V_AGENTINFORs.Where(d => d.Region == region).ToList();
 
             }
             if(!string.IsNullOrEmpty(input))

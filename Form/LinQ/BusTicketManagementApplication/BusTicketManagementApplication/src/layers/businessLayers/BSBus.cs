@@ -1,9 +1,9 @@
-﻿using System;
+﻿using BusTicketManagementApplication.src.dbConnection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BusTicketManagementApplication.src.dbConnection;
 
 namespace BusTicketManagementApplication.src.layers.businessLayers
 {
@@ -13,14 +13,14 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
         public List<BUS> GetAllBus()
         {
 
-            BusManagementEntities db = new BusManagementEntities();
-            var res = db.Buses.ToList();
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
+            var res = db.BUS.ToList();
             return res;
         }
 
         public List<BUS> SearchBusByID(string input, bool type)
         {
-            BusManagementEntities db = new BusManagementEntities();
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
 
             var res = FilterBus(type);
             if (!string.IsNullOrEmpty(input))
@@ -33,7 +33,7 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
 
         public List<BUS> SearchBusByRegistrationNumber(string input, bool type)
         {
-            BusManagementEntities db = new BusManagementEntities();
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
 
             var res = FilterBus(type);
             if (!string.IsNullOrEmpty(input))
@@ -46,9 +46,9 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
 
         public List<BUS> FilterBus(bool type)
         {
-            BusManagementEntities db = new BusManagementEntities();
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
 
-            var res = db.Buses.Where(d => d.type == type);
+            var res = db.BUS.Where(d => d.type == type);
             return res.ToList();
         }
     }

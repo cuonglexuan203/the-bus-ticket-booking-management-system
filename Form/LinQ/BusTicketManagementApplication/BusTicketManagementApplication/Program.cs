@@ -7,7 +7,8 @@ using BusTicketManagementApplication.src.layers.interfaceLayers.components.about
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
+using System.Data.Linq;
+using System.Data.Linq.Mapping;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -21,20 +22,10 @@ namespace BusTicketManagementApplication
         [STAThread]
         static void Main()
         {
-            try
-            {
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new App());
-            }
-            catch (SqlException err)
-            {
-                MessageBox.Show(err.Message);
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            Application.EnableVisualStyles();
+
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new App());
         }
     }
 }

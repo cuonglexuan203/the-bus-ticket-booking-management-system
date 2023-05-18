@@ -13,16 +13,17 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
     {
         public V_ROUTEINFOR GetRoute(string id)
         {
-            BusManagementEntities db = new BusManagementEntities();
-            var res = db.V_ROUTEINFOR.Where(d => d.id_route == id).FirstOrDefault();
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
+            var res = db.V_ROUTEINFORs.Where(d => d.id_route == id).FirstOrDefault();
             return res;
         }
 
         public List<V_ROUTEINFOR> GetAllRoutes()
         {
-            BusManagementEntities db = new BusManagementEntities();
-           
-            var res = db.V_ROUTEINFOR.ToList();
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
+
+
+            var res = db.V_ROUTEINFORs.ToList();
             return res;
         }
     }

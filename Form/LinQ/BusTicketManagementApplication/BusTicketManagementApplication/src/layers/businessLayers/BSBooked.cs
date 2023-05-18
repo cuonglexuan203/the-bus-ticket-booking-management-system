@@ -13,16 +13,16 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
         public List<V_BOOKEDTICKET> GetAllBookedTickets()
         {
 
-            BusManagementEntities db = new BusManagementEntities();
-            var res = db.V_BOOKEDTICKET.ToList();
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
+            var res = db.V_BOOKEDTICKETs.ToList();
             return res;
         }
 
-        public List<V_BOOKEDTICKET> SearchBookedTickets(string passengerId,string input, string src, string des, DateTime dateTime)
+        public List<V_BOOKEDTICKET> SearchBookedTickets(string passengerId, string input, string src, string des, DateTime dateTime)
         {
-            BusManagementEntities db = new BusManagementEntities();
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
 
-            var res = db.V_BOOKEDTICKET.Where(d => d.Departure_time > dateTime && d.Passenger_ID == passengerId);
+            var res = db.V_BOOKEDTICKETs.Where(d => d.Departure_time > dateTime && d.Passenger_ID == passengerId);
             if (src != "All")
             {
                 res = res.Where(d => d.Start_point == src);

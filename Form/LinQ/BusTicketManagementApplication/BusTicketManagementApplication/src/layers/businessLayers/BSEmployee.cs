@@ -13,8 +13,8 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
     {
         public List<V_EMPLOYEEINFOR> SearchEmployees(string input, int tag, string position)
         {
-            BusManagementEntities db = new BusManagementEntities();
-            var res = db.V_EMPLOYEEINFOR.ToList();
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
+            var res = db.V_EMPLOYEEINFORs.ToList();
             if (!string.IsNullOrEmpty(input))
             {
                 if (tag == 0)
@@ -35,7 +35,7 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
         }
         public bool DeleteEmployee(string employeeId)
         {
-            BusManagementEntities db = new BusManagementEntities();
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
             return db.pro_DisableEmployee(employeeId).FirstOrDefault().state == false;
         }
     }
