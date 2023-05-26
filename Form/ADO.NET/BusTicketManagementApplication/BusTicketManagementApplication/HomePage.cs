@@ -24,6 +24,7 @@ using BusTicketManagementApplication.src.layers.interfaceLayers.components.setti
 using BusTicketManagementApplication.src.layers.interfaceLayers.components.staff;
 using BusTicketManagementApplication.src.layers.interfaceLayers.components.admin;
 using BusTicketManagementApplication.src.layers.businessLayers;
+using System.Diagnostics.Eventing.Reader;
 
 namespace BusTicketManagementApplication
 {
@@ -112,6 +113,7 @@ namespace BusTicketManagementApplication
                                 RenderActiveForm(renderform, this.PnlFillContent);
                                 break;
                             }
+                            // employee
                         case 6:
                             {
                                 RenderActiveForm(new StaffNavigationbar(this), this.PnlNavigationBar);
@@ -128,6 +130,7 @@ namespace BusTicketManagementApplication
                                 RenderActiveForm(renderForm, this.PnlFillContent);
                                 break;
                             }
+                            // admin
                         case 7:
                             {
                                 RenderActiveForm(new AdminNavigationBar(this), this.PnlNavigationBar);
@@ -140,6 +143,10 @@ namespace BusTicketManagementApplication
                                 else if (AdminNavigationBar.NavIndex == 1)
                                 {
                                     renderForm = new Employee();
+                                }
+                                else if (AdminNavigationBar.NavIndex == 2)
+                                {
+                                    renderForm = new Statistic();
                                 }
                                 RenderActiveForm(renderForm, this.PnlFillContent);
                                 break;

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.PnlMainContainer = new System.Windows.Forms.Panel();
+            this.BtnStatistic = new System.Windows.Forms.Button();
             this.BtnEmployee = new System.Windows.Forms.Button();
             this.BtnCashReserve = new System.Windows.Forms.Button();
             this.PnlMainContainer.SuspendLayout();
@@ -37,6 +38,7 @@
             // PnlMainContainer
             // 
             this.PnlMainContainer.BackColor = System.Drawing.Color.Transparent;
+            this.PnlMainContainer.Controls.Add(this.BtnStatistic);
             this.PnlMainContainer.Controls.Add(this.BtnEmployee);
             this.PnlMainContainer.Controls.Add(this.BtnCashReserve);
             this.PnlMainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -46,6 +48,20 @@
             this.PnlMainContainer.Size = new System.Drawing.Size(965, 44);
             this.PnlMainContainer.TabIndex = 2;
             this.PnlMainContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlMainContainer_Paint);
+            // 
+            // BtnStatistic
+            // 
+            this.BtnStatistic.FlatAppearance.BorderSize = 0;
+            this.BtnStatistic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnStatistic.Font = new System.Drawing.Font("Hack NFM", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnStatistic.Location = new System.Drawing.Point(382, 5);
+            this.BtnStatistic.Name = "BtnStatistic";
+            this.BtnStatistic.Size = new System.Drawing.Size(144, 30);
+            this.BtnStatistic.TabIndex = 2;
+            this.BtnStatistic.Tag = "2";
+            this.BtnStatistic.Text = "Statistic";
+            this.BtnStatistic.UseVisualStyleBackColor = true;
+            this.BtnStatistic.Click += new System.EventHandler(this.Handler_NavBtn_Click);
             // 
             // BtnEmployee
             // 
@@ -84,7 +100,7 @@
             this.Controls.Add(this.PnlMainContainer);
             this.Font = new System.Drawing.Font("Hack NF", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AdminNavigationBar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminNavigationBar";
@@ -98,5 +114,6 @@
         private System.Windows.Forms.Panel PnlMainContainer;
         private System.Windows.Forms.Button BtnEmployee;
         private System.Windows.Forms.Button BtnCashReserve;
+        private System.Windows.Forms.Button BtnStatistic;
     }
 }
