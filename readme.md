@@ -30,13 +30,13 @@ Project: <h1> The bus ticket booking management system application</h1>
 </table>
 <h3>Instruction:</h3>
 <p>STEP 1: Import Nhom5_K21/sql/back_up_database/BusManagement.bak
-(In case of failure: 
-Run ../sql/create_table/create_table.sql
-Run ../sql/trigger_view/view.sql ;BEFORE ../trigger.sql
-Run ../sql/procedure_function/AutoID/function.sql ;BEFORE ../addDefaultConstraint.sql
-Run ../sql/add_data/add_data.sql ;THEN
-*Uncomment the final commented code portion at the bottom of add_data.sql then RUN that portion -> To add Login, User
-Run ../sql/user_privilege/user_privilege.sql)</p>
+<br>(In case of failure: 
+<br>Run ../sql/create_table/create_table.sql
+<br>Run ../sql/trigger_view/view.sql ;BEFORE ../trigger.sql
+<br>Run ../sql/procedure_function/AutoID/function.sql ;BEFORE ../addDefaultConstraint.sql
+<br>Run ../sql/add_data/add_data.sql ;THEN
+<br>*Uncomment the final commented code portion at the bottom of add_data.sql then RUN that portion -> To add Login, User
+<br>Run ../sql/user_privilege/user_privilege.sql)</p>
 
 <p>STEP 2: Run Nhom5_K21/Form/BusTicketManagementApplication/BusTicketManagementApplication.sln</p>
 

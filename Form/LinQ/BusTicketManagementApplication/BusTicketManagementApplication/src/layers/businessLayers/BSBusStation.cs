@@ -12,9 +12,9 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
 
         public List<V_BUSSTATIONINFOR> GetAllStations()
         {
-            BusManagementEntities db = new BusManagementEntities();
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
 
-            var res = db.V_BUSSTATIONINFOR.ToList();
+            var res = db.V_BUSSTATIONINFORs.ToList();
             return res;
         }
     }

@@ -11,7 +11,7 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
     {
         public string GetNewTicketId()
         {
-            BusManagementEntities db = new BusManagementEntities();
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
             string funcName = "func_auto_id_ticket";
             return BSMain.RunFunc(funcName);
         }

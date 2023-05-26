@@ -12,19 +12,19 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
     {
         public string GetNewPassengerId()
         {
-            BusManagementEntities db = new BusManagementEntities();
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
             string funcName = "func_auto_id_passenger";
             return BSMain.RunFunc(funcName);
         }
         public PASSENGER GetPassenger(string passengerId)
         {
-            BusManagementEntities db = new BusManagementEntities();
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
             return db.PASSENGERs.Where(d => d.id_passenger == passengerId).FirstOrDefault();
         }
         public bool UpdatePassenger(string passengerId, string fullname, string phone, string email, bool? gender)
         {
             bool res = true;
-            BusManagementEntities db = new BusManagementEntities();
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
             var curPassenger = db.PASSENGERs.Where(d => d.id_passenger == passengerId).FirstOrDefault();
             if (curPassenger != null)
             {
@@ -32,7 +32,7 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
                 curPassenger.phone_number = phone;
                 curPassenger.email = email;
                 curPassenger.gender = gender;
-                db.SaveChanges();
+                db.SubmitChanges();
             }
             else
             {
@@ -44,7 +44,7 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
         public bool UpdateEmployee(string employeeId, string fullname, string phone, string email, bool? gender)
         {
             bool res = true;
-            BusManagementEntities db = new BusManagementEntities();
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
             var curPassenger = db.EMPLOYEEs.Where(d => d.id_employee == employeeId).FirstOrDefault();
             if (curPassenger != null)
             {
@@ -52,7 +52,7 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
                 curPassenger.phone_number = phone;
                 curPassenger.email = email;
                 curPassenger.gender = gender;
-                db.SaveChanges();
+                db.SubmitChanges();
             }
             else
             {
@@ -63,7 +63,7 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
         }
         public List<PASSENGER> SearchPassenger(string input, int tag)
         {
-            BusManagementEntities db = new BusManagementEntities();
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
 
             var res = db.PASSENGERs.ToList();
             if (!string.IsNullOrEmpty(input))

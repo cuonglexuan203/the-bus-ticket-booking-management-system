@@ -22,7 +22,7 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.t
         private string searchInput = string.Empty;
         private string source = string.Empty;
         private string destination = string.Empty;
-        private DateTime departureTime;
+        private DateTime departureTime =new DateTime(1990,1,1);
         // load data
         public Trip()
         {

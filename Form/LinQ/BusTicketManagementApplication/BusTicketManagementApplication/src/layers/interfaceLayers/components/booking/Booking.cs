@@ -134,7 +134,7 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.b
                 MessageBox.Show("The email format is incorrect!");
                 return;
             }
-            BusManagementEntities db = new BusManagementEntities();
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
             //
             db.pro_AddDefaultBooking(this.TbIDTicket.Text.Trim(), UserData.GetPassengerId());
             // payment logic ( directly, online )

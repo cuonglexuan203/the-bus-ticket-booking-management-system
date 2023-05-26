@@ -7,22 +7,22 @@ using BusTicketManagementApplication.src.dbConnection;
 
 namespace BusTicketManagementApplication.src.layers.businessLayers
 {
-   internal class BSDriver
+    internal class BSDriver
     {
         public List<V_DRIVERINFOR> GetAllDrivers()
         {
 
-            BusManagementEntities db = new BusManagementEntities();
-            var res = db.V_DRIVERINFOR.ToList();
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
+            var res = db.V_DRIVERINFORs.ToList();
             return res;
         }
 
 
         public List<V_DRIVERINFOR> SearchDriver(string input, int tag)
         {
-            BusManagementEntities db = new BusManagementEntities();
+            BusManagementEntitiesDataContext db = new BusManagementEntitiesDataContext();
 
-            var res = db.V_DRIVERINFOR.ToList();
+            var res = db.V_DRIVERINFORs.ToList();
             if (!string.IsNullOrEmpty(input))
             {
                 if (tag == 0)
