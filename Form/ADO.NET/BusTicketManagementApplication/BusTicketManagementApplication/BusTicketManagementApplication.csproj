@@ -286,6 +286,17 @@
     <Compile Include="src\layers\interfaceLayers\components\staff\Passenger.Designer.cs">
       <DependentUpon>Passenger.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\staff\PassengerStatistic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\staff\PassengerStatistic.Designer.cs">
+      <DependentUpon>PassengerStatistic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\staff\reports\BookedTicketPassengerDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookedTicketPassengerDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="src\layers\interfaceLayers\components\staff\StaffNavigationBar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -380,6 +391,10 @@
     <EmbeddedResource Include="src\layers\interfaceLayers\components\staff\Passenger.resx">
       <DependentUpon>Passenger.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="src\layers\interfaceLayers\components\staff\PassengerStatistic.resx">
+      <DependentUpon>PassengerStatistic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\layers\interfaceLayers\components\staff\reports\BookedTicketPassengerStatistic.rdlc" />
     <EmbeddedResource Include="src\layers\interfaceLayers\components\staff\StaffNavigationBar.resx">
       <DependentUpon>StaffNavigationBar.cs</DependentUpon>
     </EmbeddedResource>
@@ -457,6 +472,17 @@
     </None>
     <None Include="src\layers\interfaceLayers\components\admin\reports\CashReserveStatisticDataSet.xss">
       <DependentUpon>CashReserveStatisticDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="src\layers\interfaceLayers\components\staff\reports\BookedTicketPassengerDataSet.xsc">
+      <DependentUpon>BookedTicketPassengerDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="src\layers\interfaceLayers\components\staff\reports\BookedTicketPassengerDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BookedTicketPassengerDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="src\layers\interfaceLayers\components\staff\reports\BookedTicketPassengerDataSet.xss">
+      <DependentUpon>BookedTicketPassengerDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
