@@ -112,6 +112,7 @@ namespace BusTicketManagementApplication
                                 RenderActiveForm(renderform, this.PnlFillContent);
                                 break;
                             }
+                            // employee 
                         case 6:
                             {
                                 RenderActiveForm(new StaffNavigationbar(this), this.PnlNavigationBar);
@@ -125,9 +126,14 @@ namespace BusTicketManagementApplication
                                 {
                                     renderForm = new Trip(this);
                                 }
+                                else if (StaffNavigationbar.NavIndex == 2)
+                                {
+                                    renderForm = new PassengerStatistic();
+                                }
                                 RenderActiveForm(renderForm, this.PnlFillContent);
                                 break;
                             }
+                            //admin     
                         case 7:
                             {
                                 RenderActiveForm(new AdminNavigationBar(this), this.PnlNavigationBar);
@@ -140,6 +146,10 @@ namespace BusTicketManagementApplication
                                 else if (AdminNavigationBar.NavIndex == 1)
                                 {
                                     renderForm = new Employee();
+                                }
+                                else if (AdminNavigationBar.NavIndex == 2)
+                                {
+                                    renderForm = new Statistic();
                                 }
                                 RenderActiveForm(renderForm, this.PnlFillContent);
                                 break;

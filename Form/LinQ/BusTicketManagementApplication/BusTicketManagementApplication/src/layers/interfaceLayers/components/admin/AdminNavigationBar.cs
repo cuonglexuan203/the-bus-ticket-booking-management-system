@@ -47,6 +47,10 @@ namespace BusTicketManagementApplication.src.layers.interfaceLayers.components.a
             {
                 selectedBtn = this.BtnEmployee;
             }
+            else if (navIndex == 2)
+            {
+                selectedBtn = this.BtnStatistic;
+            }
             e.Graphics.DrawLine(new Pen(Color.FromArgb(82, 203, 255), 2), selectedBtn.Left, selectedBtn.Bottom, selectedBtn.Right, selectedBtn.Bottom);
         }
     }
