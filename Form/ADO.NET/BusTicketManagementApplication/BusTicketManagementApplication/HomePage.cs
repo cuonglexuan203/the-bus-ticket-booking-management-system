@@ -127,6 +127,10 @@ namespace BusTicketManagementApplication
                                 {
                                     renderForm = new Trip(this);
                                 }
+                                else if (StaffNavigationbar.NavIndex == 2)
+                                {
+                                    renderForm = new PassengerStatistic();
+                                }
                                 RenderActiveForm(renderForm, this.PnlFillContent);
                                 break;
                             }
