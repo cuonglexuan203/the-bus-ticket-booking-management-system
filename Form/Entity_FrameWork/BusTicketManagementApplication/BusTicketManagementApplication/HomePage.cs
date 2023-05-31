@@ -125,6 +125,10 @@ namespace BusTicketManagementApplication
                                 {
                                     renderForm = new Trip(this);
                                 }
+                                else if (StaffNavigationbar.NavIndex == 2)
+                                {
+                                    renderForm = new BookedTicketPassenger();
+                                }
                                 RenderActiveForm(renderForm, this.PnlFillContent);
                                 break;
                             }
@@ -140,6 +144,10 @@ namespace BusTicketManagementApplication
                                 else if (AdminNavigationBar.NavIndex == 1)
                                 {
                                     renderForm = new Employee();
+                                }
+                                else if (AdminNavigationBar.NavIndex == 2)
+                                {
+                                    renderForm = new Statistic();
                                 }
                                 RenderActiveForm(renderForm, this.PnlFillContent);
                                 break;

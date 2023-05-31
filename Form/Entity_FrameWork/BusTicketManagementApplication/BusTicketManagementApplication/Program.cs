@@ -4,6 +4,8 @@ using BusTicketManagementApplication.src.layers.interfaceLayers.components.Profi
 using BusTicketManagementApplication.src.layers.interfaceLayers.components.setting;
 using BusTicketManagementApplication.src.layers.interfaceLayers.components.trip;
 using BusTicketManagementApplication.src.layers.interfaceLayers.components.aboutUs;
+using BusTicketManagementApplication.src.layers.interfaceLayers.components.admin;
+using BusTicketManagementApplication.src.layers.interfaceLayers.components.staff;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -21,20 +23,23 @@ namespace BusTicketManagementApplication
         [STAThread]
         static void Main()
         {
-            try
-            {
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new App());
-            }
-            catch (SqlException err)
-            {
-                MessageBox.Show(err.Message);
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new App());
+            //try
+            //{
+            //    Application.EnableVisualStyles();
+            //    Application.SetCompatibleTextRenderingDefault(false);
+            //    Application.Run(new App());
+            //}
+            //catch (SqlException err)
+            //{
+            //    MessageBox.Show(err.Message);
+            //}
+            //catch(Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
         }
     }
 }

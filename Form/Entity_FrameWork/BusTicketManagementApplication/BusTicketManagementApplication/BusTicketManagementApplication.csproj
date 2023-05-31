@@ -63,11 +63,31 @@
     <Reference Include="MailKit, Version=4.0.0.0, Culture=neutral, PublicKeyToken=4e064fe7c44a8f1b, processorArchitecture=MSIL">
       <HintPath>..\packages\MailKit.4.0.0\lib\net47\MailKit.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1576.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1576.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1576.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1576.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1576.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="MimeKit, Version=4.0.0.0, Culture=neutral, PublicKeyToken=bede1c8a46c66814, processorArchitecture=MSIL">
       <HintPath>..\packages\MimeKit.4.0.0\lib\net47\MimeKit.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
@@ -120,6 +140,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="src\dbConnection\AGENT.cs">
       <DependentUpon>BusManagementModel.tt</DependentUpon>
     </Compile>
@@ -332,6 +353,20 @@
     <Compile Include="src\layers\interfaceLayers\components\admin\Employee.Designer.cs">
       <DependentUpon>Employee.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\admin\reports\CashReserveStatisticDataSet.cs">
+      <DependentUpon>CashReserveStatisticDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\admin\reports\CashReserveStatisticDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CashReserveStatisticDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\admin\Statistic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\admin\Statistic.Designer.cs">
+      <DependentUpon>Statistic.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\layers\interfaceLayers\components\booking\Booked.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -398,11 +433,25 @@
     <Compile Include="src\layers\interfaceLayers\components\setting\ChangePassword.Designer.cs">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\staff\BookedTicketPassenger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\staff\BookedTicketPassenger.Designer.cs">
+      <DependentUpon>BookedTicketPassenger.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\layers\interfaceLayers\components\staff\Passenger.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="src\layers\interfaceLayers\components\staff\Passenger.Designer.cs">
       <DependentUpon>Passenger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\staff\reports\BookedTicketPassengerDataSet.cs">
+      <DependentUpon>BookedTicketPassengerDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="src\layers\interfaceLayers\components\staff\reports\BookedTicketPassengerDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookedTicketPassengerDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="src\layers\interfaceLayers\components\staff\StaffNavigationBar.cs">
       <SubType>Form</SubType>
@@ -458,6 +507,10 @@
     <EmbeddedResource Include="src\layers\interfaceLayers\components\admin\Employee.resx">
       <DependentUpon>Employee.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="src\layers\interfaceLayers\components\admin\reports\CashReserveStatisticReport.rdlc" />
+    <EmbeddedResource Include="src\layers\interfaceLayers\components\admin\Statistic.resx">
+      <DependentUpon>Statistic.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\layers\interfaceLayers\components\booking\Booked.resx">
       <DependentUpon>Booked.cs</DependentUpon>
     </EmbeddedResource>
@@ -491,9 +544,13 @@
     <EmbeddedResource Include="src\layers\interfaceLayers\components\setting\ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="src\layers\interfaceLayers\components\staff\BookedTicketPassenger.resx">
+      <DependentUpon>BookedTicketPassenger.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="src\layers\interfaceLayers\components\staff\Passenger.resx">
       <DependentUpon>Passenger.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="src\layers\interfaceLayers\components\staff\reports\BookedTicketPassengerStatistic.rdlc" />
     <EmbeddedResource Include="src\layers\interfaceLayers\components\staff\StaffNavigationBar.resx">
       <DependentUpon>StaffNavigationBar.cs</DependentUpon>
     </EmbeddedResource>
@@ -568,6 +625,28 @@
     <None Include="src\dbConnection\BusManagementModel.edmx.diagram">
       <DependentUpon>BusManagementModel.edmx</DependentUpon>
     </None>
+    <None Include="src\layers\interfaceLayers\components\admin\reports\CashReserveStatisticDataSet.xsc">
+      <DependentUpon>CashReserveStatisticDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="src\layers\interfaceLayers\components\admin\reports\CashReserveStatisticDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CashReserveStatisticDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="src\layers\interfaceLayers\components\admin\reports\CashReserveStatisticDataSet.xss">
+      <DependentUpon>CashReserveStatisticDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="src\layers\interfaceLayers\components\staff\reports\BookedTicketPassengerDataSet.xsc">
+      <DependentUpon>BookedTicketPassengerDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="src\layers\interfaceLayers\components\staff\reports\BookedTicketPassengerDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BookedTicketPassengerDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="src\layers\interfaceLayers\components\staff\reports\BookedTicketPassengerDataSet.xss">
+      <DependentUpon>BookedTicketPassengerDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -596,6 +675,19 @@
     <None Include="src\asset\img\components\home\home3.png" />
     <None Include="src\asset\img\components\home\chevron-left.png" />
     <None Include="src\asset\img\components\home\chevron-right.png" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="src\dbConnection\BusManagementModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>BusManagementModel.Context.cs</LastGenOutput>
