@@ -15,6 +15,7 @@ namespace BusTicketManagementApplication.src.layers.businessLayers
     {
         public DataRowView GetTrip(string id)
         {
+            id = id.Trim();
             BusManagementEntities db = new BusManagementEntities();
             var res = db.V_AVAILABLETRIP.Where(d => d["Trip_ID"].ToString().Trim() == id).FirstOrDefault();
             return res;
