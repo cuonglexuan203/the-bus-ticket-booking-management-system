@@ -45,6 +45,6 @@ Project: <h1> The bus ticket booking management system application</h1>
 
 <em>GitHub: https://github.com/cuonglexuan203/the-bus-ticket-booking-management-system</em>
 
-![Intro](https://github.com/cuonglexuan203/the-bus-ticket-booking-management-system/blob/main/Intro/login.png?raw=true)
-![Home](https://github.com/cuonglexuan203/the-bus-ticket-booking-management-system/blob/main/Intro/home.png?raw=true)
-![About Us](https://github.com/cuonglexuan203/the-bus-ticket-booking-management-system/blob/main/Intro/aboutus.png?raw=true)
+![Intro](https://github.com/cuonglexuan203/the-bus-ticket-booking-management-system/blob/main/Demo/login.png?raw=true)
+![Home](https://github.com/cuonglexuan203/the-bus-ticket-booking-management-system/blob/main/Demo/home.png?raw=true)
+![About Us](https://github.com/cuonglexuan203/the-bus-ticket-booking-management-system/blob/main/Demo/aboutus.png?raw=true)
