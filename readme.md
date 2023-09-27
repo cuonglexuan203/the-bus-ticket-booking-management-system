@@ -21,8 +21,8 @@ Project: <h1> The bus ticket booking management system application</h1>
             <td>Member</td>
         </tr>
         <tr>
-            <td>21110066</td>
-            <td>Pham Vu Bao Nhan</td>
+            <td>21110019</td>
+            <td>Tran Gia Huy </td>
             <td>Member</td>
         </tr>
         <tr>
